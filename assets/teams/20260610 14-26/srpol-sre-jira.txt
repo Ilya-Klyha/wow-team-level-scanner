@@ -1,0 +1,51 @@
+================================================================================
+JIRA ISSUES REPORT: SRPOL-SRE
+================================================================================
+Project: EEEW
+Board ID: 10332
+Generated: 2026-06-10 15:06:26
+
+SUMMARY:
+  Total Issues: 3
+
+  By Status:
+    - Code Review: 2
+    - In Progress: 1
+
+  By Type:
+    - Story: 3
+
+================================================================================
+ISSUES DETAIL
+================================================================================
+
+[1] EEEW-419: AI skill for PR reviews
+    Type: Story
+    Status: Code Review
+    Assignee: Maciej Rachuba
+    Priority: Medium
+    Team: T - WAW - Embedded SREs SRPOL
+    Created: 2026-06-08T05:07:30.852-0400
+    Updated: 2026-06-10T07:39:51.021-0400
+    URL: https://adgear.atlassian.net/browse/EEEW-419
+
+[2] EEEW-332: AI skill for IaC engineering standards
+    Type: Story
+    Status: Code Review
+    Assignee: Marcin Wojtas
+    Priority: Medium
+    Team: T - WAW - Embedded SREs SRPOL
+    Created: 2026-05-15T10:41:01.098-0400
+    Updated: 2026-06-03T04:06:20.769-0400
+    URL: https://adgear.atlassian.net/browse/EEEW-332
+
+[3] EEEW-278: Automated RUNBOOK.md compliance check on pull requests
+    Type: Story
+    Status: In Progress
+    Assignee: Akif Burak Yildirim
+    Priority: Medium
+    Team: T - WAW - Embedded SREs SRPOL
+    Created: 2026-05-06T10:26:21.653-0400
+    Updated: 2026-06-03T04:57:24.687-0400
+    URL: https://adgear.atlassian.net/browse/EEEW-278
+

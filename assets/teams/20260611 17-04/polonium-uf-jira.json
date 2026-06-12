@@ -1,0 +1,58 @@
+{
+  "team": "Polonium UF",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/projects/RSW/boards/10403",
+  "projectKey": "RSW",
+  "extractedAt": "2026-06-11T17:04:00+02:00",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = RSW AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "queryType": "project_filtered_client_side",
+    "teamPattern": "AS - WAW - Polonium UF"
+  },
+  "summary": {
+    "total": 3,
+    "byStatus": {
+      "In Progress": 2,
+      "Code Review": 1
+    },
+    "byType": {
+      "Task": 3
+    },
+    "truncated": false
+  },
+  "issues": [
+    {
+      "key": "RSW-1237",
+      "type": "Task",
+      "summary": "[FE] Integrate Retry Button with dedicated BE endpoint",
+      "status": "In Progress",
+      "assignee": "Zbigniew Stolarski",
+      "priority": "Medium",
+      "created": "2026-06-02T05:39:48.886-0400",
+      "updated": "2026-06-03T05:48:18.247-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1237"
+    },
+    {
+      "key": "RSW-1038",
+      "type": "Task",
+      "summary": "[BE] Add new table to DB for custom groups' apps presets",
+      "status": "In Progress",
+      "assignee": "Dmitriy Borowski",
+      "priority": "Medium",
+      "created": "2026-05-14T06:01:41.488-0400",
+      "updated": "2026-06-08T04:31:33.724-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1038"
+    },
+    {
+      "key": "RSW-880",
+      "type": "Task",
+      "summary": "[BE] GenAI Service — session reset",
+      "status": "Code Review",
+      "assignee": "Rafal Babinski",
+      "priority": "Medium",
+      "created": "2026-04-30T05:59:30.504-0400",
+      "updated": "2026-06-11T05:52:07.741-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-880"
+    }
+  ]
+}

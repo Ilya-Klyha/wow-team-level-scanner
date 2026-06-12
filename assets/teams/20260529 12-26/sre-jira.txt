@@ -1,0 +1,137 @@
+Team: SRE
+Project: EEEW
+Board ID: 10332
+Total Issues: 25
+Extraction Date: 2026-05-29 10:56:25.028558
+Query Type: project (No team field)
+
+================================================================================
+
+[EEEW-373] Task: ARB Tech Spec for DRP
+  Assignee: Ryan Fawcett | Priority: Medium | Status: In Progress
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/EEEW-373
+
+[EEEW-372] Task: Create Terraform AWS LAMBDA Module
+  Assignee: Sandeep Nakka | Priority: Medium | Status: In Progress
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/EEEW-372
+
+[EEEW-371] Task: Create Terraform AWS IAM Module
+  Assignee: Sandeep Nakka | Priority: Medium | Status: In Progress
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/EEEW-371
+
+[EEEW-366] Story: Fix the dora-metrics cronjob schedule failure
+  Assignee: Godson Raju | Priority: Medium | Status: In Progress
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/EEEW-366
+
+[EEEW-352] Story: Enrich Looker dashboard bedrock metrics with region, department, function
+  Assignee: Godson Raju | Priority: Medium | Status: In Progress
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-352
+
+[EEEW-351] Story: Add AWS Config catalog plug-in to dev Backstage
+  Assignee: Alex Orlov | Priority: Medium | Status: In Progress
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/EEEW-351
+
+[EEEW-344] Story: [SPIKE] evaluate and/or implement Looker MCP server
+  Assignee: Godson Raju | Priority: Medium | Status: In Progress
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-344
+
+[EEEW-343] Task: Access to S3 to Get  rtb-config LB logs
+  Assignee: Meghana Koushik | Priority: Medium | Status: In Progress
+  Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/EEEW-343
+
+[EEEW-336] Task: Migrate adsolutions-infra to TFE
+  Assignee: Sandeep Nakka | Priority: Medium | Status: In Progress
+  Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/EEEW-336
+
+[EEEW-333] Task: Fix Kyverno policy violation on ingress-nginx-dsp-bidding-systems admission job
+  Assignee: Serhiy Danchenko | Priority: High | Status: In Progress
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-333
+
+[EEEW-330] Story: Streamline the provisioning of Claude code review action to a new repo
+  Assignee: Anil Reddy Gunukula | Priority: Medium | Status: In Progress
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/EEEW-330
+
+[EEEW-326] Task: Ask from SE for BIM project
+  Assignee: Mansi Boriya | Priority: Medium | Status: Code Review
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/EEEW-326
+
+[EEEW-325] Task: Audit the Tiers of component groups 
+  Assignee: Mansi Boriya | Priority: Medium | Status: In Progress
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-325
+
+[EEEW-313] Task: Make the PD incident dashboard available internally
+  Assignee: Mansi Boriya | Priority: Medium | Status: In Progress
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-313
+
+[EEEW-284] Task: Barker DRP Draft follow up
+  Assignee: Ashwin Karthik Ambalavanan | Priority: Medium | Status: In Progress
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/EEEW-284
+
+[EEEW-283] Task: UPS — confirm SLI/SLO metrics and runbooks for DSP DRP`
+  Assignee: Srikanth K H | Priority: Medium | Status: In Progress
+  Updated: 2026-05-25
+  https://adgear.atlassian.net/browse/EEEW-283
+
+[EEEW-282] Task: UPS Draft followup 
+  Assignee: Srikanth K H | Priority: Medium | Status: In Progress
+  Updated: 2026-05-25
+  https://adgear.atlassian.net/browse/EEEW-282
+
+[EEEW-271] Task: Follow up with Aerospike and Kafka SLI / SLO and runbooks with EP Data
+  Assignee: Dinesh Kumar Shanmugasundaram | Priority: Medium | Status: In Progress
+  Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/EEEW-271
+
+[EEEW-270] Task: Get feedback on Aerospike and Kafka draft
+  Assignee: Dinesh Kumar Shanmugasundaram | Priority: Medium | Status: In Progress
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-270
+
+[EEEW-256] Story: Remove EP Data team members from O.SRE
+  Assignee: Alex Orlov | Priority: Medium | Status: In Progress
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-256
+
+[EEEW-151] Task: Migrate terraform-ssp to TFE part 3
+  Assignee: Anil Reddy Gunukula | Priority: Medium | Status: In Progress
+  Updated: 2026-05-06
+  https://adgear.atlassian.net/browse/EEEW-151
+
+[EEEW-143] Task: Define and deploy Sloth SLOs for privacy-backend
+  Assignee: Anil Reddy Gunukula | Priority: Medium | Status: In Progress
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/EEEW-143
+
+[EEEW-91] Story: Create a Github Action to add PR approval channel info as a comment on a PR
+  Assignee: Alex Orlov | Priority: Medium | Status: Code Review
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-91
+
+[EEEW-89] Story: Create PrivateLinks for services in production DSP account to communicate with S3 across regions
+  Assignee: Alex Orlov | Priority: Medium | Status: In Progress
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-89
+
+[EEEW-83] Story: Make the metadata check mandatory
+  Assignee: Ryan Fawcett | Priority: High | Status: Code Review
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/EEEW-83
+
+================================================================================
+Status: success
+Total issues: 25

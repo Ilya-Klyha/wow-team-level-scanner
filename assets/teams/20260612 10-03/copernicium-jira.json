@@ -1,0 +1,86 @@
+{
+  "team": "Copernicium",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/projects/AETVP/boards/9246",
+  "projectKey": "AETVP",
+  "extractedAt": "2026-06-12T10:03:00+02:00",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = AETVP AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "queryType": "project",
+    "teamPattern": "AE - WAW - Copernicium",
+    "teamFilterMethod": "post-query"
+  },
+  "summary": {
+    "total": 5,
+    "byStatus": {
+      "In Progress": 4,
+      "Code Review": 1
+    },
+    "byType": {
+      "Task": 5
+    },
+    "truncated": false
+  },
+  "issues": [
+    {
+      "key": "AETVP-584",
+      "type": "Task",
+      "summary": "[rtb-delivery, adgear-data, log-converter] P&S reporting: Adjust implementation to use top-level property instead of `misc`.",
+      "status": "In Progress",
+      "assignee": "Kamil Madejek",
+      "priority": "Medium",
+      "created": "2026-06-03T06:23:30.121-0400",
+      "updated": "2026-06-08T05:39:46.315-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-584",
+      "teamField": "AE - WAW - Copernicium"
+    },
+    {
+      "key": "AETVP-579",
+      "type": "Task",
+      "summary": "Model, database, and creative type registration for separate Poll & Survey",
+      "status": "In Progress",
+      "assignee": "Yevgeniy Wyszyński",
+      "priority": "Medium",
+      "created": "2026-06-03T06:00:57.995-0400",
+      "updated": "2026-06-08T05:35:52.231-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-579",
+      "teamField": "AE - WAW - Copernicium"
+    },
+    {
+      "key": "AETVP-564",
+      "type": "Task",
+      "summary": "[Spike] Investigate \"infoblob\" feasibility in InteractiveAd SDK custom trackers.",
+      "status": "In Progress",
+      "assignee": "Kamil Madejek",
+      "priority": "Medium",
+      "created": "2026-06-01T05:21:39.223-0400",
+      "updated": "2026-06-03T06:16:21.331-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-564",
+      "teamField": "AE - WAW - Copernicium"
+    },
+    {
+      "key": "AETVP-528",
+      "type": "Task",
+      "summary": "Run test campaign on TV in the office",
+      "status": "Code Review",
+      "assignee": "Jacek Wróblewski",
+      "priority": "Critical",
+      "created": "2026-05-18T07:43:24.327-0400",
+      "updated": "2026-06-10T05:33:32.455-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-528",
+      "teamField": "AE - WAW - Copernicium"
+    },
+    {
+      "key": "AETVP-476",
+      "type": "Task",
+      "summary": "[vertica-rollups] Add iadpoll metrics aggregation",
+      "status": "In Progress",
+      "assignee": "Kamil Madejek",
+      "priority": "Medium",
+      "created": "2026-05-06T09:19:42.880-0400",
+      "updated": "2026-06-03T12:43:01.279-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-476",
+      "teamField": "AE - WAW - Copernicium"
+    }
+  ]
+}

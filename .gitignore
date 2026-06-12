@@ -1,0 +1,6 @@
+# Extracted data files (optional - uncomment if data is sensitive)
+# assets/teams/teams.json
+# assets/teams/*.txt
+
+# Keep the directory structure
+!assets/teams/.gitkeep

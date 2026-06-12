@@ -1,0 +1,78 @@
+Team: Radium
+Project: AENW
+Board ID: 8976
+Total Issues: 11
+Extraction Date: 2026-05-29 10:56:25.028558
+Query Type: project+team (Team field filtering enabled)
+
+================================================================================
+
+[AENW-843] Story: [Remnant] Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context
+  Assignee: Jakub Anioł | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-29
+  https://adgear.atlassian.net/browse/AENW-843
+
+[AENW-841] Task: Investigate Hot-Reload of creatives.term in Delivery Server
+  Assignee: Krzysztof Urbański | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/AENW-841
+
+[AENW-839] Bug: Docker build fails in rtb-delivery due to dependency lock mismatch
+  Assignee: Krzysztof Urbański | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/AENW-839
+
+[AENW-804] Story: Learning about ad response generator
+  Assignee: Marcin Al-Jawahiri | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AENW-804
+
+[AENW-790] Story: Click to QR Code link shortener using Aerospike proposal discussion with Jacek
+  Assignee: Marcin Al-Jawahiri | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/AENW-790
+
+[AENW-788] Story: [Training] Scrum master training by Ilya
+  Assignee: Marcin Al-Jawahiri | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AENW-788
+
+[AENW-776] Story: Prepare DSP Part Draft Techspec Click To E-mail
+  Assignee: Marcin Matyszkowicz | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/AENW-776
+
+[AENW-775] Story: Agree on final solution architecture among proposed options - v3/v4/v5
+  Assignee: Marcin Al-Jawahiri | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/AENW-775
+
+[AENW-766] Task: [DSP-Ruby] Migration - enum stv_creative_attr_action_type_enum
+  Assignee: Jakub Anioł | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/AENW-766
+
+[AENW-574] Story: [DSP] Add functionality to select Microsite on the form, save it and show it in the details view
+  Assignee: Grzegorz Prasal | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/AENW-574
+
+[AENW-127] Story: [DSP-UI] Add new click action "QR Code Microsite"
+  Assignee: Unassigned | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Radium
+  Updated: 2026-04-28
+  https://adgear.atlassian.net/browse/AENW-127
+
+================================================================================
+Status: success
+Total issues: 11

@@ -1,0 +1,56 @@
+{
+  "team": "SRE",
+  "project": "EEEW",
+  "query_date": "2026-06-12",
+  "total_issues": 4,
+  "issues": [
+    {
+      "key": "EEEW-419",
+      "summary": "AI skill for PR reviews",
+      "status": "Code Review",
+      "type": "Story",
+      "assignee": "Maciej Rachuba",
+      "priority": "Medium",
+      "created": "2026-06-08T05:07:30.852-0400",
+      "updated": "2026-06-10T07:39:51.021-0400",
+      "url": "https://adgear.atlassian.net/browse/EEEW-419",
+      "description": "Establish a foundational skill that encodes standardized code review methodology, persona-based analysis, and consistent output formatting — serving as the guidance layer for all pull request review workflows.\n\n### Acceptance Criteria:\n\n* Defines three review modes (simple, focused, complex) with clear scope and depth guidance\n* Defines four reviewer personas with independent checklists and verdict framing\n* Produces GitHub-compatible markdown output (references formatting rules)\n* Uses progressive disclosure via references/ directory pattern\n* Skill is tested and validated in a real PR review scenario\n\n"
+    },
+    {
+      "key": "EEEW-278",
+      "summary": "Automated RUNBOOK.md compliance check on pull requests",
+      "status": "In Progress",
+      "type": "Story",
+      "assignee": "Akif Burak Yildirim",
+      "priority": "Medium",
+      "created": "2026-05-06T10:26:21.653-0400",
+      "updated": "2026-06-03T04:57:24.687-0400",
+      "url": "https://adgear.atlassian.net/browse/EEEW-278",
+      "description": "We need automated check on every pull request that verifies repository's `RUNBOOK.md` meets freshness and formatting requirements, so that runbooks don't silently go stale and on-call engineers can trust the documented procedures.\n\nThe check runs as a reusable GitHub Actions workflow (`check-runbook.yml`) backed by a shell script (`scripts/check-runbook.sh`). It is informational — it posts a sticky PR comment with findings but does not block merging or deployment.\n\n### Acceptance Criteria:\n\n1.  Skip if no runbook — If `RUNBOOK.md` does not exist, the check passes with no comment posted.\n2. No template placeholders — The check fails if the file still contains `YYYY-MM-DD` placeholder text from the `adgear/repo-template`.\n3. Parseable review dates — The check fails if \"Last reviewed\" or \"Next review due\" dates cannot be parsed as valid `YYYY-MM-DD` values.\n4. Review date matches git history — The check fails if \"Last reviewed\" is earlier than or ahead of the last commit date that modified `RUNBOOK.md`.\n5. Staleness detection — The check fails if \"Next review due\" is in the past relative to today's date.\n6. PR comment on failure — If any of the above checks fail, a sticky comment is posted listing the issues with a link to the runbook template. If a previous failure comment exists and the check now passes, it is removed.\n7.  Org-wide required workflow — The workflow is registered as a required workflow at the organization level and runs automatically on all repositories.\n\n"
+    },
+    {
+      "key": "EEEW-332",
+      "summary": "AI skill for IaC engineering standards",
+      "status": "Code Review",
+      "type": "Story",
+      "assignee": "Marcin Wojtas",
+      "priority": "Medium",
+      "created": "2026-05-15T10:41:01.098-0400",
+      "updated": "2026-06-03T04:06:20.769-0400",
+      "url": "https://adgear.atlassian.net/browse/EEEW-332",
+      "description": "Establish a foundational skill that encodes organizational Terraform conventions, compliance requirements, and engineering best practices — serving as the guidance layer for all infrastructure provisioning skills.\n\n###   Acceptance Criteria:\n\n* Adapts JPL/NASA Power of 10 rules to Terraform context\n* Adapts Terraform best practices (<custom data-type=\"smartlink\" data-id=\"id-0\">http://terraform-best-practices.com</custom> )\n* Adapts custom Samsung Ads rules (allowed providers/modules list from TFE)\n* Follows AWS resource naming conventions (references aws-naming skill)\n* Defines naming convention rules for Terraform resources (locals, variables, outputs, modules)\n* Skill is tested and validated in a real provisioning scenario\n\n"
+    },
+    {
+      "key": "PEA-3830",
+      "summary": "Migrate EMR cluster into TFE on stage environment",
+      "status": "In Development",
+      "type": "Story",
+      "assignee": "Unassigned",
+      "priority": "Medium",
+      "created": "2026-02-03T07:48:06.218-0500",
+      "updated": "2026-04-01T08:22:34.097-0400",
+      "url": "https://adgear.atlassian.net/browse/PEA-3830",
+      "description": "Need to migrate old terraform code into TFE version. In this task I will be dealing with EMR clusters in the STAGE environment.  \n  \nEdit: The migration turned out to be more complicated than expected. So we had to rebuild the module from scratch, incorporating the fixes that came out during the failure BIM-583. Below is a description of all the changes.  \n\n```\nPART 3 - Building EMR Clusters in TFE                                                                                                                                                                                                                                 \n                                                                                                                                                                                                                                                                        \n  Location: environments/staging/us-east-1/ (TFE workspace)                                                                                                                                                                                                             \n                                                                                                                                                                                                                                                                        \n  Module: modules/emr_new/ (new module, replaces modules/emr/)                                                                                                                                                                                                          \n                                                                                                                                                                                                                                                                        \n  ---                                           "
+    }
+  ]
+}

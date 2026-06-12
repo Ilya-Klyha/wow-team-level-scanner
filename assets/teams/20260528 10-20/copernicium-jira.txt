@@ -1,0 +1,85 @@
+Team: Copernicium
+Board: Unknown
+Board ID: Unknown
+Project: AETVP
+Extracted: 2026-05-28T08:59:14.843501Z
+Query Strategy: Sprint-based (primary succeeded)
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 15
+- Code Review: 2
+- In Progress: 13
+
+Issues by type:
+- Bugs: 1
+- Storys: 4
+- Tasks: 10
+
+=== CODE REVIEW (2 issues) ===
+
+[AETVP-558] Bug: Fix in delivery problem with change detection - etag
+  Assignee: Kamil Madejek | Priority: Critical | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/AETVP-558
+
+[AETVP-520] Task: validate 3P VAST in rtb-trader
+  Assignee: Alex Sekowski | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-520
+
+=== IN PROGRESS (13 issues) ===
+
+[AETVP-553] Story: [Events Tracking] XP reporting for events tracking
+  Assignee: sujan challa | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-553
+
+[AETVP-550] Task: (Spike) Config server prefix search
+  Assignee: Meghana Koushik | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/AETVP-550
+
+[AETVP-545] Story: [Amazon SDK] Continue testing latest version of SDK + companion app
+  Assignee: Neville Mehta | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-545
+
+[AETVP-536] Task: Support versioning in tvp-interactive-ad repo codebase and CD
+  Assignee: Alex Sekowski | Priority: Medium | Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/AETVP-536
+
+[AETVP-528] Task: test campaign on tv in the office
+  Assignee: Jacek Wróblewski | Priority: Critical | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-528
+
+[AETVP-526] Task: setup testing campaign
+  Assignee: Paweł Olwert | Priority: Critical | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-526
+
+[AETVP-524] Task: [InteractiveAds SDK] Improvements - (1) custom message handling, (2) visibility delay.
+  Assignee: Kamil Madejek | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-524
+
+[AETVP-490] Task: [OEF] Remove EventCategory from codebase
+  Assignee: Raj Kinkhabwala | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/AETVP-490
+
+[AETVP-476] Task: [vertica-rollups] Add iadpoll metrics aggregation
+  Assignee: Kamil Madejek | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-476
+
+[AETVP-449] Task: Update the creative form values as per UX mock
+  Assignee: Becky Lee | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-449
+
+[AETVP-325] Story: As the business, I want to introduce a new CTA engagement metric that tells me whether viewers exposed to the CTA, engaged with them or not.
+  Assignee: Anthony Johnson | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/AETVP-325
+
+[AETVP-306] Story: [Log Server] Enable batching for Log Server
+  Assignee: Ivan Barrios | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/AETVP-306
+
+[AETVP-262] Task: [Config Service] Add support for different ad experiences within SIA in config service
+  Assignee: Meghana Koushik | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/AETVP-262
+
+---
+Status: success

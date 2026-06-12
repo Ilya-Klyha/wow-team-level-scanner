@@ -1,0 +1,22 @@
+Team: PE-WAW-Abyss
+Board: https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/9980
+Board ID: 9980
+Project: MAW
+Extracted: 2026-05-28T07:34:53Z
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 0
+- In Progress: 0
+- Code Review: 0
+
+Issues by type:
+- Stories: 0
+- Bugs: 0
+- Tasks: 0
+
+No active issues found for this board.
+
+---
+Status: success

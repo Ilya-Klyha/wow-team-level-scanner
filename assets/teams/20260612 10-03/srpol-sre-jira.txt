@@ -1,0 +1,37 @@
+JIRA Active Issues - SRPOL SRE
+==================================================
+Extracted: 2026-06-12T10:03:00+02:00
+Project: EEEW
+Board: https://adgear.atlassian.net/jira/software/projects/EEEW/boards/10332
+Team Field Pattern: T - WAW - Embedded SREs SRPOL
+Filter Method: post-query (project-level JQL + customfield_10114 filtering)
+
+SUMMARY
+------------------------------
+Total active issues: 3
+By Status:
+  - Code Review: 2
+  - In Progress: 1
+By Type:
+  - Story: 3
+
+ISSUES
+------------------------------
+
+[EEEW-419] AI skill for PR reviews
+  Type: Story | Status: Code Review | Priority: Medium
+  Assignee: Maciej Rachuba
+  Created: 2026-06-08T05:07:30.852-0400 | Updated: 2026-06-10T07:39:51.021-0400
+  URL: https://adgear.atlassian.net/browse/EEEW-419
+
+[EEEW-332] AI skill for IaC engineering standards
+  Type: Story | Status: Code Review | Priority: Medium
+  Assignee: Marcin Wojtas
+  Created: 2026-05-15T10:41:01.098-0400 | Updated: 2026-06-03T04:06:20.769-0400
+  URL: https://adgear.atlassian.net/browse/EEEW-332
+
+[EEEW-278] Automated RUNBOOK.md compliance check on pull requests
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Akif Burak Yildirim
+  Created: 2026-05-06T10:26:21.653-0400 | Updated: 2026-06-03T04:57:24.687-0400
+  URL: https://adgear.atlassian.net/browse/EEEW-278

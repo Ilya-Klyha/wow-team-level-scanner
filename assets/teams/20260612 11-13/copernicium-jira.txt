@@ -1,0 +1,72 @@
+Team: Copernicium
+Project: AETVP
+Query Date: 2026-06-12
+Total Active Issues: 6
+================================================================================
+
+Key: AETVP-573
+Summary: Fix problem with lack of communication in rtb-delivery change detection to rtb-trader (when error is detected)
+Type: Bug
+Status: Code Review
+Priority: Medium
+Assignee: Piotr Jarosz
+Created: 2026-06-03T05:04:43.885-0400
+Updated: 2026-06-12T05:09:41.038-0400
+URL: https://adgear.atlassian.net/browse/AETVP-573
+--------------------------------------------------------------------------------
+
+Key: AETVP-528
+Summary: Run test campaign on TV in the office
+Type: Task
+Status: Code Review
+Priority: Critical
+Assignee: Jacek Wróblewski
+Created: 2026-05-18T07:43:24.327-0400
+Updated: 2026-06-10T05:33:32.455-0400
+URL: https://adgear.atlassian.net/browse/AETVP-528
+--------------------------------------------------------------------------------
+
+Key: AETVP-584
+Summary: [rtb-delivery, adgear-data, log-converter] P&S reporting: Adjust implementation to use top-level property instead of `misc`.
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Kamil Madejek
+Created: 2026-06-03T06:23:30.121-0400
+Updated: 2026-06-08T05:39:46.315-0400
+URL: https://adgear.atlassian.net/browse/AETVP-584
+--------------------------------------------------------------------------------
+
+Key: AETVP-579
+Summary: Model, database, and creative type registration for separate Poll & Survey
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Yevgeniy Wyszyński
+Created: 2026-06-03T06:00:57.995-0400
+Updated: 2026-06-08T05:35:52.231-0400
+URL: https://adgear.atlassian.net/browse/AETVP-579
+--------------------------------------------------------------------------------
+
+Key: AETVP-476
+Summary: [vertica-rollups] Add iadpoll metrics aggregation
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Kamil Madejek
+Created: 2026-05-06T09:19:42.880-0400
+Updated: 2026-06-03T12:43:01.279-0400
+URL: https://adgear.atlassian.net/browse/AETVP-476
+--------------------------------------------------------------------------------
+
+Key: AETVP-564
+Summary: [Spike] Investigate "infoblob" feasibility in InteractiveAd SDK custom trackers.
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Kamil Madejek
+Created: 2026-06-01T05:21:39.223-0400
+Updated: 2026-06-03T06:16:21.331-0400
+URL: https://adgear.atlassian.net/browse/AETVP-564
+--------------------------------------------------------------------------------
+

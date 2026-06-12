@@ -1,0 +1,6 @@
+Team DoR
+
+Link to Definition of Ready for Tasks:
+https://adgear.atlassian.net/wiki/spaces/ENG/pages/19623772331/Definition+of+Done+Definition+of+Ready#Definition-of-Ready
+
+Note: The Polonium Upper Funnel team references an external DoR document. The page indicates cooperation with other teams and has established rotation for Scrum Master every 2 iterations.

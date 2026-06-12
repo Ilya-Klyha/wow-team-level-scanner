@@ -1,0 +1,49 @@
+Team: Ads Reporting (Bigos & Zurek)
+Page ID: 21748023571
+Extracted: 2026-05-26
+
+Note: This is a dual-team structure:
+- Bigos: Feature development team (new features and solutions)
+- Zurek: Component team (UDW migration initiative)
+
+================================================================================
+BIGOS DoR AND DoD FOR STORY/TASK
+================================================================================
+
+Reference: https://adgear.atlassian.net/wiki/spaces/ENG/pages/22175482213
+
+Team operates using Scrumbut framework with 2-week sprints starting Wednesdays.
+
+Practices:
+- Product backlog kept healthy by Product Owner
+- User stories preferred over PBI (Product Backlog Item)
+- Stories should be vertical slices meeting INVEST characteristics
+- Estimating stories in story points using pseudo-Fibonacci scale
+- Development team uses Planning Poker or Affinity Mapping
+
+================================================================================
+ZUREK DoR STORY/TASK - DEFINITION OF READY
+================================================================================
+
+- All dependencies of tasks and blockers are defined and resolved (inside and
+  outside). Reference data sources should be provided if exists.
+
+- Access should be ready before picking a story/task (for example SECO
+  approvals). Except tasks to grant access etc. This kind of tasks can take
+  more than one sprint.
+
+- We need to define acceptance criteria
+
+- The task was well described and estimated by the team. Story points are
+  assigned. Task should be understandable for everyone.
+
+- Techspec should be approved by ARB before realizing tasks (if project
+  required techspec)
+
+Acceptance Criteria - what is the required outcome? - What is expected:
+- Rollback procedure definition if needed
+- Code is ready and tested
+- PO accepted change
+- Define specific tests if needed
+- Documentation is defined or modified
+- PR is connected to Jira or work is described in comment

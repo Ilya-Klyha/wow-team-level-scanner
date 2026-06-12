@@ -1,0 +1,1515 @@
+Team: Europium
+Project: AENW
+Total Issues: 35
+Extraction Date: 2026-05-29 10:32:08
+
+================================================================================
+
+
+================================================================================
+Issue: AENW-856
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [PREQA] SpringServe preqa flow tv testing - click to video
+Assignee: Rohan Deshpande
+URL: https://adgear.atlassian.net/browse/AENW-856
+Created: 2026-05-28T21:02:00.160-0400
+Updated: 2026-05-28T21:22:46.328-0400
+================================================================================
+
+Description:
+Creative created on SpringServe should be rendered in pre-qa flow
+
+
+================================================================================
+Issue: AENW-849
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: AdManager Unleash Failures
+Assignee: Josh Martin
+URL: https://adgear.atlassian.net/browse/AENW-849
+Created: 2026-05-27T14:35:19.943-0400
+Updated: 2026-05-27T14:52:48.501-0400
+================================================================================
+
+Description:
+Some of the tests from AdManager are interfering and not using in-memory unleash, but trying to connect to a mock unleash instance.  This should not happen in unit tests. Ensure these are not trying to connect over tcp.
+
+
+================================================================================
+Issue: AENW-848
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: immersive banner creative id
+Assignee: Josh Martin
+URL: https://adgear.atlassian.net/browse/AENW-848
+Created: 2026-05-27T13:30:58.155-0400
+Updated: 2026-05-27T14:36:34.831-0400
+================================================================================
+
+Description:
+immersive_banner.ad.creative.id is always 1.   
+  
+We should use the top-level `crid` when the context creative ID is the hardcoded `1`. If SpringServe (or other external DSPs) provide a proper creative ID in the context, we should respect that.
+
+
+================================================================================
+Issue: AENW-843
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Remnant] Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context
+Assignee: Jakub Anioł
+URL: https://adgear.atlassian.net/browse/AENW-843
+Created: 2026-05-26T05:22:19.993-0400
+Updated: 2026-05-29T03:45:06.429-0400
+================================================================================
+
+Description:
+Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context
+
+Acceptance Criteria:
+
+* Done knowledge transfer meeting with MTV team working on 1st Screen Unified and Form builder (probably Indhu will be key contact)
+* Stories in this epic leading to including remnant 2023 inventory in 1st Screen Unified package added
+
+
+
+
+================================================================================
+Issue: AENW-841
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Investigate Hot-Reload of creatives.term in Delivery Server
+Assignee: Krzysztof Urbański
+URL: https://adgear.atlassian.net/browse/AENW-841
+Created: 2026-05-26T03:15:28.602-0400
+Updated: 2026-05-28T03:00:35.675-0400
+================================================================================
+
+Description:
+**Description**
+
+Currently, every time the ad-response-generator modifies creatives.term, the Delivery server container is fully restarted — re-running make compile, mix deps.get, and mix compile before starting the server. This adds \~2 minutes of downtime per run.
+
+In practice, only **priv/bertconfs/development/creatives.term** changes between runs. Investigate whether it's possible to:
+
+1. Keep the Delivery container running
+2. Recompile only creatives.term → bert2 inside the running container (recompilation of all .term files is also acceptable)
+3. Signal the Elixir process to reload the updated bert file without a full restart
+4. Source code ( c and  erlang ) can be compiled when docker image is build . Then hot reload might be not needed to investigate ( for implementation part )
+
+ 
+
+**Investigation Goals**
+
+1. Understand the compilation chain — What does make compile actually do? Is it responsible for .term → .bert2 conversion? Can this step be run independently?
+2. Determine if hot-reload is possible — Does the Elixir server (test_server.exs) read bert files only at startup, or does it support runtime reloading? Check if there's an existing mechanism (e.g., :ets table reload, GenServer call, file watcher).
+3. Evaluate docker compose watch with sync action — Currently the watch config uses action: restart. Could switching to action: sync + a reload signal avoid the full restart?
+4. Prototype a minimal reload path — If hot-reload is feasible, prototype a script that:  
+  \- Copies the new creatives.term into the running container (already volume-mounted)  
+  \- Runs only the term→bert2 compilation step  
+  \- Triggers the server to reload
+
+**Acceptance Criteria:**
+
+  A document/comment summarizing:
+
+* Whether hot-reload is feasible without rtb-delivery code changes
+* If not, what minimal changes to rtb-delivery would enable it
+* Recommended approach for implementation (follow-up ticket)
+
+Minimal proof-of-concept code which reduces load time.
+
+
+================================================================================
+Issue: AENW-839
+Type: Bug
+Status: In Progress
+Priority: Medium
+Summary: Docker build fails in rtb-delivery due to dependency lock mismatch
+Assignee: Krzysztof Urbański
+URL: https://adgear.atlassian.net/browse/AENW-839
+Created: 2026-05-26T02:30:37.560-0400
+Updated: 2026-05-27T06:42:14.534-0400
+================================================================================
+
+Description:
+**Description:**
+
+When starting rtb-delivery in Docker, the container fails to build with dependency lock mismatches for quoted, aspike_port, seqbind, and rtb_trader_creatives. The mix deps.get recovery also fails because untracked build artifacts (c_src/quoted_nif.d, c_src/quoted_nif.o, priv/quoted.so) in the quoted dependency directory prevent git from checking out the locked revision.
+
+  Root cause: Build artifacts from a previous compilation persist in the deps directory (likely due to Docker layer caching or volume mounts). When the lock file references a newer commit, git refuses to overwrite these untracked files during checkout.  
+  
+**Reproduction:**
+
+* Run ad response generator with command: 
+
+    ```
+    bash ad_response_generator.sh --creatives-ids 411040 --no-undo-repos-changes
+    ```
+
+* Observe Warning message 'failed to start Server Delivery'
+* In rtb-delivery run: 'docker compose -f docker-compose-test.yml up' and observe message:
+
+    ```
+    rtb-delivery-1  | * quoted (git@github.com:adgear/quoted.erl.git - main)                                                                                                                                    
+      rtb-delivery-1  |   lock mismatch: the dependency is out of date. To fetch locked version run "mix deps.get"                                                                                                
+      rtb-delivery-1  | * aspike_port (https://github.com/arodionov53/aspike-port.git - 1.0.13)                                                                                                                   
+      rtb-delivery-1  |   lock mismatch: the dependency is out of date. To fetch locked version run "mix deps.get"                                                                                                
+      rtb-delivery-1  | * seqbind (https://github.com/spawngrid/seqbind.git - master)                                                                                                                             
+      rtb-delivery-1  |   lock mismatch: the dependency is out of date. To fetch locked version run "mix deps.get"                                                                                                
+      rtb-delivery-1  | * rtb_trader_creatives (ssh://****:****@github.com/adgear/rtb-trader-creatives.git - 0.47)                                                                                                
+      rtb-delivery-1  |   lock mismatch: the dependency is out of date. To fetch locked version run "mix deps.get"                                                                                                
+      rtb-delivery-1  | ** (Mix) Can't continue due to errors on dependencies                                                                                                                                     
+      rtb-delivery-1  | make: *** [Makefile:14: bert2] Error 1                                                                                                                                                    
+      rtb-delivery-1  | * Updating quoted (git@github.com:adgear/quoted.erl.git - main)                                                                                                                           
+      rtb-delivery-1  | error: The following untracked working tree files would be overwritten by checkout:                                                                                                       
+      rtb-delivery-1  |     c_src/quoted_nif.d                                                                                                                                                                    
+      rtb-delivery-1  |     c_src/quoted_nif.o                                                                                                                                                                    
+      rtb-delivery-1  |     priv/quoted.so                                                                                                                                                                        
+      rtb-delivery-1  | Please move or remove them before you switch branches.                                                                                                                                    
+      rtb-delivery-1  | Aborting
+    ```
+
+**Proposed fix options:**
+
+* Add git clean -fd or rm -rf deps/quoted/{c_src/_.o,c_src/_.d,priv/\*.so} before mix deps.get in the Dockerfile/Makefile
+* Ensure the Dockerfile does not cache the deps/ directory across builds when mix.lock changes (use a cache-busting layer based on mix.lock)
+* Add a .gitignore in the quoted dependency to ignore build artifacts (upstream fix)
+* To investigate is to run with --no-cache option
+
+---
+
+  Acceptance Criteria:
+
+* \[ \] docker compose up starts rtb-delivery successfully without manual intervention
+* \[ \] Dependency lock mismatches are resolved automatically during the build
+* \[ \] Build artifacts from NIF compilation do not block dependency updates
+
+
+
+
+================================================================================
+Issue: AENW-836
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Magnite Access For Team
+Assignee: Josh Martin
+URL: https://adgear.atlassian.net/browse/AENW-836
+Created: 2026-05-21T18:26:40.421-0400
+Updated: 2026-05-26T14:05:05.249-0400
+================================================================================
+
+Description:
+Shujie - not working
+
+Rohan - needs access
+
+Ping: Nate?
+
+
+================================================================================
+Issue: AENW-834
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Set up 24+ TV in the MTV office for springserve testing
+Assignee: Rohan Deshpande
+URL: https://adgear.atlassian.net/browse/AENW-834
+Created: 2026-05-21T14:44:42.931-0400
+Updated: 2026-05-28T21:20:29.823-0400
+================================================================================
+
+Description:
+We need a 2024 TV in the office and configured to run against tvx-canary that only returns springserve ads for testing.
+
+
+================================================================================
+Issue: AENW-832
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Investigate bidder compatibility filtering
+Assignee: Raju C
+URL: https://adgear.atlassian.net/browse/AENW-832
+Created: 2026-05-21T14:38:18.004-0400
+Updated: 2026-05-22T13:31:57.373-0400
+================================================================================
+
+Description:
+## Deep Dive Analysis: Blank Responses Due to Filtering
+
+Based on my investigation of the RTB bidder codebase, I've identified the root cause and implications of the blank response issue. Here's my comprehensive analysis:
+
+## **Root Cause: Late-Stage App Compatibility Filtering**
+
+### **Current Architecture Problem**
+
+The issue stems from the **timing and location** of app compatibility filtering in the bidding pipeline. Here's the problematic flow:
+
+1. **Flight Matching** (step_match_flights.go:78-109) - Multiple flights match targeting criteria
+2. **Internal Auction** (step_internal_auction.go:44-83) - **Single winning impression selected**
+3. **Response Rendering** (response.go:64-124) - App compatibility filtering applied **AFTER** auction
+
+### **The Critical Flow Issue**
+
+In response.go:64-124:
+
+```
+for i, bid := range seatBid[0].Bid {
+    // Track SSP results (always added)
+    rtbBidData.FilteredSspResult[bidderId] = append(rtbBidData.FilteredSspResult[bidderId], flightId)
+    
+    // Render impression - THIS IS WHERE FILTERING HAPPENS
+    renderedImpression, err := getRenderedImpressionInfo(tagType, impId, bidContext, bidLdsData, impRenderCreativeInfo, params)
+    
+    // Only add to FilteredAppCompatibleResult if rendering succeeded
+    if renderedImpression != nil {
+        rtbBidData.FilteredAppCompatibleResult[bidderId] = append(rtbBidData.FilteredAppCompatibleResult[bidderId], flightId)
+    }
+}
+```
+
+The app compatibility filtering happens in clickactions.go:11-15:
+
+```
+case constant.ClickToApp:
+    return clickToApp(renderInfo.Tile, renderInfo.RtbReq) // This can return ErrIncompatibleTile
+```
+
+Which calls tiles_filter.go:24-72, ultimately filtering based on:
+
+* Device year compatibility
+* Country codes
+* Model codes
+* Firmware compatibility
+* App bundle IDs
+
+### **Why This Causes Blank Responses**
+
+1. **Single Winner Selection**: The auction (step_internal_auction.go) selects only **ONE winning impression per slot** based on price/priority
+2. **Late Filtering**: App compatibility is checked **after** the winner is already chosen
+3. **No Fallback**: If the single winner fails compatibility, there's **no mechanism to fall back** to the next-highest bidder
+4. **All-or-Nothing**: The entire response becomes blank instead of finding compatible alternatives
+
+### **Current Filtering Logic**
+
+In helper.go:33-71:
+
+```
+for tileIndex, tile := range tiles {
+    renderedTile, err := tileRenderFunc(renderTileInfo, params)
+    incompatibleTile := err != nil && errors.Is(err, responseutils.ErrIncompatibleTile)
+    if incompatibleTile {
+        // Skip incompatible tiles but continue processing
+        continue
+    }
+    creatives = append(creatives, renderedTile)
+}
+```
+
+This shows tiles are filtered individually, but **by this point only one impression/creative was selected**.
+
+## **Implications & Metrics**
+
+The metric `RtbBiddderZeroImpressionsAfterFilteringCount` in response.go:338-339 tracks exactly this problem:
+
+```
+if isImpressionsNil {
+    utilsmetrics.RtbBiddderZeroImpressionsAfterFilteringCount.WithLabelValues(pid, bidFlowType).Inc()
+    return nil, nil // BLANK RESPONSE
+}
+```
+
+## **Performance & Revenue Impact**
+
+1. **Lost Revenue**: Blank responses = $0 instead of potentially compatible lower-bidding alternatives
+2. **Poor Fill Rate**: Especially problematic for app-heavy creatives on diverse device ecosystems
+3. **Metrics Gap**: `FilteredSspResult` vs `FilteredAppCompatibleResult` shows the filtering loss rate  
+
+
+
+
+================================================================================
+Issue: AENW-824
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Verify Click To Web functionality
+Assignee: Josh Martin
+URL: https://adgear.atlassian.net/browse/AENW-824
+Created: 2026-05-21T13:11:07.489-0400
+Updated: 2026-05-26T13:31:51.969-0400
+================================================================================
+
+Description:
+Currently clicktype is always returned as ‘3' from springserve, we need to ensure once it’s fixed that we are getting '2' for click to web, and that catalyst properly renders this, and the tv works as expected.
+
+This does not include trackers, those will be handled in a different story.
+
+
+================================================================================
+Issue: AENW-807
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Make text components reading length limit from DB
+Assignee: Shujie Fan
+URL: https://adgear.atlassian.net/browse/AENW-807
+Created: 2026-05-20T15:37:04.824-0400
+Updated: 2026-05-22T13:21:25.643-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: AENW-806
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: Add buyer access to creative_ad_domain
+Assignee: Shujie Fan
+URL: https://adgear.atlassian.net/browse/AENW-806
+Created: 2026-05-20T13:28:00.771-0400
+Updated: 2026-05-28T14:35:48.920-0400
+================================================================================
+
+Description:
+1. Granted buyer access to creative_ad_domain;
+2. updated Click trackers and Impression trackers maximum count.
+
+
+
+
+================================================================================
+Issue: AENW-804
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Learning about ad response generator
+Assignee: Marcin Al-Jawahiri
+URL: https://adgear.atlassian.net/browse/AENW-804
+Created: 2026-05-20T08:29:08.726-0400
+Updated: 2026-05-26T04:56:50.987-0400
+================================================================================
+
+Description:
+In case of doing <custom data-type="smartlink" data-id="id-0">https://adgear.atlassian.net/browse/AENW-794</custom>  we need Ad Response Generator knowledge
+
+Acceptance criteria:
+
+The person who make this task , should be able to do some next task regarding ' Ad Response Generator'
+
+
+================================================================================
+Issue: AENW-803
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Microsite P2] SPIKE: Reporting Integration - DSP Reporting
+Assignee: Karol Strojek
+URL: https://adgear.atlassian.net/browse/AENW-803
+Created: 2026-05-20T08:25:47.835-0400
+Updated: 2026-05-28T05:01:56.652-0400
+================================================================================
+
+Description:
+## GOAL
+
+Investigate how to implement trackers on the microsite (impression, video quartiles, CTA click, exit/time spent) so that data flows into the DSP Reporting Dashboard. Align with the Reporting team on what changes are needed on their side. The outcome of this spike is a list of concrete implementation tasks for the next sprint.
+
+## CONTEXT
+
+**What we know from the PRD:**
+
+* Microsite must collect: impressions, video start, video quartiles (25/50/75/100%), app click (CTA), exit + time spent
+* Data must be visible in the DSP Reporting Dashboard (for Campaign Managers)
+* 3P pixels (impression tracker, exit tracker) — we already have input fields in the DSP UI
+
+**What we have in architecture docs:**
+
+* 1P tracking goes through rtb-delivery → Kafka → Vertica/Druid → DSP Report
+* tracker.js on the microsite page fires beacons to `/trackers/{INFO}/{name}.gif`
+* New tracker values: `video_start`, `app_click`, `exit` (+ `time_spent` in query param)
+
+**What already exists in code:**
+
+* DSP UI has `impressionTracker` and `exitTracker` fields in `main-content-section.tsx`
+* rtb-delivery has endpoints `/impressions/`, `/trackers/`, `/clicks/`
+* Avro schema has `misc` field (map<string,string>) — can carry `time_spent`
+
+## INVESTIGATION AREAS
+
+### 1. Communication with Reporting Team
+
+**Questions to clarify:**
+
+* \[ \] What new tracker values (`video_start`, `app_click`, `exit`) need to be added to Vertica rollups?
+* \[ \] Does the Druid ingestion spec require changes for new tracker names?
+* \[ \] How should `time_spent` from the `misc` Avro field appear in reports? (new column? aggregation?)
+* \[ \] Does the reporting team need a new "Microsite" report type in DSP, or do we extend the existing one?
+* \[ \] What is their timeline? \~Can they deliver in the next sprint?\~
+* \[ \] Do they need sample data / test events on staging to get started?
+
+**Deliverable:** Meeting with Reporting team → agreed scope of changes on their side → JIRA tasks
+
+### 2. rtb-delivery Changes Scope
+
+**To investigate:**
+
+* \[ \] Confirm with rtb-delivery team: is adding `misc_qs/2` in `rtb_delivery_tracker.erl` acceptable?
+* \[ \] Is `time_spent` as a query param on the tracker URL acceptable? (vs. new endpoint)
+* \[ \] Do new tracker values (`video_start`, `app_click`, `exit`) require any configuration in delivery?
+
+**Deliverable:** Confirmed approach → 1 task for rtb-delivery change
+
+### 3. tracker.js — What Exactly to Implement
+
+**To investigate:**
+
+* \[ \] Does `new Image(1,1).src` work on Tizen WebView as a transport mechanism?
+* \[ \] Do `visibilitychange` / `pagehide` events work on Samsung TV?
+* \[ \] What does the microsite lifecycle look like on TV? (when does it close, is there a "back" button?)
+* \[ \] Does the video element on TV support standard events (`play`, `timeupdate`, `ended`)?
+* \[ \] How to handle the case when the TV loses internet mid-session? (retry? queue? fire-and-forget?)
+* \[ \] Do we need deduplication on the delivery side (e.g., TV fires the same event 2x)?
+
+**Deliverable:** Confirmed APIs/events on TV → task for tracker.js implementation
+
+### 4. 3P Pixel Integration
+
+**To investigate:**
+
+* \[ \] How do 3P pixel URLs from the DSP UI (impression tracker, exit tracker) get into the rendered HTML?
+* \[ x \] Do we need more 3P tracker types? (video start, video complete, click?) YES
+* \[ \] How does EU proxy routing work? Do we need per-microsite configuration? <custom data-type="mention" data-id="id-0">@Chris Archer</custom> 
+* \[ \] What macros must we support? (`[timestamp]`, `${GDPR}`, `${GDPR_CONSENT_755}`, `${DEVICE_ID}`) all supported by bidder
+
+**Deliverable:** Mapped 3P pixel flow → tasks for DSP UI extension + HTML generation
+
+### 5. DSP Reporting Dashboard — What Should Be Displayed
+
+**To investigate (with Product/PRD):**
+
+* \[ \] What metrics should be visible in the report? (impressions, video starts, quartiles, clicks, avg time spent?)
+* \[ \] Is this a new "Microsite" report type or an extension of the existing "Creative" report?
+* \[ \] Do we need breakdown per video? Per CTA? Per microsite template?
+* \[ \] What is the format of time_spent in the report? (average per session? total? histogram?)
+* \[ \] Should 3P tracker fires be visible in our report? (discrepancy tracking?)
+
+**Deliverable:** Reporting UI requirements → task(s) for frontend reporting changes
+
+## OUTPUT / DELIVERABLES
+
+1. **Spike results document** 
+2. **List of tasks for next sprint** (JIRA tickets):
+
+    * \[ \] Task: Implement tracker.js (1P beacons)
+    * \[ \] Task: Inject tracking config into microsite HTML
+    * \[ \] Task: rtb-delivery — add misc_qs to tracker handler
+    * \[ \] Task: Extend DSP UI with additional 3P tracker fields
+    * \[ \] Task: Reporting pipeline — add new tracker values to rollups
+    * \[ \] Task: DSP Reporting Dashboard — new microsite metrics columns
+    * \[ \] Task: E2E validation on staging (beacon → report)
+    
+3. **Meeting with Reporting team** — agreed scope and timeline
+
+## DEFINITION OF DONE
+
+* \[ \] All questions from "Investigation Areas" have answers
+* \[ \] Meeting with Reporting team completed, scope agreed
+* \[ \] rtb-delivery team confirmed the approach
+* \[ \] List of implementation tasks is ready (with estimates)
+* \[ \] JIRA tickets created for the next sprint
+
+
+
+
+================================================================================
+Issue: AENW-801
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Microsite P2] SPIKE: Reporting Integration - tracker.js
+Assignee: Raman Krot
+URL: https://adgear.atlassian.net/browse/AENW-801
+Created: 2026-05-20T08:25:45.518-0400
+Updated: 2026-05-26T03:48:52.356-0400
+================================================================================
+
+Description:
+## GOAL
+
+Investigate how to implement trackers on the microsite (impression, video quartiles, CTA click, exit/time spent) so that data flows into the DSP Reporting Dashboard. Align with the Reporting team on what changes are needed on their side. The outcome of this spike is a list of concrete implementation tasks for the next sprint.
+
+## CONTEXT
+
+**What we know from the PRD:**
+
+* Microsite must collect: impressions, video start, video quartiles (25/50/75/100%), app click (CTA), exit + time spent
+* Data must be visible in the DSP Reporting Dashboard (for Campaign Managers)
+* 3P pixels (impression tracker, exit tracker) — we already have input fields in the DSP UI
+
+**What we have in architecture docs:**
+
+* 1P tracking goes through rtb-delivery → Kafka → Vertica/Druid → DSP Report
+* tracker.js on the microsite page fires beacons to `/trackers/{INFO}/{name}.gif`
+* New tracker values: `video_start`, `app_click`, `exit` (+ `time_spent` in query param)
+
+**What already exists in code:**
+
+* DSP UI has `impressionTracker` and `exitTracker` fields in `main-content-section.tsx`
+* rtb-delivery has endpoints `/impressions/`, `/trackers/`, `/clicks/`
+* Avro schema has `misc` field (map<string,string>) — can carry `time_spent`
+
+## INVESTIGATION AREAS
+
+### 1. Communication with Reporting Team
+
+**Questions to clarify:**
+
+* \[ \] What new tracker values (`video_start`, `app_click`, `exit`) need to be added to Vertica rollups?
+* \[ \] Does the Druid ingestion spec require changes for new tracker names?
+* \[ \] How should `time_spent` from the `misc` Avro field appear in reports? (new column? aggregation?)
+* \[ \] Does the reporting team need a new "Microsite" report type in DSP, or do we extend the existing one?
+* \[ \] What is their timeline? \~Can they deliver in the next sprint?\~
+* \[ \] Do they need sample data / test events on staging to get started?
+
+**Deliverable:** Meeting with Reporting team → agreed scope of changes on their side → JIRA tasks
+
+### 2. rtb-delivery Changes Scope
+
+**To investigate:**
+
+* \[ \] Confirm with rtb-delivery team: is adding `misc_qs/2` in `rtb_delivery_tracker.erl` acceptable?
+* \[ \] Is `time_spent` as a query param on the tracker URL acceptable? (vs. new endpoint)
+* \[ \] Do new tracker values (`video_start`, `app_click`, `exit`) require any configuration in delivery?
+
+**Deliverable:** Confirmed approach → 1 task for rtb-delivery change
+
+### 3. tracker.js — What Exactly to Implement
+
+**To investigate:**
+
+* \[ \] Does `new Image(1,1).src` work on Tizen WebView as a transport mechanism?
+* \[ \] Do `visibilitychange` / `pagehide` events work on Samsung TV?
+* \[ \] What does the microsite lifecycle look like on TV? (when does it close, is there a "back" button?)
+* \[ \] Does the video element on TV support standard events (`play`, `timeupdate`, `ended`)?
+* \[ \] How to handle the case when the TV loses internet mid-session? (retry? queue? fire-and-forget?)
+* \[ \] Do we need deduplication on the delivery side (e.g., TV fires the same event 2x)?
+
+**Deliverable:** Confirmed APIs/events on TV → task for tracker.js implementation
+
+### 4. 3P Pixel Integration
+
+**To investigate:**
+
+* \[ \] How do 3P pixel URLs from the DSP UI (impression tracker, exit tracker) get into the rendered HTML?
+* \[ x \] Do we need more 3P tracker types? (video start, video complete, click?) YES
+* \[ \] How does EU proxy routing work? Do we need per-microsite configuration? <custom data-type="mention" data-id="id-0">@Chris Archer</custom> 
+* \[ \] What macros must we support? (`[timestamp]`, `${GDPR}`, `${GDPR_CONSENT_755}`, `${DEVICE_ID}`) all supported by bidder
+
+**Deliverable:** Mapped 3P pixel flow → tasks for DSP UI extension + HTML generation
+
+### 5. DSP Reporting Dashboard — What Should Be Displayed
+
+**To investigate (with Product/PRD):**
+
+* \[ \] What metrics should be visible in the report? (impressions, video starts, quartiles, clicks, avg time spent?)
+* \[ \] Is this a new "Microsite" report type or an extension of the existing "Creative" report?
+* \[ \] Do we need breakdown per video? Per CTA? Per microsite template?
+* \[ \] What is the format of time_spent in the report? (average per session? total? histogram?)
+* \[ \] Should 3P tracker fires be visible in our report? (discrepancy tracking?)
+
+**Deliverable:** Reporting UI requirements → task(s) for frontend reporting changes
+
+## OUTPUT / DELIVERABLES
+
+1. **Spike results document** 
+2. **List of tasks for next sprint** (JIRA tickets):
+
+    * \[ \] Task: Implement tracker.js (1P beacons)
+    * \[ \] Task: Inject tracking config into microsite HTML
+    * \[ \] Task: rtb-delivery — add misc_qs to tracker handler
+    * \[ \] Task: Extend DSP UI with additional 3P tracker fields
+    * \[ \] Task: Reporting pipeline — add new tracker values to rollups
+    * \[ \] Task: DSP Reporting Dashboard — new microsite metrics columns
+    * \[ \] Task: E2E validation on staging (beacon → report)
+    
+3. **Meeting with Reporting team** — agreed scope and timeline
+
+## DEFINITION OF DONE
+
+* \[ \] All questions from "Investigation Areas" have answers
+* \[ \] Meeting with Reporting team completed, scope agreed
+* \[ \] rtb-delivery team confirmed the approach
+* \[ \] List of implementation tasks is ready (with estimates)
+* \[ \] JIRA tickets created for the next sprint
+
+
+
+
+================================================================================
+Issue: AENW-800
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Microsite P2] SPIKE: Reporting Integration - Delivery change scope
+Assignee: Raman Krot
+URL: https://adgear.atlassian.net/browse/AENW-800
+Created: 2026-05-20T08:25:44.324-0400
+Updated: 2026-05-25T04:07:09.374-0400
+================================================================================
+
+Description:
+## GOAL
+
+Investigate how to implement trackers on the microsite (impression, video quartiles, CTA click, exit/time spent) so that data flows into the DSP Reporting Dashboard. Align with the Reporting team on what changes are needed on their side. The outcome of this spike is a list of concrete implementation tasks for the next sprint.
+
+## CONTEXT
+
+**What we know from the PRD:**
+
+* Microsite must collect: impressions, video start, video quartiles (25/50/75/100%), app click (CTA), exit + time spent
+* Data must be visible in the DSP Reporting Dashboard (for Campaign Managers)
+* 3P pixels (impression tracker, exit tracker) — we already have input fields in the DSP UI
+
+**What we have in architecture docs:**
+
+* 1P tracking goes through rtb-delivery → Kafka → Vertica/Druid → DSP Report
+* tracker.js on the microsite page fires beacons to `/trackers/{INFO}/{name}.gif`
+* New tracker values: `video_start`, `app_click`, `exit` (+ `time_spent` in query param)
+
+**What already exists in code:**
+
+* DSP UI has `impressionTracker` and `exitTracker` fields in `main-content-section.tsx`
+* rtb-delivery has endpoints `/impressions/`, `/trackers/`, `/clicks/`
+* Avro schema has `misc` field (map<string,string>) — can carry `time_spent`
+
+## INVESTIGATION AREAS
+
+### 1. Communication with Reporting Team
+
+**Questions to clarify:**
+
+* \[ \] What new tracker values (`video_start`, `app_click`, `exit`) need to be added to Vertica rollups?
+* \[ \] Does the Druid ingestion spec require changes for new tracker names?
+* \[ \] How should `time_spent` from the `misc` Avro field appear in reports? (new column? aggregation?)
+* \[ \] Does the reporting team need a new "Microsite" report type in DSP, or do we extend the existing one?
+* \[ \] What is their timeline? \~Can they deliver in the next sprint?\~
+* \[ \] Do they need sample data / test events on staging to get started?
+
+**Deliverable:** Meeting with Reporting team → agreed scope of changes on their side → JIRA tasks
+
+### 2. rtb-delivery Changes Scope
+
+**To investigate:**
+
+* \[ \] Confirm with rtb-delivery team: is adding `misc_qs/2` in `rtb_delivery_tracker.erl` acceptable?
+* \[ \] Is `time_spent` as a query param on the tracker URL acceptable? (vs. new endpoint)
+* \[ \] Do new tracker values (`video_start`, `app_click`, `exit`) require any configuration in delivery?
+
+**Deliverable:** Confirmed approach → 1 task for rtb-delivery change
+
+### 3. tracker.js — What Exactly to Implement
+
+**To investigate:**
+
+* \[ \] Does `new Image(1,1).src` work on Tizen WebView as a transport mechanism?
+* \[ \] Do `visibilitychange` / `pagehide` events work on Samsung TV?
+* \[ \] What does the microsite lifecycle look like on TV? (when does it close, is there a "back" button?)
+* \[ \] Does the video element on TV support standard events (`play`, `timeupdate`, `ended`)?
+* \[ \] How to handle the case when the TV loses internet mid-session? (retry? queue? fire-and-forget?)
+* \[ \] Do we need deduplication on the delivery side (e.g., TV fires the same event 2x)?
+
+**Deliverable:** Confirmed APIs/events on TV → task for tracker.js implementation
+
+### 4. 3P Pixel Integration
+
+**To investigate:**
+
+* \[ \] How do 3P pixel URLs from the DSP UI (impression tracker, exit tracker) get into the rendered HTML?
+* \[ x \] Do we need more 3P tracker types? (video start, video complete, click?) YES
+* \[ \] How does EU proxy routing work? Do we need per-microsite configuration? <custom data-type="mention" data-id="id-0">@Chris Archer</custom> 
+* \[ \] What macros must we support? (`[timestamp]`, `${GDPR}`, `${GDPR_CONSENT_755}`, `${DEVICE_ID}`) all supported by bidder
+
+**Deliverable:** Mapped 3P pixel flow → tasks for DSP UI extension + HTML generation
+
+### 5. DSP Reporting Dashboard — What Should Be Displayed
+
+**To investigate (with Product/PRD):**
+
+* \[ \] What metrics should be visible in the report? (impressions, video starts, quartiles, clicks, avg time spent?)
+* \[ \] Is this a new "Microsite" report type or an extension of the existing "Creative" report?
+* \[ \] Do we need breakdown per video? Per CTA? Per microsite template?
+* \[ \] What is the format of time_spent in the report? (average per session? total? histogram?)
+* \[ \] Should 3P tracker fires be visible in our report? (discrepancy tracking?)
+
+**Deliverable:** Reporting UI requirements → task(s) for frontend reporting changes
+
+## OUTPUT / DELIVERABLES
+
+1. **Spike results document** 
+2. **List of tasks for next sprint** (JIRA tickets):
+
+    * \[ \] Task: Implement tracker.js (1P beacons)
+    * \[ \] Task: Inject tracking config into microsite HTML
+    * \[ \] Task: rtb-delivery — add misc_qs to tracker handler
+    * \[ \] Task: Extend DSP UI with additional 3P tracker fields
+    * \[ \] Task: Reporting pipeline — add new tracker values to rollups
+    * \[ \] Task: DSP Reporting Dashboard — new microsite metrics columns
+    * \[ \] Task: E2E validation on staging (beacon → report)
+    
+3. **Meeting with Reporting team** — agreed scope and timeline
+
+## DEFINITION OF DONE
+
+* \[ \] All questions from "Investigation Areas" have answers
+* \[ \] Meeting with Reporting team completed, scope agreed
+* \[ \] rtb-delivery team confirmed the approach
+* \[ \] List of implementation tasks is ready (with estimates)
+* \[ \] JIRA tickets created for the next sprint
+
+
+
+
+================================================================================
+Issue: AENW-799
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Microsite P2] SPIKE: Reporting Integration - Reporting team communication
+Assignee: Raman Krot
+URL: https://adgear.atlassian.net/browse/AENW-799
+Created: 2026-05-20T08:25:42.751-0400
+Updated: 2026-05-21T04:13:41.874-0400
+================================================================================
+
+Description:
+## GOAL
+
+Investigate how to implement trackers on the microsite (impression, video quartiles, CTA click, exit/time spent) so that data flows into the DSP Reporting Dashboard. Align with the Reporting team on what changes are needed on their side. The outcome of this spike is a list of concrete implementation tasks for the next sprint.
+
+## CONTEXT
+
+**What we know from the PRD:**
+
+* Microsite must collect: impressions, video start, video quartiles (25/50/75/100%), app click (CTA), exit + time spent
+* Data must be visible in the DSP Reporting Dashboard (for Campaign Managers)
+* 3P pixels (impression tracker, exit tracker) — we already have input fields in the DSP UI
+
+**What we have in architecture docs:**
+
+* 1P tracking goes through rtb-delivery → Kafka → Vertica/Druid → DSP Report
+* tracker.js on the microsite page fires beacons to `/trackers/{INFO}/{name}.gif`
+* New tracker values: `video_start`, `app_click`, `exit` (+ `time_spent` in query param)
+
+**What already exists in code:**
+
+* DSP UI has `impressionTracker` and `exitTracker` fields in `main-content-section.tsx`
+* rtb-delivery has endpoints `/impressions/`, `/trackers/`, `/clicks/`
+* Avro schema has `misc` field (map<string,string>) — can carry `time_spent`
+
+## INVESTIGATION AREAS
+
+### 1. Communication with Reporting Team
+
+**Questions to clarify:**
+
+* \[ \] What new tracker values (`video_start`, `app_click`, `exit`) need to be added to Vertica rollups?
+* \[ \] Does the Druid ingestion spec require changes for new tracker names?
+* \[ \] How should `time_spent` from the `misc` Avro field appear in reports? (new column? aggregation?)
+* \[ \] Does the reporting team need a new "Microsite" report type in DSP, or do we extend the existing one?
+* \[ \] What is their timeline? \~Can they deliver in the next sprint?\~
+* \[ \] Do they need sample data / test events on staging to get started?
+
+**Deliverable:** Meeting with Reporting team → agreed scope of changes on their side → JIRA tasks
+
+### 2. rtb-delivery Changes Scope
+
+**To investigate:**
+
+* \[ \] Confirm with rtb-delivery team: is adding `misc_qs/2` in `rtb_delivery_tracker.erl` acceptable?
+* \[ \] Is `time_spent` as a query param on the tracker URL acceptable? (vs. new endpoint)
+* \[ \] Do new tracker values (`video_start`, `app_click`, `exit`) require any configuration in delivery?
+
+**Deliverable:** Confirmed approach → 1 task for rtb-delivery change
+
+### 3. tracker.js — What Exactly to Implement
+
+**To investigate:**
+
+* \[ \] Does `new Image(1,1).src` work on Tizen WebView as a transport mechanism?
+* \[ \] Do `visibilitychange` / `pagehide` events work on Samsung TV?
+* \[ \] What does the microsite lifecycle look like on TV? (when does it close, is there a "back" button?)
+* \[ \] Does the video element on TV support standard events (`play`, `timeupdate`, `ended`)?
+* \[ \] How to handle the case when the TV loses internet mid-session? (retry? queue? fire-and-forget?)
+* \[ \] Do we need deduplication on the delivery side (e.g., TV fires the same event 2x)?
+
+**Deliverable:** Confirmed APIs/events on TV → task for tracker.js implementation
+
+### 4. 3P Pixel Integration
+
+**To investigate:**
+
+* \[ \] How do 3P pixel URLs from the DSP UI (impression tracker, exit tracker) get into the rendered HTML?
+* \[ x \] Do we need more 3P tracker types? (video start, video complete, click?) YES
+* \[ \] How does EU proxy routing work? Do we need per-microsite configuration? <custom data-type="mention" data-id="id-0">@Chris Archer</custom> 
+* \[ \] What macros must we support? (`[timestamp]`, `${GDPR}`, `${GDPR_CONSENT_755}`, `${DEVICE_ID}`) all supported by bidder
+
+**Deliverable:** Mapped 3P pixel flow → tasks for DSP UI extension + HTML generation
+
+### 5. DSP Reporting Dashboard — What Should Be Displayed
+
+**To investigate (with Product/PRD):**
+
+* \[ \] What metrics should be visible in the report? (impressions, video starts, quartiles, clicks, avg time spent?)
+* \[ \] Is this a new "Microsite" report type or an extension of the existing "Creative" report?
+* \[ \] Do we need breakdown per video? Per CTA? Per microsite template?
+* \[ \] What is the format of time_spent in the report? (average per session? total? histogram?)
+* \[ \] Should 3P tracker fires be visible in our report? (discrepancy tracking?)
+
+**Deliverable:** Reporting UI requirements → task(s) for frontend reporting changes
+
+## OUTPUT / DELIVERABLES
+
+1. **Spike results document** 
+2. **List of tasks for next sprint** (JIRA tickets):
+
+    * \[ \] Task: Implement tracker.js (1P beacons)
+    * \[ \] Task: Inject tracking config into microsite HTML
+    * \[ \] Task: rtb-delivery — add misc_qs to tracker handler
+    * \[ \] Task: Extend DSP UI with additional 3P tracker fields
+    * \[ \] Task: Reporting pipeline — add new tracker values to rollups
+    * \[ \] Task: DSP Reporting Dashboard — new microsite metrics columns
+    * \[ \] Task: E2E validation on staging (beacon → report)
+    
+3. **Meeting with Reporting team** — agreed scope and timeline
+
+## DEFINITION OF DONE
+
+* \[ \] All questions from "Investigation Areas" have answers
+* \[ \] Meeting with Reporting team completed, scope agreed
+* \[ \] rtb-delivery team confirmed the approach
+* \[ \] List of implementation tasks is ready (with estimates)
+* \[ \] JIRA tickets created for the next sprint
+
+
+
+
+================================================================================
+Issue: AENW-790
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Click to QR Code link shortener using Aerospike proposal discussion with Jacek
+Assignee: Marcin Al-Jawahiri
+URL: https://adgear.atlassian.net/browse/AENW-790
+Created: 2026-05-20T07:44:17.128-0400
+Updated: 2026-05-28T06:56:37.600-0400
+================================================================================
+
+Description:
+Discuss with <custom data-type="mention" data-id="id-0">@Jacek Kowalski</custom> what is the blocker for proceeding with following proposal:
+
+<custom data-type="smartlink" data-id="id-1">https://adgear.atlassian.net/wiki/spaces/ENG/pages/22747873452/QR+Code+Flow+-+Microsite+with+link+shortener+using+Aerospike</custom> 
+
+Acceptance criteria:
+
+Topic clarified with Jacek
+
+
+================================================================================
+Issue: AENW-788
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Training] Scrum master training by Ilya
+Assignee: Marcin Al-Jawahiri
+URL: https://adgear.atlassian.net/browse/AENW-788
+Created: 2026-05-20T07:42:02.203-0400
+Updated: 2026-05-26T04:56:31.857-0400
+================================================================================
+
+Description:
+Acceptance criteria:  
+attended the training
+
+
+================================================================================
+Issue: AENW-779
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: Investigate Lint Timeouts
+Assignee: Josh Martin
+URL: https://adgear.atlassian.net/browse/AENW-779
+Created: 2026-05-19T16:35:18.279-0400
+Updated: 2026-05-26T15:08:43.145-0400
+================================================================================
+
+Description:
+We are seeing lots of timeouts with the 3min mark on rtb-bidder. Lets bump this up and/or identify how we can tighten up the check.
+
+
+================================================================================
+Issue: AENW-776
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Prepare DSP Part Draft Techspec Click To E-mail
+Assignee: Marcin Matyszkowicz
+URL: https://adgear.atlassian.net/browse/AENW-776
+Created: 2026-05-19T07:29:51.563-0400
+Updated: 2026-05-28T04:18:46.648-0400
+================================================================================
+
+Description:
+Scope:
+
+As a DSP User I want to see “Email Settings” and “Preview” sections as presented on below figma, but appearing only when Click Action “Click To Email” is selected on TV Native DSP forms.
+
+For cloning TV Plus forms in DSP please refer to their figma design: [V19 - 20260323 - Prototype](https://www.figma.com/proto/Ubqgq9DaN9ObvmAqHS7ezq/branch/mi9hValA0IX7n1XqMs3CsX/Interactive-Ad---Click-to-Email?node-id=7656-227474&p=f&viewport=107%2C-395%2C0.02&t=bf45FoRBhuaRhtop-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=7656%3A227474&show-proto-sidebar=1&page-id=1%3A4)
+
+![](blob:https://media.staging.atl-paas.net/?type=file&localId=2a6eb0b1194b&id=e3a40e45-700d-4754-a243-f4a799c745b7&&collection=&height=1440&occurrenceKey=null&width=10176&__contextId=null&__displayType=null&__external=false&__fileMimeType=null&__fileName=null&__fileSize=null&__mediaTraceId=null&url=null)
+![](blob:https://media.staging.atl-paas.net/?type=file&localId=2b9d11847439&id=249df66d-c4ff-4556-977f-fb8bb744be96&&collection=&height=1440&occurrenceKey=null&width=10176&__contextId=null&__displayType=null&__external=false&__fileMimeType=null&__fileName=null&__fileSize=null&__mediaTraceId=null&url=null)
+‌
+
+**Acceptance crtiteria**
+
+DSP Part is ready for validation with <custom data-type="mention" data-id="id-0">@Sławomir Dynak</custom> 
+
+We decided to implement DSP Email Form component similar way TV Plus did. We reuse both the Email form component and Email preview component to native forms in Click To Email Scope. The diffrence is that for TV Native those will be “Click Action” form components . 
+
+We pause the idea of unifying Email Template Builder and will decide after Click To Email is released to production in current scope
+
+
+================================================================================
+Issue: AENW-775
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Agree on final solution architecture among proposed options - v3/v4/v5
+Assignee: Marcin Al-Jawahiri
+URL: https://adgear.atlassian.net/browse/AENW-775
+Created: 2026-05-19T07:16:49.595-0400
+Updated: 2026-05-28T05:17:49.025-0400
+================================================================================
+
+Description:
+In the  
+<custom data-type="smartlink" data-id="id-0">https://adgear.atlassian.net/browse/AENW-410</custom>   
+I have prepared description and diagrams for the Click to Email for TV Native main flow.  
+After brainstorming I’ve added more variants of the flow.  
+Here is executive summary of the differences between the flows:  
+<custom data-type="smartlink" data-id="id-1">https://adgear.atlassian.net/wiki/spaces/ENG/pages/22836248794/Click+to+Email+for+TV+Native+-+comparison</custom>   
+We need to get clearance from architects which option we should proceed with.  
+Addtional related topic for meeting:  
+Should we use TVPlus iadclick event for NativeTV?
+
+Contact <custom data-type="mention" data-id="id-2">@Sławomir Dynak</custom> 
+
+**Acceptance criteria :**
+
+option will be chosen 
+
+Decision with <custom data-type="mention" data-id="id-3">@Sławomir Dynak</custom> <custom data-type="mention" data-id="id-4">@Marek Kurcz</custom> <custom data-type="mention" data-id="id-5">@Amit Paliwal</custom> 
+
+**Scope:** 
+
+Meeting with <custom data-type="mention" data-id="id-6">@Sławomir Dynak</custom> , <custom data-type="mention" data-id="id-7">@Marek Kurcz</custom> , Indhu, <custom data-type="mention" data-id="id-8">@Amit Paliwal</custom>
+
+  
+
+
+================================================================================
+Issue: AENW-766
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [DSP-Ruby] Migration - enum stv_creative_attr_action_type_enum
+Assignee: Jakub Anioł
+URL: https://adgear.atlassian.net/browse/AENW-766
+Created: 2026-05-19T06:54:11.610-0400
+Updated: 2026-05-27T11:56:05.543-0400
+================================================================================
+
+Description:
+Adding a new value `click_to_email` to the enum `stv_creative_attr_action_type_enum`
+
+
+================================================================================
+Issue: AENW-756
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: [DSP][UI] Vac Ads Show creative page
+Assignee: Keertan Dakarapu
+URL: https://adgear.atlassian.net/browse/AENW-756
+Created: 2026-05-18T15:06:14.380-0400
+Updated: 2026-05-21T13:11:51.569-0400
+================================================================================
+
+Description:
+**Acceptance Criteria:**
+
+* Ability to show the creative details of the VAC creative saved in DSP Trader.
+
+
+
+
+================================================================================
+Issue: AENW-706
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Unified Auction for Native
+Assignee: Rohan Deshpande
+URL: https://adgear.atlassian.net/browse/AENW-706
+Created: 2026-05-11T12:47:54.322-0400
+Updated: 2026-05-20T13:07:17.915-0400
+================================================================================
+
+Description:
+**Summary**
+
+Remove Fixed Deal Type Precedence to Enable RankPrice Competition in Internal Auction
+
+**Background & Problem Statement**
+
+  Currently in the AdGear Exchange (ID=6) internal auction, there's a strict deal type hierarchy that prevents optimal bid selection:
+
+  Current Flow (Lines 240-245 in auction.go):
+
+  fixed > non-fixed > undefined (no-deal)
+
+  When fixed deal bids exist, they automatically win regardless of RankPrice, eliminating all non-fixed and undefined bids from consideration. This creates suboptimal outcomes where:
+
+* Fixed deals carry nominal pricing (e.g., $0.02 Max_cpm, $0.01 deal floor) for guaranteed delivery
+
+* Non-fixed deals from Barker ML carry significantly higher RankPrices (hundreds of thousands in micro-CPM)
+
+* Higher value bids lose due to deal type precedence, not actual bid value
+
+  **Proposed Solution**
+
+  Pool fixed and non-fixed deal bids into a single RankPrice-based auction while keeping undefined (no-deal) bids as lowest precedence fallback.
+
+  New precedence: (fixed + non-fixed deals compete on RankPrice) > undefined
+
+  **Acceptance Criteria**
+
+  **Functional Requirements**
+
+  AC1: Auction Logic Update
+
+* Modify runOpenAuction() method in pkg/dspmodules/auction/pipeline/auction.go:223-248
+
+* Pool Fixed and NonFixed deal types into combined RankPrice competition
+
+* Maintain NoDeal (undefined) as lowest precedence fallback
+
+* Preserve existing first-price/second-price auction mechanics within combined pool
+
+  AC2: Deal Type Grouping
+
+* Update deal type selection logic to combine fixed and non-fixed into single auction group
+
+* Keep NoDeal bids separate as fallback when no deal bids win
+
+* Ensure getDealTypeToSelectedBids() output compatibility
+
+  AC3: Price Competition
+
+* Fixed and non-fixed deals compete purely on RankPrice values
+
+* Winner selection uses existing selectHighestRank() logic
+
+* Preserve deal floor validation for individual bid validity
+
+* Maintain currency conversion and comparison logic
+
+Spec - <custom data-type="smartlink" data-id="id-0">https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22761865344/PRD+Tech-Spec+oCPM+Return+True+Bidding+Prices+for+Exchange</custom> 
+
+PRD - <custom data-type="smartlink" data-id="id-1">https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22802825591/PRD+-+True+Bid+CPMs+for+Non-Fixed+Deal+IDs+Native?atlOrigin=eyJpIjoiMmRiNDQwMjU5YjRhNDA3YmIwYjEzMzM4N2IwODFhNDciLCJwIjoiY29uZmx1ZW5jZS1jaGF0cy1pbnQifQ</custom> 
+
+**Example Test Scenario**
+
+  Before Change:
+
+  Priority=1, Fixed bid (BidderId=1): RankPrice=20,000, Price=$0.02
+
+  Priority=1, Non-fixed bid (BidderId=4): RankPrice=270,000, Price=$2.70
+
+  Result: Bid A wins (fixed precedence), Bid B ignored
+
+  After Change:
+
+  Priority=1, Fixed bid (BidderId=1): RankPrice=20,000, Price=$0.02
+
+  Priority=1, Non-fixed bid (BidderId=4): RankPrice=270,000, Price=$2.70
+
+  Result: Bid B wins (RankPrice 270,000 > 20,000), standard auction rules apply
+
+  This change optimizes revenue by allowing higher-value ML-driven bids to compete fairly against guaranteed delivery deals.
+
+Acceptance Criterea
+
+
+================================================================================
+Issue: AENW-699
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: [Microsite p2] UseCase + Task — S3 Upload
+Assignee: Michał Wiącek
+URL: https://adgear.atlassian.net/browse/AENW-699
+Created: 2026-05-11T08:25:57.272-0400
+Updated: 2026-05-21T05:09:29.156-0400
+================================================================================
+
+Description:
+### User Story
+
+As a backend developer,  
+I want a background job that copies microsite assets to S3 and tracks upload status,  
+so that videos and images are available on the CDN for HTML generation.
+
+### Context
+
+After microsite creation, assets need to be copied from the temporary upload location (`/files/`) to the DspOriginal S3 bucket under a structured path (`microsite/{id}/{asset_id}/{filename}`). The Ritual use case encapsulates the S3 copy logic (unit-testable), while the Resque task provides retry, logging, and Sentry integration. After all assets are uploaded, the microsite transitions to `uploaded` processing_status.
+
+### Business Value
+
+Bridges the gap between file upload and CDN delivery. Without this, uploaded assets remain in temporary storage and cannot be served to Samsung TVs.
+
+### Acceptance Criteria
+
+* \[ \] `Microsites::UseCases::UploadAsset` (Ritual): build_s3_key → copy_to_s3 → update_status → check_all_uploaded
+* \[ \] `Microsites::Tasks::UploadToDspOriginal` (Tasks::Base): finds records, calls use case, pattern-matches result, raises on failure for retry
+* \[ \] S3 key format: `microsite/{microsite.id}/{asset_id}/{filename}`
+* \[ \] After successful copy: microsite_video.processing_status transitions to `uploaded`
+* \[ \] After ALL videos uploaded: microsite.processing_status transitions to `uploaded`
+* \[ \] Retry: 4 attempts with exponential backoff (5s, 30s, 60s, 120s)
+* \[ \] Unit tests pass with mocked S3 client
+* \[ \] `bin/rails runner` loads both classes without error
+
+### Technical Details
+
+**Files:**
+
+* `packs/microsites/app/lib/microsites/use_cases/upload_asset.rb`
+* `packs/microsites/app/services/microsites/tasks/upload_to_dsp_original.rb`
+* `test/packs/microsites/app/lib/microsites/use_cases/upload_asset_test.rb`
+
+```ruby
+class Microsites::UseCases::UploadAsset < ::Ritual
+  def call(microsite, video)
+    s3_key = yield build_s3_key(microsite, video)
+    yield copy_to_s3(video.video_asset, s3_key)
+    yield update_status(video, s3_key)
+    yield check_all_uploaded(microsite)
+    Success(video)
+  end
+end
+```
+
+```ruby
+class Microsites::Tasks::UploadToDspOriginal < ::Tasks::Base
+  extend Resque::Plugins::Retry
+  @queue = ::Tasks::Priorities::USER_NORMAL
+  @retry_limit = 4
+  @retry_exceptions = { CopyFailed => [5, 30, 60, 120] }
+
+  CopyFailed = Class.new(StandardError)
+
+  def process
+    microsite = Microsite.find(options[:microsite_id])
+    video = MicrositeVideo.find(options[:microsite_video_id])
+
+    case Microsites::UseCases::UploadAsset.call(microsite, video)
+    in Dry::Monads::Success(_)
+      logger.info(message: "Asset uploaded", microsite_id: microsite.id)
+    in Dry::Monads::Failure[step, error]
+      logger.error(message: "Upload failed at #{step}", error: error)
+      raise CopyFailed, "#{step}: #{error}"
+    end
+  end
+end
+```
+
+
+================================================================================
+Issue: AENW-619
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Microsite p2] Tech Spec & Pre-ARB Review
+Assignee: Raman Krot
+URL: https://adgear.atlassian.net/browse/AENW-619
+Created: 2026-05-04T07:37:22.921-0400
+Updated: 2026-05-20T08:57:44.730-0400
+================================================================================
+
+Description:
+## BUSINESS IMPACT
+
+The Microsite feature introduces a new section in the DSP with new database tables, GraphQL schema, file upload flows, and cross-service integration (creative form ↔ microsite library). Without a formal architecture review, there is a risk of misaligned design decisions, missed scalability concerns, or security gaps that would be costly to fix post-implementation. The Pre-ARB (Architecture Review Board) session with site-level architects in Poland ensures the tech spec is validated before development begins, reducing rework and aligning the team on the technical approach.
+
+## USER STORY
+
+As a user of the Samsung DSP, I want the Microsite feature to be architecturally sound and reviewed by the site architects, so that the feature is reliable, scalable, and consistent with the rest of the platform from day one.
+
+## ACCEPTANCE CRITERIA
+
+### Tech Spec preparation
+
+\- Add KPI Section (SLOs, SLAs)   
+\- Add Dependencies Section  
+  
+Schedule & Conduct Pre-ARB Session
+
+* Schedule Pre-ARB meeting with Polish site architects
+* Present the tech spec document
+* Collect feedback, concerns, and action items
+* Document all feedback
+
+### Post Pre-ARB Corrections
+
+* Update the tech spec based on Pre-ARB feedback
+* Resolve all open questions raised during the session
+* Mark resolved items in the tech spec action items section
+* Get final sign-off from architects (comment/approval on the document or Confluence)
+
+
+
+
+================================================================================
+Issue: AENW-574
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [DSP] Add functionality to select Microsite on the form, save it and show it in the details view
+Assignee: Grzegorz Prasal
+URL: https://adgear.atlassian.net/browse/AENW-574
+Created: 2026-04-29T12:26:14.458-0400
+Updated: 2026-05-20T07:01:35.794-0400
+================================================================================
+
+Description:
+As a user, I want to have the ability to choose the Microsite item in the Click Action dropdown for the Spotlight Row and Spotlight Beacon creatives. There should also be the ability to set Microsite URL and ignore values for Country and App names.
+
+
+================================================================================
+Issue: AENW-550
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Setting up Bidder and Config Apps in local
+Assignee: i.meyyappan
+URL: https://adgear.atlassian.net/browse/AENW-550
+Created: 2026-04-22T17:08:22.826-0400
+Updated: 2026-05-21T18:31:38.996-0400
+================================================================================
+
+Description:
+Acceptance Criteria:
+
+Setup Bidder and Config Server apps in local environment
+
+
+================================================================================
+Issue: AENW-523
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: Rotate CA Certificates
+Assignee: Josh Martin
+URL: https://adgear.atlassian.net/browse/AENW-523
+Created: 2026-04-20T13:13:09.779-0400
+Updated: 2026-05-26T14:08:52.408-0400
+================================================================================
+
+Description:
+**Certificate Bundles - Action Required**
+
+Hi **@channel ,**
+
+The latest certificate standards require self-signed CA certificates to have additional key requirements. To support library and modules in programming languages enforcing the requirements, the CA certificates used by SRA will be rotated on May 31st, 2026.
+
+If you are referencing certificate bundles in your system environment, please append the attached certificate to your certificate bundle **by May 31st, 2026** to proactively support the upcoming change.  
+No action is required if no bundle certificates are referenced.
+
+This is only applicable for NASB employees as the change is being done by SRA.
+
+You can find the [certificate here](https://adgear.atlassian.net/wiki/spaces/sbtkb/pages/22730375231/NASB-+Security+Notification+April+2026).
+
+**-SBT Security**
+
+[**NASB- Security Notification April 2026**](https://adgear.atlassian.net/wiki/spaces/sbtkb/pages/22730375231/NASB-+Security+Notification+April+2026?atlOrigin=eyJpIjoiNmUyZDQ5Y2YwOWQzNGI4ZThiZjliNjE2MjBkYzUxNWYiLCJwIjoiY29uZmx1ZW5jZS1jaGF0cy1pbnQifQ)
+
+Owned by: Tilottama Sanyal | 1 person viewed
+
+
+================================================================================
+Issue: AENW-490
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [Rtb-Config] Update alerting threshold
+Assignee: i.meyyappan
+URL: https://adgear.atlassian.net/browse/AENW-490
+Created: 2026-04-14T15:36:53.363-0400
+Updated: 2026-05-21T18:31:38.631-0400
+================================================================================
+
+Description:
+We are seeing a reoccuring alert that gets triggered at a specific time. 
+
+```
+{
+  "client": "Alertmanager",
+  "client_url": "https://vmalertmanager-main-auth.use1-rprod.k8s.adgear.com/#/alerts?receiver=rtb-config-production-rtb-config-PagerDuty",
+  "contexts": null,
+  "description": "
+
+RESOLVED: use1-rprod - rtb-config - Total response count is low failure on  multiple targets.
+",
+  "event_type": "resolve",
+  "incident_key": "e2be4dc522eee2f2d132b6e82cc0c4ef071a84daf4b9c9c480a79410da850d57",
+  "service_key": "3f348dd862df4202c0863934ab2d532d",
+  "details": {
+    "firing": "
+
+- 
+
+",
+    "num_firing": "0",
+    "num_resolved": "1",
+    "resolved": "Labels:
+ - alertname = rtb-config - Total response count is low
+ - alertgroup = rtb-config-production-k8s-objects-alerting
+ - cluster = use1-rprod
+ - namespace = rtb-config-production
+ - service = rtb-config
+ - severity = critical
+Annotations:
+ - info = ( production ) - Total response count is low (298377)
+Source: https://grafana.int.adgear.com/explore?orgId=1&left={\"datasource\":\"use1-rprod\",\"queries\":[{\"expr\":\"sum%28increase%28fasthttp_requests_total%7Bnamespace%3D~%5C%22rtb-config-production%5C%22%7D%5B1m%5D%29%29+%5Cu003c+300000\",\"refId\":\"A\"}],\"range\":{\"from\":\"now-1h\",\"to\":\"now\"}}
+"
+  }
+}
+```
+
+**Acceptance Criteria:**
+
+* Investigate a good threshold for the requests or responses metric and update the alerting
+
+
+
+
+================================================================================
+Issue: AENW-317
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [DSP] General Availability by removing unleash ff
+Assignee: Grzegorz Prasal
+URL: https://adgear.atlassian.net/browse/AENW-317
+Created: 2026-03-25T08:13:19.392-0400
+Updated: 2026-05-28T06:50:44.220-0400
+================================================================================
+
+Description:
+Remove all related FF code  
+Retest everything works  
+And remove FF from unleash service
+
+
+================================================================================
+Issue: AENW-86
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: [API] validations to be done dynamically
+Assignee: Shujie Fan
+URL: https://adgear.atlassian.net/browse/AENW-86
+Created: 2026-01-26T17:23:13.864-0500
+Updated: 2026-05-21T18:31:39.296-0400
+================================================================================
+
+Description:
+Create assets and domain needed for tag type 32,41,44,45.
+
+This is the building block for moving validations to be done dynamically.
+
+
+================================================================================
+Issue: AENW-25
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [DSP][UI] Setup vac ads creative form - basic form
+Assignee: Keertan Dakarapu
+URL: https://adgear.atlassian.net/browse/AENW-25
+Created: 2026-01-20T11:58:43.510-0500
+Updated: 2026-05-21T13:11:48.569-0400
+================================================================================
+
+Description:
+Here is the latest design for the VAC ad.  
+<custom data-type="smartlink" data-id="id-0">https://www.figma.com/design/no41TSM9qsXO7qkuJjRvki/branch/8dzL1QVnniGRoVsT4ldMoc/VAC-Ads?m=auto&node-id=2-76&t=fq2nt0nOSnTbNxlI-1</custom>   
+Here is the interactive prototype for the VAC ad  
+[https://www.figma.com/proto/no41TSM9qsXO7qkuJjRvki/branch/8dzL1QVnniGRoVsT4ldMoc/VA\[…\]aling=fixed&starting-point-node-id=4200%3A77798&page-id=2%3A77](https://www.figma.com/proto/no41TSM9qsXO7qkuJjRvki/branch/8dzL1QVnniGRoVsT4ldMoc/VAC-Ads?node-id=4200-77798&p=f&viewport=66%2C421%2C0.02&t=R6tY2ZoPnyaIBqh4-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4200%3A77798&page-id=2%3A77)
+
+‌
+
+**Acceptance Criteria:**
+
+* Need a migration file in DSP to initiate a new creative UI form for VAC Ads.
+* We need this form availability behind an unleash flag.
+* This form’s expectation is to be very basic and help in MVP setup of the VAC Ads from Ad experiences perspective.
+* Able to save the VAC creative details on backend.
+
+‌
+
+**Scope:**
+
+* Only direct Image upload options, no previews needed.
+* Show generated Assets in creative view page.
+
+‌
+
+![](blob:https://media.staging.atl-paas.net/?type=file&localId=1d837aec5ded&id=a9c75cb6-3671-431a-a99c-79502db08df4&&collection=&height=1087&occurrenceKey=null&width=953&__contextId=null&__displayType=null&__external=false&__fileMimeType=null&__fileName=null&__fileSize=null&__mediaTraceId=null&url=null)
+
+
+
+================================================================================
+Issue: AENW-22
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [Metrics] Grafana Dashboards and Documentation
+Assignee: Sudheer Patchipulusu
+URL: https://adgear.atlassian.net/browse/AENW-22
+Created: 2026-01-20T11:55:27.379-0500
+Updated: 2026-05-28T13:02:50.307-0400
+================================================================================
+
+Description:
+**Acceptance Criteria:**
+
+* check all metric implementations for VAC Ads.
+* Create a separate VAC Dashboard for seeing progress.
+* Update existing bidder Dashboards with VAC specific panels.
+
+
+

@@ -1,0 +1,50 @@
+SRPOL Teams Data Extraction - Summary Report
+=============================================
+Timestamp: 2026-05-27T15:27:47Z
+Output Directory: C:\Users\i.klyha\Desktop\Claude\wow-scanner-tool\assets\teams\20260527 17-27\
+
+TEAMS PROCESSED: 16/16
+======================
+
+DoR Status:
+-----------
+- Found: 12 teams
+- Not Found: 4 teams (Polonium LF, ML Serving Sturgeons, ML Platform Pandas, SRPOL SRE)
+
+Jira Status:
+------------
+- Success: 14 teams (all returned 0 issues matching criteria)
+- No Board: 2 teams (Ads Reporting Bigos & Zurek, SRPOL SRE)
+
+FILES GENERATED:
+================
+- teams.json: Master index with all team metadata
+- 16 DoR files (*-dor.txt): Definition of Ready criteria for each team
+- 15 Jira JSON files (*-jira.json): Structured Jira issue data
+- 15 Jira TXT files (*-jira.txt): Human-readable Jira issue reports
+
+TEAM LIST:
+==========
+1. PE - WAW - Abyss (DoR: found, Jira: 0 issues)
+2. Radium (DoR: found, Jira: 0 issues)
+3. Europium (DoR: found, Jira: 0 issues)
+4. Copernicium (DoR: found, Jira: 0 issues)
+5. Mouflons (DoR: found, Jira: 0 issues)
+6. Wolves (DoR: found, Jira: 0 issues)
+7. Polonium LF (DoR: not found, Jira: 0 issues)
+8. Polonium Upper Funnel (DoR: found, Jira: 0 issues)
+9. Bigos (DoR: found, Jira: 0 issues)
+10. Capybaras (DoR: found, Jira: 0 issues)
+11. ML Serving (Sturgeons) (DoR: not found, Jira: 0 issues)
+12. ML Platform (Pandas) (DoR: not found, Jira: 0 issues)
+13. EP Core (DoR: found, Jira: 0 issues)
+14. Ads Reporting (Bigos & Zurek) (DoR: found, Jira: no board)
+15. Igni (DoR: found, Jira: 0 issues)
+16. SRPOL SRE (DoR: not found, Jira: no board)
+
+NOTES:
+======
+- All Jira queries used: status IN ("In progress", "Code review") AND issuetype IN (Story, Bug, Task)
+- No active issues were found in any of the boards at scan time
+- DoR content was extracted from team Confluence pages or linked external pages
+- Teams without DoR sections received placeholder files noting criteria not found

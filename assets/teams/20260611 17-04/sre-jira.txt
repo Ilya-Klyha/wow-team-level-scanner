@@ -1,0 +1,22 @@
+Team: SRE
+Project: EEEW
+Board: https://adgear.atlassian.net/jira/software/projects/EEEW/boards/10332
+Extracted: 2026-06-11T17:04:00+02:00
+Query: project filtered, client-side team matching
+Team Pattern: T - WAW - Embedded SREs SRPOL
+
+=== ACTIVE ISSUES ===
+Total: 3 | Code Review: 2 | In Progress: 1
+
+[EEEW-419] Story: AI skill for PR reviews
+  Assignee: Maciej Rachuba | Priority: Medium | Updated: 2026-06-10T07:39:51.021-0400
+  https://adgear.atlassian.net/browse/EEEW-419
+
+[EEEW-332] Story: AI skill for IaC engineering standards
+  Assignee: Marcin Wojtas | Priority: Medium | Updated: 2026-06-03T04:06:20.769-0400
+  https://adgear.atlassian.net/browse/EEEW-332
+
+[EEEW-278] Story: Automated RUNBOOK.md compliance check on pull requests
+  Assignee: Akif Burak Yildirim | Priority: Medium | Updated: 2026-06-03T04:57:24.687-0400
+  https://adgear.atlassian.net/browse/EEEW-278
+

@@ -1,0 +1,39 @@
+Team: ML Platform Pandas
+Project: ML
+Query Date: 2026-06-12
+Total Active Issues: 3
+================================================================================
+
+Key: PEPI-4932
+Summary: [POL-MLO-SEC] Upgrade EMR and EC2 for the mav_mlops_pipeline  pipeline
+Type: Story
+Status: In Development
+Priority: Medium
+Assignee: Dariusz Bielawski
+Created: 2025-03-10T07:06:29.927-0400
+Updated: 2025-06-05T10:59:22.072-0400
+URL: https://adgear.atlassian.net/browse/PEPI-4932
+--------------------------------------------------------------------------------
+
+Key: ML-55
+Summary: Implement Test DAG MLOps based on SDK
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Tomasz Teter
+Created: 2026-05-07T09:52:56.776-0400
+Updated: 2026-05-20T05:25:04.125-0400
+URL: https://adgear.atlassian.net/browse/ML-55
+--------------------------------------------------------------------------------
+
+Key: ML-10
+Summary: Support after MWAA upgrade to 2.10.3
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Tomasz Teter
+Created: 2026-04-20T13:55:18.034-0400
+Updated: 2026-04-23T09:43:19.611-0400
+URL: https://adgear.atlassian.net/browse/ML-10
+--------------------------------------------------------------------------------
+

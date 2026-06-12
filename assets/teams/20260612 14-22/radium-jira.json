@@ -1,0 +1,229 @@
+{
+  "team": "Radium",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8976",
+  "boardId": "8976",
+  "projectKey": "AENW",
+  "extractedAt": "2026-06-12T14:22:47+02:00",
+  "issues": [
+    {
+      "key": "AENW-939",
+      "type": "Story",
+      "summary": "[Remnant] On DSP form for 2023 immersive banner add left/right toggle and burn in logo depending on selection",
+      "status": "Code Review",
+      "assignee": "Jakub Anio\u0142",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-939",
+      "description": "On DSP form [https://dsp.samsungads.com/b/323/creatives/new/stv_first_screen_masthead](https://dsp.samsungads.com/b/323/creatives/new/stv_first_screen_masthead) for Masthead Type \u201c2023 Immersive Banne"
+    },
+    {
+      "key": "AENW-574",
+      "type": "Story",
+      "summary": "[DSP] Add functionality to select Microsite on the form, save it and show it in the details view",
+      "status": "Code Review",
+      "assignee": "Marcin Matyszkowicz",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-574",
+      "description": "As a user, I want to have the ability to choose the Microsite item in the Click Action dropdown for the Spotlight Row and Spotlight Beacon creatives. There should also be the ability to set Microsite "
+    },
+    {
+      "key": "AENW-867",
+      "type": "Story",
+      "summary": "[Remnant] Test Left Aligned CTA button for Remnant 2023 on TV and using Ad Response generator",
+      "status": "Code Review",
+      "assignee": "Krzysztof Urba\u0144ski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-867",
+      "description": "As Product Owner i want to test, if creative of type \u201cBanner 1824x412\u201d created using DSP form [https://dsp.samsungads.com/b/323/creatives/new/stv_first_screen_masthead](https://dsp.samsungads.com/b/32"
+    },
+    {
+      "key": "AENW-915",
+      "type": "Story",
+      "summary": "Prepare serving services tasks for updated C2E Tech Spec",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-915",
+      "description": "Accetance criteria:\n\nserving services tasks for updated C2E Tech Spec ready\n\ncooparate with <custom data-type=\"mention\" data-id=\"id-0\">@Marcin Matyszkowicz</custom> with his task <custom data-type=\"sm"
+    },
+    {
+      "key": "AENW-906",
+      "type": "Task",
+      "summary": "Deliver TVs to Cracow ",
+      "status": "In Progress",
+      "assignee": "Patryk Palyska",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-906",
+      "description": "None"
+    },
+    {
+      "key": "AENW-904",
+      "type": "Story",
+      "summary": "[SW Test + Fast Track] Marcin Al-Jawahiri",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-904",
+      "description": "Acceptance criteria\n\n1. Solve Fundamentals of Graphs excercises\n\n"
+    },
+    {
+      "key": "AENW-767",
+      "type": "Task",
+      "summary": "[DSP-JS] Adding a new click action type \"click-to-email\" on the UI side",
+      "status": "In Progress",
+      "assignee": "Jakub Anio\u0142",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-767",
+      "description": "Acceptance criteria\n\nFF is working locally, in the preprod and production\n\nEmail is visible in the click actiuon  list as an another option\n\nWhen clickng Email option all elements in the form are visi"
+    },
+    {
+      "key": "AENW-579",
+      "type": "Task",
+      "summary": "E2E Test Microsite for Spotlight Beacon and Spotlight Row on real TV",
+      "status": "In Progress",
+      "assignee": "Marcin Matyszkowicz",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-579",
+      "description": "None"
+    },
+    {
+      "key": "AENW-912",
+      "type": "Story",
+      "summary": "Verify status of rtb-delivery feature/aenw-543-docker-compose-for-e2e-testing branch for Alex",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-912",
+      "description": "Acceptance criteria:  \nconfirm status of branch and if it fails pull changes from master, verify status after pull and provide feedback to Alex Sekowski"
+    },
+    {
+      "key": "AENW-843",
+      "type": "Story",
+      "summary": "[Remnant] Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context",
+      "status": "In Progress",
+      "assignee": "Jakub Anio\u0142",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-843",
+      "description": "Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context\n\nAcceptance Criteria:\n\n* Done knowledge transfer meeting with MTV team working on 1st Screen Unified and Fo"
+    },
+    {
+      "key": "AENW-127",
+      "type": "Story",
+      "summary": "[DSP-UI] Add new click action \"QR Code Microsite\"",
+      "status": "In Progress",
+      "assignee": "Unassigned",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-127",
+      "description": "As a DSP user on 2022-2026 forms for Masthead experiences i want new click action QR Code Microsite\u201d so that I can use QR Code microsite template without remembering microsite URL\n\n\u200c\n\nFunctional requi"
+    },
+    {
+      "key": "AENW-939",
+      "type": "Story",
+      "summary": "[Remnant] On DSP form for 2023 immersive banner add left/right toggle and burn in logo depending on selection",
+      "status": "Code Review",
+      "assignee": "Jakub Anio\u0142",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-939",
+      "description": "On DSP form [https://dsp.samsungads.com/b/323/creatives/new/stv_first_screen_masthead](https://dsp.samsungads.com/b/323/creatives/new/stv_first_screen_masthead) for Masthead Type \u201c2023 Immersive Banne"
+    },
+    {
+      "key": "AENW-915",
+      "type": "Story",
+      "summary": "Prepare serving services tasks for updated C2E Tech Spec",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-915",
+      "description": "Acceptance criteria:\n\nserving services tasks for updated C2E Tech Spec ready\n\ncooparate with <custom data-type=\"mention\" data-id=\"id-0\">@Marcin Matyszkowicz</custom> with his task <custom data-type=\"s"
+    },
+    {
+      "key": "AENW-912",
+      "type": "Story",
+      "summary": "Verify status of rtb-delivery feature/aenw-543-docker-compose-for-e2e-testing branch for Alex",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-912",
+      "description": "Acceptance criteria:  \nconfirm status of branch and if it fails pull changes from master, verify status after pull and provide feedback to Alex Sekowski"
+    },
+    {
+      "key": "AENW-906",
+      "type": "Task",
+      "summary": "Deliver TVs to Cracow ",
+      "status": "In Progress",
+      "assignee": "Patryk Palyska",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-906",
+      "description": "None"
+    },
+    {
+      "key": "AENW-904",
+      "type": "Story",
+      "summary": "[SW Test + Fast Track] Marcin Al-Jawahiri",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-904",
+      "description": "Acceptance criteria\n\n1. Solve Fundamentals of Graphs excercises\n\n"
+    },
+    {
+      "key": "AENW-867",
+      "type": "Story",
+      "summary": "[Remnant] Test Left Aligned CTA button for Remnant 2023 on TV and using Ad Response generator",
+      "status": "Code Review",
+      "assignee": "Krzysztof Urba\u0144ski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-867",
+      "description": "As Product Owner i want to test, if creative of type \u201cBanner 1824x412\u201d created using DSP form [https://dsp.samsungads.com/b/323/creatives/new/stv_first_screen_masthead](https://dsp.samsungads.com/b/32"
+    },
+    {
+      "key": "AENW-843",
+      "type": "Story",
+      "summary": "[Remnant] Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context",
+      "status": "In Progress",
+      "assignee": "Jakub Anio\u0142",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-843",
+      "description": "Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context\n\nAcceptance Criteria:\n\n* Done knowledge transfer meeting with MTV team working on 1st Screen Unified and Fo"
+    },
+    {
+      "key": "AENW-767",
+      "type": "Task",
+      "summary": "[DSP-JS] Adding a new click action type \"click-to-email\" on the UI side",
+      "status": "In Progress",
+      "assignee": "Jakub Anio\u0142",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-767",
+      "description": "Acceptance criteria\n\nFF is working locally, in the preprod and production\n\nEmail is visible in the click actiuon  list as an another option\n\nWhen clickng Email option all elements in the form are visi"
+    },
+    {
+      "key": "AENW-579",
+      "type": "Task",
+      "summary": "E2E Test Microsite for Spotlight Beacon and Spotlight Row on real TV",
+      "status": "In Progress",
+      "assignee": "Marcin Matyszkowicz",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-579",
+      "description": "None"
+    },
+    {
+      "key": "AENW-574",
+      "type": "Story",
+      "summary": "[DSP] Add functionality to select Microsite on the form, save it and show it in the details view",
+      "status": "Code Review",
+      "assignee": "Marcin Matyszkowicz",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-574",
+      "description": "As a user, I want to have the ability to choose the Microsite item in the Click Action dropdown for the Spotlight Row and Spotlight Beacon creatives. There should also be the ability to set Microsite "
+    },
+    {
+      "key": "AENW-127",
+      "type": "Story",
+      "summary": "[DSP-UI] Add new click action \"QR Code Microsite\"",
+      "status": "In Progress",
+      "assignee": "Unassigned",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/AENW-127",
+      "description": "As a DSP user on 2022-2026 forms for Masthead experiences i want new click action QR Code Microsite\u201d so that I can use QR Code microsite template without remembering microsite URL\n\n\u200c\n\nFunctional requi"
+    }
+  ]
+}

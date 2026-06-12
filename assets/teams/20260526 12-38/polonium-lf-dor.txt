@@ -1,0 +1,20 @@
+Team: Polonium LF (Lower Funnel)
+Page ID: 22606054953
+Extracted: 2026-05-26
+Status: WIP (Work In Progress)
+
+================================================================================
+TEAM DoR
+================================================================================
+
+Note: This team page appears to be incomplete (marked as WIP). The page
+references content from another team (Team Lava) but does not contain a
+complete DoR section specific to Polonium LF.
+
+The page indicates:
+- Team follows basic Scrum practices
+- Roles: Product Owner, Scrum Master (rotating), Developers
+- Standard ceremonies: Daily, Sprint Planning, Retrospective, Review, Refinement
+
+DoR/DoD not fully defined on this page. Team may be using program-level DoR/DoD
+or is still in the process of defining their team-specific criteria.

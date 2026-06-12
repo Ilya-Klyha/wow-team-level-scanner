@@ -1,0 +1,48 @@
+Team: Polonium UF
+Project: RSW
+Board ID: 10403
+Total Issues: 6
+Extraction Date: 2026-05-29 10:56:25.028558
+Query Type: project+team (Team field filtering enabled)
+
+================================================================================
+
+[RSW-1084] Task: [FE] Track GenAI summary section view metrics via Grafana Faro
+  Assignee: Katarzyna Kokieć | Priority: Medium | Status: Code Review
+  Team: AS - WAW - Polonium UF
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1084
+
+[RSW-1041] Task: [FE] Propagate selected presets on table and weights
+  Assignee: Zbigniew Stolarski | Priority: Medium | Status: In Progress
+  Team: AS - WAW - Polonium UF
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-1041
+
+[RSW-1040] Task: [FE] Create select dropdown for preset selection
+  Assignee: Zbigniew Stolarski | Priority: Medium | Status: In Progress
+  Team: AS - WAW - Polonium UF
+  Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/RSW-1040
+
+[RSW-904] Task: [BE] Auto-trigger summary generation in ai-processor-service
+  Assignee: Rafal Babinski | Priority: Medium | Status: Code Review
+  Team: AS - WAW - Polonium UF
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/RSW-904
+
+[RSW-883] Task: [FE] Implement messages UI
+  Assignee: Katarzyna Kokieć | Priority: Medium | Status: In Progress
+  Team: AS - WAW - Polonium UF
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-883
+
+[RSW-871] Task: [Infra] Create request for Bedrock (IAM policy)
+  Assignee: Piotr Stefański | Priority: Medium | Status: In Progress
+  Team: AS - WAW - Polonium UF
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/RSW-871
+
+================================================================================
+Status: success
+Total issues: 6

@@ -1,0 +1,381 @@
+{
+  "team": "Radium",
+  "boardUrl": "Unknown",
+  "boardId": "Unknown",
+  "projectKey": "AENW",
+  "extractedAt": "2026-05-28T08:59:14.835742Z",
+  "query": {
+    "jql": "sprint in openSprints() AND project = AENW AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+    "queryType": "sprint",
+    "queryAttempted": {
+      "primary": "sprint in openSprints() AND project = AENW AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+      "fallback": "project = AENW AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+      "primarySuccess": true
+    },
+    "statuses": [
+      "In Progress",
+      "Code Review"
+    ],
+    "issueTypes": [
+      "Story",
+      "Bug",
+      "Task"
+    ]
+  },
+  "summary": {
+    "total": 31,
+    "byStatus": {
+      "Code Review": 7,
+      "In Progress": 24
+    },
+    "byType": {
+      "Story": 19,
+      "Task": 10,
+      "Bug": 2
+    },
+    "truncated": false
+  },
+  "issues": [
+    {
+      "key": "AENW-849",
+      "type": "Story",
+      "summary": "AdManager Unleash Failures",
+      "status": "Code Review",
+      "assignee": "Josh Martin",
+      "priority": "Medium",
+      "created": "2026-05-27T14:35:19.943-0400",
+      "updated": "2026-05-27T14:52:48.501-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-849"
+    },
+    {
+      "key": "AENW-848",
+      "type": "Story",
+      "summary": "immersive banner creative id",
+      "status": "Code Review",
+      "assignee": "Josh Martin",
+      "priority": "Medium",
+      "created": "2026-05-27T13:30:58.155-0400",
+      "updated": "2026-05-27T14:36:34.831-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-848"
+    },
+    {
+      "key": "AENW-843",
+      "type": "Story",
+      "summary": "[Remnant] Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context",
+      "status": "In Progress",
+      "assignee": "Jakub Anioł",
+      "priority": "Medium",
+      "created": "2026-05-26T05:22:19.993-0400",
+      "updated": "2026-05-26T10:53:49.189-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-843"
+    },
+    {
+      "key": "AENW-841",
+      "type": "Task",
+      "summary": "Investigate Hot-Reload of creatives.term in Delivery Server",
+      "status": "In Progress",
+      "assignee": "Krzysztof Urbański",
+      "priority": "Medium",
+      "created": "2026-05-26T03:15:28.602-0400",
+      "updated": "2026-05-28T03:00:35.675-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-841"
+    },
+    {
+      "key": "AENW-839",
+      "type": "Bug",
+      "summary": "Docker build fails in rtb-delivery due to dependency lock mismatch",
+      "status": "In Progress",
+      "assignee": "Krzysztof Urbański",
+      "priority": "Medium",
+      "created": "2026-05-26T02:30:37.560-0400",
+      "updated": "2026-05-27T06:42:14.534-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-839"
+    },
+    {
+      "key": "AENW-836",
+      "type": "Story",
+      "summary": "Magnite Access For Team",
+      "status": "In Progress",
+      "assignee": "Josh Martin",
+      "priority": "Medium",
+      "created": "2026-05-21T18:26:40.421-0400",
+      "updated": "2026-05-26T14:05:05.249-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-836"
+    },
+    {
+      "key": "AENW-832",
+      "type": "Story",
+      "summary": "Investigate bidder compatibility filtering",
+      "status": "In Progress",
+      "assignee": "Raju C",
+      "priority": "Medium",
+      "created": "2026-05-21T14:38:18.004-0400",
+      "updated": "2026-05-22T13:31:57.373-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-832"
+    },
+    {
+      "key": "AENW-824",
+      "type": "Story",
+      "summary": "Verify Click To Web functionality",
+      "status": "In Progress",
+      "assignee": "Josh Martin",
+      "priority": "Medium",
+      "created": "2026-05-21T13:11:07.489-0400",
+      "updated": "2026-05-26T13:31:51.969-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-824"
+    },
+    {
+      "key": "AENW-807",
+      "type": "Task",
+      "summary": "Make text components reading length limit from DB",
+      "status": "In Progress",
+      "assignee": "Shujie Fan",
+      "priority": "Medium",
+      "created": "2026-05-20T15:37:04.824-0400",
+      "updated": "2026-05-22T13:21:25.643-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-807"
+    },
+    {
+      "key": "AENW-804",
+      "type": "Story",
+      "summary": "Learning about ad response generator",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "created": "2026-05-20T08:29:08.726-0400",
+      "updated": "2026-05-26T04:56:50.987-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-804"
+    },
+    {
+      "key": "AENW-801",
+      "type": "Story",
+      "summary": "[Microsite P2] SPIKE: Reporting Integration - tracker.js",
+      "status": "In Progress",
+      "assignee": "Raman Krot",
+      "priority": "Medium",
+      "created": "2026-05-20T08:25:45.518-0400",
+      "updated": "2026-05-26T03:48:52.356-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-801"
+    },
+    {
+      "key": "AENW-800",
+      "type": "Story",
+      "summary": "[Microsite P2] SPIKE: Reporting Integration - Delivery change scope",
+      "status": "In Progress",
+      "assignee": "Raman Krot",
+      "priority": "Medium",
+      "created": "2026-05-20T08:25:44.324-0400",
+      "updated": "2026-05-25T04:07:09.374-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-800"
+    },
+    {
+      "key": "AENW-799",
+      "type": "Story",
+      "summary": "[Microsite P2] SPIKE: Reporting Integration - Reporting team communication",
+      "status": "In Progress",
+      "assignee": "Raman Krot",
+      "priority": "Medium",
+      "created": "2026-05-20T08:25:42.751-0400",
+      "updated": "2026-05-21T04:13:41.874-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-799"
+    },
+    {
+      "key": "AENW-788",
+      "type": "Story",
+      "summary": "[Training] Scrum master training by Ilya",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "created": "2026-05-20T07:42:02.203-0400",
+      "updated": "2026-05-26T04:56:31.857-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-788"
+    },
+    {
+      "key": "AENW-779",
+      "type": "Story",
+      "summary": "Investigate Lint Timeouts",
+      "status": "Code Review",
+      "assignee": "Josh Martin",
+      "priority": "Medium",
+      "created": "2026-05-19T16:35:18.279-0400",
+      "updated": "2026-05-26T15:08:43.145-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-779"
+    },
+    {
+      "key": "AENW-776",
+      "type": "Story",
+      "summary": "Prepare DSP Part Draft Techspec Click To E-mail",
+      "status": "In Progress",
+      "assignee": "Marcin Matyszkowicz",
+      "priority": "Medium",
+      "created": "2026-05-19T07:29:51.563-0400",
+      "updated": "2026-05-28T04:18:46.648-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-776"
+    },
+    {
+      "key": "AENW-775",
+      "type": "Story",
+      "summary": "Agree on final solution architecture among proposed options - v3/v4/v5",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "created": "2026-05-19T07:16:49.595-0400",
+      "updated": "2026-05-27T06:49:36.091-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-775"
+    },
+    {
+      "key": "AENW-766",
+      "type": "Task",
+      "summary": "[DSP-Ruby] Migration - enum stv_creative_attr_action_type_enum",
+      "status": "In Progress",
+      "assignee": "Jakub Anioł",
+      "priority": "Medium",
+      "created": "2026-05-19T06:54:11.610-0400",
+      "updated": "2026-05-27T11:56:05.543-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-766"
+    },
+    {
+      "key": "AENW-764",
+      "type": "Bug",
+      "summary": "Stale repository warning does not detect months",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "created": "2026-05-19T05:39:39.713-0400",
+      "updated": "2026-05-26T10:52:00.298-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-764"
+    },
+    {
+      "key": "AENW-756",
+      "type": "Task",
+      "summary": "[DSP][UI] Vac Ads Show creative page",
+      "status": "Code Review",
+      "assignee": "Keertan Dakarapu",
+      "priority": "Medium",
+      "created": "2026-05-18T15:06:14.380-0400",
+      "updated": "2026-05-21T13:11:51.569-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-756"
+    },
+    {
+      "key": "AENW-729",
+      "type": "Task",
+      "summary": "[Bidder] Vac response",
+      "status": "In Progress",
+      "assignee": "Rohan Deshpande",
+      "priority": "Medium",
+      "created": "2026-05-13T12:11:07.690-0400",
+      "updated": "2026-05-22T01:41:28.196-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-729"
+    },
+    {
+      "key": "AENW-706",
+      "type": "Task",
+      "summary": "Unified Auction for Native",
+      "status": "In Progress",
+      "assignee": "Rohan Deshpande",
+      "priority": "Medium",
+      "created": "2026-05-11T12:47:54.322-0400",
+      "updated": "2026-05-20T13:07:17.915-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-706"
+    },
+    {
+      "key": "AENW-699",
+      "type": "Story",
+      "summary": "[Microsite p2] UseCase + Task — S3 Upload",
+      "status": "Code Review",
+      "assignee": "Michał Wiącek",
+      "priority": "Medium",
+      "created": "2026-05-11T08:25:57.272-0400",
+      "updated": "2026-05-21T05:09:29.156-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-699"
+    },
+    {
+      "key": "AENW-619",
+      "type": "Story",
+      "summary": "[Microsite p2] Tech Spec & Pre-ARB Review",
+      "status": "In Progress",
+      "assignee": "Raman Krot",
+      "priority": "Medium",
+      "created": "2026-05-04T07:37:22.921-0400",
+      "updated": "2026-05-20T08:57:44.730-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-619"
+    },
+    {
+      "key": "AENW-601",
+      "type": "Story",
+      "summary": "[Microsite p2] General Settings Section",
+      "status": "In Progress",
+      "assignee": "Hanna Dzenis",
+      "priority": "Medium",
+      "created": "2026-05-04T07:19:51.984-0400",
+      "updated": "2026-05-25T05:03:04.507-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-601"
+    },
+    {
+      "key": "AENW-574",
+      "type": "Story",
+      "summary": "[DSP] Add functionality to select Microsite on the form, save it and show it in the details view",
+      "status": "In Progress",
+      "assignee": "Grzegorz Prasal",
+      "priority": "Medium",
+      "created": "2026-04-29T12:26:14.458-0400",
+      "updated": "2026-05-20T07:01:35.794-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-574"
+    },
+    {
+      "key": "AENW-550",
+      "type": "Task",
+      "summary": "Setting up Bidder and Config Apps in local",
+      "status": "In Progress",
+      "assignee": "i.meyyappan",
+      "priority": "Medium",
+      "created": "2026-04-22T17:08:22.826-0400",
+      "updated": "2026-05-21T18:31:38.996-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-550"
+    },
+    {
+      "key": "AENW-523",
+      "type": "Story",
+      "summary": "Rotate CA Certificates",
+      "status": "Code Review",
+      "assignee": "Josh Martin",
+      "priority": "Medium",
+      "created": "2026-04-20T13:13:09.779-0400",
+      "updated": "2026-05-26T14:08:52.408-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-523"
+    },
+    {
+      "key": "AENW-490",
+      "type": "Task",
+      "summary": "[Rtb-Config] Update alerting threshold",
+      "status": "In Progress",
+      "assignee": "i.meyyappan",
+      "priority": "Medium",
+      "created": "2026-04-14T15:36:53.363-0400",
+      "updated": "2026-05-21T18:31:38.631-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-490"
+    },
+    {
+      "key": "AENW-86",
+      "type": "Task",
+      "summary": "[API] validations to be done dynamically",
+      "status": "Code Review",
+      "assignee": "Shujie Fan",
+      "priority": "Medium",
+      "created": "2026-01-26T17:23:13.864-0500",
+      "updated": "2026-05-21T18:31:39.296-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-86"
+    },
+    {
+      "key": "AENW-25",
+      "type": "Task",
+      "summary": "[DSP][UI] Setup vac ads creative form - basic form",
+      "status": "In Progress",
+      "assignee": "Keertan Dakarapu",
+      "priority": "Medium",
+      "created": "2026-01-20T11:58:43.510-0500",
+      "updated": "2026-05-21T13:11:48.569-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-25"
+    }
+  ]
+}

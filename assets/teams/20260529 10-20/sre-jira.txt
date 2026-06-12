@@ -1,0 +1,434 @@
+Team: SRE
+Project: EEEW
+Total Issues: 22
+Extraction Date: 2026-06-10 15:01:18
+
+================================================================================
+
+
+================================================================================
+Issue: EEEW-373
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: ARB Tech Spec for DRP
+Assignee: Ryan Fawcett
+URL: https://adgear.atlassian.net/browse/EEEW-373
+Created: 2026-05-28T13:08:28.083-0400
+Updated: 2026-05-28T13:08:57.251-0400
+================================================================================
+
+Description:
+Create a Tech Spec for The ARB around the DRP process and overview
+
+
+================================================================================
+Issue: EEEW-372
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Create Terraform AWS LAMBDA Module
+Assignee: Sandeep Nakka
+URL: https://adgear.atlassian.net/browse/EEEW-372
+Created: 2026-05-27T19:28:47.107-0400
+Updated: 2026-05-28T13:27:08.681-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-371
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Create Terraform AWS IAM Module
+Assignee: Sandeep Nakka
+URL: https://adgear.atlassian.net/browse/EEEW-371
+Created: 2026-05-27T19:28:18.580-0400
+Updated: 2026-05-27T19:29:05.286-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-366
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Fix the dora-metrics cronjob schedule failure
+Assignee: Godson Raju
+URL: https://adgear.atlassian.net/browse/EEEW-366
+Created: 2026-05-26T17:48:03.907-0400
+Updated: 2026-05-26T18:16:50.524-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-352
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Enrich Looker dashboard bedrock metrics with region, department, function
+Assignee: Godson Raju
+URL: https://adgear.atlassian.net/browse/EEEW-352
+Created: 2026-05-19T14:47:23.018-0400
+Updated: 2026-05-20T16:15:14.395-0400
+================================================================================
+
+Description:
+[Structured content - see JSON for details]
+
+
+================================================================================
+Issue: EEEW-351
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Add AWS Config catalog plug-in to dev Backstage
+Assignee: Alex Orlov
+URL: https://adgear.atlassian.net/browse/EEEW-351
+Created: 2026-05-19T14:31:49.693-0400
+Updated: 2026-05-27T16:36:59.755-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-344
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [SPIKE] evaluate and/or implement Looker MCP server
+Assignee: Godson Raju
+URL: https://adgear.atlassian.net/browse/EEEW-344
+Created: 2026-05-18T20:33:32.783-0400
+Updated: 2026-05-20T14:07:57.472-0400
+================================================================================
+
+Description:
+<custom data-type="smartlink" data-id="id-0">https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server</custom> 
+
+
+================================================================================
+Issue: EEEW-336
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Migrate adsolutions-infra to TFE
+Assignee: Sandeep Nakka
+URL: https://adgear.atlassian.net/browse/EEEW-336
+Created: 2026-05-15T18:01:29.530-0400
+Updated: 2026-05-22T17:49:59.392-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-333
+Type: Task
+Status: In Progress
+Priority: High
+Summary: Fix Kyverno policy violation on ingress-nginx-dsp-bidding-systems admission job
+Assignee: Serhiy Danchenko
+URL: https://adgear.atlassian.net/browse/EEEW-333
+Created: 2026-05-15T10:58:24.206-0400
+Updated: 2026-05-20T14:07:57.218-0400
+================================================================================
+
+Description:
+## Problem
+
+The ingress-nginx admission webhook job in namespace `op-ingress-nginx-dsp-bidding-systems` is blocked by Kyverno policy `require-requests-limits`:
+
+```
+one or more objects failed to apply, reason: admission webhook "validate.kyverno.svc-fail" denied the request:
+
+resource Job/op-ingress-nginx-dsp-bidding-systems/ingress-nginx-dsp-bidding-systems-admission-create was blocked due to the following policies
+
+require-requests-limits:
+  autogen-validate-resources: 'validation error: - CPU and Memory resource requests
+    are required. - Memory resource limit is required.'
+```
+
+## Root Cause
+
+The admission-create Job template in the ingress-nginx Helm chart does not have resource requests/limits configured, which violates the cluster Kyverno policy.
+
+## Fix
+
+Add resource requests and limits to the admission webhook job in the ingress-nginx Helm values for the `dsp-bidding-systems` deployment. The relevant container at `/spec/template/spec/containers/0/resources/limits/` needs:
+
+* CPU request
+* Memory request
+* Memory limit
+
+## Reference
+
+* Policy docs: https://adgear.atlassian.net/wiki/spaces/ENG/pages/20158808082/Require+requests+limits
+
+
+
+
+================================================================================
+Issue: EEEW-332
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: AI skill for IaC engineering standards
+Assignee: Marcin Wojtas
+URL: https://adgear.atlassian.net/browse/EEEW-332
+Created: 2026-05-15T10:41:01.098-0400
+Updated: 2026-05-21T04:03:27.779-0400
+================================================================================
+
+Description:
+Establish a foundational skill that encodes organizational Terraform conventions, compliance requirements, and engineering best practices — serving as the guidance layer for all infrastructure provisioning skills.
+
+###   Acceptance Criteria:
+
+* Adapts JPL/NASA Power of 10 rules to Terraform context
+* Adapts Terraform best practices (<custom data-type="smartlink" data-id="id-0">http://terraform-best-practices.com</custom> )
+* Adapts custom Samsung Ads rules (allowed providers/modules list from TFE)
+* Follows AWS resource naming conventions (references aws-naming skill)
+* Defines naming convention rules for Terraform resources (locals, variables, outputs, modules)
+* Skill is tested and validated in a real provisioning scenario
+
+
+
+
+================================================================================
+Issue: EEEW-330
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Streamline the provisioning of Claude code review action to a new repo
+Assignee: Anil Reddy Gunukula
+URL: https://adgear.atlassian.net/browse/EEEW-330
+Created: 2026-05-14T20:19:07.650-0400
+Updated: 2026-05-27T09:11:10.467-0400
+================================================================================
+
+Description:
+We’ve enabled Claude code review for a few repos in a bit of a hacky manner - I’ve downloaded the private key for the app locally, and when someone asks for a new repo to be added, I upload the secrets to that new repo as repo secrets. Let’s streamline this - the secrets should be in Vault, and there should be instructions in Confluence describing how to enable Claude Code review in a new repo.  
+  
+**Additional Info:**  
+**Requirements:**  
+      **PR reviews using the** `claude code`  
+**Present Scenario and Analysis:**  
+     Currently the PR reviews using the `claude code` is being setup up at a individual repo level with the below steps
+
+* Setup the secrets at the Github Level for individual repo
+* Individual IAM role is being created for each repo in `adgeardev` Manually
+* Github Workflow is being setup at the individual repo
+
+**Solution and Next Steps:**  
+    I am working on streamlining the PR review process using the `claude code` at an organization level using the  `REVIEW.md` rules file with the below steps
+
+* Setup the secrets in `Vault` accessible to all repo(s).
+* Setup a common IAM role using Terraform
+* **TBD:** centralized workflow(s) with organization level code review rules and custom rules for the repo(s).
+
+
+
+
+================================================================================
+Issue: EEEW-326
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: Ask from SE for BIM project
+Assignee: Mansi Boriya
+URL: https://adgear.atlassian.net/browse/EEEW-326
+Created: 2026-05-13T16:51:27.034-0400
+Updated: 2026-05-28T14:39:55.185-0400
+================================================================================
+
+Description:
+1. It seems that even after the ticket is moved to PM Complete , the slack channel keeps getting reminders of Please Complete the PM Doc , can this be modified to stop after ticket is in complete stage ?
+2. Is it possible to make sure the PM Doc is created only after the BIM is moved to mitigated ? As of now as soon as a BIM is created in Jira , a PM Doc is created in Confluence , can we somehow modify this flow so that the PM Doc is only created once issue is mitigated ? Please dont change this , I am just checking what is the possibility of this .
+3. Is there a way to trigger PM Doc depending on Sev level , like right now if there is any Sev level in Jira , it creates a predefined page from confluence , can we somehow make sure for Sev4 a different page is create d, is this possible ?
+
+
+
+
+================================================================================
+Issue: EEEW-325
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Audit the Tiers of component groups 
+Assignee: Mansi Boriya
+URL: https://adgear.atlassian.net/browse/EEEW-325
+Created: 2026-05-12T19:48:42.456-0400
+Updated: 2026-05-20T14:07:56.562-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-313
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Make the PD incident dashboard available internally
+Assignee: Mansi Boriya
+URL: https://adgear.atlassian.net/browse/EEEW-313
+Created: 2026-05-11T15:04:18.049-0400
+Updated: 2026-05-20T14:07:58.684-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-271
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Follow up with Aerospike and Kafka SLI / SLO and runbooks with EP Data
+Assignee: Dinesh Kumar Shanmugasundaram
+URL: https://adgear.atlassian.net/browse/EEEW-271
+Created: 2026-05-05T13:22:00.606-0400
+Updated: 2026-05-21T17:31:37.597-0400
+================================================================================
+
+Description:
+Follow up on making sure runbooks make it to the repo as well as the drp after review. 
+
+
+================================================================================
+Issue: EEEW-270
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Get feedback on Aerospike and Kafka draft
+Assignee: Dinesh Kumar Shanmugasundaram
+URL: https://adgear.atlassian.net/browse/EEEW-270
+Created: 2026-05-05T13:20:53.121-0400
+Updated: 2026-05-20T14:07:56.852-0400
+================================================================================
+
+Description:
+Meet with EP-data and get feedback on aerospike draft. 
+
+
+================================================================================
+Issue: EEEW-268
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Create a new AWS role ARN for Attribution and switch to it
+Assignee: Anil Reddy Gunukula
+URL: https://adgear.atlassian.net/browse/EEEW-268
+Created: 2026-05-01T19:09:01.108-0400
+Updated: 2026-05-20T14:07:57.061-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-256
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Remove EP Data team members from O.SRE
+Assignee: Alex Orlov
+URL: https://adgear.atlassian.net/browse/EEEW-256
+Created: 2026-04-30T17:01:46.030-0400
+Updated: 2026-05-20T17:25:04.720-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-143
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Define and deploy Sloth SLOs for privacy-backend
+Assignee: Anil Reddy Gunukula
+URL: https://adgear.atlassian.net/browse/EEEW-143
+Created: 2026-04-08T14:22:38.010-0400
+Updated: 2026-05-26T11:05:33.665-0400
+================================================================================
+
+Description:
+Deploy Sloth SLO configuration for privacy-backend.
+
+**Service:** privacy-backend
+**Tier:** 2
+**Owner:** cg-dc-native
+**Repo:** adgear/privacy-backend
+
+See runbook: [SLO Implementation](https://github.com/adgear/infra-project/blob/main/runbooks/slo-implementation.md)
+
+
+================================================================================
+Issue: EEEW-91
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: Create a Github Action to add PR approval channel info as a comment on a PR
+Assignee: Alex Orlov
+URL: https://adgear.atlassian.net/browse/EEEW-91
+Created: 2026-04-08T13:18:57.779-0400
+Updated: 2026-05-20T14:07:56.994-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-89
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Create PrivateLinks for services in production DSP account to communicate with S3 across regions
+Assignee: Alex Orlov
+URL: https://adgear.atlassian.net/browse/EEEW-89
+Created: 2026-04-07T14:23:56.999-0400
+Updated: 2026-05-20T14:07:57.702-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: EEEW-83
+Type: Story
+Status: Code Review
+Priority: High
+Summary: Make the metadata check mandatory
+Assignee: Ryan Fawcett
+URL: https://adgear.atlassian.net/browse/EEEW-83
+Created: 2024-12-18T13:40:31.421-0500
+Updated: 2026-05-20T18:41:54.312-0400
+================================================================================
+
+Description:
+The metadata check already is configured to run on all repos, but it’s not mandatory.
+
+We previously made it mandatory and ran into an obstacle - auto-generated PRs (like what happens on kserve) don’t trigger the metadata check.
+
+A part of the success criteria for this task is that we don’t block these auto-generated PRs 
+

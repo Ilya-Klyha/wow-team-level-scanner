@@ -1,0 +1,27 @@
+Team: ML-Platform
+Page: https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732360213
+Page ID: 21732360213
+Extracted: 2026-05-27T14:59:45Z
+
+=== DEFINITION OF READY (DoR) - STORY/TASK ===
+
+Status: not_found
+
+Note: The ML Platform (Pandas) page contains minimal content with no DoR section defined.
+
+Page content includes:
+- Introduction: ML Infrastructure and platform updates and improvements to ensure security, efficiency, scalability and reliability of ML workflows. The team is actively monitoring MLE pipelines to reduce workflow failures and minimize out-of-service time.
+- Team responsibility:
+  * ML Platform Supporting:
+    - Upgrade Airflow
+    - Supporting the creation and maintenance of the Quicksite dashboard
+    - PI SRPOL eSRE supports EP-Team, delivers end-to-end infrastructure access management, from user onboarding to resource optimization
+  * Feature store POC - support developing comprehensive design documentation for Feature Store
+  * Monitoring MLE pipelines
+- People section (minimal roster)
+- Links to Jira board and PER tickets
+
+The page does not contain any Definition of Ready criteria.
+
+---
+Status: not_found

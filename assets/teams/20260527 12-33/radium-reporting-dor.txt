@@ -1,0 +1,18 @@
+Team: Radium-Reporting (Bigos)
+Page: https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22695936064
+Page ID: 22695936064
+Extracted: 2026-05-27T12:33:00Z
+
+=== DEFINITION OF READY (DoR) - STORY/TASK ===
+
+(Content references external pages:
+- https://adgear.atlassian.net/wiki/spaces/ENG/pages/22175482213 (Bigos DoR and DoD for Story/Task)
+- https://adgear.atlassian.net/wiki/spaces/ENG/pages/22174270387 (Bigos DoR and DoD for PER))
+
+Needs to fetch the linked page for full DoR content.
+
+---
+Status: linked_page
+Source: external_reference
+Linked Page: https://adgear.atlassian.net/wiki/spaces/ENG/pages/22175482213
+Notes: Team Bigos references external DoR page - needs separate fetch

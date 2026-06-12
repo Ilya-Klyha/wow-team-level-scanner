@@ -1,0 +1,29 @@
+Team: Igni
+Title: SRPOL Team - Igni
+Page ID: 22435922026
+URL: https://adgear.atlassian.net/wiki/spaces/ENG/pages/22435922026
+Sprint Board: https://adgear.atlassian.net/jira/software/c/projects/ASPW/boards/9477
+Extraction Date: 2026-05-26T11:54:03.043Z
+
+DEFINITION OF READY (DoR) - STORY/TASK
+=====================================
+
+User Story/Requirement Clarity
+The user story or requirement is clearly articulated, concise, and understandable to all team members.
+Context and requirements should be well defined.
+If it possible, in tasks add helpful technical aspects or details.
+
+Contact persons
+All external tasks should contain contact information for stakeholders or other important persons.
+
+Acceptance Criteria
+Specific, testable acceptance criteria are provided for the user story, outlining what constitutes successful completion.
+
+Monitoring and Alerting Configured (if applicable)
+Necessary monitoring and alerting for the new feature or change have been configured.
+
+Estimates Provided
+The development team has provided an estimate for the work.
+
+Dependencies
+Highlighted dependencies with other teams, milestones and deadlines.

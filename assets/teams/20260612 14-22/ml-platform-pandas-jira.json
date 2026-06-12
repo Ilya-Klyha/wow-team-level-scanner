@@ -1,0 +1,29 @@
+{
+  "team": "ML Platform Pandas",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/projects/ML/boards/10470",
+  "boardId": "10470",
+  "projectKey": "ML",
+  "extractedAt": "2026-06-12T14:22:47+02:00",
+  "issues": [
+    {
+      "key": "ML-55",
+      "type": "Task",
+      "summary": "Implement Test DAG MLOps based on SDK",
+      "status": "In Progress",
+      "assignee": "Tomasz Teter",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ML-55",
+      "description": "Acceptance criteria:\n1. Test DAG fully written using SDK\n2. Test DAG successfully running E2E 2.10.3"
+    },
+    {
+      "key": "ML-10",
+      "type": "Task",
+      "summary": "Support after MWAA upgrade to 2.10.3",
+      "status": "In Progress",
+      "assignee": "Tomasz Teter",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ML-10",
+      "description": "Provide support and handle issues arising from the MWAA upgrade. Acceptance criteria: TBD"
+    }
+  ]
+}

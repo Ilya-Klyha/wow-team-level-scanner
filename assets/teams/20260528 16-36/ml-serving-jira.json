@@ -1,0 +1,26 @@
+{
+  "team": "ML Serving",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4090",
+  "boardId": "4090",
+  "projectKey": "PEPI",
+  "extractedAt": "2026-05-28T16:36:00Z",
+  "query": {
+    "jql": "sprint in openSprints() AND project = PEPI AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+    "queryType": "sprint",
+    "statuses": [
+      "In Progress",
+      "Code Review"
+    ],
+    "issueTypes": [
+      "Story",
+      "Bug",
+      "Task"
+    ]
+  },
+  "summary": {
+    "total": 0,
+    "byStatus": {},
+    "byType": {}
+  },
+  "issues": []
+}

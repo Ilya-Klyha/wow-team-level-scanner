@@ -1,0 +1,15 @@
+TEAM: MLOps Serving (Sturgeons)
+PAGE_ID: 21732425749
+EXTRACTED: 2026-05-26
+
+===== Definition of Ready - STORY/TASK =====
+
+[NOTE: The team page does not contain a specific Definition of Ready section for STORY/TASK level. The page is brief and focuses on team introduction and responsibilities. No DoR criteria were found on this page.]
+
+Team responsibility:
+- Developing new functionalities
+- Creating processes
+- Ensuring system stability and integrability
+- Developing tool that allow to test E2E solution
+
+Team focus: ML Serving is responsible for optimizing real-time bid decisions by leveraging Samsung's proprietary Machine Learning (ML) models, served with online and offline features.

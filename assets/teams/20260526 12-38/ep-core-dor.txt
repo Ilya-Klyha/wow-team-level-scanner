@@ -1,0 +1,37 @@
+Team: EP Core (Engineering Platform)
+Page ID: 22817472513
+Extracted: 2026-05-26
+
+================================================================================
+TEAM DoR
+================================================================================
+
+- The user story and/or requirement is clearly articulated, concise, and
+  understandable to all team members. Concrete and measurable.
+
+- We have clear & testable Acceptance Criteria.
+
+- All necessary documents are provided if task requires such like TechSpecs.
+  Task was estimated by the team. Story points are assigned.
+
+- All dependencies of tasks and blockers are defined and resolved (inside and
+  outside).
+
+- Label Lifeguard is added to ticket (when it is needed).
+
+Team Charter Mission:
+The Engineering Platform (EP) Core team builds, maintains, and evolves a self-
+service, secure, and observable platform that enables all engineering teams at
+Samsung Ads & future also in SBT to deploy, operate, and scale their
+applications efficiently. We provide the foundational infrastructure and
+tooling that powers our production workloads.
+
+Core Values:
+1. Developer Experience First
+2. Security is Non-Negotiable
+3. Operational Excellence
+4. Collaboration Over Silos
+5. Continuous Improvement
+
+Reference: Way of Working
+https://adgear.atlassian.net/wiki/spaces/ENG/pages/21863268822

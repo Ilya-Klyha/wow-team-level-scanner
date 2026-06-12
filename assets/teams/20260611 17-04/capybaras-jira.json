@@ -1,0 +1,91 @@
+{
+  "team": "Capybaras",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/projects/RSW/boards/10156",
+  "projectKey": "RSW",
+  "extractedAt": "2026-06-11T17:04:00+02:00",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = RSW AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "queryType": "project_filtered_client_side",
+    "teamPattern": "AS - WAW - Capybaras"
+  },
+  "summary": {
+    "total": 6,
+    "byStatus": {
+      "In Progress": 6
+    },
+    "byType": {
+      "Task": 4,
+      "Story": 2
+    },
+    "truncated": false
+  },
+  "issues": [
+    {
+      "key": "RSW-1314",
+      "type": "Task",
+      "summary": "[SRPOL-OR] Measure performance gains of new WH and snowpark code",
+      "status": "In Progress",
+      "assignee": "Cezary Kret",
+      "priority": "Medium",
+      "created": "2026-06-09T03:14:17.433-0400",
+      "updated": "2026-06-10T12:54:06.229-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1314"
+    },
+    {
+      "key": "RSW-1306",
+      "type": "Task",
+      "summary": "[AU] E2E Segment Generation Validation — Pipeline Trigger & Size Consistency on PROD",
+      "status": "In Progress",
+      "assignee": "Tomasz Zaród",
+      "priority": "Medium",
+      "created": "2026-06-08T05:37:14.985-0400",
+      "updated": "2026-06-09T06:45:29.152-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1306"
+    },
+    {
+      "key": "RSW-1305",
+      "type": "Task",
+      "summary": "[SRPOL-OR] Adjust and validate e-mail quality in new conversational version",
+      "status": "In Progress",
+      "assignee": "Piotr Jarosz",
+      "priority": "Medium",
+      "created": "2026-06-08T03:47:48.166-0400",
+      "updated": "2026-06-09T10:09:43.863-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1305"
+    },
+    {
+      "key": "RSW-1238",
+      "type": "Task",
+      "summary": "[SRPOL-OR] Measure cost changes after economic warehouse type introduction",
+      "status": "In Progress",
+      "assignee": "Jakub Fołtyn",
+      "priority": "Medium",
+      "created": "2026-06-02T09:04:09.388-0400",
+      "updated": "2026-06-11T09:08:45.010-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1238"
+    },
+    {
+      "key": "RSW-1097",
+      "type": "Story",
+      "summary": "[SRPOL-OR] Add dedicated cost tracking view for OR",
+      "status": "In Progress",
+      "assignee": "Piotr Marciniak",
+      "priority": "Medium",
+      "created": "2026-05-19T10:36:02.810-0400",
+      "updated": "2026-06-03T11:15:18.768-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1097"
+    },
+    {
+      "key": "RSW-555",
+      "type": "Story",
+      "summary": "[SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach",
+      "status": "In Progress",
+      "assignee": "Dariusz Bielawski",
+      "priority": "Medium",
+      "created": "2026-01-21T08:27:52.249-0500",
+      "updated": "2026-06-09T14:48:09.881-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-555"
+    }
+  ]
+}

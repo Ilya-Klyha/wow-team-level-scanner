@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "team_name": "Capybaras",
+    "issue_count": 6,
+    "extraction_date": "2026-05-29T10:56:25.028558Z",
+    "project_key": "RSW",
+    "board_id": "10156",
+    "team_field_id": "customfield_10114",
+    "team_pattern": "AS - WAW - Capybaras",
+    "query_type": "project+team"
+  },
+  "issues": [
+    {
+      "key": "RSW-1113",
+      "type": "Task",
+      "summary": "Create demo video with good scenario",
+      "status": "In Progress",
+      "assignee": "Piotr Jarosz",
+      "priority": "Medium",
+      "created": "2026-05-20T09:06:16.311-0400",
+      "updated": "2026-05-22T10:09:06.552-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1113",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    },
+    {
+      "key": "RSW-925",
+      "type": "Story",
+      "summary": "[SRPOL-OR] Generate Example Audiences",
+      "status": "Code Review",
+      "assignee": "Piotr Marciniak",
+      "priority": "Medium",
+      "created": "2026-05-05T07:45:11.064-0400",
+      "updated": "2026-05-27T09:23:09.606-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-925",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    },
+    {
+      "key": "RSW-923",
+      "type": "Story",
+      "summary": "[SRPOL-OR] Prepare Data Availablity report",
+      "status": "Code Review",
+      "assignee": "Cezary Kret",
+      "priority": "Medium",
+      "created": "2026-05-05T07:37:27.381-0400",
+      "updated": "2026-05-27T09:01:10.072-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-923",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    },
+    {
+      "key": "RSW-798",
+      "type": "Task",
+      "summary": "Add deployable core with conversation logic, depending only on AWS SDK",
+      "status": "In Progress",
+      "assignee": "Piotr Jarosz",
+      "priority": "Medium",
+      "created": "2026-04-23T11:10:21.885-0400",
+      "updated": "2026-05-27T03:41:25.232-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-798",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    },
+    {
+      "key": "RSW-752",
+      "type": "Task",
+      "summary": "[SRPOL-OR] Transform queries to snowpark and test on snowpark memory-optimized warehouse nodes",
+      "status": "In Progress",
+      "assignee": "Cezary Kret",
+      "priority": "Medium",
+      "created": "2026-04-22T05:24:49.643-0400",
+      "updated": "2026-05-28T17:53:22.771-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-752",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    },
+    {
+      "key": "RSW-390",
+      "type": "Story",
+      "summary": "[SRPOL-OR-26Q1] Create PoC code for recommended approach",
+      "status": "In Progress",
+      "assignee": "Dariusz Bielawski",
+      "priority": "Medium",
+      "created": "2026-01-21T08:22:19.863-0500",
+      "updated": "2026-05-27T04:31:59.904-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-390",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    }
+  ]
+}

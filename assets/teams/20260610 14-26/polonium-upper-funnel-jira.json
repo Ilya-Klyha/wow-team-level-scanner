@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "teamName": "Polonium-Upper-Funnel",
+    "projectKey": "RSW",
+    "boardId": "10403",
+    "extractionDate": "2026-06-10T15:05:36.555562",
+    "extractionTimestamp": "2026-06-10 15:05:36"
+  },
+  "query": {
+    "jql": "sprint in openSprints() AND project = RSW AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+    "queryType": "sprint",
+    "teamFilterEnabled": false,
+    "localFilterApplied": true,
+    "teamPattern": "Polonium"
+  },
+  "summary": {
+    "total": 4,
+    "byStatus": {
+      "In Progress": 3,
+      "Code Review": 1
+    },
+    "byType": {
+      "Task": 4
+    }
+  },
+  "issues": [
+    {
+      "key": "RSW-1237",
+      "type": "Task",
+      "summary": "[FE] Integrate Retry Button with dedicated BE endpoint",
+      "status": "In Progress",
+      "assignee": "Zbigniew Stolarski",
+      "priority": "Medium",
+      "created": "2026-06-02T05:39:48.886-0400",
+      "updated": "2026-06-03T05:48:18.247-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1237",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    },
+    {
+      "key": "RSW-1214",
+      "type": "Task",
+      "summary": "Cumulative Reach \u00e2\u20ac\u201d N/A and empty cells instead of 0 when Samsung adds no incremental reach",
+      "status": "Code Review",
+      "assignee": "Piotr Stefa\u0139\u201eski",
+      "priority": "Medium",
+      "created": "2026-05-27T07:31:28.083-0400",
+      "updated": "2026-06-10T04:28:53.629-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1214",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    },
+    {
+      "key": "RSW-1038",
+      "type": "Task",
+      "summary": "[BE] Add new table to DB for custom groups' apps presets",
+      "status": "In Progress",
+      "assignee": "Dmitriy Borowski",
+      "priority": "Medium",
+      "created": "2026-05-14T06:01:41.488-0400",
+      "updated": "2026-06-08T04:31:33.724-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1038",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    },
+    {
+      "key": "RSW-880",
+      "type": "Task",
+      "summary": "[BE] GenAI Service \u00e2\u20ac\u201d session reset",
+      "status": "In Progress",
+      "assignee": "Rafal Babinski",
+      "priority": "Medium",
+      "created": "2026-04-30T05:59:30.504-0400",
+      "updated": "2026-06-09T04:40:24.022-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-880",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    }
+  ]
+}

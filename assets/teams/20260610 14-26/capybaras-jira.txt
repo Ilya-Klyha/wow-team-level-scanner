@@ -1,0 +1,71 @@
+================================================================================
+JIRA ISSUES REPORT: Capybaras
+================================================================================
+Project: RSW
+Board ID: 10156
+Generated: 2026-06-10 15:05:36
+
+SUMMARY:
+  Total Issues: 5
+
+  By Status:
+    - In Progress: 5
+
+  By Type:
+    - Task: 3
+    - Story: 2
+
+================================================================================
+ISSUES DETAIL
+================================================================================
+
+[1] RSW-1314: [SRPOL-OR] Measure performance gains of new WH and snowpark code
+    Type: Task
+    Status: In Progress
+    Assignee: Cezary Kret
+    Priority: Medium
+    Team: AS - WAW - Capybaras
+    Created: 2026-06-09T03:14:17.433-0400
+    Updated: 2026-06-09T10:18:21.601-0400
+    URL: https://adgear.atlassian.net/browse/RSW-1314
+
+[2] RSW-1306: [AU] E2E Segment Generation Validation — Pipeline Trigger & Size Consistency on PROD
+    Type: Task
+    Status: In Progress
+    Assignee: Tomasz Zaród
+    Priority: Medium
+    Team: AS - WAW - Capybaras
+    Created: 2026-06-08T05:37:14.985-0400
+    Updated: 2026-06-09T06:45:29.152-0400
+    URL: https://adgear.atlassian.net/browse/RSW-1306
+
+[3] RSW-1305: [SRPOL-OR] Adjust and validate e-mail quality in new conversational version
+    Type: Task
+    Status: In Progress
+    Assignee: Piotr Jarosz
+    Priority: Medium
+    Team: AS - WAW - Capybaras
+    Created: 2026-06-08T03:47:48.166-0400
+    Updated: 2026-06-09T10:09:43.863-0400
+    URL: https://adgear.atlassian.net/browse/RSW-1305
+
+[4] RSW-1097: [SRPOL-OR] Add dedicated cost tracking view for OR
+    Type: Story
+    Status: In Progress
+    Assignee: Piotr Marciniak
+    Priority: Medium
+    Team: AS - WAW - Capybaras
+    Created: 2026-05-19T10:36:02.810-0400
+    Updated: 2026-06-03T11:15:18.768-0400
+    URL: https://adgear.atlassian.net/browse/RSW-1097
+
+[5] RSW-555: [SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach
+    Type: Story
+    Status: In Progress
+    Assignee: Dariusz Bielawski
+    Priority: Medium
+    Team: AS - WAW - Capybaras
+    Created: 2026-01-21T08:27:52.249-0500
+    Updated: 2026-06-09T14:48:09.881-0400
+    URL: https://adgear.atlassian.net/browse/RSW-555
+

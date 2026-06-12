@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "team_name": "Polonium UF",
+    "issue_count": 6,
+    "extraction_date": "2026-05-29T10:56:25.028558Z",
+    "project_key": "RSW",
+    "board_id": "10403",
+    "team_field_id": "customfield_10114",
+    "team_pattern": "AS - WAW - Polonium UF",
+    "query_type": "project+team"
+  },
+  "issues": [
+    {
+      "key": "RSW-1084",
+      "type": "Task",
+      "summary": "[FE] Track GenAI summary section view metrics via Grafana Faro",
+      "status": "Code Review",
+      "assignee": "Katarzyna Kokieć",
+      "priority": "Medium",
+      "created": "2026-05-19T04:04:50.061-0400",
+      "updated": "2026-05-26T10:19:32.043-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1084",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    },
+    {
+      "key": "RSW-1041",
+      "type": "Task",
+      "summary": "[FE] Propagate selected presets on table and weights",
+      "status": "In Progress",
+      "assignee": "Zbigniew Stolarski",
+      "priority": "Medium",
+      "created": "2026-05-14T06:13:05.895-0400",
+      "updated": "2026-05-27T04:17:49.982-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1041",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    },
+    {
+      "key": "RSW-1040",
+      "type": "Task",
+      "summary": "[FE] Create select dropdown for preset selection",
+      "status": "In Progress",
+      "assignee": "Zbigniew Stolarski",
+      "priority": "Medium",
+      "created": "2026-05-14T06:11:28.111-0400",
+      "updated": "2026-05-21T05:56:36.228-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1040",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    },
+    {
+      "key": "RSW-904",
+      "type": "Task",
+      "summary": "[BE] Auto-trigger summary generation in ai-processor-service",
+      "status": "Code Review",
+      "assignee": "Rafal Babinski",
+      "priority": "Medium",
+      "created": "2026-05-04T04:12:41.459-0400",
+      "updated": "2026-05-28T09:14:38.156-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-904",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    },
+    {
+      "key": "RSW-883",
+      "type": "Task",
+      "summary": "[FE] Implement messages UI",
+      "status": "In Progress",
+      "assignee": "Katarzyna Kokieć",
+      "priority": "Medium",
+      "created": "2026-04-30T07:13:30.238-0400",
+      "updated": "2026-05-26T10:19:54.453-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-883",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    },
+    {
+      "key": "RSW-871",
+      "type": "Task",
+      "summary": "[Infra] Create request for Bedrock (IAM policy)",
+      "status": "In Progress",
+      "assignee": "Piotr Stefański",
+      "priority": "Medium",
+      "created": "2026-04-30T05:38:10.532-0400",
+      "updated": "2026-05-28T06:27:00.528-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-871",
+      "teamField": "AS - WAW - Polonium UF",
+      "teamName": "Polonium UF"
+    }
+  ]
+}

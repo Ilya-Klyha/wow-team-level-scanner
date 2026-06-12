@@ -1,0 +1,60 @@
+================================================================================
+JIRA ISSUES REPORT: Europium
+================================================================================
+Project: AENW
+Board ID: 8979
+Generated: 2026-06-10 15:05:12
+
+SUMMARY:
+  Total Issues: 4
+
+  By Status:
+    - In Progress: 4
+
+  By Type:
+    - Story: 4
+
+================================================================================
+ISSUES DETAIL
+================================================================================
+
+[1] AENW-895: [Microsite P2] General Settings Section UI Fixes
+    Type: Story
+    Status: In Progress
+    Assignee: Grzegorz Prasal
+    Priority: Medium
+    Team: AP - WAW - Europium
+    Created: 2026-06-02T17:48:51.413-0400
+    Updated: 2026-06-03T04:28:44.806-0400
+    URL: https://adgear.atlassian.net/browse/AENW-895
+
+[2] AENW-859: [Microsite P2] Implement rtb-delivery endpoint and handler
+    Type: Story
+    Status: In Progress
+    Assignee: Raman Krot
+    Priority: Medium
+    Team: AP - WAW - Europium
+    Created: 2026-06-01T09:08:15.461-0400
+    Updated: 2026-06-08T06:17:12.518-0400
+    URL: https://adgear.atlassian.net/browse/AENW-859
+
+[3] AENW-701: [Microsite p2] UseCase + Task — HTML Generation
+    Type: Story
+    Status: In Progress
+    Assignee: Michał Wiącek
+    Priority: Medium
+    Team: AP - WAW - Europium
+    Created: 2026-05-11T08:28:32.848-0400
+    Updated: 2026-06-09T04:55:21.040-0400
+    URL: https://adgear.atlassian.net/browse/AENW-701
+
+[4] AENW-685: [Micoristes P2] Create Micro Frontend
+    Type: Story
+    Status: In Progress
+    Assignee: Karol Strojek
+    Priority: Medium
+    Team: AP - WAW - Europium
+    Created: 2026-05-11T07:56:42.992-0400
+    Updated: 2026-06-03T04:21:47.640-0400
+    URL: https://adgear.atlassian.net/browse/AENW-685
+

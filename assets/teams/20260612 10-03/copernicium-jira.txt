@@ -1,0 +1,49 @@
+JIRA Active Issues - Copernicium
+==================================================
+Extracted: 2026-06-12T10:03:00+02:00
+Project: AETVP
+Board: https://adgear.atlassian.net/jira/software/projects/AETVP/boards/9246
+Team Field Pattern: AE - WAW - Copernicium
+Filter Method: post-query (project-level JQL + customfield_10114 filtering)
+
+SUMMARY
+------------------------------
+Total active issues: 5
+By Status:
+  - In Progress: 4
+  - Code Review: 1
+By Type:
+  - Task: 5
+
+ISSUES
+------------------------------
+
+[AETVP-584] [rtb-delivery, adgear-data, log-converter] P&S reporting: Adjust implementation to use top-level property instead of `misc`.
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Kamil Madejek
+  Created: 2026-06-03T06:23:30.121-0400 | Updated: 2026-06-08T05:39:46.315-0400
+  URL: https://adgear.atlassian.net/browse/AETVP-584
+
+[AETVP-579] Model, database, and creative type registration for separate Poll & Survey
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Yevgeniy Wyszyński
+  Created: 2026-06-03T06:00:57.995-0400 | Updated: 2026-06-08T05:35:52.231-0400
+  URL: https://adgear.atlassian.net/browse/AETVP-579
+
+[AETVP-564] [Spike] Investigate "infoblob" feasibility in InteractiveAd SDK custom trackers.
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Kamil Madejek
+  Created: 2026-06-01T05:21:39.223-0400 | Updated: 2026-06-03T06:16:21.331-0400
+  URL: https://adgear.atlassian.net/browse/AETVP-564
+
+[AETVP-528] Run test campaign on TV in the office
+  Type: Task | Status: Code Review | Priority: Critical
+  Assignee: Jacek Wróblewski
+  Created: 2026-05-18T07:43:24.327-0400 | Updated: 2026-06-10T05:33:32.455-0400
+  URL: https://adgear.atlassian.net/browse/AETVP-528
+
+[AETVP-476] [vertica-rollups] Add iadpoll metrics aggregation
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Kamil Madejek
+  Created: 2026-05-06T09:19:42.880-0400 | Updated: 2026-06-03T12:43:01.279-0400
+  URL: https://adgear.atlassian.net/browse/AETVP-476

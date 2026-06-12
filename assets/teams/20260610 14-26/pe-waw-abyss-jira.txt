@@ -1,0 +1,54 @@
+Team: PE-WAW-Abyss
+Board: https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/9980
+Board ID: 9980
+Project: MAW
+Extracted: 2026-06-10T18:30:00Z
+Query Strategy: Team ID-based filtering
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 6
+- In Progress: 5
+- Code Review: 1
+
+Issues by type:
+- Stories: 5
+- Sub-tasks: 1
+
+=== IN PROGRESS (5 issues) ===
+
+[MAW-418] Sub-task: Write summary
+  Assignee: Mateusz Roślak | Priority: Medium | Updated: 2026-06-09
+  Team: PE - WAW - Abyss
+  https://adgear.atlassian.net/browse/MAW-418
+
+[MAW-377] Story: Investigate AG_REV parameter handling
+  Assignee: Mateusz Roślak | Priority: Medium | Updated: 2026-06-08
+  Team: PE - WAW - Abyss
+  https://adgear.atlassian.net/browse/MAW-377
+
+[MAW-376] Story: Enabling dynamic parameters
+  Assignee: Rafal Stefanowicz | Priority: Medium | Updated: 2026-06-09
+  Team: PE - WAW - Abyss
+  https://adgear.atlassian.net/browse/MAW-376
+
+[MAW-375] Story: Enabling standard pixel selection
+  Assignee: Maciej Lewandowski | Priority: Medium | Updated: 2026-06-08
+  Team: PE - WAW - Abyss
+  https://adgear.atlassian.net/browse/MAW-375
+
+[MAW-374] Story: Dynamic parameters support for pixels v1
+  Assignee: Maksim Matchenia | Priority: Medium | Updated: 2026-06-08
+  Team: PE - WAW - Abyss
+  https://adgear.atlassian.net/browse/MAW-374
+
+=== CODE REVIEW (1 issue) ===
+
+[MAW-259] Story: "segments" rebranding
+  Assignee: Maciej Lewandowski | Priority: Medium | Updated: 2026-06-09
+  Team: PE - WAW - Abyss
+  https://adgear.atlassian.net/browse/MAW-259
+
+---
+Status: success

@@ -1,0 +1,61 @@
+================================================================================
+JIRA ISSUES REPORT: Polonium-Upper-Funnel
+================================================================================
+Project: RSW
+Board ID: 10403
+Generated: 2026-06-10 15:05:36
+
+SUMMARY:
+  Total Issues: 4
+
+  By Status:
+    - In Progress: 3
+    - Code Review: 1
+
+  By Type:
+    - Task: 4
+
+================================================================================
+ISSUES DETAIL
+================================================================================
+
+[1] RSW-1237: [FE] Integrate Retry Button with dedicated BE endpoint
+    Type: Task
+    Status: In Progress
+    Assignee: Zbigniew Stolarski
+    Priority: Medium
+    Team: AS - WAW - Polonium UF
+    Created: 2026-06-02T05:39:48.886-0400
+    Updated: 2026-06-03T05:48:18.247-0400
+    URL: https://adgear.atlassian.net/browse/RSW-1237
+
+[2] RSW-1214: Cumulative Reach — N/A and empty cells instead of 0 when Samsung adds no incremental reach
+    Type: Task
+    Status: Code Review
+    Assignee: Piotr Stefański
+    Priority: Medium
+    Team: AS - WAW - Polonium UF
+    Created: 2026-05-27T07:31:28.083-0400
+    Updated: 2026-06-10T04:28:53.629-0400
+    URL: https://adgear.atlassian.net/browse/RSW-1214
+
+[3] RSW-1038: [BE] Add new table to DB for custom groups' apps presets
+    Type: Task
+    Status: In Progress
+    Assignee: Dmitriy Borowski
+    Priority: Medium
+    Team: AS - WAW - Polonium UF
+    Created: 2026-05-14T06:01:41.488-0400
+    Updated: 2026-06-08T04:31:33.724-0400
+    URL: https://adgear.atlassian.net/browse/RSW-1038
+
+[4] RSW-880: [BE] GenAI Service — session reset
+    Type: Task
+    Status: In Progress
+    Assignee: Rafal Babinski
+    Priority: Medium
+    Team: AS - WAW - Polonium UF
+    Created: 2026-04-30T05:59:30.504-0400
+    Updated: 2026-06-09T04:40:24.022-0400
+    URL: https://adgear.atlassian.net/browse/RSW-880
+

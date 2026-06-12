@@ -1,0 +1,14 @@
+Team: Polonium-LF
+Title: Polonium LF [WIP]
+Page ID: 22606054953
+URL: https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22606054953
+Sprint Board: https://adgear.atlassian.net/jira/software/c/projects/PEDSP/boards/8973
+Extraction Date: 2026-05-26T11:54:03.036Z
+
+DEFINITION OF READY (DoR) - STORY/TASK
+=====================================
+
+Team DoR
+
+Team DoD
+Story on the team level is Done when all AC from story is met and new functionality is available on Prod environment behind Feature flag.

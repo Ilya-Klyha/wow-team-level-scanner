@@ -1,0 +1,11 @@
+Team: ML-Platform-Pandas
+Title: ML Platform (Pandas)
+Page ID: 21732360213
+URL: https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732360213
+Sprint Board: 
+Extraction Date: 2026-05-26T11:54:03.041Z
+
+DEFINITION OF READY (DoR) - STORY/TASK
+=====================================
+
+No DoR section found for this team.

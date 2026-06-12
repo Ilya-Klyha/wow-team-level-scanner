@@ -1,0 +1,111 @@
+{
+  "team": "Bigos",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/projects/MAW/boards/11439",
+  "projectKey": "MAW",
+  "extractedAt": "2026-06-12T10:03:00+02:00",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = MAW AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "queryType": "project",
+    "teamPattern": "AS - WAW - Bigos",
+    "teamFilterMethod": "post-query"
+  },
+  "summary": {
+    "total": 7,
+    "byStatus": {
+      "In Progress": 4,
+      "Code Review": 3
+    },
+    "byType": {
+      "Story": 5,
+      "Task": 2
+    },
+    "truncated": false
+  },
+  "issues": [
+    {
+      "key": "MAW-406",
+      "type": "Story",
+      "summary": "Add Simple Bearer Authentication",
+      "status": "In Progress",
+      "assignee": "Kirill Timoszenko",
+      "priority": "Medium",
+      "created": "2026-06-08T05:13:29.483-0400",
+      "updated": "2026-06-11T04:20:05.011-0400",
+      "url": "https://adgear.atlassian.net/browse/MAW-406",
+      "teamField": "AS - WAW - Bigos"
+    },
+    {
+      "key": "MAW-372",
+      "type": "Task",
+      "summary": "Setup git Agent",
+      "status": "In Progress",
+      "assignee": "Kirill Timoszenko",
+      "priority": "Medium",
+      "created": "2026-06-03T05:15:46.811-0400",
+      "updated": "2026-06-03T12:24:49.534-0400",
+      "url": "https://adgear.atlassian.net/browse/MAW-372",
+      "teamField": "AS - WAW - Bigos"
+    },
+    {
+      "key": "MAW-367",
+      "type": "Task",
+      "summary": "[SRE] Conversion API project setup",
+      "status": "In Progress",
+      "assignee": "Lukasz Kaminski",
+      "priority": "Medium",
+      "created": "2026-06-01T07:33:56.600-0400",
+      "updated": "2026-06-08T01:50:57.751-0400",
+      "url": "https://adgear.atlassian.net/browse/MAW-367",
+      "teamField": "AS - WAW - Bigos"
+    },
+    {
+      "key": "MAW-365",
+      "type": "Story",
+      "summary": "Basic Error Handling",
+      "status": "Code Review",
+      "assignee": "Rafał Parol",
+      "priority": "Medium",
+      "created": "2026-05-29T03:13:13.989-0400",
+      "updated": "2026-06-10T09:15:28.886-0400",
+      "url": "https://adgear.atlassian.net/browse/MAW-365",
+      "teamField": "AS - WAW - Bigos"
+    },
+    {
+      "key": "MAW-364",
+      "type": "Story",
+      "summary": "Raw Data Persistence",
+      "status": "In Progress",
+      "assignee": "Rahul Tomer",
+      "priority": "Medium",
+      "created": "2026-05-29T03:08:02.288-0400",
+      "updated": "2026-06-08T08:51:19.349-0400",
+      "url": "https://adgear.atlassian.net/browse/MAW-364",
+      "teamField": "AS - WAW - Bigos"
+    },
+    {
+      "key": "MAW-363",
+      "type": "Story",
+      "summary": "Event Schema Validation",
+      "status": "Code Review",
+      "assignee": "Rafał Parol",
+      "priority": "Medium",
+      "created": "2026-05-29T03:05:56.308-0400",
+      "updated": "2026-06-11T08:09:34.276-0400",
+      "url": "https://adgear.atlassian.net/browse/MAW-363",
+      "teamField": "AS - WAW - Bigos"
+    },
+    {
+      "key": "MAW-362",
+      "type": "Story",
+      "summary": "Public REST API Endpoint",
+      "status": "Code Review",
+      "assignee": "Rafał Parol",
+      "priority": "Medium",
+      "created": "2026-05-29T03:02:04.293-0400",
+      "updated": "2026-06-03T05:26:48.944-0400",
+      "url": "https://adgear.atlassian.net/browse/MAW-362",
+      "teamField": "AS - WAW - Bigos"
+    }
+  ]
+}

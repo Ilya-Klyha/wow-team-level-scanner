@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "team_name": "Igni",
+    "issue_count": 1,
+    "extraction_date": "2026-05-29T10:56:25.028558Z",
+    "project_key": "ASPW",
+    "board_id": "9477",
+    "team_field_id": "customfield_10114",
+    "team_pattern": "N/A",
+    "query_type": "project"
+  },
+  "issues": [
+    {
+      "key": "ASPW-835",
+      "type": "Task",
+      "summary": "Scope adding impression signal",
+      "status": "In Progress",
+      "assignee": "Vincent Kubala",
+      "priority": "Medium",
+      "created": "2026-05-20T14:07:19.434-0400",
+      "updated": "2026-05-20T14:13:15.783-0400",
+      "url": "https://adgear.atlassian.net/browse/ASPW-835",
+      "teamField": "",
+      "teamName": ""
+    }
+  ]
+}

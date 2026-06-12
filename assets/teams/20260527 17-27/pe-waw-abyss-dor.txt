@@ -1,0 +1,21 @@
+The "Definition of Ready" ensures that a software development ticket is sufficiently prepared and understood by the development team before it is pulled into a sprint or iteration. A ticket meeting the DoR is ready for immediate development without requiring further clarification or investigation.
+
+Criterion: User Story/Requirement Clarity
+Description: The user story or requirement is clearly articulated, concise, and understandable to all team members.
+Comments:
+
+Criterion: Acceptance Criteria and Measurement Defined
+Description: Specific, testable acceptance criteria are provided for the user story, outlining what constitutes successful completion.
+Comments:
+
+Criterion: Monitoring and Alerting Configured (if applicable)
+Description: Necessary monitoring and alerting for the new feature or change have been configured.
+Comments: Configuration: what and where should be configured? Metrics: how do we measure story/task?
+
+Criterion: Estimates Provided
+Description: The development team has provided an estimate for the work, or the ticket has been broken down to a size that allows for reasonable estimation.
+Comments: Estimations are based on the whole team experience. Story Estimation - Cheat Sheet - Google Sheets
+
+Criterion: Dependencies
+Description: Highlighted dependencies with other teams or milestones.
+Comments: All blocking tasks are resolved.

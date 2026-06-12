@@ -1,0 +1,579 @@
+Active Issues (64 total)
+============================================================
+
+Key: ASPW-1126
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Paweł Kwietniewski
+Title: Fix RTB-Bidder pod starting sequence
+URL: https://adgear.atlassian.net/browse/ASPW-1126
+------------------------------------------------------------
+
+Key: ASPW-1108
+Type: Task
+Status: Code Review
+Priority: Medium
+Assignee: Mikhail Khomenkov
+Title: rtb-delivery traffic multiplier experiment
+URL: https://adgear.atlassian.net/browse/ASPW-1108
+------------------------------------------------------------
+
+Key: ASPW-1099
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Dmytro Gorbenko
+Title: Unify unleash cache code across rtb systems into rtb-lib
+URL: https://adgear.atlassian.net/browse/ASPW-1099
+------------------------------------------------------------
+
+Key: ASPW-1098
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Dmitriy Kargapolov
+Title: Implement experiment traffic multiplier for RTB Gateway load testing
+URL: https://adgear.atlassian.net/browse/ASPW-1098
+------------------------------------------------------------
+
+Key: ASPW-1091
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Zane Zhang
+Title: debug and enable pacing calculation message on dev/prod
+URL: https://adgear.atlassian.net/browse/ASPW-1091
+------------------------------------------------------------
+
+Key: ASPW-1081
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: JungHwan Jaden Kim
+Title: Flight drop statistics schema (v2) change for better performance
+URL: https://adgear.atlassian.net/browse/ASPW-1081
+------------------------------------------------------------
+
+Key: ASPW-1054
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Dmytro Gorbenko
+Title: Improve data reading from aerospike database
+URL: https://adgear.atlassian.net/browse/ASPW-1054
+------------------------------------------------------------
+
+Key: ASPW-1052
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Vincent Kubala
+Title: Verify new Yes Rate API
+URL: https://adgear.atlassian.net/browse/ASPW-1052
+------------------------------------------------------------
+
+Key: ASPW-1047
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Shiddeshwar Khandekar
+Title: Data Activation KT
+URL: https://adgear.atlassian.net/browse/ASPW-1047
+------------------------------------------------------------
+
+Key: ASPW-1043
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: shoaib siddiquie
+Title: Create City Mapping file for 2 new countries
+URL: https://adgear.atlassian.net/browse/ASPW-1043
+------------------------------------------------------------
+
+Key: ASPW-1038
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Mohan Lal
+Title: Capture Test Evidence for Tracker (without VAST) for 1P
+URL: https://adgear.atlassian.net/browse/ASPW-1038
+------------------------------------------------------------
+
+Key: ASPW-1037
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Ayush Kumar
+Title: Merge Vast fork repo pr
+URL: https://adgear.atlassian.net/browse/ASPW-1037
+------------------------------------------------------------
+
+Key: ASPW-1027
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Rajnish Kumar
+Title: Ad Event Auction schema registration
+URL: https://adgear.atlassian.net/browse/ASPW-1027
+------------------------------------------------------------
+
+Key: ASPW-1025
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: srinidhi.n.v
+Title: KPI Metric for rollout
+URL: https://adgear.atlassian.net/browse/ASPW-1025
+------------------------------------------------------------
+
+Key: ASPW-1024
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Rajnish Kumar
+Title: Catalyst Auction topic event Mapper
+URL: https://adgear.atlassian.net/browse/ASPW-1024
+------------------------------------------------------------
+
+Key: ASPW-1021
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Sangeeta
+Title: Scoping to support contextual targeting in Bidder
+URL: https://adgear.atlassian.net/browse/ASPW-1021
+------------------------------------------------------------
+
+Key: ASPW-1019
+Type: Story
+Status: Code Review
+Priority: Medium
+Assignee: ADITI BHATT
+Title: Prepare release readiness doc for 10% CTV rollout
+URL: https://adgear.atlassian.net/browse/ASPW-1019
+------------------------------------------------------------
+
+Key: ASPW-1017
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Shalu Sinha
+Title: Fix AG_PB query param difference, some urls in the RTB-Bidder is still empty
+URL: https://adgear.atlassian.net/browse/ASPW-1017
+------------------------------------------------------------
+
+Key: ASPW-1016
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: srinidhi.n.v
+Title: Fix field diiference uid_type is None in Gateway but has value in Bidder
+URL: https://adgear.atlassian.net/browse/ASPW-1016
+------------------------------------------------------------
+
+Key: ASPW-1015
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Rakesh
+Title: Fix TcfOptout field difference Gateway and Bidder
+URL: https://adgear.atlassian.net/browse/ASPW-1015
+------------------------------------------------------------
+
+Key: ASPW-1008
+Type: Task
+Status: Code Review
+Priority: Medium
+Assignee: Sehwan Noh
+Title: Implement REST endpoint in pacing-augmenter to trigger oCPM equation recomputation
+URL: https://adgear.atlassian.net/browse/ASPW-1008
+------------------------------------------------------------
+
+Key: ASPW-1000
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Shiddeshwar Khandekar
+Title: Address Review comments for GO User Agent
+URL: https://adgear.atlassian.net/browse/ASPW-1000
+------------------------------------------------------------
+
+Key: ASPW-997
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Paweł Kwietniewski
+Title: Deploy ConsumerD new release
+URL: https://adgear.atlassian.net/browse/ASPW-997
+------------------------------------------------------------
+
+Key: ASPW-988
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Abhishek Kumar
+Title: Add a panel showing VAST delivery processing failures in Catalyst Tracker, similar to the bidder's "Delivery Responses Failures" panel.
+URL: https://adgear.atlassian.net/browse/ASPW-988
+------------------------------------------------------------
+
+Key: ASPW-985
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Aditya Raj
+Title: Creation of Kafka topic - flight & campaign level
+URL: https://adgear.atlassian.net/browse/ASPW-985
+------------------------------------------------------------
+
+Key: ASPW-984
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Saurabh Gupta
+Title: Structs Unification in go-be-tree library
+URL: https://adgear.atlassian.net/browse/ASPW-984
+------------------------------------------------------------
+
+Key: ASPW-983
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Aditya Raj
+Title: Option Analysis - flink job, airflow or timeseries db
+URL: https://adgear.atlassian.net/browse/ASPW-983
+------------------------------------------------------------
+
+Key: ASPW-979
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: shoaib siddiquie
+Title: Bidder/Gateway Stats Events: Data Analysis & Cross-Team Coordination
+URL: https://adgear.atlassian.net/browse/ASPW-979
+------------------------------------------------------------
+
+Key: ASPW-977
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Abhishek Kumar
+Title: follow on to metric and dashboards related work for Project Nexus
+URL: https://adgear.atlassian.net/browse/ASPW-977
+------------------------------------------------------------
+
+Key: ASPW-959
+Type: Story
+Status: Code Review
+Priority: Medium
+Assignee: Dhruv Gaur
+Title: Rollout 100 percent of 2400 in apse, euw, use via orchestration mode in PROD with SDSP
+URL: https://adgear.atlassian.net/browse/ASPW-959
+------------------------------------------------------------
+
+Key: ASPW-956
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Dhruv Gaur
+Title: Setup Argo rollout for Catalyst via custom metrics and GHA for automated rollouts
+URL: https://adgear.atlassian.net/browse/ASPW-956
+------------------------------------------------------------
+
+Key: ASPW-955
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Ramprasad Damodar
+Title: SRE work (permissioning, etc) required to enable Argo roll out for Catalyst
+URL: https://adgear.atlassian.net/browse/ASPW-955
+------------------------------------------------------------
+
+Key: ASPW-951
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Abhishek Kumar
+Title: Exclude 8K request via Bid Policy Matcher
+URL: https://adgear.atlassian.net/browse/ASPW-951
+------------------------------------------------------------
+
+Key: ASPW-942
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Mohan Lal
+Title: BadgeDB buffer: Fix for detecting and logging kafka retryable errors
+URL: https://adgear.atlassian.net/browse/ASPW-942
+------------------------------------------------------------
+
+Key: ASPW-937
+Type: Story
+Status: Code Review
+Priority: Medium
+Assignee: Patrick Ting
+Title: validate grafana campaign pacing dashboard
+URL: https://adgear.atlassian.net/browse/ASPW-937
+------------------------------------------------------------
+
+Key: ASPW-918
+Type: Story
+Status: Code Review
+Priority: Medium
+Assignee: ADITI BHATT
+Title: Identify and fix 1P CTV Proxy reasons to Gateway
+URL: https://adgear.atlassian.net/browse/ASPW-918
+------------------------------------------------------------
+
+Key: ASPW-916
+Type: Bug
+Status: In Progress
+Priority: Medium
+Assignee: Rui Jiang
+Title: LinearPacingActor is getting unhandled messages
+URL: https://adgear.atlassian.net/browse/ASPW-916
+------------------------------------------------------------
+
+Key: ASPW-840
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Dmitri Skliarov
+Title: Address dependabot warnings in pacingd-go
+URL: https://adgear.atlassian.net/browse/ASPW-840
+------------------------------------------------------------
+
+Key: ASPW-835
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Vincent Kubala
+Title: Scope adding impression signal
+URL: https://adgear.atlassian.net/browse/ASPW-835
+------------------------------------------------------------
+
+Key: ASPW-825
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Rakesh
+Title: Synthetic ID support in GDPR code change 
+URL: https://adgear.atlassian.net/browse/ASPW-825
+------------------------------------------------------------
+
+Key: ASPW-816
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: shoaib siddiquie
+Title: ML Team Use case understanding for the new Pipeline building
+URL: https://adgear.atlassian.net/browse/ASPW-816
+------------------------------------------------------------
+
+Key: ASPW-808
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Rakesh
+Title: Remove GDPR TCF V2 feature flag
+URL: https://adgear.atlassian.net/browse/ASPW-808
+------------------------------------------------------------
+
+Key: ASPW-794
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Ayush Kumar
+Title: Fix Bidder vs Catalyst Adresponse
+URL: https://adgear.atlassian.net/browse/ASPW-794
+------------------------------------------------------------
+
+Key: ASPW-792
+Type: Story
+Status: Code Review
+Priority: Medium
+Assignee: Ayush Kumar
+Title: RTB-Catalyst: Vast End TO End Testing for 3p DSP
+URL: https://adgear.atlassian.net/browse/ASPW-792
+------------------------------------------------------------
+
+Key: ASPW-689
+Type: Story
+Status: Code Review
+Priority: Medium
+Assignee: Alexander Andersson
+Title: CCPA - Transition of Metadata from Erlang Based Implementation to Golang BERT Encoder
+URL: https://adgear.atlassian.net/browse/ASPW-689
+------------------------------------------------------------
+
+Key: ASPW-661
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Ayush Kumar
+Title: Capture Test Evidence for Tracker (including VAST) for 1P
+URL: https://adgear.atlassian.net/browse/ASPW-661
+------------------------------------------------------------
+
+Key: ASPW-637
+Type: Bug
+Status: In Progress
+Priority: Medium
+Assignee: Adam Doliński
+Title: consumerd ready file logic is broken 
+URL: https://adgear.atlassian.net/browse/ASPW-637
+------------------------------------------------------------
+
+Key: ASPW-572
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Dmitri Skliarov
+Title:  Remove the unleash_lib dependency from both rtb-gateway and rtb-delivery services.
+URL: https://adgear.atlassian.net/browse/ASPW-572
+------------------------------------------------------------
+
+Key: ASPW-560
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Franciszek Strzeżek
+Title: Knowledge Transfer session about rewriting objects to new native Golang encoder
+URL: https://adgear.atlassian.net/browse/ASPW-560
+------------------------------------------------------------
+
+Key: ASPW-554
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Franciszek Strzeżek
+Title: Rewrite "stvd_optouts" object to use new encoder
+URL: https://adgear.atlassian.net/browse/ASPW-554
+------------------------------------------------------------
+
+Key: ASPW-518
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Rakesh
+Title: Response validator - rerun and report generation
+URL: https://adgear.atlassian.net/browse/ASPW-518
+------------------------------------------------------------
+
+Key: ASPW-466
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Shiddeshwar Khandekar
+Title: Integration of UserAgent Go library with rtb-bidder repo
+URL: https://adgear.atlassian.net/browse/ASPW-466
+------------------------------------------------------------
+
+Key: ASPW-465
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Saurabh Gupta
+Title: Integration of Native Matcher Go library with rtb-bidder repo
+URL: https://adgear.atlassian.net/browse/ASPW-465
+------------------------------------------------------------
+
+Key: ASPW-449
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Seokbaek Lee
+Title: GitHub Actions Workflows migration to Node.JS 24
+URL: https://adgear.atlassian.net/browse/ASPW-449
+------------------------------------------------------------
+
+Key: ASPW-231
+Type: Story
+Status: Code Review
+Priority: Medium
+Assignee: Patrick Ting
+Title: pacing-oracle - Pacing simulation
+URL: https://adgear.atlassian.net/browse/ASPW-231
+------------------------------------------------------------
+
+Key: ASPW-145
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Seokbaek Lee
+Title: Refactor rtb-gateway-tools
+URL: https://adgear.atlassian.net/browse/ASPW-145
+------------------------------------------------------------
+
+Key: ASPW-85
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: jongyoun.han@samsung.com
+Title: Pipe Flight filtering 
+URL: https://adgear.atlassian.net/browse/ASPW-85
+------------------------------------------------------------
+
+Key: ASPW-84
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: JungHwan Jaden Kim
+Title: Betree Filtering 
+URL: https://adgear.atlassian.net/browse/ASPW-84
+------------------------------------------------------------
+
+Key: ASPW-83
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Jaehoon LIM
+Title: Weather Ad Component & Integration Testing
+URL: https://adgear.atlassian.net/browse/ASPW-83
+------------------------------------------------------------
+
+Key: ASPW-82
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: ChanSup Hwang
+Title: Gateway / Delivery Integration and Logging 
+URL: https://adgear.atlassian.net/browse/ASPW-82
+------------------------------------------------------------
+
+Key: ASPW-80
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: ByungSoo Lee
+Title: S-SSP Interface for Contextual Ads
+URL: https://adgear.atlassian.net/browse/ASPW-80
+------------------------------------------------------------
+
+Key: ASPW-44
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Ravi Sastry Kadali
+Title: Implement support for IPv6 attribution
+URL: https://adgear.atlassian.net/browse/ASPW-44
+------------------------------------------------------------
+
+Key: ASPW-37
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Sergey Aleynikov
+Title: Flight debugging tool & extension of boolean expression library with annotations
+URL: https://adgear.atlassian.net/browse/ASPW-37
+------------------------------------------------------------
+
+Key: ASPW-6
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Alexander Andersson
+Title: Data Activation - consumerd pod takes 5-10 minutes, need to optimize
+URL: https://adgear.atlassian.net/browse/ASPW-6
+------------------------------------------------------------
+

@@ -1,0 +1,19 @@
+{
+  "team": "Capybaras",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10156",
+  "boardId": "10156",
+  "projectKey": "RSW",
+  "extractedAt": "2026-05-27T14:59:45Z",
+  "query": {
+    "jql": "board = 10156 AND status IN (\"In Progress\", \"Code review\") AND issuetype IN (Story, Bug, Task)",
+    "statuses": ["In Progress", "Code review"],
+    "issueTypes": ["Story", "Bug", "Task"]
+  },
+  "summary": {
+    "total": 0,
+    "byStatus": {},
+    "byType": {},
+    "truncated": false
+  },
+  "issues": []
+}

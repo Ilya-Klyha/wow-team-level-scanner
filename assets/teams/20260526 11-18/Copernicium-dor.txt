@@ -1,0 +1,28 @@
+Team: Copernicium
+Title: Copernicium Team Space
+Page ID: 20734247032
+URL: https://adgear.atlassian.net/wiki/spaces/ENG/pages/20734247032
+Sprint Board: https://adgear.atlassian.net/jira/software/c/projects/AETVP/boards/9246
+Extraction Date: 2026-05-26T11:54:03.034Z
+
+DEFINITION OF READY (DoR) - STORY/TASK
+=====================================
+
+User Story/Requirement Clarity
+Clear user story context understandable for team members. Task reporter may suggest solutions in some occasions.
+
+Acceptance Criteria and Measurement Defined
+Specific, testable acceptance criteria are provided for the user story, outlining what constitutes successful completion.
+
+Monitoring and Alerting Configured (if applicable)
+Necessary monitoring and alerting for the new feature or change have been configured (if needed).
+
+Estimates Provided
+Team has to provide realistic estimate of ticket.
+While estimation teams takes into conisderation:
+- complexity
+- Uncertainty
+- Effort
+
+Dependencies
+UI Mocs, Requirements from external teams/repo owner regarding development when needed. KT sessions.

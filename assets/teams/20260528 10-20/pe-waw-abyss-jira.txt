@@ -1,0 +1,81 @@
+Team: PE-WAW-Abyss
+Board: https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/9980
+Board ID: 9980
+Project: MAW
+Extracted: 2026-05-28T08:20:25Z
+Query Strategy: Sprint-based (primary succeeded)
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 14
+- In Progress: 8
+- Code Review: 6
+
+Issues by type:
+- Tasks: 8
+- Stories: 5
+- Bugs: 1
+
+=== IN PROGRESS (8 issues) ===
+
+[MAW-311] Task: [data-activation] Add Placebo Experiment metadata
+  Assignee: Roopa Vishnumurthy | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/MAW-311
+
+[MAW-300] Task: Discovery on adding tab for post study validity metrics
+  Assignee: ke.jin1 | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/MAW-300
+
+[MAW-295] Task: GDPR Request: Remove Historical PII 3nd Request
+  Assignee: Ben Harr | Priority: Medium | Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/MAW-295
+
+[MAW-294] Story: Separation of pixels existence v1 & v2
+  Assignee: Rafal Stefanowicz | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/MAW-294
+
+[MAW-263] Story: PoC: Pixel Testing Page
+  Assignee: Maksim Matchenia | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/MAW-263
+
+[MAW-259] Story: "segments" rebranding
+  Assignee: Maciej Lewandowski | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/MAW-259
+
+[MAW-24] Story: Study Types: Exposed vs Unexposed
+  Assignee: Roopa Vishnumurthy | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/MAW-24
+
+=== CODE REVIEW (6 issues) ===
+
+[MAW-304] Task: Tagging and adding grafana panels for data completeness and data freshness
+  Assignee: Alena Grmova | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/MAW-304
+
+[MAW-303] Task: Discovery on Placebo report data needs
+  Assignee: Alena Grmova | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/MAW-303
+
+[MAW-298] Task: Discovery on adding new incrementality report type
+  Assignee: Anusha Holla | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/MAW-298
+
+[MAW-275] Story: TV App Session: Cross Hour de-duplicate not respecting MINIMUM_SESSION_SECONDS
+  Assignee: Ben Harr | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/MAW-275
+
+[MAW-178] Task: [rtb-trader] Add power formula to calculate control size
+  Assignee: Amit Wagh | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/MAW-178
+
+[MAW-173] Story: Switch MMP and TV APP Acquisition pipelines to use Cognito authentication in Trader API
+  Assignee: Sunit Mathew | Priority: Medium | Updated: 2026-05-06
+  https://adgear.atlassian.net/browse/MAW-173
+
+[MAW-51] Story: DSP Attribution Web Conversion: Processing DAG
+  Assignee: Sunit Mathew | Priority: Medium | Updated: 2026-05-06
+  https://adgear.atlassian.net/browse/MAW-51
+
+---
+Status: success

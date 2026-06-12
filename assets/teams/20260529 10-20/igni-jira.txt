@@ -1,0 +1,1777 @@
+Team: Igni
+Project: ASPW
+Total Issues: 55
+Extraction Date: 2026-06-10 15:01:18
+
+================================================================================
+
+
+================================================================================
+Issue: ASPW-936
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Offline betree variable ordering analysis for early evaluation termination
+Assignee: Dmitriy Kargapolov
+URL: https://adgear.atlassian.net/browse/ASPW-936
+Created: 2026-05-28T18:12:58.567-0400
+Updated: 2026-05-28T18:15:01.420-0400
+================================================================================
+
+Description:
+## Goal
+
+Using the betree construction and search inputs captured in ASPW-935, build a local test harness to replay searches and analyze whether reordering variable evaluation can enable early termination — avoiding evaluation of "expensive" variables that require external service calls.
+
+## Approach
+
+Create an Elixir script that:
+
+1. **Loads the dumped betree data** — IndexDefinitions, Variables, Exprs from `term_to_binary` files
+2. **Reconstructs the betree locally** with different variable orderings
+3. **Replays captured** `VariablesPerImpression` terms against the reconstructed betree
+4. **Analyzes mismatch reasons** — for expressions that don't match, determine which variables caused early termination and at what point in the evaluation
+5. **Measures early return rate** — for each variable ordering, count how often the final result can be determined without evaluating expensive variables
+
+## Key Questions to Answer
+
+* Which variables most frequently determine the final match/no-match result early?
+* Which expensive variables (external service dependent) are evaluated but rarely decisive?
+* What is the optimal variable ordering that maximizes early termination before reaching expensive variables?
+* What percentage of requests could skip expensive variable evaluation entirely?
+
+## Expensive Variables (require external services)
+
+Variables that depend on external queries (e.g., Aerospike lookups, frequency cap checks, user profile data) vs. cheap variables available directly from the bid request (geo, device, size, exchange).
+
+## Deliverables
+
+* Elixir script for local replay and analysis
+* Report: per-variable "decisiveness" frequency
+* Recommended variable ordering with projected savings
+* Comparison: current ordering vs. optimal ordering (early termination rate)
+
+## Dependencies
+
+* ASPW-935 (betree input dump) must be completed first to provide test data
+
+
+
+
+================================================================================
+Issue: ASPW-924
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: have all currency fields be managed in microdollars
+Assignee: Patrick Ting
+URL: https://adgear.atlassian.net/browse/ASPW-924
+Created: 2026-05-27T12:46:54.872-0400
+Updated: 2026-05-28T12:23:08.886-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: ASPW-919
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: Analysis of data which is currently being written by bidder/gateway in kafka topic for building analytics pipeline
+Assignee: Aditya Raj
+URL: https://adgear.atlassian.net/browse/ASPW-919
+Created: 2026-05-27T02:58:26.454-0400
+Updated: 2026-05-27T03:01:04.846-0400
+================================================================================
+
+Description:
+### Goal
+
+Analysis of data which is currently being written by RTB-bidder/Gateway in real time 
+
+### Acceptance Criteria
+
+* Check if we have all required data written currently into kafka topic by bidding system
+* Document if there is a need for enrichment of data writing to kafka topic
+
+
+
+
+================================================================================
+Issue: ASPW-913
+Type: Bug
+Status: In Progress
+Priority: Medium
+Summary: make test is failing
+Assignee: Patrick Ting
+URL: https://adgear.atlassian.net/browse/ASPW-913
+Created: 2026-05-26T15:59:12.728-0400
+Updated: 2026-05-27T20:25:57.239-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: ASPW-911
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: increase the dynamic timeout for Barker
+Assignee: Mikhail Khomenkov
+URL: https://adgear.atlassian.net/browse/ASPW-911
+Created: 2026-05-26T14:38:11.025-0400
+Updated: 2026-05-28T17:35:55.253-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: ASPW-887
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Add members to on-call 
+Assignee: Ramprasad Damodar
+URL: https://adgear.atlassian.net/browse/ASPW-887
+Created: 2026-05-22T06:25:56.778-0400
+Updated: 2026-05-25T05:50:22.618-0400
+================================================================================
+
+Description:
+## Goal
+
+ -Need to onboard [rakesh.kr2@samsung.com](mailto:rakesh.kr2@samsung.com) to bidder on-call and deboard him from pacing on-call
+
+\-Need to onboard [aditya.r@partner.samsung.com](mailto:aditya.r@partner.samsung.com) to pacing on-call and deboard him from pacing on-call.  
+
+## Acceptance Criteria.
+
+* Verify asked people have been onboarded to respective systems.
+
+
+
+
+================================================================================
+Issue: ASPW-880
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: Deploy ConsumerD rel. 3.2.4 to RTB-Bidder
+Assignee: Paweł Kwietniewski
+URL: https://adgear.atlassian.net/browse/ASPW-880
+Created: 2026-05-21T05:49:11.653-0400
+Updated: 2026-05-25T09:01:33.939-0400
+================================================================================
+
+Description:
+Upgrade Consumer Daemon to version 3.2.5 across all deployment targets (sidecars and DaemonSet). The new version introduces AWS connection monitoring metrics and Kubernetes liveness/readiness probes.
+
+## Motivation
+
+* **Observability:** New metrics provide visibility into S3 connection pool utilization (active/peak connections, connection establishment and TLS handshake latency, connection reuse rate, per-call S3 API latency).
+* **Reliability:** Liveness and readiness probes enable Kubernetes to detect unhealthy pods and manage traffic routing, improving overall system resilience.
+
+## Scope
+
+| Subtask | Deployment target | Type |
+| --- | --- | --- |
+| 1  | RTB Bidder  | Sidecar  |
+| 2  | RTB Catalyst  | Sidecar  |
+| 3  | RTB Gateway & RTB Delivery clusters  | DaemonSet  |
+
+
+
+================================================================================
+Issue: ASPW-840
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Address dependabot warnings in pacingd-go
+Assignee: Dmitri Skliarov
+URL: https://adgear.atlassian.net/browse/ASPW-840
+Created: 2026-05-20T17:13:02.624-0400
+Updated: 2026-05-22T12:34:11.129-0400
+================================================================================
+
+Description:
+**Context**
+
+ASPW-595 addressed dependabot warnings across pacing repositories. The pacingd-go repository was not merged as part of that task — this ticket captures the remaining effort.
+
+**Acceptance Criteria**
+
+* All dependabot PRs in pacingd-go reviewed and either merged or dismissed with justification
+
+
+
+
+================================================================================
+Issue: ASPW-826
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: User Agent Benchmarking
+Assignee: Shiddeshwar Khandekar
+URL: https://adgear.atlassian.net/browse/ASPW-826
+Created: 2026-05-20T07:00:14.027-0400
+Updated: 2026-05-22T02:35:24.768-0400
+================================================================================
+
+Description:
+## Goal
+
+Measure and compare the performance of the pure Go (`godClass`) implementation against the existing CGo (`libdclass.a`) implementation to validate that the Go port meets or is within acceptable range of the C library's performance before cutover.
+
+---
+
+## Acceptance Criteria
+
+* Benchmark written for the Go path (`godClass.DclassClassify`) using the same UA dataset and same 3 dtree files used by the existing CGo benchmark
+* Benchmark run for both Go and CGo on the same machine and environment
+
+
+
+
+================================================================================
+Issue: ASPW-825
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Synthetic ID support in GDPR code change 
+Assignee: Rakesh
+URL: https://adgear.atlassian.net/browse/ASPW-825
+Created: 2026-05-20T06:55:26.447-0400
+Updated: 2026-05-26T23:31:33.493-0400
+================================================================================
+
+Description:
+**Synthetic ID** is a **privacy-preserving identifier system** that enables frequency capping for **opted-out Samsung TIFA users** while maintaining GDPR compliance. It creates hashed, anonymized identifiers without exposing personal data.  
+
+**Current Bidders state**
+
+* High GDPR violation risk (raw TIFA exposure, unlimited retention)
+* Frequency capping currently works but violates privacy
+
+####   
+**Key Purpose**
+
+**Problem:** _User opts out **→** Real TIFA cannot be used **→** No frequency capping **→** Poor UX_  
+**Solution:** _Generate privacy-preserving synthetic identifier for frequency capping only_  
+  
+**Files Requiring Major Changes**
+
+1. `pkg/biddercore/bidstep/steps/utils.go` - Hash Algorithm (NEEDS GDPR VERSION)
+2. `pkg/biddercore/bidstep/steps/step_augment_device_uid_context.go` - Main Logic (NEEDS PRIVACY INTEGRATION)
+3. `pkg/biddercore/bidstep/model/step_privacy_context_data.go` - New Privacy Model (NEEDS CREATION)
+4. `pkg/biddercore/bidstep/steps/step_set_privacy_context.go` - Privacy Pipeline (NEEDS ENHANCEMENT)
+
+REF: <custom data-type="smartlink" data-id="id-0">https://adgear.atlassian.net/browse/ASPW-655</custom>   
+Gateway implementation: <custom data-type="smartlink" data-id="id-1">https://github.com/adgear/rtb-gateway/pull/2948</custom>   
+  
+**Acceptance criteria**
+
+* Monthly synthetic ID reset in GDPR jurisdictions
+* No raw TIFA exposure for opted-out users
+* TCF Purpose 2 validation enforced
+* Samsung bundle restrictions implemented
+* Existing frequency capping functionality preserved
+
+
+
+
+================================================================================
+Issue: ASPW-824
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Finalise the User-Agent Integration Plan
+Assignee: Shiddeshwar Khandekar
+URL: https://adgear.atlassian.net/browse/ASPW-824
+Created: 2026-05-20T06:49:04.049-0400
+Updated: 2026-05-21T02:21:52.241-0400
+================================================================================
+
+Description:
+## Goal
+
+Agree on the final architecture for the CGo → pure Go migration and update `CGO_TO_GO_MIGRATION`
+
+---
+
+## Acceptance Criteria
+
+* Team review comments on the migration plan have a documented decision 
+* `CGO_TO_GO_MIGRATION` is updated to reflect the agreed architecture
+* Updated document is reviewed and signed off by the team
+
+
+
+
+================================================================================
+Issue: ASPW-823
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Smart throttling deployment and fine tuning configs to RTB Bidder
+Assignee: srinidhi.n.v
+URL: https://adgear.atlassian.net/browse/ASPW-823
+Created: 2026-05-20T06:44:25.359-0400
+Updated: 2026-05-26T02:06:32.137-0400
+================================================================================
+
+Description:
+Context- Deploy smart throttling to Prod and fine tune configs. Same configs from gateway cannot be used as traffic profiles are different.
+
+‌
+
+Acceptance criteria
+
+Smart throttling feature released to prod
+
+Optimal configs to be set on bidder
+
+
+================================================================================
+Issue: ASPW-819
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Refactor privacy service code
+Assignee: Rakesh
+URL: https://adgear.atlassian.net/browse/ASPW-819
+Created: 2026-05-20T06:06:42.016-0400
+Updated: 2026-05-26T04:56:39.957-0400
+================================================================================
+
+Description:
+The existing GDPR TCF v2 flow is an independent service withing the privacy service. Refactor this and make it part of the privacy service instead of having a separate service.  
+  
+**Acceptance criteria:**  
+There should be single privacy service including the GDPR TCF v2 related change.
+
+
+================================================================================
+Issue: ASPW-817
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Pacing Team Use case for GBP understanding for the new Pipeline building
+Assignee: Aditya Raj
+URL: https://adgear.atlassian.net/browse/ASPW-817
+Created: 2026-05-20T05:45:47.712-0400
+Updated: 2026-05-26T04:46:40.325-0400
+================================================================================
+
+Description:
+## Goal
+
+ Understanding pacing team use case for GBP understanding.
+
+## Acceptance Criteria.
+
+* document the pacing team use case understanding.
+
+
+
+
+================================================================================
+Issue: ASPW-816
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: ML Team Use case understanding for the new Pipeline building
+Assignee: shoaib siddiquie
+URL: https://adgear.atlassian.net/browse/ASPW-816
+Created: 2026-05-20T05:45:29.768-0400
+Updated: 2026-05-22T07:53:27.927-0400
+================================================================================
+
+Description:
+## Goal
+
+Discuss with the ML Team and Understand
+
+* how they would use the new pipeline
+* can any other metric form delivery/gateway/bidder be a better indication of the discount 
+* How do they use the current data.
+
+## Acceptance Criteria.
+
+* Understand and document data.
+
+
+
+
+================================================================================
+Issue: ASPW-814
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: Unified Yield Deployment
+Assignee: Aditya Raj
+URL: https://adgear.atlassian.net/browse/ASPW-814
+Created: 2026-05-20T05:38:43.958-0400
+Updated: 2026-05-22T07:53:08.370-0400
+================================================================================
+
+Description:
+## Goal
+
+ Unified Yield should consume flight-based data from yes-rate-agent instead of counter-based data, so that I can optimize yield calculations at the flight level while yes-rate-agent continues to use counter-based data .
+
+* Eliminate dependency on counter configurations
+* Improve data accuracy and reduce complexity
+
+## Acceptance Criteria.
+
+* Complete the Dev Testing and Deployment and E2E testing.
+
+
+
+
+================================================================================
+Issue: ASPW-810
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Implement Project Nexus Demand Partner Funnel Metrics & Dashboards for SE Observability
+Assignee: Abhishek Kumar
+URL: https://adgear.atlassian.net/browse/ASPW-810
+Created: 2026-05-20T05:13:39.523-0400
+Updated: 2026-05-26T02:14:42.159-0400
+================================================================================
+
+Description:
+**Description:**
+
+Add `catalyst_loss_reason_total{stage, loss_code, demand_partner}` metric to track per-partner losses at Stage 1 (request to response) and Stage 2 (response to win) with numeric loss codes from the Project Nexus spec. Create Grafana panels for SE observability. Only covers scenarios currently implementable in Catalyst code.
+
+**Acceptance Criteria:**
+
+**Code:**
+
+1. New metric `catalyst_loss_reason_total{stage, loss_code, demand_partner}` registered
+2. Loss codes emitted: 1001 (empty response), 1002 (timeout), 1004 (non-timeout error), 1007 (service unavailable), 2003 (lost to priority override)
+3. `demand_partner` label carries the losing partner's name
+
+**Grafana:**
+
+5. Panel: Loss Funnel Overview (bar gauge by stage)
+6. Panel: Stage 1 Loss Codes (pie chart)
+7. Panel: Stage 2 Loss Codes (pie chart)
+8. Panel: Loss by Demand Partner (stacked area)
+9. Panel: Loss Code Trend (timeseries)
+10. Legend overrides mapping codes to descriptions
+
+**Validation:**
+
+11. Metric visible on `/metrics` after deploy
+12. Correct loss_code and demand_partner emitted for timeout, empty response, and auction loss scenarios
+13. Max cardinality: 20 unique series (5 codes × 2 partners × 2 stages)
+
+
+
+
+================================================================================
+Issue: ASPW-808
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Remove GDPR TCF V2 feature flag
+Assignee: Rakesh
+URL: https://adgear.atlassian.net/browse/ASPW-808
+Created: 2026-05-20T05:09:28.092-0400
+Updated: 2026-05-26T02:07:59.728-0400
+================================================================================
+
+Description:
+Remove the feature flag `IsRtbBidderGdprTcfV2FlowEnabled` from the GDPR TCF V2. We introduced this feature flag to disable GDPR check so that we can immediately disable it if the change does not work as planned. Remove associated code and their test cases.  
+  
+**Acceptance criteria:**  
+All the CTV request originating from EU countries should be processed via GDPR TCF V2 flow by default for the privacy step checks. No request from the EU countries should be proxied to gateway based on privacy step outcome.
+
+
+================================================================================
+Issue: ASPW-801
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary:  Enhanced Auction Service Response - Complete Candidate Visibility Enhanced Auction Service Response - Complete Candidate Visibility
+Assignee: Rajnish Kumar
+URL: https://adgear.atlassian.net/browse/ASPW-801
+Created: 2026-05-20T03:26:40.158-0400
+Updated: 2026-05-25T05:19:06.093-0400
+================================================================================
+
+Description:
+Modify Auction service response to have more visibility for all types of candidates (not only winning bids). Make auction service return in final format (no formatting in step data) and make auction service attribute the reason for non-winning bids from bid policy metadata as well
+
+### Acceptance Criteria
+
+* **Enhanced Auction Response**: Auction service returns all candidates (winning and non-winning) with status and rejection reasons and others metrics
+* Response formatting logic moved from step data processing to auction service itself
+
+
+
+
+================================================================================
+Issue: ASPW-796
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Integrate Vast changes for 3P DSP
+Assignee: Ayush Kumar
+URL: https://adgear.atlassian.net/browse/ASPW-796
+Created: 2026-05-20T02:26:10.506-0400
+Updated: 2026-05-22T05:15:08.341-0400
+================================================================================
+
+Description:
+## Description
+
+Goal:  
+To integrate Vast changes for 3P DSP for catalyst & catalyst-tracker
+
+Acceptance Criteria:
+
+* Vast changes are integrated for 3P DSP for catalyst & catalyst-tracker
+
+
+
+
+================================================================================
+Issue: ASPW-789
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Bug Fixes if any Post Running Response Validator for enabling 5% CTV Traffic
+Assignee: srinidhi.n.v
+URL: https://adgear.atlassian.net/browse/ASPW-789
+Created: 2026-05-20T00:22:09.027-0400
+Updated: 2026-05-26T02:53:46.370-0400
+================================================================================
+
+Description:
+Bug fixes to ensure parity with gateway based on Response Validator results.
+
+Acceptance Criteria
+
+1. All Identified issues are fixed 
+2. Parity in bidder results with respect to gateway
+
+
+
+
+================================================================================
+Issue: ASPW-783
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: IP removal from header block of Kafka logs of Ad Serving event
+Assignee: Abhishek Kumar
+URL: https://adgear.atlassian.net/browse/ASPW-783
+Created: 2026-05-19T10:26:12.957-0400
+Updated: 2026-05-26T06:25:18.643-0400
+================================================================================
+
+Description:
+Goal:  
+Remove IP address information from the header block of Kafka logs for Ad Serving events to comply with privacy requirements.
+
+Acceptance Criteria:
+
+* IP addresses are removed from Kafka log headers for Ad Serving events
+* Log structure remains intact and parseable after IP removal
+* No PII (Personally Identifiable Information) is exposed in logs
+* Logging functionality is verified in all environments
+* Privacy compliance documentation is updated
+
+
+
+
+================================================================================
+Issue: ASPW-782
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Fix Ad Response code of Catalyst to generate Ad Responses in line with that of SDSP
+Assignee: Dhruv Gaur
+URL: https://adgear.atlassian.net/browse/ASPW-782
+Created: 2026-05-19T10:24:33.743-0400
+Updated: 2026-05-26T06:25:20.997-0400
+================================================================================
+
+Description:
+Goal:  
+Modify Catalyst's Ad Response generation code to ensure consistency and alignment with SDSP (Samsung DSP) Ad Response format and structure.
+
+Acceptance Criteria:
+
+* Ad Response structure matches SDSP format specifications
+* All required fields are populated correctly in Ad Responses
+* Response validation passes against SDSP schema
+
+
+
+
+================================================================================
+Issue: ASPW-781
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Follow up Release Readiness, SECO and Solution Engg Support Document - Part 2
+Assignee: Dhruv Gaur
+URL: https://adgear.atlassian.net/browse/ASPW-781
+Created: 2026-05-19T10:21:44.083-0400
+Updated: 2026-05-20T05:32:24.629-0400
+================================================================================
+
+Description:
+Goal:  
+Track and ensure completion of all follow-up actions related to Release Readiness documentation, SECO ticket approval, and Solution Engineering Support documentation.
+
+Acceptance Criteria:
+
+* All pending items from Release Readiness document are addressed.
+* SECO ticket approval status is tracked and obtained
+* Solution Engineering Support document is reviewed and finalized
+* All stakeholder feedback identified till end of sprint is incorporated and documented
+
+
+
+
+================================================================================
+Issue: ASPW-773
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: Matcher in Go – BeTree Native Golang Porting and Code Reviews: Split into 2 Code PRs + 1 UTs PR
+Assignee: Saurabh Gupta
+URL: https://adgear.atlassian.net/browse/ASPW-773
+Created: 2026-05-19T07:05:38.539-0400
+Updated: 2026-05-29T02:13:45.344-0400
+================================================================================
+
+Description:
+### Goal
+
+1. Port the new BeTree implementation in a pure Native Golang implementation in the new **go-betree** repo — with all existing artifacts (config, types, tree structures, domain mappings) to the Old **go-be-tree** repo.
+2. Refactor the code and Make sure no name clashes among the new and the old structs is observed.
+3. Get each of these 3 PRs re-reviewed on functionality and minimum 2 reviewers.  
+  **Repos:**
+
+* <custom data-type="smartlink" data-id="id-0">https://github.com/adgear/go-be-tree</custom> 
+* <custom data-type="smartlink" data-id="id-1">https://github.com/adgear/go-betree</custom>   
+
+The existing large PR is to be **split into 3 smaller PRs** for focused, incremental review:
+
+* **PR 1 :** BeTree Creation APIs — `NewBetree()`, `NewBetreeWithConcurrencyLimit()`, `BetreeMake()`, `BetreeMakeSub()`, `BetreeInsertSub()` — covering the Lexer/Parser (`ast.go`, `ast_process.go`), AST construction, domain initialization, and tree insertion with space partitioning/clustering.
+* **PR 2 :** BeTree Search APIs — `BetreeSearch()`, `BetreeSearchEvents()` — covering event predicate creation, tree traversal, candidate collection, and recursive expression evaluation with memoization and short-circuit optimizations.
+* **PR 3 :** Comprehensive Unit Tests for both Creation and Search APIs, covering all domain types, expression node types, edge cases, and production-representative E2E scenarios (as in `pkg/betree/tree_creation_test.go`).
+
+### Acceptance Criteria
+
+* The new go-betree repo code is ported to old go-be-tree repo and split into exactly **2 PRs** (Creation APIs, Search APIs) and **1 Unit Tests PR**, each independently reviewable.
+* Reviews inputs from team are taken and are addressed.
+
+
+
+
+================================================================================
+Issue: ASPW-770
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Unit test cases for missing mandatory logging attributes
+Assignee: Sangeeta
+URL: https://adgear.atlassian.net/browse/ASPW-770
+Created: 2026-05-19T06:31:19.983-0400
+Updated: 2026-05-26T09:47:47.027-0400
+================================================================================
+
+Description:
+As a part of <custom data-type="smartlink" data-id="id-0">https://adgear.atlassian.net/browse/BIM-601</custom> discussions, we have taken an action item on addition of unit test cases for mandatory logging attributes  
+  
+This story has been replicated from the older board: [https://adgear.atlassian.net/browse/PEDSP-30061](https://adgear.atlassian.net/browse/PEDSP-30061)
+
+
+================================================================================
+Issue: ASPW-763
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Identify and fix the cause of type "consumerd-deployed_at_modification_failure" alerts
+Assignee: Paweł Kwietniewski
+URL: https://adgear.atlassian.net/browse/ASPW-763
+Created: 2026-05-19T04:25:52.184-0400
+Updated: 2026-05-28T12:21:13.405-0400
+================================================================================
+
+Description:
+# ASPW-763: Investigate and fix alert fatigue from consumerd-deployed_at_modification_failure
+
+### Task Description
+
+_As a_ engineer on the data-activation team, _I want_ to investigate and resolve the excessive PagerDuty alerts from `consumerd-deployed_at_modification_failure` _so that_ the on-call rotation is not overwhelmed by non-actionable critical alerts and can focus on genuine incidents.
+
+### Business Context
+
+The alert `consumerd-deployed_at_modification_failure` fires as critical when no successful `deployed_at` file write occurs within a 10-minute window. Current observations indicate that the alert triggers on most or all pods simultaneously and self-resolves after approximately 10 minutes. This pattern strongly suggests the root cause is not a pod-level failure but rather a transient upstream data timing issue — when S3 source files are not updated within the expected `update_frequency` window (30 min + 60s margin), all pods simultaneously fail the freshness check in `IsS3FilesRefreshed()` and stop writing `deployed_at`. The pod is behaving correctly (refusing to mark stale data as deployed), but the alert treats this as a critical pod failure.
+
+This creates significant alert fatigue for the on-call engineer, as a single upstream delay generates N critical alerts (one per pod in the DaemonSet) that require no action and resolve on their own.
+
+### Acceptance Criteria
+
+* \[ \] Root cause is confirmed through production investigation (correlate alert timestamps with S3 file LastModified timestamps and FILE_FRESHNESS gauge metrics)
+* \[ \] Clear distinction exists between "intentional skip due to upstream staleness" and "genuine write failure" — either via new metric labels or a separate metric
+* \[ \] Alert definition is updated so that critical PagerDuty pages only fire for genuine pod/write failures, not upstream data delays
+* \[ \] Upstream data staleness is observable (either via a separate warning-level alert or a dashboard panel)
+* \[ \] Alert fatigue is measurably reduced (fewer non-actionable pages per week)
+* \[ \] Changes are documented and deployed to production
+
+---
+
+‌
+
+### Relevant Code Paths
+
+* `pkg/common_packages/utility/file_utility.go:182-229` — deployed_at write logic and freshness checks
+* `pkg/common_packages/utility/file_utility.go:141-180` — S3 freshness check (`IsS3FilesRefreshed`)
+* `deploy/helm/consumerd/configFiles/rtb-gatex-delivery.yml:193-198` — deployed_at configuration
+* `deploy/helm/dsp-clusters-prometheus-monitoring/values/use1-dsp-prod.yaml:30-31` — alert definition
+
+‌
+
+Current alert definition for this error:
+
+```yaml
+  - alert: consumerd-deployed_at_modification_failure
+    expr: '(sum(increase(dataActivation_consumerDeamon_rtb_gatexDelivery_fileWrite{method="writeToFile", type="success", file=~"data_activation_deployed_at"}[10m])) by (pod, cluster) OR on() vector(0)) == 0'
+    labels:
+      team: data-activation
+      severity: critical
+      env: prod
+      service: consumerd
+      target: '{{ $labels.pod }}'
+      dc: '{{ $labels.cluster }}'
+    annotations:
+      description: "Consumerd deployed.at modification failure"
+      info: "Consumerd deployed.at modification failure, CRITICAL"
+      summary: Consumerd file write failure
+    for: 10m
+```
+
+
+================================================================================
+Issue: ASPW-762
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: Identify and fix the cause of type "consumerd-s3-download-failure" alerts
+Assignee: Paweł Kwietniewski
+URL: https://adgear.atlassian.net/browse/ASPW-762
+Created: 2026-05-19T04:24:54.098-0400
+Updated: 2026-05-27T07:46:30.512-0400
+================================================================================
+
+Description:
+h3. Task Description
+
+_As a_ on-call engineer, _I want_ to reduce noise from the "consumerd-s3-download-failure" alert _so that_ the team is not woken up at night for transient errors and can focus on real incidents.
+
+h3. Business Context
+
+The "consumerd-s3-download-failure" alert currently fires too frequently, causing PagerDuty to wake team members at night without real need for intervention. The alert is defined as:
+
+{code}  
+sum(increase(dataActivation_consumerDeamon_rtb_gatexDelivery_s3{method="DownloadFromS3", type="error"}\[5m\])) by (pod, cluster) > 2  
+for: 5m  
+severity: critical  
+{code}
+
+The root cause of excessive alerting is twofold:
+
+* The error metric is incremented _per retry attempt_ (not per final failure) — with retries=3, a single transient error on one file produces up to 3 error increments, immediately exceeding the threshold of >2
+* GetObjectMetadata failures increment the same metric family, further amplifying the count
+
+The poll cycle runs every 5 minutes with 5+ files, so any transient network issue is enough to trigger the alert. It is currently unconfirmed whether files are actually failing to be delivered (becoming stale on pods) or if this is purely transient noise that self-resolves on the next cycle.
+
+This results in alert fatigue degrading team effectiveness, increased risk of missing a real incident, and unnecessary night wakeups via PagerDuty.
+
+h3. Acceptance Criteria
+
+* Investigation is performed to determine whether S3 download errors lead to actual stale files on pods or are transient and self-healing
+* Alert noise is reduced — transient errors no longer trigger critical PagerDuty pages
+* Real delivery failures (files not updated for extended periods) still trigger an alert
+* Changes are documented (alert tuning rationale, findings from investigation)
+
+h3. Implementation Notes
+
+Possible approaches to explore (not exhaustive):
+
+* _Alert tuning:_ increase observation window, raise threshold, adjust `for` duration, or downgrade severity for transient errors
+* _Metric change:_ introduce a separate "final failure" metric emitted only after all retries are exhausted, and base the alert on that instead
+* _Both:_ tune the alert short-term, implement metric improvement as a follow-up
+
+‌
+
+Current alert definition for this error: 
+
+```yaml
+  - alert: consumerd-s3-download-failure
+    expr: 'sum(increase(dataActivation_consumerDeamon_rtb_gatexDelivery_s3{method="DownloadFromS3", type="error"}[5m])) by (pod, cluster) > 2'
+    labels:
+      team: data-activation
+      severity: critical
+      env: prod
+      service: consumerd
+      target: '{{ $labels.pod }}'
+      dc: '{{ $labels.cluster }}'
+    annotations:
+      description: "Consumerd failed to download files from S3 bucket"
+      info: "Consumerd failed to download files from S3 bucket, CRITICAL"
+      summary: Consumerd failed to download files from S3 bucket
+    for: 5m
+```
+
+
+================================================================================
+Issue: ASPW-756
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: 5% 1pCTV capacity planning on Bidder
+Assignee: srinidhi.n.v
+URL: https://adgear.atlassian.net/browse/ASPW-756
+Created: 2026-05-19T02:36:22.407-0400
+Updated: 2026-05-26T02:54:12.284-0400
+================================================================================
+
+Description:
+Context:
+
+Traffic on RTB Bidder will be increased from 1% to 5% towards the end of May 2026
+
+Estimate if additional infra/pods are necessary on US East region
+
+‌
+
+Acceptance criteria
+
+* CTV requests from Publica on RTB Bidder pods at 5% should be processed successfully and within SLA
+* If no additional pods are required, provide the reasoning
+* If additional pods are required provide the new number and details on how this number was estimated
+
+
+
+
+================================================================================
+Issue: ASPW-755
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Response validator execution and related bugs fixes
+Assignee: Rakesh
+URL: https://adgear.atlassian.net/browse/ASPW-755
+Created: 2026-05-19T02:32:54.889-0400
+Updated: 2026-05-27T01:27:58.572-0400
+================================================================================
+
+Description:
+We want to increase the CTV RTB-Bidder traffic to 5%. We made some bug fixes and other improvements listed below after the last validator report was generated. We expect that the end to end report and the intermediate report reflect this change. We also want to see if there are any new differences after all these change.  
+  
+The identified bugs or differences must be prioritized and fixed before we enable the traffic.  
+  
+**Fixes and improvements after the last report was generated.**  
+1\. FIX -  `MlInfoStrategyId` - in infoblob  
+2\. FIX - `MlInfoModelName`  - in infoblob  
+3\. FIX - `AG_PB `in `nurl`/`lurl`/`ad markup`  
+4\. New - GDPR TCF V2 along with CTV EU request proxy  
+5\.   
+  
+  
+**Acceptance criteria:**  
+1\. Generate report on 10k+ request and validate the fix.  
+2\. Find differences and assign it to the respective developer for evaluation and fix.  
+3\. Compare the previous and the new report and share the insight.  
+
+
+
+================================================================================
+Issue: ASPW-754
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Visualization of error rate metrics in rtb-bidder
+Assignee: Shalu Sinha
+URL: https://adgear.atlassian.net/browse/ASPW-754
+Created: 2026-05-19T02:19:34.882-0400
+Updated: 2026-05-27T02:30:39.976-0400
+================================================================================
+
+Description:
+This story is a precursor to: <custom data-type="smartlink" data-id="id-0">https://adgear.atlassian.net/browse/ASPW-877</custom>   
+We want to consolidate different types of error rate that are already present in the project and visualize them (on Grafana) 
+
+---
+
+**Context**:  
+Definition of Error Rate in rtb-bidder has been defined on this confluence page “[**Ad Serving SLOs for Sloth based observability**](https://adgear.atlassian.net/wiki/spaces/~63125e513e578bb3b5ff0868/pages/21957902571/Ad+Serving+SLOs+Planned+for+Sloth+based+observability#Error-rate)“ and should be used as reference while visualizing/defining the metrics for “Error Rate”
+
+---
+
+**Acceptance Criteria -**
+
+* Error metrics visible in Grafana with breakdown by bid flow, module and reasons.
+
+
+
+
+================================================================================
+Issue: ASPW-712
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Add native_weather_contextual_image DTL template for rtb-gateway
+Assignee: Seokbaek Lee
+URL: https://adgear.atlassian.net/browse/ASPW-712
+Created: 2026-05-11T17:47:57.242-0400
+Updated: 2026-05-21T03:35:36.276-0400
+================================================================================
+
+Description:
+Add OpenRTB Native 1.2 DTL template for weather contextual image creative (tag type 47).
+
+* <custom data-type="smartlink" data-id="id-0">https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/main/OpenRTB-Native-Ads-Specification-Final-1.2.md#75-image-asset-types</custom> 
+
+Template includes:
+
+* title (required)
+* main image asset with img.type=3 (required)
+* brand logo asset with img.type=1 (optional, Type B only)
+* imptrackers and link/clicktrackers
+
+desc and cta fields are excluded — confirmed not consumed by S-SSP for Weather App placements.
+
+## Acceptance Criteria
+
+* `native_weather_contextual_image.dtl` exists in `priv/templates/native/`
+* Template renders valid OpenRTB Native 1.2 JSON with title + main image (img.type=3)
+* Brand logo asset (img.type=1) is included only when `logo_url` is present
+* desc and cta assets are not included in the response
+
+
+
+
+================================================================================
+Issue: ASPW-706
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: Removal of IP truncation in infoblob for EU requests while avoding full IP event logging in rtb-bidder
+Assignee: ADITI BHATT
+URL: https://adgear.atlassian.net/browse/ASPW-706
+Created: 2026-05-11T08:56:39.965-0400
+Updated: 2026-05-26T02:10:46.126-0400
+================================================================================
+
+Description:
+In order to resolve ongoing reporting issue for the flights/campaigns targeting EU zipcode, the rtb-bidder will provide full IP as part of infoblob however, it should ensure that full IP is not logged in case of opt-out requests.  
+  
+Availability of full IP will lead to correct Geo Resolution in rtb-delivery leading to accuracy of reporting for zipcode targeting.  
+Related Slack Thread for this issue is <custom data-type="smartlink" data-id="id-0">https://ads-ams25.slack.com/archives/C09LKKCLY0Z/p1777886202530299?thread_ts=1776083312.209379&cid=C09LKKCLY0Z</custom> Connect your Slack account.
+
+‌
+
+‌
+
+In case of opt-out requests, rtb-delivery must truncate the last octet of this IP before logging events to kafka so that there is no persistence of this PII.  
+The implementation of this change in rtb-delivery is a pre-requisite for this change in rtb-bidder.
+
+Related Privacy Ticket is [PRV-5472](https://adgear.atlassian.net/browse/PRV-5472)
+
+---
+
+**Acceptance Criteria**  
+1\. Change in response rendering for EU to avoid IP truncation in case of IP requests.  
+2\. Validation of the feature through unit test cases, wherever applicable.  
+3\. Validation of the correct logging in rtb-delivery for expected truncation of IP during event logging in case of opt-out requests.
+
+
+================================================================================
+Issue: ASPW-689
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: CCPA - Transition of Metadata from Erlang Based Implementation to Golang BERT Encoder
+Assignee: Alexander Andersson
+URL: https://adgear.atlassian.net/browse/ASPW-689
+Created: 2026-05-06T23:57:54.732-0400
+Updated: 2026-05-29T01:17:12.816-0400
+================================================================================
+
+Description:
+At Present below given metadata take significant time in execution  
+**CCPA** - 16 minutes  
+We want to extend golang bert encoder for these object types to optimize the time in execution
+
+
+================================================================================
+Issue: ASPW-680
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: LDS parquet Overhead POC.
+Assignee: shoaib siddiquie
+URL: https://adgear.atlassian.net/browse/ASPW-680
+Created: 2026-05-06T05:38:52.375-0400
+Updated: 2026-05-25T02:29:10.241-0400
+================================================================================
+
+Description:
+## Goal
+
+###  Parquet Library Reflection Overhead (\~22% CPU burst)
+
+**Location:** External library `github.com/adgear/dsp-lds` using `xitongsys/parquet-go v1.6.2`
+
+When LDS ETL triggers (fsnotify on file change from consumerd S3 sync), the parquet deserialization consumes 22% CPU via:
+
+* mapIterNext (\~9.2% during burst) — iterating map during reflection
+* (\*Iter).Next (\~8.1%) — advancing through records
+* reflect.FieldByName (\~2.6%) — O(n) field lookup per record per column
+* reflect.New / extendSlice — new allocation per record, no pooling
+
+**Fix:** Replace xitongsys/parquet-go with parquet-go/parquet-go (formerly segmentio) which uses code generation instead of reflection. 2-5x fewer allocations in benchmarks.
+
+## Acceptance Criteria.
+
+* Do a Production or Experiment POC of this and confirm the impact of this change in a doc.
+* Do a thorough Functional Validation that the change is  functionally at par with current library.
+
+#### Artefact: <custom data-type="smartlink" data-id="id-0">https://adgear.atlassian.net/wiki/spaces/ENG/pages/22846275653/RTB-Bidder+Prod+Profiling+-+19-05-2026</custom> 
+
+
+================================================================================
+Issue: ASPW-675
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Capture Test Evidence for Tracker (without VAST) for 3P
+Assignee: Mohan Lal
+URL: https://adgear.atlassian.net/browse/ASPW-675
+Created: 2026-05-06T05:14:04.072-0400
+Updated: 2026-05-26T05:27:36.438-0400
+================================================================================
+
+Description:
+Acceptation criteria:
+
+Collect below evidences for 3P clicks/ and impressions/ trackers
+
+* grafana metrics while testing
+* kafka log (raw text)
+* tracker calls from real tv
+
+
+
+
+================================================================================
+Issue: ASPW-674
+Type: Story
+Status: Code Review
+Priority: Medium
+Summary: Capture Test Evidence for Tracker (without VAST) for 1P
+Assignee: Mohan Lal
+URL: https://adgear.atlassian.net/browse/ASPW-674
+Created: 2026-05-06T05:13:07.196-0400
+Updated: 2026-05-26T05:26:23.022-0400
+================================================================================
+
+Description:
+Acceptation criteria:  
+  
+Collect below evidences for 1p clicks/ and impressions/ trackers
+
+* grafana metrics while testing
+* kafka log (raw text)
+* tracker calls from real tv
+
+
+
+
+================================================================================
+Issue: ASPW-637
+Type: Bug
+Status: In Progress
+Priority: Medium
+Summary: consumerd ready file logic is broken 
+Assignee: Adam Doliński
+URL: https://adgear.atlassian.net/browse/ASPW-637
+Created: 2026-05-05T05:49:24.822-0400
+Updated: 2026-05-28T11:10:10.385-0400
+================================================================================
+
+Description:
+_As a_ platform engineer, _I want_ to investigate why the `deployed_at` file is created before all required files are downloaded and ready to serve, _so that_ dependent services (e.g. RTB Bidder) do not start with incomplete data.
+
+## Business Context
+
+Consumer Daemon can create the `deployed_at` marker file even though some files failed to download. Dependent services use this marker as a readiness signal and begin their startup process — which then fails because required files are missing. This applies to both sidecar and DaemonSet deployment modes.
+
+The issue was observed in RTB Bidder, where the bidder started and failed due to missing GeoIP files, entering a retry loop until ConsumerD's next scheduled poll cycle downloaded the missing file. This causes unnecessary startup delays and error noise, and may affect any consumer relying on the `deployed_at` signal.
+
+## Acceptance Criteria
+
+* Root cause identified: determine why the freshness/existence checks in `WriteMetaDataGenerationFile` do not prevent `deployed_at` creation when a download has failed
+* Document which specific condition is not covered (missing file, stale file, or file in a config section not checked)
+* Propose a fix that ensures `deployed_at` is only written when ALL configured files are present and fresh
+* Verify fix does not introduce false negatives (blocking `deployed_at` indefinitely under normal operation)
+
+
+
+
+================================================================================
+Issue: ASPW-620
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [SPIKE] Counter data type change to int64 (microdollars)
+Assignee: Rui Jiang
+URL: https://adgear.atlassian.net/browse/ASPW-620
+Created: 2026-04-30T16:04:22.753-0400
+Updated: 2026-05-28T13:55:31.463-0400
+================================================================================
+
+Description:
+**Context**
+
+pacing-oracle currently represents all monetary values (budget, spend, grant amounts, remaining budget) as float64 (dollars). This diverges from the existing pacing stack — pacing-answerer and pacingd-go both use int64 in microdollars throughout, with float64 reserved only for dimensionless ratios such as LoadFactor or ML probability estimates.
+
+The float representation introduces accumulated floating-point error in budget arithmetic, makes the minimum grant size ambiguous (any positive float is valid), and adds unnecessary conversion overhead when reading pstate files that already store values as int64 microdollars.
+
+Scope of change identified in code audit:
+
+* pkg/state/counter_state.go — CounterState.TotalBudget float64 and SpentAmount float64 should become int64 microdollars; the /1_000_000.0 conversion on load should be removed
+* pkg/grains/utils/budget.go — BudgetTiers (Reserved, PotentiallySpent, RealizedSpent), BudgetCalculator (TotalBudget), AdaptiveGrantSizing, all arithmetic methods
+* pkg/actors/grant_registry_actor.go — totalBudget float64, pendingReservations map\[string\]float64, getOptimalGrantSize, getRemainingBudget, sumActiveGrantAllocations
+* pkg/grains/campaign_grain_core.go — totalBudget float64 field and GetTotalBudget()
+* pkg/models/ask.go — RequestedAmount float64, AllocatedAmount float64, RemainingBudget float64
+* proto/spend_messages.proto — \~50+ monetary double fields across messages: requested_amount, allocated_amount, spent_amount, remaining_budget, total_budget, reserved_amount, potentially_spent, realized_spent, total_exposure, etc.
+* pkg/pacing/\* (linear_pacer, direct_pacer, pid_pacer, lean_enhanced_pid_pacer, liability_tracker, etc.) — All budget/spend inputs to pacing calculation functions
+* pkg/actors/\* (liability_tracker_actor, unified_pid_pacing_actor, linear_pacing_actor, direct_pacing_actor, pacing_helpers) — Actor message handling for budget/grant amounts
+
+Reference implementations:
+
+* pacingd-go: pkg/pacing/pstate/counter.go — Counter.Budget int64, Counter.Spent int64 (microdollars); pkg/pacing/counter/cap.go — Cap.Budget int64, Cap.Spent int64
+* pacing-answerer: internal codec — CounterSpendEvent.Spent int64, all counter budget/spend fields int64
+
+Open questions to resolve in spike:
+
+* Proto wire format: double to int64 is a breaking protobuf field type change. Are consumers (NATS bridge, pacing-answerer integration) prepared? Can we use field number reservation or does this require new message versions?
+* Pacing math precision: Linear and PID pacers compute ratios (spend/budget, rate derivatives). These must remain float64 internally — the spike should define exactly where int64 to float64 conversion boundaries live in the pacing calculation path
+* Minimum grant enforcement: pacingd-go enforces minimum = 1 (1 microdollar). What is the correct minimum for pacing-oracle grants and where should it be enforced?
+* Three-tier budget tolerance: BudgetCalculator.ValidateBudgetTiers uses a 0.01 floating-point tolerance. With int64 this becomes exact integer comparison — confirm no rounding paths remain upstream
+* Metrics and tracing: RecordSpendEvent, RecordGrantIssued, UpdateCampaignMetrics etc. pass float64 to Prometheus — these stay float64 but will need int64 to float64 conversion at each metric recording site
+
+**Acceptance Criteria**
+
+* Full inventory of all float64 monetary fields across pkg/ and proto/ is documented with a migration path for each
+* Conversion boundary is defined: where microdollar int64 to float64 ratio conversions occur in the pacing calculation path
+* Minimum grant/spend value is defined and enforced consistently (aligned with pacingd-go convention of 1 microdollar minimum)
+* Implementation plan produced as output: ordered list of changes with file-level granularity, estimated effort, and any cross-repo coordination required
+
+
+
+
+================================================================================
+Issue: ASPW-554
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Rewrite "stvd_optouts" object to use new encoder
+Assignee: Franciszek Strzeżek
+URL: https://adgear.atlassian.net/browse/ASPW-554
+Created: 2026-04-23T03:26:48.436-0400
+Updated: 2026-05-27T10:35:43.523-0400
+================================================================================
+
+Description:
+**As a** developer, **I want** to replace the Erlang encoder with a Golang encoder for the `stvd_optouts` object, **So that** I can leverage the benefits of the new encoder and improve the system's performance and maintainability.
+
+### Acceptance Criteria
+
+- [ ] **Encoder Replaced**: The Erlang encoder for the `stvd_optouts` object is successfully replaced with the Golang encoder.
+- [ ] **Structure Generated**: The new encoder generates the correct structure for `stvd_optouts`
+- [ ] **Testing Completed**: The new encoder is tested using the testing framework, and all test cases pass.
+- [ ] **No Errors**: The encoder runs without errors and produces the expected output.
+- [ ] **Documentation Updated**: The changes are documented, including the new encoder's implementation and testing process.
+- [ ] **Epic updated:** Mark `stvd_optouts` object as done in todo list in [ASPW-25](https://adgear.atlassian.net/browse/ASPW-25)
+
+
+
+
+================================================================================
+Issue: ASPW-534
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Improve/Validate CTV Alerting
+Assignee: Sangeeta
+URL: https://adgear.atlassian.net/browse/ASPW-534
+Created: 2026-04-22T04:14:31.824-0400
+Updated: 2026-05-26T02:55:33.441-0400
+================================================================================
+
+Description:
+Alerts are added to CTV, ensure that the thresholds are meaningful
+
+Check if we had any alerting so far in the duration in which we have been serving 1 percent, and fine tune if the alerts have been silent, even if they shouldnt have been.
+
+Audit the existing list and add any missing alerts
+
+‌
+
+Acceptance criteria
+
+Alerting should be finetuned to catch any issues on CTV
+
+Updated alert dashboards, if necessary on grafana
+
+
+================================================================================
+Issue: ASPW-515
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Collect Per-Exchange Betree Drop Reason Statistics
+Assignee: a.rodionov
+URL: https://adgear.atlassian.net/browse/ASPW-515
+Created: 2026-04-21T17:26:11.287-0400
+Updated: 2026-05-20T12:13:48.358-0400
+================================================================================
+
+Description:
+## Summary
+
+Add per-exchange breakdown to betree drop reason statistics to understand which targeting variables cause the most bid request rejections for each exchange. This is an observe-only change — no requests will be dropped. The collected data will inform a future early bid drop implementation.
+
+## Background
+
+Most bid requests are dropped at `pipe_flights` when betree boolean expression evaluation finds zero matching flights. 
+
+The existing `rtb_gateway_flight_drop_statistics` module collects per-flight drop reasons and reports them to Kafka. However, this data has no exchange dimension. Different exchanges serve different markets (geo, device types, content categories), so drop patterns vary significantly by exchange and must be analyzed separately.
+
+Crucially, many betree targeting variables are already available right after `pipe_bid_req`: exchange ID, country, region, device type, impression sizes, language, site/app lists, IAB categories, publisher ID. Only segments and frequency caps require the later external service calls. If we know which early-available variables dominate drops per exchange, we can drop bid request without further steps.
+
+## Goal
+
+Collect per-exchange statistics on betree drop variables to answer:
+
+What percentage of requests per exchange are dropped due to variables already available at `pipe_bid_req` stage?
+
+Which variables contribute most to drops for each exchange?
+
+What would the false-positive rate be if we pre-checked the top variables early?
+
+The output feeds analysis for a future early-drop implementation.
+
+## Acceptance Criteria
+
+When a request is dropped at `pipe_flights`, per-exchange betree drop variable counters are incremented
+
+Total request count per exchange is tracked for drop rate calculation
+
+Feature flag controls all new behavior; when disabled, zero overhead
+
+Unit and integration tests cover the new collection and flush logic
+
+
+================================================================================
+Issue: ASPW-476
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Code Review of Go User Agent
+Assignee: Shiddeshwar Khandekar
+URL: https://adgear.atlassian.net/browse/ASPW-476
+Created: 2026-04-20T10:16:14.662-0400
+Updated: 2026-05-26T02:48:33.214-0400
+================================================================================
+
+Description:
+## Goal
+
+Obtain a thorough code review of the Go User Agent implementation from all relevant stakeholders.
+
+* Share the Pull Request (PR) with relevant stakeholders for review.
+* Address and resolve all review comments raised on the PR.
+
+---
+
+## Acceptance Criteria
+
+* All code review comments are reviewed and resolved.
+* PR is merged with all expected and agreed-upon changes incorporated.
+
+
+
+
+================================================================================
+Issue: ASPW-449
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: GitHub Actions Workflows migration to Node.JS 24
+Assignee: Seokbaek Lee
+URL: https://adgear.atlassian.net/browse/ASPW-449
+Created: 2026-04-17T03:33:36.843-0400
+Updated: 2026-05-21T03:35:38.819-0400
+================================================================================
+
+Description:
+# \[ACTION REQUIRED\] GitHub Actions Workflows migration to Node.JS 24
+
+## What is about to change
+
+On **June 2nd, 2026** GitHub **will force** using Node.JS 24 as a default for all **GitHub Actions Workflows**.
+
+## Why this change is necessary
+
+GitHub will deprecate Node.JS 20 as it reach end-of-life (EOL) **in Arpil 2026**. Current GitHub Action Runners supports both Node.JS 20 and Node.JS 24.
+
+On **June 2nd, 2026** GitHub will **force** all Workflows to use Node.JS 24, whenever they are supporting it or not.
+
+## What should I do
+
+All Github actions needs to be upgraded to version supporting Node.JS 24, see [Confluence](https://protect2.fireeye.com/v1/url?k=58c8661e-39437327-58c9ed51-000babffae10-9c1b5cbf08d52d06&q=1&e=a9bc91e7-0c36-4275-869b-d9aa2c219888&u=https%3A%2F%2Fadgear.atlassian.net%2Fwiki%2Fspaces%2FENG%2Fpages%2F22712418305%2FHow-to%2Bmigrate%2Bworkflows%2Bto%2BNode.JS%2B24) for details.
+
+**Please do not wait until the deadline, start working on this now, and be prepared before.**
+
+
+================================================================================
+Issue: ASPW-374
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: Canary testing for gateway and delivery for aerospike async code
+Assignee: Dmytro Gorbenko
+URL: https://adgear.atlassian.net/browse/ASPW-374
+Created: 2026-04-08T11:35:01.441-0400
+Updated: 2026-05-20T12:13:48.597-0400
+================================================================================
+
+Description:
+Finish canary testing for async aerospike communication and fix any issues which may be found.
+
+‌
+
+Acceptance criteria: canary pods for gateway and delivery are running async code without any issues.
+
+
+================================================================================
+Issue: ASPW-252
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: pacing-oracle Deploy to prod to for shadow mode only
+Assignee: Adithya Pentela
+URL: https://adgear.atlassian.net/browse/ASPW-252
+Created: 2026-03-23T13:06:18.955-0400
+Updated: 2026-05-20T16:16:52.922-0400
+================================================================================
+
+Description:
+**Context**
+
+Deploy pacing-oracle to a single production cluster for shadow mode only, as part of ASPW-46. The preferred target is usw2-dsp-prod, pending SRE confirmation that cross-datacenter communication with pacing-answerer instances across DCs is feasible. All deployment options must be validated in DEV before proceeding to prod.
+
+**Deployment Considerations**
+
+* use1-rprod — for globally-scoped services
+* \*-dsp-prod — hosts pacing-answerer; requires validated cross-DC communication between all clusters
+* Only one instance in prod for ASPW-46; usw2-dsp-prod is the preferred target if cross-DC comms are confirmed
+
+**Acceptance Criteria**
+
+* SRE confirms pacing-oracle can be deployed in usw2-dsp-prod with cross-DC communication to all pacing-answerer instances validated
+* All prod configs verified and pointing to the correct resources: Kafka topics, schema registry, Unleash configuration, Unleash secrets, and PagerDuty secrets
+* Security ticket filed (owner: Patrick Ting)
+* Helm charts and deployment workflows set up and verified
+* Application is deployed and running in production
+
+
+
+
+================================================================================
+Issue: ASPW-145
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Refactor rtb-gateway-tools
+Assignee: Seokbaek Lee
+URL: https://adgear.atlassian.net/browse/ASPW-145
+Created: 2025-12-17T23:14:58.991-0500
+Updated: 2026-05-21T03:35:36.654-0400
+================================================================================
+
+Description:
+Refactor and improve rtb-gateway-tools to reduce external dependencies, automate manual workflows, and improve developer experience.
+
+Completed work:
+
+* Improve CLAUDE.md documentation structure and fix BERT constraint inaccuracy (#113)
+* Remove unused fields from development.config to reduce confusion (#114)
+* Add Delivery Grafana dashboard and update scrape_configs for better observability (#115)
+* Fix context selection order in Custom entry point for ArgoCD workload manager (#116)
+* Auto-detect config-counters.yaml changes and re-seed pacing on make up (#120)
+* Improve kubeconfig setup reliability and debugging (#121)
+* Replace external kubectl plugin dependencies (kubecm, kubectx, kubens) with built-in kubectl commands for easier onboarding (#122)
+
+
+
+
+================================================================================
+Issue: ASPW-109
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: Log the parameter values when calculating the grant
+Assignee: Zane Zhang
+URL: https://adgear.atlassian.net/browse/ASPW-109
+Created: 2026-03-09T17:45:08.653-0400
+Updated: 2026-05-22T13:48:48.135-0400
+================================================================================
+
+Description:
+Persist the pacing calculation into Kafka so that we can query / analyze the calculations later.
+
+* Per request? - Per calc
+* Per tick?
+
+The parameter for calculating needs to be saved in a parsable way
+
+this can be a schedule of future and past grants.
+
+‌
+
+Parameters like:
+
+* event metadata
+
+    * campaign spend
+    * campaign spend last date
+    * last metadata event for a specific campaign
+    
+* pstate
+
+    * goals
+    * start / end
+    
+
+‌
+
+Tasks
+
+* create topic in dev and prod
+* code change to populate topic
+
+‌
+
+AC:
+
+* Persist these params in Kafka for 7 days.
+
+
+
+
+================================================================================
+Issue: ASPW-95
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: setup grafana dashboard from pacing-oracle in dev
+Assignee: Dmitri Skliarov
+URL: https://adgear.atlassian.net/browse/ASPW-95
+Created: 2026-03-09T14:11:16.948-0400
+Updated: 2026-05-21T19:55:05.417-0400
+================================================================================
+
+Description:
+* Standardize on grafana dashboard → Review what has been auto-generated from AI tools and align on what we would need
+
+    * Review <custom data-type="smartlink" data-id="id-0">https://github.com/adgear/pacing-oracle/tree/main/monitoring</custom> 
+    
+
+* copy the dashboard from the pacing-oracle repo
+
+Dependent on infrastructure setup
+
+**AC**
+
+* Create a “pacing-oracle” collection in Grafana
+* Import the dashboards in pacing-oracle repo into the collection.
+
+    * Add the ability to toggle between environments.
+    
+
+**Refinement:**
+
+* Prod deployment is not done so we don’t have prod metrics yet.
+* Dashboard needs a toggle between dev, prod.
+* New folder for all “pacing-oracle” dashboards.
+* Which dashboards? – Too early to define so we could start with dumping all the existing dashboards and then decide our direction.
+
+    * Look at all the existing local dashboards
+    * otel tracing dashboards
+    * Grant requests + issued at a counter level.
+    
+
+
+
+
+================================================================================
+Issue: ASPW-86
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: Implement Weather Context-Based Asset Selection in Bid Response Pipeline
+Assignee: Taeho Lee
+URL: https://adgear.atlassian.net/browse/ASPW-86
+Created: 2026-03-09T01:47:36.905-0400
+Updated: 2026-05-21T03:35:38.275-0400
+================================================================================
+
+Description:
+### **Description**
+
+Implement weather context-based asset selection functionality in `pipe_bid_resp.erl` that selects appropriate assets (title, img_url, img_w, img_h) from the creative's `weather_contexts` field based on the current weather context when generating the final bid response for Samsung Ads.
+
+### **Acceptance Criteria**
+
+* Extract weather context from rtb_req during bid response generation
+* Select matching assets from creative's weather_contexts structure
+* Apply selected weather asset to creative's base fields
+* Use default assets when no matching weather context found
+* Maintain existing logic for non-weather creatives
+* Add debugging and logging for weather asset selection process
+* Support all weather context scenarios (0-4)
+
+### **Definition of Done**
+
+* Weather asset selection logic integrated into `pipe_bid_resp.erl`
+* Unit tests for all weather context values
+* Validation tests for creative asset selection accuracy
+* Confirmation that existing bid response generation logic is unaffected
+* Performance optimization for weather asset selection
+
+
+
+
+================================================================================
+Issue: ASPW-85
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Pipe Flight filtering 
+Assignee: jongyoun.han@samsung.com
+URL: https://adgear.atlassian.net/browse/ASPW-85
+Created: 2026-03-09T01:45:19.001-0400
+Updated: 2026-05-26T07:44:42.500-0400
+================================================================================
+
+Description:
+## Key Design Decisions
+
+  
+1\. Weather Data Storage Location
+
+* Decision: Add fields to bid_req_ext
+* Fields:
+
+    * weather_icon_num: 5 weather categories (sunny, cloudy, rain, snow, windy)
+    * weather_forecast_alert: Severe weather alert (extreme, severe, etc.)
+    
+* Impact: Exchange handlers need to extract data during bid request parsing
+
+2\. Creative-Weather Mapping Storage
+
+* Decision: Add field to creative_group record
+* Field: weather_creatives :: undefined | map()
+* Structure: #{sunny => \[creative_id()\], cloudy => \[...\], rain => \[...\], snow => \[...\], windy => \[...\]}
+* Advantage: Simplicity and maintainability, natural processing during flights.bert2 loading
+
+3\. Filtering Timing
+
+* Decision: After filter_by_imp_interval, before mp_flight_ids
+* Reasons:
+
+    * Process when flight count is reduced after FCap filtering
+    * Maintain consistent flow with other filtering logic
+    * Minimize performance impact
+    
+
+
+
+
+================================================================================
+Issue: ASPW-84
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Betree Filtering 
+Assignee: JungHwan Jaden Kim
+URL: https://adgear.atlassian.net/browse/ASPW-84
+Created: 2026-03-09T01:44:05.910-0400
+Updated: 2026-05-28T04:14:44.202-0400
+================================================================================
+
+Description:
+Betree filtering ( flights ) by constraints defined especially for Weather Ad.
+
+
+================================================================================
+Issue: ASPW-83
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Weather Ad Component & Integration Testing
+Assignee: Jaehoon LIM
+URL: https://adgear.atlassian.net/browse/ASPW-83
+Created: 2026-03-09T01:43:10.467-0400
+Updated: 2026-05-21T03:35:37.500-0400
+================================================================================
+
+Description:
+### Description
+
+Implement comprehensive test coverage for Weather Ad feature including unit tests for each component and end-to-end integration tests.
+
+### Objectives
+
+* Ensure weather context parsing and handling works correctly
+* Verify creative matching logic based on weather conditions
+* Validate bid request/response flow for Weather Ad deals
+* Confirm no regression on existing functionality
+* Establish monitoring and debugging capabilities
+
+---
+
+### Test Scope
+
+#### 1. Unit Tests
+
+* **Samsung Ads Exchange Parsing**: Weather context field parsing from bid request
+* **Betree Matching**: Weather context-based creative selection logic
+* **Bid Response Construction**: Native ad response format for weather creatives
+* **Roadblock Deal Pipeline**: Weather Ad deal recognition and shortpipe flow
+* **Frequency Capping**: IP-based FCap and impression interval for Weather Ads
+
+#### 2. Integration Tests
+
+* **Full Flow Testing**: End-to-end bid request to response for all weather contexts (0\~4)
+* **Deal Integration**: Roadblock deal + weather context combination scenarios
+* **Error Handling**: Unregistered context, missing creatives, FCap exceeded cases
+
+#### 3. Regression Tests
+
+* **Backward Compatibility**: Existing Samsung Ads requests without weather context
+* **No Side Effects**: Other exchanges, deals, and FCap logic remain unaffected
+* **Performance**: Latency and throughput impact measurement
+
+---
+
+### Acceptance Criteria
+
+* All weather context values (0\~4) correctly parsed and matched to appropriate creatives
+* No-bid response for unregistered weather contexts
+* Existing Samsung Ads functionality unaffected
+* E2E test coverage for all weather conditions
+* Test suite executable in CI/CD pipeline
+* Performance benchmarks within acceptable range
+
+---
+
+### Test Environment Requirements
+
+* Sample bid requests with weather_ad_context field
+* Test creative set for 5 weather conditions
+* Weather Ad deal configuration
+* Isolated test environment with monitoring enabled
+
+
+
+
+================================================================================
+Issue: ASPW-82
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Gateway / Delivery Integration and Logging 
+Assignee: ChanSup Hwang
+URL: https://adgear.atlassian.net/browse/ASPW-82
+Created: 2026-03-09T01:41:52.875-0400
+Updated: 2026-05-21T03:35:37.180-0400
+================================================================================
+
+Description:
+### **Summary**
+
+Add weather AD context data to the 'rtb-gateway' and the 'rtb-delivery' for reporting and logging purposes.
+
+### Scope
+
+* Gateway (rtb-gateway): Populate weather_ad_context in DeliveryInfo on bid response
+* Delivery (rtb-delivery): Parse weather_ad_context and reflect in the reporting pipeline
+* Proto schema (delivery_info.proto): Add weather_ad_context field
+* Logging: Add weather context logging for debugging and alert filtering
+
+### Background
+
+Weather Ad serves creatives based on 5 weather conditions (Sunny/Cloudy/Rain/Snow/Windy).  
+To track which weather context was served per impression,  
+the weather_ad_context value needs to flow from rtb-gateway through rtb-delivery.
+
+### Dependencies
+
+* S-SSP bid request schema finalized
+* rtb_protobuf new tag release after proto update
+
+
+
+
+================================================================================
+Issue: ASPW-80
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: S-SSP Interface for Contextual Ads
+Assignee: ByungSoo Lee
+URL: https://adgear.atlassian.net/browse/ASPW-80
+Created: 2026-03-09T01:39:24.603-0400
+Updated: 2026-05-21T03:35:36.928-0400
+================================================================================
+
+Description:
+* Definition of weather info schema of Bid Request
+
+    * Field for contextual ads.
+    * Check whether a new type is added.
+    
+* Definition of Bid Response ad format
+
+    * Check if there are any fields added for logging or other reasons.
+    
+* Ad Exchange parsing logic implementation.
+
+    * Need to check if only Samsung ads are needed.
+    
+
+
+

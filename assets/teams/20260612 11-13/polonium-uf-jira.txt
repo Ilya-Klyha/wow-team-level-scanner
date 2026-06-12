@@ -1,0 +1,39 @@
+Team: Polonium UF
+Project: RSW
+Query Date: 2026-06-12
+Total Active Issues: 3
+================================================================================
+
+Key: RSW-880
+Summary: [BE] GenAI Service — session reset
+Type: Task
+Status: Code Review
+Priority: Medium
+Assignee: Rafal Babinski
+Created: 2026-04-30T05:59:30.504-0400
+Updated: 2026-06-11T05:52:07.741-0400
+URL: https://adgear.atlassian.net/browse/RSW-880
+--------------------------------------------------------------------------------
+
+Key: RSW-1038
+Summary: [BE] Add new table to DB for custom groups' apps presets
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Dmitriy Borowski
+Created: 2026-05-14T06:01:41.488-0400
+Updated: 2026-06-08T04:31:33.724-0400
+URL: https://adgear.atlassian.net/browse/RSW-1038
+--------------------------------------------------------------------------------
+
+Key: RSW-1237
+Summary: [FE] Integrate Retry Button with dedicated BE endpoint
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Zbigniew Stolarski
+Created: 2026-06-02T05:39:48.886-0400
+Updated: 2026-06-03T05:48:18.247-0400
+URL: https://adgear.atlassian.net/browse/RSW-1237
+--------------------------------------------------------------------------------
+

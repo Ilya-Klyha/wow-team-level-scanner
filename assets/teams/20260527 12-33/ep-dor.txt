@@ -1,0 +1,17 @@
+Team: EP (Engineering Platform - EP Core)
+Page: https://adgear.atlassian.net/wiki/spaces/ENG/pages/22817472513
+Page ID: 22817472513
+Extracted: 2026-05-27T12:33:00Z
+
+=== DEFINITION OF READY (DoR) - STORY/TASK ===
+
+- The user story and/or requirement is clearly articulated, concise, and understandable to all team members. Concrete and measurable.
+- We have clear & testable Acceptance Criteria.
+- All necessary documents are provided if task requires such like TechSpecs.
+- Task was estimated by the team. Story points are assigned.
+- All dependencies of tasks and blockers are defined and resolved (inside and outside).
+- Label Lifeguard is added to ticket (when it is needed).
+
+---
+Status: success
+Source: direct

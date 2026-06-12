@@ -1,0 +1,5 @@
+Bigos DoR and DoD for Story/Task
+
+Link to DoR: https://adgear.atlassian.net/wiki/spaces/ENG/pages/22175482213
+
+Note: The Bigos team (part of Ads Reporting - Bigos & Zurek) maintains their DoR in a separate Confluence page. The team is focused on developing new features and solutions within the Measurement and Reporting product area, including Audience Analytics Reports, Advanced Analytics Dashboard, and TV App Insights.

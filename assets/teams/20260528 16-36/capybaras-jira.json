@@ -1,0 +1,648 @@
+{
+  "team": "Capybaras",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/projects",
+  "projectKey": "RSW",
+  "extractedAt": "2026-05-28T13:48:58.000Z",
+  "query": {
+    "jql": "sprint in openSprints() AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+    "statuses": [
+      "In Progress",
+      "Code Review"
+    ],
+    "issueTypes": [
+      "Story",
+      "Bug",
+      "Task"
+    ]
+  },
+  "summary": {
+    "total": 8,
+    "byStatus": {
+      "In Progress": 6,
+      "Code Review": 2
+    },
+    "byType": {
+      "Story": 5,
+      "Task": 3
+    },
+    "truncated": false
+  },
+  "issues": [
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2539497",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2539497",
+      "key": "RSW-1196",
+      "fields": {
+        "summary": "[Data] Update snowflake code to handle null/0 reach for Linear or Streaming exposures",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10300",
+          "id": "10300",
+          "description": "A user story. Created by JIRA Software - do not edit or delete.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-22T16:19:30.009-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/18978",
+          "id": "18978",
+          "key": "RSW",
+          "name": "Reach Solution",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "Currently, anytime either of the Linear/Streaming exposures is null/0, we fail the report, even though it's a valid use case. The ask is to handle this and let the report generate successfully. \n\nRight now it the code is causing a divide-by-0 error. As part of this story, handle all divide by 0 erros for this use case and also any other places where the denominator can be 0.\n\n‌\n\n**Acceptance Criteria**\n\n- [ ] Reports with empty Linear/Streaming classification should not fail the report. The report should be generated successfully, and no error is thrown back.\n- [ ] All the existing metrics are generated as expected. \n\n| **SOURCECODE** | **DIV0 VULNERABILITY** |\n| --- | --- |\n| `R__get_create_linear_avod_metrics_table.sql` <custom data-type=\"emoji\" data-id=\"id-0\">:white_check_mark:</custom>  | Line 54: `,(total_unique_ids::numeric/'|| p_total_audience_count::varchar ||')*100 AS unique_reach` |\n| `R__get_dim_metrics_sql.sql` | Line 12: Division by (tv_count_per_dim \\* report_days_range) `ROUND(total_hours_spent_per_dim/ (tv_count_per_dim * report_days_range), 2) as average_hours_spent` Line 13: Division by total_hours_spent `(total_hours_spent_per_dim *100/total_hours_spent) as percent_of_hours_spent` Line 14: Division by total_audience_count `(tv_count_per_dim*100/total_audience_count) as percent_of_tvs` |\n| `R__get_cross_channel_usage_tier_desired_metrics_sql.sql` | Lines 78-79, 86-87 `round(cnt * 100.00 / total.total_cnt, 2) unique_reach` `round(total_time_spent / cnt / report_days_range, 2) average_hours_spent_per_day` Lines 96, 105 `round(sum(total_time_missed) / total.total_cnt / report_days_range, 2) average_hours_spent_per_day` |\n| `R__get_ai_cross_channel_avg_time_spent_view_sql.sql` | Lines: 31, 36, 41, 46 `(SUM(total_time_spent)/60.00) / (COUNT(DISTINCT id) * report_days_range) AS avg_time_spent` |\n| `R__get_create_panel_overlap_metrics_sql.sql` | Lines: 118, 131 `ROUND(tv_count / p_app_level_target_count * 100, 2) AS unique_reach` |\n| `R__get_app_type_samsung_apps_metrics_sql.sql` | Lines: 11-13 |\n| `R__report_or_append_linear_to_app_type.sql` | Lines 85-87 (unexposed) `ROUND(total_hours_spent_per_dim/ (tv_count_per_dim * :p_report_days_range), 2) as average_hours_spent` `(total_hours_spent_per_dim *100/total_hours_spent) as percent_of_hours_spent` `(tv_count_per_dim*100/:p_total_unexposed_audience_count) as percent_of_tvs` Lines 110-112 (other) `... /:p_total_other_audience_count ...` Lines 135-137 (universe) `... /:p_total_universe_audience_count ...` |\n| `R__process_sla_metrics.sql` | Lines: 101-103  WHEN delay_minutes <= ALLOWED_DELAY THEN  \n    delay_minutes/ALLOWED_DELAY \\* 30\n\nWHEN delay_minutes BETWEEN ALLOWED_DELAY AND WARNING_DELAY THEN  \n    (delay_minutes - ALLOWED_DELAY) / (WARNING_DELAY - ALLOWED_DELAY) \\* 70\n\nWHEN delay_minutes BETWEEN WARNING_DELAY AND CRITICAL_DELAY THEN  \n    70 + (delay_minutes - WARNING_DELAY) / (CRITICAL_DELAY - WARNING_DELAY) \\* 30 |\n| `R__process_ai_report_metrics.sql` | Line: 306 `,(total_warehouse_credits - total_attributed_credits) / wda.reports_per_day as idle_credits_per_report` |\n| `R__load_snowflake_cost_metrics.sql` | Line: 98 `COUNT(*)::FLOAT / SUM(COUNT(*)) OVER (PARTITION BY allocated_warehouse) AS goal_share` |\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A13de599f-4d11-4634-b86e-e27f11feb068",
+          "accountId": "712020:13de599f-4d11-4634-b86e-e27f11feb068",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/f17fd71df87c588f98db3aff73077652?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBF-4.png",
+            "24x24": "https://secure.gravatar.com/avatar/f17fd71df87c588f98db3aff73077652?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBF-4.png",
+            "16x16": "https://secure.gravatar.com/avatar/f17fd71df87c588f98db3aff73077652?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBF-4.png",
+            "32x32": "https://secure.gravatar.com/avatar/f17fd71df87c588f98db3aff73077652?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBF-4.png"
+          },
+          "displayName": "Bernard Feng",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-26T15:36:54.527-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/RSW-1196"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2535394",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2535394",
+      "key": "RSW-1106",
+      "fields": {
+        "summary": "Vertical Categorization of Advertisers via ML-Based Text Classification",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10300",
+          "id": "10300",
+          "description": "A user story. Created by JIRA Software - do not edit or delete.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-19T17:34:38.920-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/18978",
+          "id": "18978",
+          "key": "RSW",
+          "name": "Reach Solution",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "Assess the feasibility of leveraging machine learning (ML)-based text classification models to automatically categorize advertisers into 634 predefined categories under the _Media Radar taxonomy._\n\n**Objectives:**\n\n* Evaluate the suitability of ML-based text classification approaches for multi-class / multi-label advertiser categorization.\n* Identify data requirements and candidate models.\n* Assess data availability, quality, and labeling needs.\n* Estimate expected classification accuracy.\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A02dfb8e2-a8c5-4182-bc76-9c5416e03e6d",
+          "accountId": "712020:02dfb8e2-a8c5-4182-bc76-9c5416e03e6d",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/72c8a3c63845e317ddf67f18f80e82c0?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMP-1.png",
+            "24x24": "https://secure.gravatar.com/avatar/72c8a3c63845e317ddf67f18f80e82c0?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMP-1.png",
+            "16x16": "https://secure.gravatar.com/avatar/72c8a3c63845e317ddf67f18f80e82c0?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMP-1.png",
+            "32x32": "https://secure.gravatar.com/avatar/72c8a3c63845e317ddf67f18f80e82c0?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMP-1.png"
+          },
+          "displayName": "Martin Pavlovski",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-26T18:20:27.579-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/RSW-1106"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2535086",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2535086",
+      "key": "RSW-1103",
+      "fields": {
+        "summary": "Tech Spec Review & ARB approval",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10300",
+          "id": "10300",
+          "description": "A user story. Created by JIRA Software - do not edit or delete.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-19T14:44:48.820-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/18978",
+          "id": "18978",
+          "key": "RSW",
+          "name": "Reach Solution",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": null,
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=627be199a20bd0006fda4335",
+          "accountId": "627be199a20bd0006fda4335",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/7f93d5994de7404c2394c58b30d4af2c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAR-2.png",
+            "24x24": "https://secure.gravatar.com/avatar/7f93d5994de7404c2394c58b30d4af2c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAR-2.png",
+            "16x16": "https://secure.gravatar.com/avatar/7f93d5994de7404c2394c58b30d4af2c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAR-2.png",
+            "32x32": "https://secure.gravatar.com/avatar/7f93d5994de7404c2394c58b30d4af2c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAR-2.png"
+          },
+          "displayName": "Akhlesh Richhariya",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-26T19:59:12.443-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/RSW-1103"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2526528",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2526528",
+      "key": "RSW-1040",
+      "fields": {
+        "summary": "[FE] Create select dropdown for preset selection",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-14T06:11:28.111-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/18978",
+          "id": "18978",
+          "key": "RSW",
+          "name": "Reach Solution",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "### Summary\n\nAdd a \"Presets\" dropdown to the Select Applications modal header bar. This dropdown allows CSMs to browse and select a predefined app bundle instead of manually searching and selecting apps one by one.\n\n![](blob:https://media.staging.atl-paas.net/?type=file&localId=4001ac9c72ae&id=aeb58179-3cad-4be0-83e8-6707a78dd1e4&&collection=&height=733&occurrenceKey=null&width=1167&__contextId=null&__displayType=null&__external=false&__fileMimeType=null&__fileName=null&__fileSize=null&__mediaTraceId=null&url=null)\n‌\n\n### Context\n\n* The dropdown is placed inside the existing Select Applications modal, next to the search/filter field (DR-1)\n* Default value: \"None\" — the modal behaves identically to the current flow when \"None\" is selected (AC-1, AC-2)\n* The dropdown list is populated by calling the backend GET presets endpoint (<custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/RSW-1039</custom>), filtered by the country selected in Report Settings (DR-5, AC-3)\n* Only one preset can be selected at a time (DR-2)\n\n### Flow\n\n1. User clicks \"+ Add Apps\" → Select Applications modal opens\n2. Modal renders with \"Presets\" dropdown in header bar, default \"None\"\n3. Call GET presets endpoint with the report's country code\n4. Display preset names in the dropdown list on select open\n5. On preset selection: trigger app auto-population (handled by <custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atlassian.net/browse/RSW-1041</custom>)\n\n### Scope\n\n* Add dropdown component to the Select Applications modal header\n* Fetch presets from backend on modal open (or on dropdown expand)\n* Display loading/error states for the fetch\n* When the user re-opens the modal via \"Edit\" button, reflect current state: \"Custom\" (manual or present modified), a preset name (unmodified preset) — AC-10\n* Handle country changes: if user changes country in Report Settings and re-opens modal, the preset list updates accordingly (AC-3)\n\n### Out of Scope\n\n* Auto-populating app list and weighting on selection (<custom data-type=\"smartlink\" data-id=\"id-2\">https://adgear.atlassian.net/browse/RSW-1041</custom>)\n* Preset management / editing preset definitions\n* Identify selected present name Custom Group save (after page reload when apps are already selected) - “Custom” state should appear in that case\n\n### Dependencies\n\n* <custom data-type=\"smartlink\" data-id=\"id-3\">https://adgear.atlassian.net/browse/RSW-1039</custom>\n\n### Definition of Done\n\n- [ ] \"Presets\" dropdown visible in the Select Applications modal header, next to search field\n- [ ] Default value is \"None\"\n- [ ] Dropdown populated with presets filtered by selected country\n- [ ] When \"None\" is selected, modal behaves identically to current flow\n- [ ] Dropdown reflects correct state on re-edit (\"None\" / preset name / \"Custom\")\n- [ ] Unit tests for dropdown component rendering and state management\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3Ac94e4669-a2fe-440c-ab97-a6f51aa08e32",
+          "accountId": "712020:c94e4669-a2fe-440c-ab97-a6f51aa08e32",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:c94e4669-a2fe-440c-ab97-a6f51aa08e32/e74eac12-352f-46c0-9b06-73ea0ca28d71/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:c94e4669-a2fe-440c-ab97-a6f51aa08e32/e74eac12-352f-46c0-9b06-73ea0ca28d71/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:c94e4669-a2fe-440c-ab97-a6f51aa08e32/e74eac12-352f-46c0-9b06-73ea0ca28d71/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:c94e4669-a2fe-440c-ab97-a6f51aa08e32/e74eac12-352f-46c0-9b06-73ea0ca28d71/32"
+          },
+          "displayName": "Zbigniew Stolarski",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-21T05:56:36.228-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/RSW-1040"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2518309",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2518309",
+      "key": "RSW-968",
+      "fields": {
+        "summary": "Results reporting and historical comparison for stress tests",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-08T12:16:24.438-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/18978",
+          "id": "18978",
+          "key": "RSW",
+          "name": "Reach Solution",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "## Summary\n\nEnhance the JSON output to support storing results over time so successive runs can be compared, enabling detection of performance regressions.\n\nStorage run results as JSON files is NOT a desirable outcome, we would prefer using a database to persist these results and allow for comparison against previous runs.\n\nLook into automating cost tracking metric collection for jobs that finished 8+ hours ago. This will run on a daily basis and collect these metrics so they can be reviewed later. Using a Snowflake task for this (piggybacking on existing tooling for cost tracking) might be our best bet here.\n\n## Acceptance Criteria\n\n* \\[ \\] Results files named with timestamp (e.g., `stress-results-2026-05-07T14-30.json`) \n* \\[ \\] More preferable - store test results in database (such as a Snowflake table)\n* \\[ \\] Add a `compare` Makefile target that reads two result files and prints a diff table\n* \\[ \\] Track key metrics: avg/p50/p95 wall clock time, success rate\n* \\[ \\] Optional: flag regressions (>20% degradation from previous run)\n\n## Estimate\n\nMedium — extends existing output.go with comparison logic\n\n## Dependencies\n\n* RSW-138 (merge stress tool into main)\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=5fbd5aff4a096400691d80e9",
+          "accountId": "5fbd5aff4a096400691d80e9",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fbd5aff4a096400691d80e9/4eaccb6d-a56e-4557-a0b3-bf435bfdc9e1/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fbd5aff4a096400691d80e9/4eaccb6d-a56e-4557-a0b3-bf435bfdc9e1/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fbd5aff4a096400691d80e9/4eaccb6d-a56e-4557-a0b3-bf435bfdc9e1/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fbd5aff4a096400691d80e9/4eaccb6d-a56e-4557-a0b3-bf435bfdc9e1/32"
+          },
+          "displayName": "Igor Andriychuk",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-22T16:03:30.117-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/RSW-968"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2513484",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2513484",
+      "key": "RSW-923",
+      "fields": {
+        "summary": "[SRPOL-OR] Prepare Data Availablity report",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10300",
+          "id": "10300",
+          "description": "A user story. Created by JIRA Software - do not edit or delete.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-05T07:37:27.381-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/18978",
+          "id": "18978",
+          "key": "RSW",
+          "name": "Reach Solution",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "As a regional lead, I want to be certain that the Optimal Solution can work fully and properly in my region. I will achieve this by getting a detailed report of what data is visible and used, to be compared with our own understanding of the regional data.\n\nProvide numbers based on 3 month period: 2026 Q1  \nData availability report: <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22843424830/FRITES+Data+Exploration</custom> \n\n**Analysis to be provided:**\n\n* Universe size based on user and exposure data\n* Linear vs. AVOD exposure breakdown\n* Linear apps exposure breakdown\n* HDMI device categories exposure breakdown\n* Regional brands exposure breakdown\n\n**Acceptance Criteria:**\n\n* Every report mentioned above provided and documented\n* **Main findings summarized in a presentation**\n* Any coverage gaps documented with remediation plan\n* All issues resolved, added as tasks, or escalated as blockers\n* Report acceptance confirmation from regional lead\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=63f61ea93ec8aa51d3d2b948",
+          "accountId": "63f61ea93ec8aa51d3d2b948",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f61ea93ec8aa51d3d2b948/00813812-1631-4c57-a695-007e81cf3039/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f61ea93ec8aa51d3d2b948/00813812-1631-4c57-a695-007e81cf3039/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f61ea93ec8aa51d3d2b948/00813812-1631-4c57-a695-007e81cf3039/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f61ea93ec8aa51d3d2b948/00813812-1631-4c57-a695-007e81cf3039/32"
+          },
+          "displayName": "Cezary Kret",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-27T09:01:10.072-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/RSW-923"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2510072",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2510072",
+      "key": "RSW-896",
+      "fields": {
+        "summary": "Substitute the current Contextual pipeline model from Nova 1 pro to Nova 2 Lite",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10300",
+          "id": "10300",
+          "description": "A user story. Created by JIRA Software - do not edit or delete.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+          "name": "Story",
+          "subtask": false,
+          "avatarId": 10315,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-01T11:59:35.268-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/18978",
+          "id": "18978",
+          "key": "RSW",
+          "name": "Reach Solution",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "Description\n\nReplace the current Nova 1 Pro model in the Contextual pipeline with Nova 2 Lite to reduce per-request inference costs while maintaining comparable classification accuracy. This involves adapting the pipeline to work within the lighter model's constraints, including schema adjustments, extended thinking capabilities, improved IAB category matching, and support for raw video input, so the model produces reliable structured outputs without degrading result quality.\n\nAcceptance Criteria\n\n* Nova 2 Lite is fully integrated as the default model in the Contextual pipeline, replacing Nova 1 Pro, with a measurable reduction in per-request cost\n* Classification accuracy with Nova 2 Lite is comparable to the previous Nova 1 Pro setup, supported by a multi-tier category matching strategy (exact, normalized, and fuzzy with length guard) that minimizes false positives and corrects near-miss responses, with null and empty response rates at or below the levels seen with Nova 1 Pro\n* The pipeline supports both composite image and raw video input modes for Nova 2 Lite, with raw video enabled by default to provide richer contextual analysis\n\nDefinition of Done\n\nThis ticket is complete when the Contextual pipeline is running Nova 2 Lite in production with raw video support, per-request costs are confirmed to be lower than the Nova 1 Pro setup, and classification quality meets or exceeds the previous baseline.\n\nDue Date\n\n05/10/2026",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A32016ca0-4229-4af5-afb0-55f9e41c5fe8",
+          "accountId": "712020:32016ca0-4229-4af5-afb0-55f9e41c5fe8",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/76ad0b768b868b8448e7d473bd02846d?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FYH-4.png",
+            "24x24": "https://secure.gravatar.com/avatar/76ad0b768b868b8448e7d473bd02846d?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FYH-4.png",
+            "16x16": "https://secure.gravatar.com/avatar/76ad0b768b868b8448e7d473bd02846d?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FYH-4.png",
+            "32x32": "https://secure.gravatar.com/avatar/76ad0b768b868b8448e7d473bd02846d?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FYH-4.png"
+          },
+          "displayName": "YI HAN",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-27T18:06:10.511-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/RSW-896"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2495974",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2495974",
+      "key": "RSW-752",
+      "fields": {
+        "summary": "[SRPOL-OR] Transform queries to snowpark and test on snowpark memory-optimized warehouse nodes",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-04-22T05:24:49.643-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/18978",
+          "id": "18978",
+          "key": "RSW",
+          "name": "Reach Solution",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10494?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "As an engineer, I want to verify the Snowpark-optimized warehouse instances. To do this, I need to first transform OR queries into Snowpark code (focus on model pre-training module).\n\n‌\n\n**Acceptance Criteria:**\n\n* Code modified to Snowpark \n* Test modified on DEV, measure if there are any changes in results\n* Test the new warehouse instance\n* Measure performance gains\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=63f61ea93ec8aa51d3d2b948",
+          "accountId": "63f61ea93ec8aa51d3d2b948",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f61ea93ec8aa51d3d2b948/00813812-1631-4c57-a695-007e81cf3039/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f61ea93ec8aa51d3d2b948/00813812-1631-4c57-a695-007e81cf3039/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f61ea93ec8aa51d3d2b948/00813812-1631-4c57-a695-007e81cf3039/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f61ea93ec8aa51d3d2b948/00813812-1631-4c57-a695-007e81cf3039/32"
+          },
+          "displayName": "Cezary Kret",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-27T09:07:02.384-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/RSW-752"
+    }
+  ]
+}

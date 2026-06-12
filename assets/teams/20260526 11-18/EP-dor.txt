@@ -1,0 +1,11 @@
+Team: EP
+Title: EP Team Page
+Page ID: 19133628629
+URL: https://adgear.atlassian.net/wiki/spaces/ENG/pages/19133628629
+Sprint Board: https://adgear.atlassian.net/jira/software/c/projects/EP/boards/159
+Extraction Date: 2026-05-26T11:54:03.042Z
+
+DEFINITION OF READY (DoR) - STORY/TASK
+=====================================
+
+No DoR section found for this team.

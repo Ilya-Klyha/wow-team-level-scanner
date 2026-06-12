@@ -1,0 +1,69 @@
+{
+  "team": "SRE",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/EEEW/boards/10332",
+  "boardId": "10332",
+  "projectKey": "EEEW",
+  "extractedAt": "2026-06-12T14:22:47+02:00",
+  "issues": [
+    {
+      "key": "EEEW-419",
+      "type": "Story",
+      "summary": "AI skill for PR reviews",
+      "status": "Code Review",
+      "assignee": "Maciej Rachuba",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EEEW-419",
+      "description": "Establish a foundational skill that encodes standardized code review methodology, persona-based analysis, and consistent output formatting \u2014 serving as the guidance layer for all pull request review w"
+    },
+    {
+      "key": "EEEW-278",
+      "type": "Story",
+      "summary": "Automated RUNBOOK.md compliance check on pull requests",
+      "status": "In Progress",
+      "assignee": "Akif Burak Yildirim",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EEEW-278",
+      "description": "We need automated check on every pull request that verifies repository's `RUNBOOK.md` meets freshness and formatting requirements, so that runbooks don't silently go stale and on-call engineers can tr"
+    },
+    {
+      "key": "EEEW-332",
+      "type": "Story",
+      "summary": "AI skill for IaC engineering standards",
+      "status": "Code Review",
+      "assignee": "Marcin Wojtas",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EEEW-332",
+      "description": "Establish a foundational skill that encodes organizational Terraform conventions, compliance requirements, and engineering best practices \u2014 serving as the guidance layer for all infrastructure provisi"
+    },
+    {
+      "key": "EEEW-419",
+      "type": "Story",
+      "summary": "AI skill for PR reviews",
+      "status": "Code Review",
+      "assignee": "Maciej Rachuba",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EEEW-419",
+      "description": "Establish a foundational skill that encodes standardized code review methodology, persona-based analysis, and consistent output formatting \u2014 serving as the guidance layer for all pull request review w"
+    },
+    {
+      "key": "EEEW-332",
+      "type": "Story",
+      "summary": "AI skill for IaC engineering standards",
+      "status": "Code Review",
+      "assignee": "Marcin Wojtas",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EEEW-332",
+      "description": "Establish a foundational skill that encodes organizational Terraform conventions, compliance requirements, and engineering best practices \u2014 serving as the guidance layer for all infrastructure provisi"
+    },
+    {
+      "key": "EEEW-278",
+      "type": "Story",
+      "summary": "Automated RUNBOOK.md compliance check on pull requests",
+      "status": "In Progress",
+      "assignee": "Akif Burak Yildirim",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EEEW-278",
+      "description": "We need automated check on every pull request that verifies repository's `RUNBOOK.md` meets freshness and formatting requirements, so that runbooks don't silently go stale and on-call engineers can tr"
+    }
+  ]
+}

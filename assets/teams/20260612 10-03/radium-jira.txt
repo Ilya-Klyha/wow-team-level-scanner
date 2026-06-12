@@ -1,0 +1,86 @@
+JIRA Active Issues - Radium
+==================================================
+Extracted: 2026-06-12T10:03:00+02:00
+Project: AENW
+Board: https://adgear.atlassian.net/jira/software/projects/AENW/boards/8976
+Team Field Pattern: AE - WAW - Radium
+Filter Method: post-query (project-level JQL + customfield_10114 filtering)
+
+SUMMARY
+------------------------------
+Total active issues: 11
+By Status:
+  - Code Review: 3
+  - In Progress: 8
+By Type:
+  - Story: 8
+  - Task: 3
+
+ISSUES
+------------------------------
+
+[AENW-939] [Remnant] On DSP form for 2023 immersive banner add left/right toggle and burn in logo depending on selection
+  Type: Story | Status: Code Review | Priority: Medium
+  Assignee: Jakub Anioł
+  Created: 2026-06-09T05:50:36.234-0400 | Updated: 2026-06-11T02:35:19.506-0400
+  URL: https://adgear.atlassian.net/browse/AENW-939
+
+[AENW-915] Prepare serving services tasks for updated C2E Tech Spec
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Marcin Al-Jawahiri
+  Created: 2026-06-03T07:23:45.635-0400 | Updated: 2026-06-10T07:59:33.281-0400
+  URL: https://adgear.atlassian.net/browse/AENW-915
+
+[AENW-912] Verify status of rtb-delivery feature/aenw-543-docker-compose-for-e2e-testing branch for Alex
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Marcin Al-Jawahiri
+  Created: 2026-06-03T07:00:35.624-0400 | Updated: 2026-06-03T10:42:39.825-0400
+  URL: https://adgear.atlassian.net/browse/AENW-912
+
+[AENW-906] Deliver TVs to Cracow 
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Patryk Palyska
+  Created: 2026-06-03T05:25:04.600-0400 | Updated: 2026-06-10T06:51:38.938-0400
+  URL: https://adgear.atlassian.net/browse/AENW-906
+
+[AENW-904] [SW Test + Fast Track] Marcin Al-Jawahiri
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Marcin Al-Jawahiri
+  Created: 2026-06-03T04:30:00.489-0400 | Updated: 2026-06-10T05:07:06.393-0400
+  URL: https://adgear.atlassian.net/browse/AENW-904
+
+[AENW-867] [Remnant] Test Left Aligned CTA button for Remnant 2023 on TV and using Ad Response generator
+  Type: Story | Status: Code Review | Priority: Medium
+  Assignee: Krzysztof Urbański
+  Created: 2026-06-02T03:46:36.607-0400 | Updated: 2026-06-11T03:11:27.173-0400
+  URL: https://adgear.atlassian.net/browse/AENW-867
+
+[AENW-843] [Remnant] Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Jakub Anioł
+  Created: 2026-05-26T05:22:19.993-0400 | Updated: 2026-06-03T06:37:29.146-0400
+  URL: https://adgear.atlassian.net/browse/AENW-843
+
+[AENW-767] [DSP-JS] Adding a new click action type "click-to-email" on the UI side
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Jakub Anioł
+  Created: 2026-05-19T06:55:09.580-0400 | Updated: 2026-06-09T08:29:29.660-0400
+  URL: https://adgear.atlassian.net/browse/AENW-767
+
+[AENW-579] E2E Test Microsite for Spotlight Beacon and Spotlight Row on real TV
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Marcin Matyszkowicz
+  Created: 2026-04-30T05:35:14.347-0400 | Updated: 2026-06-08T08:55:47.424-0400
+  URL: https://adgear.atlassian.net/browse/AENW-579
+
+[AENW-574] [DSP] Add functionality to select Microsite on the form, save it and show it in the details view
+  Type: Story | Status: Code Review | Priority: Medium
+  Assignee: Marcin Matyszkowicz
+  Created: 2026-04-29T12:26:14.458-0400 | Updated: 2026-06-11T05:06:04.144-0400
+  URL: https://adgear.atlassian.net/browse/AENW-574
+
+[AENW-127] [DSP-UI] Add new click action "QR Code Microsite"
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Unassigned
+  Created: 2026-03-11T05:18:19.931-0400 | Updated: 2026-04-28T07:09:41.557-0400
+  URL: https://adgear.atlassian.net/browse/AENW-127

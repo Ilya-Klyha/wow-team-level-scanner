@@ -1,0 +1,20 @@
+{
+  "team": "Pandas",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/projects/ML/boards/10470",
+  "projectKey": "ML",
+  "extractedAt": "2026-06-12T10:03:00+02:00",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = ML AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "queryType": "project",
+    "teamPattern": "T - WAW - ML Pandas",
+    "teamFilterMethod": "post-query"
+  },
+  "summary": {
+    "total": 0,
+    "byStatus": {},
+    "byType": {},
+    "truncated": false
+  },
+  "issues": []
+}

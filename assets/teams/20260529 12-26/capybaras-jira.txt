@@ -1,0 +1,48 @@
+Team: Capybaras
+Project: RSW
+Board ID: 10156
+Total Issues: 6
+Extraction Date: 2026-05-29 10:56:25.028558
+Query Type: project+team (Team field filtering enabled)
+
+================================================================================
+
+[RSW-1113] Task: Create demo video with good scenario
+  Assignee: Piotr Jarosz | Priority: Medium | Status: In Progress
+  Team: AS - WAW - Capybaras
+  Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/RSW-1113
+
+[RSW-925] Story: [SRPOL-OR] Generate Example Audiences
+  Assignee: Piotr Marciniak | Priority: Medium | Status: Code Review
+  Team: AS - WAW - Capybaras
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-925
+
+[RSW-923] Story: [SRPOL-OR] Prepare Data Availablity report
+  Assignee: Cezary Kret | Priority: Medium | Status: Code Review
+  Team: AS - WAW - Capybaras
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-923
+
+[RSW-798] Task: Add deployable core with conversation logic, depending only on AWS SDK
+  Assignee: Piotr Jarosz | Priority: Medium | Status: In Progress
+  Team: AS - WAW - Capybaras
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-798
+
+[RSW-752] Task: [SRPOL-OR] Transform queries to snowpark and test on snowpark memory-optimized warehouse nodes
+  Assignee: Cezary Kret | Priority: Medium | Status: In Progress
+  Team: AS - WAW - Capybaras
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/RSW-752
+
+[RSW-390] Story: [SRPOL-OR-26Q1] Create PoC code for recommended approach
+  Assignee: Dariusz Bielawski | Priority: Medium | Status: In Progress
+  Team: AS - WAW - Capybaras
+  Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-390
+
+================================================================================
+Status: success
+Total issues: 6

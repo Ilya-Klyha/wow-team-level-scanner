@@ -1,0 +1,14 @@
+TEAM: TV Native Ad Experiences (Radium)
+PAGE_ID: 20720615642
+EXTRACTED: 2026-05-26
+
+===== Definition of Ready - STORY/TASK =====
+
+Team Task/Story DoR (Definition of Ready)
+
+Criterion | Description | Comments
+---------|-------------|----------
+User Story/Requirement Clarity | The user story or requirement is clearly articulated, concise, and understandable to all team members. Task should be well described. |
+Acceptance Criteria and Measurement Defined | Specific, testable when applicable, there should be Figma project for visual project (FE). If specific requirements raised when monitoring. AC should confirmed with the team. |
+Estimates Provided | The development team has provided an estimate for the work, or the ticket has been broken down to a size that allows for reasonable estimation. |
+Dependencies are fulfilled | All necessary link, screen shots, mockup, videos when necessary. Point of contact. External on other teams are discovered and declared. All blocking tasks are resolved or pulled of action to be resolved - agreement with team. |

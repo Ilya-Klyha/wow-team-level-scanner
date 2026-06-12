@@ -1,0 +1,20 @@
+Team: Polonium-LF
+Page: https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22606054953
+Page ID: 22606054953
+Extracted: 2026-05-27T14:59:45Z
+
+=== DEFINITION OF READY (DoR) - STORY/TASK ===
+
+Status: not_found
+
+Note: The Polonium LF page contains links to best practices from other teams but does not have its own DoR section defined. The page references:
+- Team Charter
+- Team Roster
+- Team Ceremonies
+- Team Working Agreement
+- References to Program DoR and Program DoD
+
+The team appears to be in WIP (Work In Progress) status and has not yet established team-specific DoR criteria.
+
+---
+Status: not_found

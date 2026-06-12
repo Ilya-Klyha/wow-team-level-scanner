@@ -1,0 +1,50 @@
+JIRA Active Issues - Capybaras
+==================================================
+Extracted: 2026-06-12T10:03:00+02:00
+Project: RSW
+Board: https://adgear.atlassian.net/jira/software/projects/RSW/boards/10156
+Team Field Pattern: AS - WAW - Capybaras
+Filter Method: post-query (project-level JQL + customfield_10114 filtering)
+
+SUMMARY
+------------------------------
+Total active issues: 5
+By Status:
+  - In Progress: 4
+  - Code Review: 1
+By Type:
+  - Task: 3
+  - Story: 2
+
+ISSUES
+------------------------------
+
+[RSW-1314] [SRPOL-OR] Measure performance gains of new WH and snowpark code
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Cezary Kret
+  Created: 2026-06-09T03:14:17.433-0400 | Updated: 2026-06-10T12:54:06.229-0400
+  URL: https://adgear.atlassian.net/browse/RSW-1314
+
+[RSW-1306] [AU] E2E Segment Generation Validation — Pipeline Trigger & Size Consistency on PROD
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Tomasz Zaród
+  Created: 2026-06-08T05:37:14.985-0400 | Updated: 2026-06-09T06:45:29.152-0400
+  URL: https://adgear.atlassian.net/browse/RSW-1306
+
+[RSW-1238] [SRPOL-OR] Measure cost changes after economic warehouse type introduction
+  Type: Task | Status: Code Review | Priority: Medium
+  Assignee: Dariusz Bielawski
+  Created: 2026-06-02T09:04:09.388-0400 | Updated: 2026-06-12T03:19:05.629-0400
+  URL: https://adgear.atlassian.net/browse/RSW-1238
+
+[RSW-1097] [SRPOL-OR] Add dedicated cost tracking view for OR
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Piotr Marciniak
+  Created: 2026-05-19T10:36:02.810-0400 | Updated: 2026-06-12T03:14:04.189-0400
+  URL: https://adgear.atlassian.net/browse/RSW-1097
+
+[RSW-555] [SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Dariusz Bielawski
+  Created: 2026-01-21T08:27:52.249-0500 | Updated: 2026-06-09T14:48:09.881-0400
+  URL: https://adgear.atlassian.net/browse/RSW-555

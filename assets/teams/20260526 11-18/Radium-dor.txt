@@ -1,0 +1,23 @@
+Team: Radium
+Title: Radium Team Space
+Page ID: 20720615642
+URL: https://adgear.atlassian.net/wiki/spaces/ENG/pages/20720615642
+Sprint Board: https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8976
+Extraction Date: 2026-05-26T11:54:03.031Z
+
+DEFINITION OF READY (DoR) - STORY/TASK
+=====================================
+
+User Story/Requirement Clarity
+The user story or requirement is clearly articulated, concise, and understandable to all team members. Task should be well described.
+
+Acceptance Criteria and Measurement Defined
+Specific, testable when applicable , there should be Figma project for visual project (FE).
+ If specific requirements raised  when monitoring
+ AC should confirmed with the team.
+
+Estimates Provided
+The development team has provided an estimate for the work, or the ticket has been broken down to a size that allows for reasonable estimation.
+
+Dependencies are fulfilled
+All necessary link, screen shots, mockup, videos when necessary. Point of contact. External on other teams are discovered and declared. All blocking tasks are resolved or pulled of action to be resolved - agreement with team.

@@ -1,0 +1,118 @@
+================================================================================
+     SRPOL TEAMS DoR EXTRACTION - COMPLETED SUCCESSFULLY
+================================================================================
+
+DATE: 2026-05-26 at 11:00
+LOCATION: assets/teams/20260526 11-00/
+
+--------------------------------------------------------------------------------
+EXTRACTION SUMMARY
+--------------------------------------------------------------------------------
+
+Total Teams Processed:     16
+Teams with DoR:            12 (75%)
+Teams without DoR:          4 (25%)
+
+Total Files Created:       19
+  - DoR Files:             16
+  - Metadata (JSON):        1
+  - Reports:                2
+
+Total Content Extracted:   ~25 KB
+
+--------------------------------------------------------------------------------
+EXTRACTION BREAKDOWN
+--------------------------------------------------------------------------------
+
+WITH COMPLETE DoR (12 teams):
+  1. Abyss (Beacon)
+  2. TV Native Ad Experiences (Radium)
+  3. Family Hub Creative Preview DSP (Europium)
+  4. TV Plus Ad Experiences (Copernicium)
+  5. CTV-2-Mobile (Mouflons)
+  6. CTV-2-CTV and CTV-2-Web (Wolves)
+  7. Polonium Upper Funnel
+  8. Audience Reporting (Bigos)
+  9. Zurek
+ 10. MLE OTS OR (Capybaras)
+ 11. Engineering Platform (EP Core)
+ 12. DSP Ad Serving (Igni)
+
+WITHOUT DoR (4 teams):
+  1. Polonium LF (WIP page)
+  2. MLOps Serving (no section)
+  3. MLOps Platform (no section)
+  4. SRE (external reference)
+
+--------------------------------------------------------------------------------
+FILES CREATED
+--------------------------------------------------------------------------------
+
+DoR EXTRACTIONS (16 files):
+  - Abyss-dor.txt
+  - TV-Native-Ad-Experiences-dor.txt
+  - Family-Hub-Creative-Preview-DSP-dor.txt
+  - TV-Plus-Ad-Experiences-dor.txt
+  - CTV-2-Mobile-dor.txt
+  - CTV-2-CTV-and-CTV-2-Web-dor.txt
+  - Polonium-LF-dor.txt
+  - Polonium-UF-dor.txt
+  - Audience-Reporting-dor.txt
+  - Zurek-dor.txt
+  - MLE-OTS-OR-dor.txt
+  - MLOps-Serving-dor.txt
+  - MLOps-Platform-dor.txt
+  - Engineering-Platform-dor.txt
+  - DSP-Ad-Serving-dor.txt
+  - SRE-dor.txt
+
+METADATA & DOCUMENTATION (3 files):
+  - teams.json (structured metadata)
+  - EXTRACTION_REPORT.md (detailed analysis)
+  - README.txt (quick reference index)
+
+--------------------------------------------------------------------------------
+KEY INSIGHTS
+--------------------------------------------------------------------------------
+
+COMMON DoR ELEMENTS:
+  - User Story Clarity:     11/12 teams (92%)
+  - Acceptance Criteria:    11/12 teams (92%)
+  - Dependencies:           10/12 teams (83%)
+  - Estimates:               9/12 teams (75%)
+
+DoR FORMAT DISTRIBUTION:
+  - Table format:           7 teams
+  - List format:            4 teams
+  - Principle-based:        2 teams
+
+UNIQUE PRACTICES FOUND:
+  - Contact persons requirement (Igni)
+  - Rollback procedures (Zurek)
+  - Tagging system [SRPOL-OR]/[SRPOL-OTS] (Capybaras)
+  - Collaborative Progress principle (Mouflons, Wolves)
+
+--------------------------------------------------------------------------------
+NEXT STEPS
+--------------------------------------------------------------------------------
+
+1. Review EXTRACTION_REPORT.md for detailed findings
+2. Check teams.json for structured data
+3. Use README.txt for quick file navigation
+4. Address 4 teams without DoR criteria
+5. Consider standardization across teams
+
+--------------------------------------------------------------------------------
+EXTRACTION METHOD
+--------------------------------------------------------------------------------
+
+Tool:     MCP Atlassian Plugin (getConfluencePage)
+Cloud:    adgear.atlassian.net
+Format:   HTML content parsing
+Scope:    DoR - STORY/TASK only (OFFERING/EPIC excluded)
+
+--------------------------------------------------------------------------------
+
+Extraction completed successfully at 2026-05-26 13:09 UTC
+
+================================================================================

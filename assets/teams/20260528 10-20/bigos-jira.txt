@@ -1,0 +1,10 @@
+Team: Bigos
+Unknown
+Extracted: 2026-05-28T08:59:14.852875Z
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+No active issues in current sprint.
+
+---
+Status: no_issues

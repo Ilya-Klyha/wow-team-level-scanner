@@ -1,0 +1,139 @@
+{
+  "team": "Igni",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/ASPW/boards/9477",
+  "boardId": "9477",
+  "projectKey": "ASPW",
+  "extractedAt": "2026-06-12T14:22:47+02:00",
+  "issues": [
+    {
+      "key": "ASPW-689",
+      "type": "Story",
+      "summary": "CCPA - Transition of Metadata from Erlang Based Implementation to Golang BERT Encoder",
+      "status": "Code Review",
+      "assignee": "Alexander Andersson",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-689",
+      "description": "At Present below given metadata take significant time in execution  \n**CCPA** - 16 minutes  \nWe want to extend golang bert encoder for these object types to optimize the time in execution"
+    },
+    {
+      "key": "ASPW-1126",
+      "type": "Story",
+      "summary": "Fix RTB-Bidder pod starting sequence",
+      "status": "In Progress",
+      "assignee": "Pawe\u0142 Kwietniewski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-1126",
+      "description": "### Task Description\n\n_As an_ engineer, _I want_ an init container that waits for `kube2iam` to become available before the main pod containers start, _so that_ `ConsumerD` can successfully download f"
+    },
+    {
+      "key": "ASPW-637",
+      "type": "Bug",
+      "summary": "consumerd ready file logic is broken ",
+      "status": "In Progress",
+      "assignee": "Adam Doli\u0144ski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-637",
+      "description": "_As a_ platform engineer, _I want_ to investigate why the `deployed_at` file is created before all required files are downloaded and ready to serve, _so that_ dependent services (e.g. RTB Bidder) do n"
+    },
+    {
+      "key": "ASPW-560",
+      "type": "Story",
+      "summary": "Knowledge Transfer session about rewriting objects to new native Golang encoder",
+      "status": "In Progress",
+      "assignee": "Franciszek Strze\u017cek",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-560",
+      "description": "Overview of new solution.\n\nSolution Diagram.\n\nHow to implement new type.\n\nHow to test new implementation.\n\nHow to deploy."
+    },
+    {
+      "key": "ASPW-997",
+      "type": "Story",
+      "summary": "Deploy ConsumerD new release",
+      "status": "In Progress",
+      "assignee": "Pawe\u0142 Kwietniewski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-997",
+      "description": "Upgrade Consumer Daemon to a new version.\n\nNew version changelog:\n\n* <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/ASPW-762</custom>\n* <custom data-type=\"smartlink\" "
+    },
+    {
+      "key": "ASPW-554",
+      "type": "Story",
+      "summary": "Rewrite \"stvd_optouts\" object to use new encoder",
+      "status": "In Progress",
+      "assignee": "Franciszek Strze\u017cek",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-554",
+      "description": "**As a** developer, **I want** to replace the Erlang encoder with a Golang encoder for the `stvd_optouts` object, **So that** I can leverage the benefits of the new encoder and improve the system's pe"
+    },
+    {
+      "key": "ASPW-1126",
+      "type": "Story",
+      "summary": "Fix RTB-Bidder pod starting sequence",
+      "status": "In Progress",
+      "assignee": "Pawe\u0142 Kwietniewski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-1126",
+      "description": "### Task Description\n\n_As an_ engineer, _I want_ an init container that waits for `kube2iam` to become available before the main pod containers start, _so that_ `ConsumerD` can successfully download f"
+    },
+    {
+      "key": "ASPW-997",
+      "type": "Story",
+      "summary": "Deploy ConsumerD new release",
+      "status": "In Progress",
+      "assignee": "Pawe\u0142 Kwietniewski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-997",
+      "description": "Upgrade Consumer Daemon to a new version.\n\nNew version changelog:\n\n* <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/ASPW-762</custom>\n* <custom data-type=\"smartlink\" "
+    },
+    {
+      "key": "ASPW-689",
+      "type": "Story",
+      "summary": "CCPA - Transition of Metadata from Erlang Based Implementation to Golang BERT Encoder",
+      "status": "Code Review",
+      "assignee": "Alexander Andersson",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-689",
+      "description": "At Present below given metadata take significant time in execution  \n**CCPA** - 16 minutes  \nWe want to extend golang bert encoder for these object types to optimize the time in execution"
+    },
+    {
+      "key": "ASPW-637",
+      "type": "Bug",
+      "summary": "consumerd ready file logic is broken ",
+      "status": "In Progress",
+      "assignee": "Adam Doli\u0144ski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-637",
+      "description": "_As a_ platform engineer, _I want_ to investigate why the `deployed_at` file is created before all required files are downloaded and ready to serve, _so that_ dependent services (e.g. RTB Bidder) do n"
+    },
+    {
+      "key": "ASPW-560",
+      "type": "Story",
+      "summary": "Knowledge Transfer session about rewriting objects to new native Golang encoder",
+      "status": "In Progress",
+      "assignee": "Franciszek Strze\u017cek",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-560",
+      "description": "Overview of new solution.\n\nSolution Diagram.\n\nHow to implement new type.\n\nHow to test new implementation.\n\nHow to deploy."
+    },
+    {
+      "key": "ASPW-554",
+      "type": "Story",
+      "summary": "Rewrite \"stvd_optouts\" object to use new encoder",
+      "status": "In Progress",
+      "assignee": "Franciszek Strze\u017cek",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-554",
+      "description": "**As a** developer, **I want** to replace the Erlang encoder with a Golang encoder for the `stvd_optouts` object, **So that** I can leverage the benefits of the new encoder and improve the system's pe"
+    },
+    {
+      "key": "ASPW-6",
+      "type": "Story",
+      "summary": "Data Activation - consumerd pod takes 5-10 minutes, need to optimize",
+      "status": "In Progress",
+      "assignee": "Alexander Andersson",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/ASPW-6",
+      "description": "## Task Description\n\n_As a_ engineer, _I want_ Consumer Daemon to manage S3 connections efficiently and minimize resource usage during file downloads _so that_ pods operate with stable resource consum"
+    }
+  ]
+}

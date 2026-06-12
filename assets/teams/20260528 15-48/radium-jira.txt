@@ -1,0 +1,17 @@
+Team: Radium
+Extracted: 2026-05-28T13:48:58.000Z
+Query Strategy: Sprint-based
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 32
+- Code Review: 6
+- In Progress: 26
+
+Issues by type:
+- Story: 20
+- Task: 12
+
+---
+Status: success

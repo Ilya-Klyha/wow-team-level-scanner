@@ -1,0 +1,237 @@
+Team: Igni
+Board: Unknown
+Board ID: Unknown
+Project: ASPW
+Extracted: 2026-05-28T08:59:14.864222Z
+Query Strategy: Sprint-based (primary succeeded)
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 53
+- Code Review: 9
+- In Progress: 44
+
+Issues by type:
+- Storys: 34
+- Bugs: 1
+- Tasks: 18
+
+=== CODE REVIEW (9 issues) ===
+
+[ASPW-919] Story: Analysis of data which is currently being written by bidder/gateway in kafka topic for building analytics pipeline
+  Assignee: Aditya Raj | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/ASPW-919
+
+[ASPW-880] Story: Deploy ConsumerD rel. 3.2.4 to RTB-Bidder
+  Assignee: Paweł Kwietniewski | Priority: Medium | Updated: 2026-05-25
+  https://adgear.atlassian.net/browse/ASPW-880
+
+[ASPW-814] Story: Unified Yield Deployment
+  Assignee: Aditya Raj | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/ASPW-814
+
+[ASPW-762] Story: Identify and fix the cause of type "consumerd-s3-download-failure" alerts
+  Assignee: Paweł Kwietniewski | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/ASPW-762
+
+[ASPW-706] Task: Removal of IP truncation in infoblob for EU requests while avoding full IP event logging in rtb-bidder
+  Assignee: ADITI BHATT | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-706
+
+[ASPW-705] Task: IP truncation before logging declared_ip received in infoblob of tracker event requests in rtb-delivery 
+  Assignee: Mikhail Khomenkov | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/ASPW-705
+
+[ASPW-674] Story: Capture Test Evidence for Tracker (without VAST) for 1P
+  Assignee: Mohan Lal | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-674
+
+[ASPW-109] Task: Log the parameter values when calculating the grant
+  Assignee: Zane Zhang | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/ASPW-109
+
+[ASPW-86] Task: Implement Weather Context-Based Asset Selection in Bid Response Pipeline
+  Assignee: Taeho Lee | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/ASPW-86
+
+=== IN PROGRESS (44 issues) ===
+
+[ASPW-913] Bug: make test is failing
+  Assignee: Patrick Ting | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/ASPW-913
+
+[ASPW-887] Story: Add members to on-call 
+  Assignee: Ramprasad Damodar | Priority: Medium | Updated: 2026-05-25
+  https://adgear.atlassian.net/browse/ASPW-887
+
+[ASPW-840] Task: Address dependabot warnings in pacingd-go
+  Assignee: Dmitri Skliarov | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/ASPW-840
+
+[ASPW-826] Story: User Agent Benchmarking
+  Assignee: Shiddeshwar Khandekar | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/ASPW-826
+
+[ASPW-825] Task: Synthetic ID support in GDPR code change 
+  Assignee: Rakesh | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-825
+
+[ASPW-824] Story: Finalise the User-Agent Integration Plan
+  Assignee: Shiddeshwar Khandekar | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/ASPW-824
+
+[ASPW-823] Story: Smart throttling deployment and fine tuning configs to RTB Bidder
+  Assignee: srinidhi.n.v | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-823
+
+[ASPW-819] Story: Refactor privacy service code
+  Assignee: Rakesh | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-819
+
+[ASPW-817] Story: Pacing Team Use case for GBP understanding for the new Pipeline building
+  Assignee: Aditya Raj | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-817
+
+[ASPW-816] Story: ML Team Use case understanding for the new Pipeline building
+  Assignee: shoaib siddiquie | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/ASPW-816
+
+[ASPW-810] Story: Implement Project Nexus Demand Partner Funnel Metrics & Dashboards for SE Observability
+  Assignee: Abhishek Kumar | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-810
+
+[ASPW-808] Story: Remove GDPR TCF V2 feature flag
+  Assignee: Rakesh | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-808
+
+[ASPW-801] Story:  Enhanced Auction Service Response - Complete Candidate Visibility Enhanced Auction Service Response - Complete Candidate Visibility
+  Assignee: Rajnish Kumar | Priority: Medium | Updated: 2026-05-25
+  https://adgear.atlassian.net/browse/ASPW-801
+
+[ASPW-796] Story: Integrate Vast changes for 3P DSP
+  Assignee: Ayush Kumar | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/ASPW-796
+
+[ASPW-789] Story: Bug Fixes if any Post Running Response Validator for enabling 5% CTV Traffic
+  Assignee: srinidhi.n.v | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-789
+
+[ASPW-783] Story: IP removal from header block of Kafka logs of Ad Serving event
+  Assignee: Abhishek Kumar | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-783
+
+[ASPW-782] Story: Fix Ad Response code of Catalyst to generate Ad Responses in line with that of SDSP
+  Assignee: Dhruv Gaur | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-782
+
+[ASPW-781] Story: Follow up Release Readiness, SECO and Solution Engg Support Document - Part 2
+  Assignee: Dhruv Gaur | Priority: Medium | Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/ASPW-781
+
+[ASPW-773] Story: Matcher in Go – BeTree Native Golang Porting and Code Reviews: Split into 2 Code PRs + 1 UTs PR
+  Assignee: Saurabh Gupta | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-773
+
+[ASPW-770] Story: Unit test cases for missing mandatory logging attributes
+  Assignee: Sangeeta | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-770
+
+[ASPW-763] Story: Identify and fix the cause of type "consumerd-deployed_at_modification_failure" alerts
+  Assignee: Paweł Kwietniewski | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/ASPW-763
+
+[ASPW-756] Story: 5% 1pCTV capacity planning on Bidder
+  Assignee: srinidhi.n.v | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-756
+
+[ASPW-755] Task: Response validator execution and related bugs fixes
+  Assignee: Rakesh | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/ASPW-755
+
+[ASPW-754] Story: Visualization of error rate metrics in rtb-bidder
+  Assignee: Shalu Sinha | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/ASPW-754
+
+[ASPW-718] Task: Clean up grant ask and completion request / response contract
+  Assignee: Sehwan Noh | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/ASPW-718
+
+[ASPW-712] Task: Add native_weather_contextual_image DTL template for rtb-gateway
+  Assignee: Seokbaek Lee | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/ASPW-712
+
+[ASPW-689] Story: CCPA - Transition of Metadata from Erlang Based Implementation to Golang BERT Encoder
+  Assignee: Alexander Andersson | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/ASPW-689
+
+[ASPW-680] Story: LDS parquet Overhead POC.
+  Assignee: shoaib siddiquie | Priority: Medium | Updated: 2026-05-25
+  https://adgear.atlassian.net/browse/ASPW-680
+
+[ASPW-675] Story: Capture Test Evidence for Tracker (without VAST) for 3P
+  Assignee: Mohan Lal | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-675
+
+[ASPW-620] Task: [SPIKE] Counter data type change to int64 (microdollars)
+  Assignee: Rui Jiang | Priority: Medium | Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/ASPW-620
+
+[ASPW-554] Story: Rewrite "stvd_optouts" object to use new encoder
+  Assignee: Franciszek Strzeżek | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/ASPW-554
+
+[ASPW-534] Story: Improve/Validate CTV Alerting
+  Assignee: Sangeeta | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-534
+
+[ASPW-515] Task: Collect Per-Exchange Betree Drop Reason Statistics
+  Assignee: a.rodionov | Priority: Medium | Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/ASPW-515
+
+[ASPW-476] Story: Code Review of Go User Agent
+  Assignee: Shiddeshwar Khandekar | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-476
+
+[ASPW-449] Story: GitHub Actions Workflows migration to Node.JS 24
+  Assignee: Seokbaek Lee | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/ASPW-449
+
+[ASPW-374] Story: Canary testing for gateway and delivery for aerospike async code
+  Assignee: Dmytro Gorbenko | Priority: Medium | Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/ASPW-374
+
+[ASPW-252] Story: pacing-oracle Deploy to prod to for shadow mode only
+  Assignee: Adithya Pentela | Priority: Medium | Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/ASPW-252
+
+[ASPW-145] Task: Refactor rtb-gateway-tools
+  Assignee: Seokbaek Lee | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/ASPW-145
+
+[ASPW-95] Task: setup grafana dashboard from pacing-oracle in dev
+  Assignee: Dmitri Skliarov | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/ASPW-95
+
+[ASPW-85] Task: Pipe Flight filtering 
+  Assignee: jongyoun.han@samsung.com | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/ASPW-85
+
+[ASPW-84] Task: Betree Filtering 
+  Assignee: JungHwan Jaden Kim | Priority: Medium | Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/ASPW-84
+
+[ASPW-83] Task: Weather Ad Component & Integration Testing
+  Assignee: Jaehoon LIM | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/ASPW-83
+
+[ASPW-82] Task: Gateway / Delivery Integration and Logging 
+  Assignee: ChanSup Hwang | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/ASPW-82
+
+[ASPW-80] Task: S-SSP Interface for Contextual Ads
+  Assignee: ByungSoo Lee | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/ASPW-80
+
+---
+Status: success

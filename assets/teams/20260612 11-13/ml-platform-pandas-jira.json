@@ -1,0 +1,44 @@
+{
+  "team": "ML Platform Pandas",
+  "project": "ML",
+  "query_date": "2026-06-12",
+  "total_issues": 3,
+  "issues": [
+    {
+      "key": "PEPI-4932",
+      "summary": "[POL-MLO-SEC] Upgrade EMR and EC2 for the mav_mlops_pipeline  pipeline",
+      "status": "In Development",
+      "type": "Story",
+      "assignee": "Dariusz Bielawski",
+      "priority": "Medium",
+      "created": "2025-03-10T07:06:29.927-0400",
+      "updated": "2025-06-05T10:59:22.072-0400",
+      "url": "https://adgear.atlassian.net/browse/PEPI-4932",
+      "description": "* update bootstrap and run EMR\n* update config and run DAG\n* deploy to PROD\n\n"
+    },
+    {
+      "key": "ML-55",
+      "summary": "Implement Test DAG MLOps based on SDK",
+      "status": "In Progress",
+      "type": "Task",
+      "assignee": "Tomasz Teter",
+      "priority": "Medium",
+      "created": "2026-05-07T09:52:56.776-0400",
+      "updated": "2026-05-20T05:25:04.125-0400",
+      "url": "https://adgear.atlassian.net/browse/ML-55",
+      "description": "Acceptance criteria:\n\n1. Test DAG fully written using SDK\n2. Test DAG successfully running E2E 2.10.3"
+    },
+    {
+      "key": "ML-10",
+      "summary": "Support after MWAA upgrade to 2.10.3",
+      "status": "In Progress",
+      "type": "Task",
+      "assignee": "Tomasz Teter",
+      "priority": "Medium",
+      "created": "2026-04-20T13:55:18.034-0400",
+      "updated": "2026-04-23T09:43:19.611-0400",
+      "url": "https://adgear.atlassian.net/browse/ML-10",
+      "description": "Provide support and handle issues arising from the MWAA upgrade to version 2.10.3.\n\nThis includes monitoring for compatibility issues, fixing DAG failures caused by the upgrade, and ensuring all pipelines are running correctly on the new version.\n\nAcceptance criteria:\n\nTBD"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "teamName": "Capybaras",
+    "projectKey": "RSW",
+    "boardId": "10156",
+    "extractionDate": "2026-06-10T15:05:36.568091",
+    "extractionTimestamp": "2026-06-10 15:05:36"
+  },
+  "query": {
+    "jql": "sprint in openSprints() AND project = RSW AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+    "queryType": "sprint",
+    "teamFilterEnabled": false,
+    "localFilterApplied": true,
+    "teamPattern": "Capybaras"
+  },
+  "summary": {
+    "total": 5,
+    "byStatus": {
+      "In Progress": 5
+    },
+    "byType": {
+      "Task": 3,
+      "Story": 2
+    }
+  },
+  "issues": [
+    {
+      "key": "RSW-1314",
+      "type": "Task",
+      "summary": "[SRPOL-OR] Measure performance gains of new WH and snowpark code",
+      "status": "In Progress",
+      "assignee": "Cezary Kret",
+      "priority": "Medium",
+      "created": "2026-06-09T03:14:17.433-0400",
+      "updated": "2026-06-09T10:18:21.601-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1314",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    },
+    {
+      "key": "RSW-1306",
+      "type": "Task",
+      "summary": "[AU] E2E Segment Generation Validation \u00e2\u20ac\u201d Pipeline Trigger & Size Consistency on PROD",
+      "status": "In Progress",
+      "assignee": "Tomasz Zar\u0102\u0142d",
+      "priority": "Medium",
+      "created": "2026-06-08T05:37:14.985-0400",
+      "updated": "2026-06-09T06:45:29.152-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1306",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    },
+    {
+      "key": "RSW-1305",
+      "type": "Task",
+      "summary": "[SRPOL-OR] Adjust and validate e-mail quality in new conversational version",
+      "status": "In Progress",
+      "assignee": "Piotr Jarosz",
+      "priority": "Medium",
+      "created": "2026-06-08T03:47:48.166-0400",
+      "updated": "2026-06-09T10:09:43.863-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1305",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    },
+    {
+      "key": "RSW-1097",
+      "type": "Story",
+      "summary": "[SRPOL-OR] Add dedicated cost tracking view for OR",
+      "status": "In Progress",
+      "assignee": "Piotr Marciniak",
+      "priority": "Medium",
+      "created": "2026-05-19T10:36:02.810-0400",
+      "updated": "2026-06-03T11:15:18.768-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1097",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    },
+    {
+      "key": "RSW-555",
+      "type": "Story",
+      "summary": "[SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach",
+      "status": "In Progress",
+      "assignee": "Dariusz Bielawski",
+      "priority": "Medium",
+      "created": "2026-01-21T08:27:52.249-0500",
+      "updated": "2026-06-09T14:48:09.881-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-555",
+      "teamField": "AS - WAW - Capybaras",
+      "teamName": "Capybaras"
+    }
+  ]
+}

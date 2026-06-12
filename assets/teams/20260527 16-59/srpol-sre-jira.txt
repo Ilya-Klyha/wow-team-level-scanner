@@ -1,0 +1,24 @@
+Team: SRPOL-SRE
+Board: N/A (No board configured)
+Board ID: N/A
+Project: N/A
+Extracted: 2026-05-27T14:59:45Z
+
+=== ACTIVE ISSUES (In Progress, Code review) ===
+
+Status: no_board
+
+Note: This team does not have a dedicated Jira board configured. The SRPOL-SRE team operates without a tracked Jira board in the scanner configuration.
+
+Summary:
+- Total issues: N/A
+- In Progress: N/A
+- Code review: N/A
+
+Issues by type:
+- Stories: N/A
+- Bugs: N/A
+- Tasks: N/A
+
+---
+Status: no_board

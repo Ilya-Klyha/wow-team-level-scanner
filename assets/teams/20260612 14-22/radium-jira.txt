@@ -1,0 +1,92 @@
+Team: Radium
+Board: https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8976
+Project: AENW
+Total issues: 22
+
+[AENW-939] Story: [Remnant] On DSP form for 2023 immersive banner add left/right toggle and burn in logo depending on selection
+  Status: Code Review | Assignee: Jakub Anio³
+  https://adgear.atlassian.net/browse/AENW-939
+
+[AENW-574] Story: [DSP] Add functionality to select Microsite on the form, save it and show it in the details view
+  Status: Code Review | Assignee: Marcin Matyszkowicz
+  https://adgear.atlassian.net/browse/AENW-574
+
+[AENW-867] Story: [Remnant] Test Left Aligned CTA button for Remnant 2023 on TV and using Ad Response generator
+  Status: Code Review | Assignee: Krzysztof Urbañski
+  https://adgear.atlassian.net/browse/AENW-867
+
+[AENW-915] Story: Prepare serving services tasks for updated C2E Tech Spec
+  Status: In Progress | Assignee: Marcin Al-Jawahiri
+  https://adgear.atlassian.net/browse/AENW-915
+
+[AENW-906] Task: Deliver TVs to Cracow 
+  Status: In Progress | Assignee: Patryk Palyska
+  https://adgear.atlassian.net/browse/AENW-906
+
+[AENW-904] Story: [SW Test + Fast Track] Marcin Al-Jawahiri
+  Status: In Progress | Assignee: Marcin Al-Jawahiri
+  https://adgear.atlassian.net/browse/AENW-904
+
+[AENW-767] Task: [DSP-JS] Adding a new click action type "click-to-email" on the UI side
+  Status: In Progress | Assignee: Jakub Anio³
+  https://adgear.atlassian.net/browse/AENW-767
+
+[AENW-579] Task: E2E Test Microsite for Spotlight Beacon and Spotlight Row on real TV
+  Status: In Progress | Assignee: Marcin Matyszkowicz
+  https://adgear.atlassian.net/browse/AENW-579
+
+[AENW-912] Story: Verify status of rtb-delivery feature/aenw-543-docker-compose-for-e2e-testing branch for Alex
+  Status: In Progress | Assignee: Marcin Al-Jawahiri
+  https://adgear.atlassian.net/browse/AENW-912
+
+[AENW-843] Story: [Remnant] Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context
+  Status: In Progress | Assignee: Jakub Anio³
+  https://adgear.atlassian.net/browse/AENW-843
+
+[AENW-127] Story: [DSP-UI] Add new click action "QR Code Microsite"
+  Status: In Progress | Assignee: Unassigned
+  https://adgear.atlassian.net/browse/AENW-127
+
+[AENW-939] Story: [Remnant] On DSP form for 2023 immersive banner add left/right toggle and burn in logo depending on selection
+  Status: Code Review | Assignee: Jakub Anio³
+  https://adgear.atlassian.net/browse/AENW-939
+
+[AENW-915] Story: Prepare serving services tasks for updated C2E Tech Spec
+  Status: In Progress | Assignee: Marcin Al-Jawahiri
+  https://adgear.atlassian.net/browse/AENW-915
+
+[AENW-912] Story: Verify status of rtb-delivery feature/aenw-543-docker-compose-for-e2e-testing branch for Alex
+  Status: In Progress | Assignee: Marcin Al-Jawahiri
+  https://adgear.atlassian.net/browse/AENW-912
+
+[AENW-906] Task: Deliver TVs to Cracow 
+  Status: In Progress | Assignee: Patryk Palyska
+  https://adgear.atlassian.net/browse/AENW-906
+
+[AENW-904] Story: [SW Test + Fast Track] Marcin Al-Jawahiri
+  Status: In Progress | Assignee: Marcin Al-Jawahiri
+  https://adgear.atlassian.net/browse/AENW-904
+
+[AENW-867] Story: [Remnant] Test Left Aligned CTA button for Remnant 2023 on TV and using Ad Response generator
+  Status: Code Review | Assignee: Krzysztof Urbañski
+  https://adgear.atlassian.net/browse/AENW-867
+
+[AENW-843] Story: [Remnant] Knowledge gathering with MTV - how 1st screen Unified and Form Builder works in this context
+  Status: In Progress | Assignee: Jakub Anio³
+  https://adgear.atlassian.net/browse/AENW-843
+
+[AENW-767] Task: [DSP-JS] Adding a new click action type "click-to-email" on the UI side
+  Status: In Progress | Assignee: Jakub Anio³
+  https://adgear.atlassian.net/browse/AENW-767
+
+[AENW-579] Task: E2E Test Microsite for Spotlight Beacon and Spotlight Row on real TV
+  Status: In Progress | Assignee: Marcin Matyszkowicz
+  https://adgear.atlassian.net/browse/AENW-579
+
+[AENW-574] Story: [DSP] Add functionality to select Microsite on the form, save it and show it in the details view
+  Status: Code Review | Assignee: Marcin Matyszkowicz
+  https://adgear.atlassian.net/browse/AENW-574
+
+[AENW-127] Story: [DSP-UI] Add new click action "QR Code Microsite"
+  Status: In Progress | Assignee: Unassigned
+  https://adgear.atlassian.net/browse/AENW-127

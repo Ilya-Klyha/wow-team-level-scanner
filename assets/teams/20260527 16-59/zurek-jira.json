@@ -1,0 +1,19 @@
+{
+  "team": "Zurek",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/PEA/boards/2881",
+  "boardId": "2881",
+  "projectKey": "PEA",
+  "extractedAt": "2026-05-27T14:59:45Z",
+  "query": {
+    "jql": "board = 2881 AND status IN (\"In Progress\", \"Code review\") AND issuetype IN (Story, Bug, Task)",
+    "statuses": ["In Progress", "Code review"],
+    "issueTypes": ["Story", "Bug", "Task"]
+  },
+  "summary": {
+    "total": 0,
+    "byStatus": {},
+    "byType": {},
+    "truncated": false
+  },
+  "issues": []
+}

@@ -1,0 +1,11 @@
+ML Platform (Pandas) - DoR
+
+Note: The ML Platform team page does not contain explicit DoR/DoD definitions. The team is responsible for ML Infrastructure and platform updates and improvements to ensure security, efficiency, scalability and reliability of ML workflows. The team is actively monitoring MLE pipelines to reduce workflow failures and minimize out-of-service time.
+
+The team focuses on:
+- ML Platform Supporting (Upgrade Airflow, Quicksite dashboard support)
+- PI SRPOL eSRE supports EP-Team, delivers end-to-end infrastructure access management
+- Feature store POC - support developing comprehensive design documentation for Feature Store
+- Monitoring MLE pipelines
+
+No specific DoR criteria documented on the team page.

@@ -1,0 +1,24 @@
+JIRA Active Issues - Mouflons
+==================================================
+Extracted: 2026-06-12T10:03:00+02:00
+Project: PEPI
+Board: https://adgear.atlassian.net/jira/software/projects/PEPI/boards/4503
+Team Field Pattern: AS - WAW - Mouflons
+Filter Method: post-query (project-level JQL + customfield_10114 filtering)
+
+SUMMARY
+------------------------------
+Total active issues: 1
+By Status:
+  - In Development: 1
+By Type:
+  - Task: 1
+
+ISSUES
+------------------------------
+
+[PEPI-11393] Analyze preliminary result of A/B tests of MC EE models
+  Type: Task | Status: In Development | Priority: Medium
+  Assignee: Marek Kochańczyk
+  Created: 2026-03-16T09:01:26.302-0400 | Updated: 2026-03-31T05:58:34.172-0400
+  URL: https://adgear.atlassian.net/browse/PEPI-11393

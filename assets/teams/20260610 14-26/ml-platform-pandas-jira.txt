@@ -1,0 +1,30 @@
+================================================================================
+JIRA ISSUES REPORT: ML-Platform-Pandas
+================================================================================
+Project: ML
+Board ID: 10470
+Generated: 2026-06-10 15:04:04
+
+SUMMARY:
+  Total Issues: 1
+
+  By Status:
+    - In Progress: 1
+
+  By Type:
+    - Task: 1
+
+================================================================================
+ISSUES DETAIL
+================================================================================
+
+[1] ML-55: Implement Test DAG MLOps based on SDK
+    Type: Task
+    Status: In Progress
+    Assignee: Tomasz Teter
+    Priority: Medium
+    Team: None
+    Created: 2026-05-07T09:52:56.776-0400
+    Updated: 2026-05-20T05:25:04.125-0400
+    URL: https://adgear.atlassian.net/browse/ML-55
+

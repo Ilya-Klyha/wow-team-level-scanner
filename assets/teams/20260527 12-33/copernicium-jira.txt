@@ -1,0 +1,16 @@
+Team: Copernicium
+Board: https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/9246
+Board ID: 9246
+Extracted: 2026-05-27T12:33:00Z
+
+=== ACTIVE ISSUES (In Progress, Code review) ===
+
+Summary:
+- Total issues: 0
+- In Progress: 0
+- Code review: 0
+
+No active issues found in "In Progress" or "Code review" statuses.
+
+---
+Status: success

@@ -1,0 +1,15 @@
+Team: Bromine (ML Serving - Sturgeons)
+Page: https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732425749
+Page ID: 21732425749
+Extracted: 2026-05-27T12:33:00Z
+
+=== DEFINITION OF READY (DoR) - STORY/TASK ===
+
+No DoR - STORY/TASK section found on this page.
+
+This is a brief team page focused on team responsibility and links, without detailed DoR criteria.
+
+---
+Status: not_found
+Source: direct
+Notes: Brief page, no DoR section found

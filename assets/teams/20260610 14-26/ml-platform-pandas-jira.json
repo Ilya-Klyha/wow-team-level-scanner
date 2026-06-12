@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "teamName": "ML-Platform-Pandas",
+    "projectKey": "ML",
+    "boardId": "10470",
+    "extractionDate": "2026-06-10T15:04:04.839551",
+    "extractionTimestamp": "2026-06-10 15:04:04"
+  },
+  "query": {
+    "jql": "sprint in openSprints() AND project = ML AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+    "queryType": "sprint",
+    "teamFilterEnabled": false,
+    "localFilterApplied": true,
+    "teamPattern": "Pandas"
+  },
+  "summary": {
+    "total": 1,
+    "byStatus": {
+      "In Progress": 1
+    },
+    "byType": {
+      "Task": 1
+    }
+  },
+  "issues": [
+    {
+      "key": "ML-55",
+      "type": "Task",
+      "summary": "Implement Test DAG MLOps based on SDK",
+      "status": "In Progress",
+      "assignee": "Tomasz Teter",
+      "priority": "Medium",
+      "created": "2026-05-07T09:52:56.776-0400",
+      "updated": "2026-05-20T05:25:04.125-0400",
+      "url": "https://adgear.atlassian.net/browse/ML-55",
+      "teamField": null,
+      "teamName": null
+    }
+  ]
+}

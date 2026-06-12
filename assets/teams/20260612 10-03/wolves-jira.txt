@@ -1,0 +1,15 @@
+JIRA Active Issues - Wolves
+==================================================
+Extracted: 2026-06-12T10:03:00+02:00
+Project: PEPI
+Board: https://adgear.atlassian.net/jira/software/projects/PEPI/boards/4504
+Team Field Pattern: AS - WAW - Wolves
+Filter Method: post-query (project-level JQL + customfield_10114 filtering)
+
+SUMMARY
+------------------------------
+Total active issues: 0
+
+ISSUES
+------------------------------
+No active issues found matching team pattern "AS - WAW - Wolves".

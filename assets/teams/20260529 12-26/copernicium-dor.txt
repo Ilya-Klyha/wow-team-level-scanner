@@ -1,0 +1,20 @@
+Team DoR
+
+Criterion: User Story/Requirement Clarity
+Description: Clear user story context understandable for team members. Task reporter may suggest solutions in some occasions.
+
+Criterion: Acceptance Criteria and Measurement Defined
+Description: Specific, testable acceptance criteria are provided for the user story, outlining what constitutes successful completion.
+
+Criterion: Monitoring and Alerting Configured (if applicable)
+Description: Necessary monitoring and alerting for the new feature or change have been configured (if needed).
+
+Criterion: Estimates Provided
+Description: Team has to provide realistic estimate of ticket.
+While estimation teams takes into conisderation:
+- complexity
+- Uncertainty
+- Effort
+
+Criterion: Dependencies
+Description: UI Mocs, Requirements from external teams/repo owner regarding development when needed. KT sessions.

@@ -1,0 +1,19 @@
+Team: Copernicium
+Page: https://adgear.atlassian.net/wiki/spaces/ENG/pages/20734247032
+Page ID: 20734247032
+Extracted: 2026-05-27T14:59:45Z
+
+=== DEFINITION OF READY (DoR) - STORY/TASK ===
+
+| Criterion | Description | Comments |
+|-----------|-------------|----------|
+| User Story/Requirement Clarity | Clear user story context understandable for team members. Task reporter may suggest solutions in some occasions. | |
+| Acceptance Criteria and Measurement Defined | Specific, testable acceptance criteria are provided for the user story, outlining what constitutes successful completion. | |
+| Monitoring and Alerting Configured (if applicable) | Necessary monitoring and alerting for the new feature or change have been configured (if needed). | |
+| Estimates Provided | Team has to provide realistic estimate of ticket. While estimation teams takes into consideration: complexity, Uncertainty, Effort | |
+| Dependencies | UI Mocs, Requirements from external teams/repo owner regarding development when needed. KT sessions. | |
+
+Template of story/task: https://adgear.atlassian.net/wiki/spaces/AGILE/pages/1136001043
+
+---
+Status: success

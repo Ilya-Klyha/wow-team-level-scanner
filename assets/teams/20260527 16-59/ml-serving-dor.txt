@@ -1,0 +1,25 @@
+Team: ML-Serving
+Page: https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732425749
+Page ID: 21732425749
+Extracted: 2026-05-27T14:59:45Z
+
+=== DEFINITION OF READY (DoR) - STORY/TASK ===
+
+Status: not_found
+
+Note: The ML Serving (Sturgeons) page contains minimal content with no DoR section defined.
+
+Page content includes:
+- Introduction: ML Serving is responsible for optimizing real-time bid decisions by leveraging Samsung's proprietary Machine Learning (ML) models, served with online and offline features.
+- Team responsibility:
+  * Developing new functionalities
+  * Creating processes
+  * Ensuring system stability and integrability
+  * Developing tool that allow to test E2E solution
+- People section (minimal roster)
+- Links to Jira board and technical specifications
+
+The page does not contain any Definition of Ready criteria.
+
+---
+Status: not_found

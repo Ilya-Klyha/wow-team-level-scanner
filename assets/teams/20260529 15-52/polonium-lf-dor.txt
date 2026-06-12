@@ -1,0 +1,5 @@
+Team DoR
+
+Story on the team level is Done when all AC from story is met and new functionality is available on Prod environment behind Feature flag.
+
+Note: The Polonium LF page is marked as [WIP] and contains minimal DoR/DoD information. The team references external links but specific DoR criteria are not fully documented on this page.

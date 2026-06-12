@@ -1,0 +1,17 @@
+Team: Igni
+Project: ASPW
+Board ID: 9477
+Total Issues: 1
+Extraction Date: 2026-05-29 10:56:25.028558
+Query Type: project (No team field)
+
+================================================================================
+
+[ASPW-835] Task: Scope adding impression signal
+  Assignee: Vincent Kubala | Priority: Medium | Status: In Progress
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/ASPW-835
+
+================================================================================
+Status: success
+Total issues: 1

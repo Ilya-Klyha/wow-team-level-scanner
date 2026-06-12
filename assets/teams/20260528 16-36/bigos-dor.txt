@@ -1,0 +1,6 @@
+Bigos DoR and DoD for Story/Task (linked to external page)
+
+The page links to an external DoR document:
+https://adgear.atlassian.net/wiki/spaces/ENG/pages/22175482213
+
+Note: The actual DoR content is stored on a separate Confluence page and not directly in the team page.

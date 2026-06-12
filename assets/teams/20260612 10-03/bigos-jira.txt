@@ -1,0 +1,62 @@
+JIRA Active Issues - Bigos
+==================================================
+Extracted: 2026-06-12T10:03:00+02:00
+Project: MAW
+Board: https://adgear.atlassian.net/jira/software/projects/MAW/boards/11439
+Team Field Pattern: AS - WAW - Bigos
+Filter Method: post-query (project-level JQL + customfield_10114 filtering)
+
+SUMMARY
+------------------------------
+Total active issues: 7
+By Status:
+  - In Progress: 4
+  - Code Review: 3
+By Type:
+  - Story: 5
+  - Task: 2
+
+ISSUES
+------------------------------
+
+[MAW-406] Add Simple Bearer Authentication
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Kirill Timoszenko
+  Created: 2026-06-08T05:13:29.483-0400 | Updated: 2026-06-11T04:20:05.011-0400
+  URL: https://adgear.atlassian.net/browse/MAW-406
+
+[MAW-372] Setup git Agent
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Kirill Timoszenko
+  Created: 2026-06-03T05:15:46.811-0400 | Updated: 2026-06-03T12:24:49.534-0400
+  URL: https://adgear.atlassian.net/browse/MAW-372
+
+[MAW-367] [SRE] Conversion API project setup
+  Type: Task | Status: In Progress | Priority: Medium
+  Assignee: Lukasz Kaminski
+  Created: 2026-06-01T07:33:56.600-0400 | Updated: 2026-06-08T01:50:57.751-0400
+  URL: https://adgear.atlassian.net/browse/MAW-367
+
+[MAW-365] Basic Error Handling
+  Type: Story | Status: Code Review | Priority: Medium
+  Assignee: Rafał Parol
+  Created: 2026-05-29T03:13:13.989-0400 | Updated: 2026-06-10T09:15:28.886-0400
+  URL: https://adgear.atlassian.net/browse/MAW-365
+
+[MAW-364] Raw Data Persistence
+  Type: Story | Status: In Progress | Priority: Medium
+  Assignee: Rahul Tomer
+  Created: 2026-05-29T03:08:02.288-0400 | Updated: 2026-06-08T08:51:19.349-0400
+  URL: https://adgear.atlassian.net/browse/MAW-364
+
+[MAW-363] Event Schema Validation
+  Type: Story | Status: Code Review | Priority: Medium
+  Assignee: Rafał Parol
+  Created: 2026-05-29T03:05:56.308-0400 | Updated: 2026-06-11T08:09:34.276-0400
+  URL: https://adgear.atlassian.net/browse/MAW-363
+
+[MAW-362] Public REST API Endpoint
+  Type: Story | Status: Code Review | Priority: Medium
+  Assignee: Rafał Parol
+  Created: 2026-05-29T03:02:04.293-0400 | Updated: 2026-06-03T05:26:48.944-0400
+  URL: https://adgear.atlassian.net/browse/MAW-362

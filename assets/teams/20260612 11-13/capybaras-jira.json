@@ -1,0 +1,68 @@
+{
+  "team": "Capybaras",
+  "project": "RSW",
+  "query_date": "2026-06-12",
+  "total_issues": 5,
+  "issues": [
+    {
+      "key": "RSW-1238",
+      "summary": "[SRPOL-OR] Measure cost changes after economic warehouse type introduction",
+      "status": "Code Review",
+      "type": "Task",
+      "assignee": "Dariusz Bielawski",
+      "priority": "Medium",
+      "created": "2026-06-02T09:04:09.388-0400",
+      "updated": "2026-06-12T03:19:05.629-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1238",
+      "description": "As an engineer, I want to measure the impact of setting Snowflake warehouse type to “economic” for OR project. Especially I want to compare the results with the ones from previous task: [\\[RSW-1108\\] \\[SRPOL-OR\\] Measure PROD gains after optimizations - JIRA](https://adgear.atlassian.net/browse/RSW-1108)  \nAcceptance Criteria:\n\n* Table with measured cost updated, results shared internally\n\n"
+    },
+    {
+      "key": "RSW-1097",
+      "summary": "[SRPOL-OR] Add dedicated cost tracking view for OR",
+      "status": "In Progress",
+      "type": "Story",
+      "assignee": "Piotr Marciniak",
+      "priority": "Medium",
+      "created": "2026-05-19T10:36:02.810-0400",
+      "updated": "2026-06-12T03:14:04.189-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1097",
+      "description": "As a developer, I want to reliably track Optimal Reach budget spend. Current methodology ([link](https://ads-ams25.slack.com/archives/C0AJW8F9V1N/p1776877262924209?thread_ts=1776872481.912619&cid=C0AJW8F9V1N)) lacks granulation and doesn’t provide enough insight. I want to create new view that would provide more information. This view should be based on information from DATAGOV_DB.DATAGOV_CATALOG.VIEW_QUERY_HISTORY_WEEKLY, udw_prod.udw_platform_intelligence_cs.pi_query_attribution_history and UDW_PROD.UDW_PLATFORM_INTELLIGENCE_CS.PI_QUERY_HISTORY views and be accessible both on EU and US.\n\n**Acceptance criteria:**\n\n* Create a new Optimal Reach cost tracking UDW view providing information such as number of segments ran, spend divided between PROD and DEV, total segment queued and execution time and any other information that will be deemed necessary\n* Data is avaliable longer than week - no retencion\n* Costs can be matched to processing jobs and payloads\n* Actual number of dolars spent\n* Data is loaded automatically\n\n"
+    },
+    {
+      "key": "RSW-1314",
+      "summary": "[SRPOL-OR] Measure performance gains of new WH and snowpark code",
+      "status": "In Progress",
+      "type": "Task",
+      "assignee": "Cezary Kret",
+      "priority": "Medium",
+      "created": "2026-06-09T03:14:17.433-0400",
+      "updated": "2026-06-10T12:54:06.229-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1314",
+      "description": "As an engineer, I want know how to best utilize the new snowpark-optimized werehause and snowpark code. To do this, I need to verify where the performance comes from and plan the optimized traffic routing\n\n \n\n**Acceptance Criteria:**\n\n* Matrix of performance gains prepared (SQL vs spark; XL vs Optim.-L vs L)\n* Performance at different time-ranges.\n* Recommendation of best traffic prepared.\n* After finding best routing and average segment cost saving estimate overall cost savings\n\n"
+    },
+    {
+      "key": "RSW-555",
+      "summary": "[SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach",
+      "status": "In Progress",
+      "type": "Story",
+      "assignee": "Dariusz Bielawski",
+      "priority": "Medium",
+      "created": "2026-01-21T08:27:52.249-0500",
+      "updated": "2026-06-09T14:48:09.881-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-555",
+      "description": "As an MLE I would like to prepare initial PoC documentatioin - first draft of tech spec for solution recommended after OR PoC. tech spec has to follow attached specification.\n\nDocumentation:\n\n1. [tech spec template](https://adgear.atlassian.net/wiki/spaces/ENG/pages/19676692481/Tech+Spec+Template+2.3) - \n2. process\n\nAcceptance criteria:\n\n* tech spec according to temaplet\n* tech spec arranged with internal Architects\n\n**Things To Do**\n\n* Create tech spec\n* Arrange with SRPOL architect\n* discuss with MTV Architect\n\n**Condition To Complete (A/C)**\n\n* DoD: arranged doc with SRPOL Architect\n\n**Expected Date (Due Date)**\n\nJune 20th, 2026"
+    },
+    {
+      "key": "RSW-1306",
+      "summary": "[AU] E2E Segment Generation Validation — Pipeline Trigger & Size Consistency on PROD",
+      "status": "In Progress",
+      "type": "Task",
+      "assignee": "Tomasz Zaród",
+      "priority": "Medium",
+      "created": "2026-06-08T05:37:14.985-0400",
+      "updated": "2026-06-09T06:45:29.152-0400",
+      "url": "https://adgear.atlassian.net/browse/RSW-1306",
+      "description": "### 1. Summary\n\nValidate that the Optimal Reach segment generation pipeline triggers correctly on PROD for Australia and that segment sizes reported in Audience Builder / Pre-Campaign Insights / Post-Campaign Reporting are consistent with the ML job predictions.\n\nThis is a pipeline smoke test, not a full UAT. The goal is to confirm the end-to-end flow works in production before running comprehensive user acceptance testing.\n\n### 2. Context\n\n* AU infrastructure is in place:\n* feature flags enabled <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/RSW-833</custom> \n* ACL migration deployed\n* <custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atlassian.net/browse/RSW-832</custom> \n* Audience Builder ads section enabled <custom data-type=\"smartlink\" data-id=\"id-2\">https://adgear.atlassian.net/browse/RSW-834</custom> \n* Data verification completed <custom data-type=\"smartlink\" data-id=\"id-3\">https://adgear.atlassian.net/browse/RSW-860</custom> \n* AU uses HDMI Streaming Stick-based Ads Dataset + In-App ACR data for AVOD modeling\n\n### 3. Scope\n\nFor 3-5 AU advertisers, trigger OR segment generation on PROD and compare the segment size output across:\n\n| Check Point | Source | What to Compare |\n| --- | --- | --- |\n| ML Job output | ML pipeline | Predicted segment size from ML job |\n| Audience Builder (AB) | DSP UI — Audience Builder | Segment size shown in AB after segment lands |\n| Pre-Campaign Insights (AI) | DSP UI — OR Insights report | Segment size shown in pre-campaign report |\n| Post-Campaign Reporting | DSP UI — Post-Campaign report | Segment size shown in post-campaign report (if applicable) |\n\n**Test configurations** (follow Canada/ESBO pattern):\n\n1. Linear Advertiser/Brand Only\n2. Linear + Streaming Advertiser/Brand Only\n3. Linear + Streaming mix\n\n### 4. Steps\n\n#### Step 1: Audience Builder, Segment Generation & Validation\n\n1. Trigger OR segment generation via the ML pipeline (Airflow) for selected AU advertisers\n2. Confirm t"
+    }
+  ]
+}

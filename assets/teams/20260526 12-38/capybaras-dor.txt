@@ -1,0 +1,54 @@
+Team: Capybaras (MLE: OTS, OR)
+Page ID: 22696132609
+Extracted: 2026-05-26
+
+================================================================================
+TEAM DoR
+================================================================================
+
+The "Definition of Ready" ensures that a software development ticket is
+sufficiently prepared and understood by the development team before it is
+pulled into a sprint or iteration. If the ticket is not sufficiently prepared,
+it won't be included in a sprint. A ticket meeting the DoR is ready for
+immediate development without requiring further clarification or investigation.
+
+Reference: https://www.qagile.pl/scrum/definition-of-ready/
+
+Criterion: User Story/Requirement Clarity
+Description:
+- Contains a proper description (phrased as a user story), tasks to be done and
+  acceptance criteria
+- Tasks should be understandable to all team members
+- To tag on task title [SRPOL-OR] if the tasks refer to OR
+- To tag on task title [SRPOL-OTS] if the tasks refer to OTS
+- Should be chosen Team AS - WAW - Capybaras
+- Should be add labels srpol-ml and
+  - srpol-or if the task refers to OR
+  - srpol-ots if the task refers to OTS
+
+Criterion: Acceptance Criteria and Measurement Defined
+Description: Specific, testable and measurable acceptance criteria are provided
+for the user story, outlining what constitutes successful completion.
+- Every Task should contain Acceptance Criteria
+- The form of Acceptance Criteria should be in form of artifact, that can be
+  verified/tested by other team members
+- If needed to define if task refers to production or dev environment
+  deployment or POC
+
+Criterion: Estimates
+Description: The development team has provided an estimate for the work, or the
+ticket has been broken down to a size that allows for reasonable estimation.
+- Well defined task after refinement, up to 5 story points
+- Every Story that has more that 5 Story point has to be decompose
+
+Criterion: Dependencies
+Description: Highlighted dependencies with other teams or milestones.
+Comments: All blocking tasks are resolved.
+
+Additional Team Agreements:
+- Wednesday is the day we all want to meet in the office
+- We keep Daily Standup short and use parking system
+- We update Jira twice weekly: on Wednesday and Friday
+- Every PR have insightful description
+- PR owner checks actions and solves issues
+- PR reviewer understands context before review

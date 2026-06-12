@@ -1,0 +1,166 @@
+================================================================================
+JIRA ACTIVE ISSUES EXTRACTION REPORT
+================================================================================
+
+Extraction Date: 2026-05-29 10:56:25 UTC
+Output Directory: C:\Users\i.klyha\Desktop\Claude\wow-scanner-tool\assets\teams\20260529 12-26
+
+================================================================================
+SUMMARY
+================================================================================
+
+Total Teams Processed: 16
+Total Active Issues Found: 86
+Query Statuses: In Progress, Code Review
+Issue Types: Story, Bug, Task
+
+Output Files Generated: 32 (16 JSON + 16 TXT)
+
+================================================================================
+TEAM BREAKDOWN
+================================================================================
+
+Team                  Project   Board    Issues   Query Type       Status
+--------------------------------------------------------------------------------
+PE-WAW-Abyss          MAW       9980     4        project+team     success
+Radium                AENW      8976     11       project+team     success
+Europium              AENW      8979     5        project+team     success
+Copernicium           AETVP     9246     5        project+team     success
+Mouflons              PEPI      4503     0        project+team     success
+Wolves                PEPI      4504     0        project+team     success
+Polonium LF           PEDSP     8973     0        project+team     success
+Polonium UF           RSW       10403    6        project+team     success
+Bigos                 RSW       10157    0        project+team     success
+Capybaras             RSW       10156    6        project+team     success
+ML Serving            PEPI      4090     0        project+team     success
+ML Platform           ML        10470    2        project          success
+EP Core               EPCW      10972    0        project          success
+Zurek                 PEA       2881     0        project+team     success
+Igni                  ASPW      9477     1        project          success
+SRE                   EEEW      10332    25       project          success
+
+================================================================================
+TOP TEAMS BY ACTIVE ISSUES
+================================================================================
+
+1. SRE                    25 issues
+2. Radium                 11 issues
+3. Polonium UF            6 issues
+4. Capybaras              6 issues
+5. Europium               5 issues
+6. Copernicium            5 issues
+7. PE-WAW-Abyss           4 issues
+8. ML Platform            2 issues
+9. Igni                   1 issue
+
+================================================================================
+TEAMS WITH NO ACTIVE ISSUES (0 issues)
+================================================================================
+
+- Mouflons
+- Wolves
+- Polonium LF
+- Bigos
+- ML Serving
+- EP Core
+- Zurek
+
+================================================================================
+QUERY STRATEGY
+================================================================================
+
+Primary JQL Query:
+  project IN (MAW, AENW, AETVP, PEPI, PEDSP, RSW, ML, EPCW, PEA, ASPW, EEEW)
+  AND status IN ("In Progress", "Code Review")
+  AND issuetype IN (Story, Bug, Task)
+
+Team Filtering:
+  Post-query filtering using customfield_10114 (Team field)
+  Team field contains team name in format: "<Department> - <Location> - <TeamName>"
+
+  Examples:
+  - "AE - WAW - Radium"
+  - "PE - WAW - Abyss"
+  - "AS - WAW - Capybaras"
+
+Fallback Strategy:
+  For teams without identifiable team field values:
+  - ML Platform: All project issues included (no team field in project)
+  - SRE: All project issues included (no team field values)
+  - EP Core: No matching team field found in project issues
+  - Igni: Issues without team field or null values included
+
+================================================================================
+TEAM FIELD MAPPINGS
+================================================================================
+
+Team Name              Team Field Value (customfield_10114)
+--------------------------------------------------------------------------------
+PE-WAW-Abyss          PE - WAW - Abyss
+Radium                AE - WAW - Radium
+Europium              AP - WAW - Europium
+Copernicium           AE - WAW - Copernicium
+Mouflons              PE - WAW - Mouflons
+Wolves                PE - WAW - Wolves
+Polonium LF           PE - WAW - Polonium LF
+Polonium UF           AS - WAW - Polonium UF
+Bigos                 AS - WAW - Bigos
+Capybaras             AS - WAW - Capybaras
+ML Serving            T - MTV - ML Serving
+ML Platform           N/A (no team field)
+EP Core               N/A (no matching team field found)
+Zurek                 T - WAW - Zurek
+Igni                  N/A (no matching team field found)
+SRE                   N/A (no team field available)
+
+================================================================================
+OUTPUT FILES
+================================================================================
+
+Each team has 2 files generated:
+
+1. [team-name-kebab]-jira.json
+   - JSON format with metadata and issue details
+   - Includes: key, type, summary, status, assignee, priority, created, updated, url, teamField, teamName
+
+2. [team-name-kebab]-jira.txt
+   - Human-readable text format
+   - Formatted for easy review
+
+Examples:
+- radium-jira.json / radium-jira.txt
+- pe-waw-abyss-jira.json / pe-waw-abyss-jira.txt
+- ml-platform-jira.json / ml-platform-jira.txt
+
+================================================================================
+NOTES
+================================================================================
+
+1. Team Field Discovery:
+   Some teams required discovery of actual team field values in Jira, which
+   differed from initial assumptions:
+   - Copernicium: "AE - WAW -" prefix (not "AP - WAW -")
+   - EP Core: No issues match expected team name
+   - Igni: No issues match expected team name
+   - SRE: Issues have no team field
+
+2. Zero Issue Teams:
+   7 teams have no active issues in "In Progress" or "Code Review" status.
+   This could indicate:
+   - No current work in progress
+   - Different status names used
+   - Issues in other sprint states
+
+3. Query Performance:
+   - Total API calls: ~20 (project-level queries)
+   - Post-processing: Client-side team field filtering
+   - Execution time: ~2 minutes
+
+4. Data Accuracy:
+   - All 16 teams successfully processed
+   - Team field validation confirmed for 10 teams
+   - 6 teams use project-level fallback (no team field filtering)
+
+================================================================================
+END OF REPORT
+================================================================================

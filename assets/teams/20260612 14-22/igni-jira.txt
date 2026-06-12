@@ -1,0 +1,56 @@
+Team: Igni
+Board: https://adgear.atlassian.net/jira/software/c/projects/ASPW/boards/9477
+Project: ASPW
+Total issues: 13
+
+[ASPW-689] Story: CCPA - Transition of Metadata from Erlang Based Implementation to Golang BERT Encoder
+  Status: Code Review | Assignee: Alexander Andersson
+  https://adgear.atlassian.net/browse/ASPW-689
+
+[ASPW-1126] Story: Fix RTB-Bidder pod starting sequence
+  Status: In Progress | Assignee: Pawe³ Kwietniewski
+  https://adgear.atlassian.net/browse/ASPW-1126
+
+[ASPW-637] Bug: consumerd ready file logic is broken 
+  Status: In Progress | Assignee: Adam Doliñski
+  https://adgear.atlassian.net/browse/ASPW-637
+
+[ASPW-560] Story: Knowledge Transfer session about rewriting objects to new native Golang encoder
+  Status: In Progress | Assignee: Franciszek Strze¿ek
+  https://adgear.atlassian.net/browse/ASPW-560
+
+[ASPW-997] Story: Deploy ConsumerD new release
+  Status: In Progress | Assignee: Pawe³ Kwietniewski
+  https://adgear.atlassian.net/browse/ASPW-997
+
+[ASPW-554] Story: Rewrite "stvd_optouts" object to use new encoder
+  Status: In Progress | Assignee: Franciszek Strze¿ek
+  https://adgear.atlassian.net/browse/ASPW-554
+
+[ASPW-1126] Story: Fix RTB-Bidder pod starting sequence
+  Status: In Progress | Assignee: Pawe³ Kwietniewski
+  https://adgear.atlassian.net/browse/ASPW-1126
+
+[ASPW-997] Story: Deploy ConsumerD new release
+  Status: In Progress | Assignee: Pawe³ Kwietniewski
+  https://adgear.atlassian.net/browse/ASPW-997
+
+[ASPW-689] Story: CCPA - Transition of Metadata from Erlang Based Implementation to Golang BERT Encoder
+  Status: Code Review | Assignee: Alexander Andersson
+  https://adgear.atlassian.net/browse/ASPW-689
+
+[ASPW-637] Bug: consumerd ready file logic is broken 
+  Status: In Progress | Assignee: Adam Doliñski
+  https://adgear.atlassian.net/browse/ASPW-637
+
+[ASPW-560] Story: Knowledge Transfer session about rewriting objects to new native Golang encoder
+  Status: In Progress | Assignee: Franciszek Strze¿ek
+  https://adgear.atlassian.net/browse/ASPW-560
+
+[ASPW-554] Story: Rewrite "stvd_optouts" object to use new encoder
+  Status: In Progress | Assignee: Franciszek Strze¿ek
+  https://adgear.atlassian.net/browse/ASPW-554
+
+[ASPW-6] Story: Data Activation - consumerd pod takes 5-10 minutes, need to optimize
+  Status: In Progress | Assignee: Alexander Andersson
+  https://adgear.atlassian.net/browse/ASPW-6

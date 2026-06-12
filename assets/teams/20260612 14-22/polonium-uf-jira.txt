@@ -1,0 +1,28 @@
+Team: Polonium UF
+Board: https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10403
+Project: RSW
+Total issues: 6
+
+[RSW-1237] Task: [FE] Integrate Retry Button with dedicated BE endpoint
+  Status: In Progress | Assignee: Zbigniew Stolarski
+  https://adgear.atlassian.net/browse/RSW-1237
+
+[RSW-1038] Task: [BE] Add new table to DB for custom groups' apps presets
+  Status: In Progress | Assignee: Dmitriy Borowski
+  https://adgear.atlassian.net/browse/RSW-1038
+
+[RSW-880] Task: [BE] GenAI Service — session reset
+  Status: Code Review | Assignee: Rafal Babinski
+  https://adgear.atlassian.net/browse/RSW-880
+
+[RSW-880] Task: [BE] GenAI Service — session reset
+  Status: Code Review | Assignee: Rafal Babinski
+  https://adgear.atlassian.net/browse/RSW-880
+
+[RSW-1038] Task: [BE] Add new table to DB for custom groups' apps presets
+  Status: In Progress | Assignee: Dmitriy Borowski
+  https://adgear.atlassian.net/browse/RSW-1038
+
+[RSW-1237] Task: [FE] Integrate Retry Button with dedicated BE endpoint
+  Status: In Progress | Assignee: Zbigniew Stolarski
+  https://adgear.atlassian.net/browse/RSW-1237

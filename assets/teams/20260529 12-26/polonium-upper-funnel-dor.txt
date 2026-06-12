@@ -1,0 +1,8 @@
+Team DoR story/task
+
+Reference: Definition of Ready for Tasks (linked from page)
+
+Note: The team page references an external DoR document at:
+https://adgear.atlassian.net/wiki/spaces/ENG/pages/19623772331/Definition+of+Done+Definition+of+Ready#Definition-of-Ready
+
+The page does not contain inline DoR - STORY/TASK criteria, instead directing users to follow the link above for the full Definition of Ready for Tasks.

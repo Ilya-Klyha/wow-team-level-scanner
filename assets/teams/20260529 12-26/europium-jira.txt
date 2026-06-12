@@ -1,0 +1,42 @@
+Team: Europium
+Project: AENW
+Board ID: 8979
+Total Issues: 5
+Extraction Date: 2026-05-29 10:56:25.028558
+Query Type: project+team (Team field filtering enabled)
+
+================================================================================
+
+[AENW-803] Story: [Microsite P2] SPIKE: Reporting Integration - DSP Reporting
+  Assignee: Karol Strojek | Priority: Medium | Status: In Progress
+  Team: AP - WAW - Europium
+  Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/AENW-803
+
+[AENW-801] Story: [Microsite P2] SPIKE: Reporting Integration - tracker.js
+  Assignee: Raman Krot | Priority: Medium | Status: In Progress
+  Team: AP - WAW - Europium
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AENW-801
+
+[AENW-800] Story: [Microsite P2] SPIKE: Reporting Integration - Delivery change scope
+  Assignee: Raman Krot | Priority: Medium | Status: In Progress
+  Team: AP - WAW - Europium
+  Updated: 2026-05-25
+  https://adgear.atlassian.net/browse/AENW-800
+
+[AENW-799] Story: [Microsite P2] SPIKE: Reporting Integration - Reporting team communication
+  Assignee: Raman Krot | Priority: Medium | Status: In Progress
+  Team: AP - WAW - Europium
+  Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/AENW-799
+
+[AENW-619] Story: [Microsite p2] Tech Spec & Pre-ARB Review
+  Assignee: Raman Krot | Priority: Medium | Status: In Progress
+  Team: AP - WAW - Europium
+  Updated: 2026-05-20
+  https://adgear.atlassian.net/browse/AENW-619
+
+================================================================================
+Status: success
+Total issues: 5

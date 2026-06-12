@@ -1,0 +1,18 @@
+Team: Igni
+Extracted: 2026-05-28T13:48:58.000Z
+Query Strategy: Sprint-based
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 53
+- Code Review: 9
+- In Progress: 44
+
+Issues by type:
+- Story: 34
+- Bug: 1
+- Task: 18
+
+---
+Status: success

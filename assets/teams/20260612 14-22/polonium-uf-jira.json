@@ -1,0 +1,69 @@
+{
+  "team": "Polonium UF",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10403",
+  "boardId": "10403",
+  "projectKey": "RSW",
+  "extractedAt": "2026-06-12T14:22:47+02:00",
+  "issues": [
+    {
+      "key": "RSW-1237",
+      "type": "Task",
+      "summary": "[FE] Integrate Retry Button with dedicated BE endpoint",
+      "status": "In Progress",
+      "assignee": "Zbigniew Stolarski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/RSW-1237",
+      "description": "Users need a way to re-trigger GenAI summary generation that have failed.\n\nAcceptance Criteria:\n\n* Retry button calls `POST /reports/{id}/genai/sessions/{sessionId}/retry` when clicked\n* Button is onl"
+    },
+    {
+      "key": "RSW-1038",
+      "type": "Task",
+      "summary": "[BE] Add new table to DB for custom groups' apps presets",
+      "status": "In Progress",
+      "assignee": "Dmitriy Borowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/RSW-1038",
+      "description": "### Summary\n\nCreate a PostgreSQL table to store predefined app group presets. Each preset defines a curated bundle of apps with per-app weighting, scoped to a specific country. This table is the persi"
+    },
+    {
+      "key": "RSW-880",
+      "type": "Task",
+      "summary": "[BE] GenAI Service \u2014 session reset",
+      "status": "Code Review",
+      "assignee": "Rafal Babinski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/RSW-880",
+      "description": "`POST /sessions/{sessionId}/reset`:\n\n1. Mark current session as`reset`\n2. Create new session (same report_id + report_version + user_id)\n3. Copy summary v1 from original session to new one (pinning)\n4"
+    },
+    {
+      "key": "RSW-880",
+      "type": "Task",
+      "summary": "[BE] GenAI Service \u2014 session reset",
+      "status": "Code Review",
+      "assignee": "Rafal Babinski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/RSW-880",
+      "description": "`POST /sessions/{sessionId}/reset`:\n\n1. Mark current session as`reset`\n2. Create new session (same report_id + report_version + user_id)\n3. Copy summary v1 from original session to new one (pinning)\n4"
+    },
+    {
+      "key": "RSW-1038",
+      "type": "Task",
+      "summary": "[BE] Add new table to DB for custom groups' apps presets",
+      "status": "In Progress",
+      "assignee": "Dmitriy Borowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/RSW-1038",
+      "description": "### Summary\n\nCreate a PostgreSQL table to store predefined app group presets. Each preset defines a curated bundle of apps with per-app weighting, scoped to a specific country. This table is the persi"
+    },
+    {
+      "key": "RSW-1237",
+      "type": "Task",
+      "summary": "[FE] Integrate Retry Button with dedicated BE endpoint",
+      "status": "In Progress",
+      "assignee": "Zbigniew Stolarski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/RSW-1237",
+      "description": "Users need a way to re-trigger GenAI summary generation that have failed.\n\nAcceptance Criteria:\n\n* Retry button calls `POST /reports/{id}/genai/sessions/{sessionId}/retry` when clicked\n* Button is onl"
+    }
+  ]
+}

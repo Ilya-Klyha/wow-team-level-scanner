@@ -1,0 +1,164 @@
+Team: Polonium Uf
+Board: Unknown
+Board ID: Unknown
+Project: RSW
+Extracted: 2026-05-28T08:59:14.850240Z
+Query Strategy: Sprint-based (primary succeeded)
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 35
+- In Progress: 27
+- Code Review: 8
+
+Issues by type:
+- Storys: 19
+- Tasks: 16
+
+=== CODE REVIEW (8 issues) ===
+
+[RSW-1103] Story: Tech Spec Review & ARB approval
+  Assignee: Akhlesh Richhariya | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1103
+
+[RSW-1092] Task: Backend changes to Enable bucketing of IAB Categories
+  Assignee: Rahul Poptani | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1092
+
+[RSW-1089] Task: Engg Support for in house scene level campaign and post campaign report generation
+  Assignee: Kapil Malviya | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1089
+
+[RSW-1084] Task: [FE] Track GenAI summary section view metrics via Grafana Faro
+  Assignee: Katarzyna Kokieć | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1084
+
+[RSW-925] Story: [SRPOL-OR] Generate Example Audiences
+  Assignee: Piotr Marciniak | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-925
+
+[RSW-923] Story: [SRPOL-OR] Prepare Data Availablity report
+  Assignee: Cezary Kret | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-923
+
+[RSW-878] Task: [BE] GenAI Service — summary generation orchestration
+  Assignee: Piotr Stefański | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-878
+
+[RSW-135] Task: Add load profile presets (light/medium/heavy) for stress testing
+  Assignee: Huijun Wu | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-135
+
+=== IN PROGRESS (27 issues) ===
+
+[RSW-1210] Story: Demystify the meaning of the 'defects' section on the checklist 
+  Assignee: Aron Gruzman | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1210
+
+[RSW-1203] Story: L1 Support Training and Signoff
+  Assignee: Shrinivas Kangal | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-1203
+
+[RSW-1196] Story: [Data] Update snowflake code to handle null/0 reach for Linear or Streaming exposures
+  Assignee: Bernard Feng | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1196
+
+[RSW-1195] Story: Checking Metadata Tables for Political Ads 
+  Assignee: mohsen.an | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1195
+
+[RSW-1194] Story: Checking Exposure Table for Political Ad Content
+  Assignee: mohsen.an | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1194
+
+[RSW-1113] Task: Create demo video with good scenario
+  Assignee: Piotr Jarosz | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/RSW-1113
+
+[RSW-1106] Story: Vertical Categorization of Advertisers via ML-Based Text Classification
+  Assignee: Martin Pavlovski | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1106
+
+[RSW-1105] Story: Enable the batch mode of Optimal Reach payload.
+  Assignee: YI HAN | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1105
+
+[RSW-1102] Story: Samsung Advertisers to Media Radar Advertisers
+  Assignee: Akhlesh Richhariya | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1102
+
+[RSW-1051] Task: Parameterize stress test fixture JSON with configurable inputs (advertiser, study period, region)
+  Assignee: Huijun Wu | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-1051
+
+[RSW-1045] Story: Update the current contextual pipeline with an open-source audio information option
+  Assignee: YI HAN | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-1045
+
+[RSW-1041] Task: [FE] Propagate selected presets on table and weights
+  Assignee: Zbigniew Stolarski | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-1041
+
+[RSW-1040] Task: [FE] Create select dropdown for preset selection
+  Assignee: Zbigniew Stolarski | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/RSW-1040
+
+[RSW-1008] Story: [CTS] Update Payload Refresh Manner from Github CI/CD to UDW Dispatch
+  Assignee: Yang Yan | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-1008
+
+[RSW-985] Story: Implement Specific Error Raising on Code Failure
+  Assignee: Austin Jeong | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/RSW-985
+
+[RSW-968] Task: Results reporting and historical comparison for stress tests
+  Assignee: Igor Andriychuk | Priority: Medium | Updated: 2026-05-22
+  https://adgear.atlassian.net/browse/RSW-968
+
+[RSW-967] Task: Pre-prod connectivity and auth configuration for stress testing
+  Assignee: Jonny Morrill | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-967
+
+[RSW-904] Task: [BE] Auto-trigger summary generation in ai-processor-service
+  Assignee: Rafal Babinski | Priority: Medium | Updated: 2026-05-28
+  https://adgear.atlassian.net/browse/RSW-904
+
+[RSW-898] Story: Update the current contextual similarity based output
+  Assignee: YI HAN | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-898
+
+[RSW-896] Story: Substitute the current Contextual pipeline model from Nova 1 pro to Nova 2 Lite
+  Assignee: YI HAN | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-896
+
+[RSW-883] Task: [FE] Implement messages UI
+  Assignee: Katarzyna Kokieć | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-883
+
+[RSW-798] Task: Add deployable core with conversation logic, depending only on AWS SDK
+  Assignee: Piotr Jarosz | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-798
+
+[RSW-752] Task: [SRPOL-OR] Transform queries to snowpark and test on snowpark memory-optimized warehouse nodes
+  Assignee: Cezary Kret | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-752
+
+[RSW-568] Story: [AR-OTS] Measure Scale Impact of Incorporating Start.io Data for Mobile OTS
+  Assignee: Yang Yan | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-568
+
+[RSW-567] Story: [AR-OTS] Incorporate Start.io Data into PSID-ADID Mapping
+  Assignee: Yang Yan | Priority: Medium | Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/RSW-567
+
+[RSW-390] Story: [SRPOL-OR-26Q1] Create PoC code for recommended approach
+  Assignee: Dariusz Bielawski | Priority: Medium | Updated: 2026-05-27
+  https://adgear.atlassian.net/browse/RSW-390
+
+[RSW-85] Task: [Knowledgebase] Phase 4: Review, Polish and GA Sign-off
+  Assignee: Shrinivas Kangal | Priority: Medium | Updated: 2026-05-21
+  https://adgear.atlassian.net/browse/RSW-85
+
+---
+Status: success

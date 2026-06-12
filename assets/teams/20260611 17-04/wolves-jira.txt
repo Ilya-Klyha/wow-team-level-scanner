@@ -1,0 +1,11 @@
+Team: Wolves
+Project: PEPI
+Board: https://adgear.atlassian.net/jira/software/projects/PEPI/boards/4504
+Extracted: 2026-06-11T17:04:00+02:00
+Query: project filtered, client-side team matching
+Team Pattern: AS - WAW - Wolves
+
+=== ACTIVE ISSUES ===
+Total: 0
+
+No issues found matching team pattern "AS - WAW - Wolves" in project PEPI.

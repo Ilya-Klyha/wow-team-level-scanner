@@ -1,0 +1,14 @@
+Task description
+Every Task should be well described:
+- What has to be done
+- Has acceptance criteria and should be related to Epic Acceptance Criteria
+- UX design (if applicable) should be represent actual workflow and in form of Figma (link)
+- Every Tasks should be connected to Epic
+- Dependencies (if applicable) in description
+- Dependences/Relationships between tasks should be visible in Jira (if applicable)
+
+Estimates Provided
+The development team has provided an estimate for the work, or the ticket has been broken down to a size that allows for reasonable estimation.
+
+Work size
+Scope is small enough to fit within a sprint

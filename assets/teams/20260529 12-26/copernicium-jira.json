@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "team_name": "Copernicium",
+    "issue_count": 5,
+    "extraction_date": "2026-05-29T10:56:25.028558Z",
+    "project_key": "AETVP",
+    "board_id": "9246",
+    "team_field_id": "customfield_10114",
+    "team_pattern": "AE - WAW - Copernicium",
+    "query_type": "project+team"
+  },
+  "issues": [
+    {
+      "key": "AETVP-562",
+      "type": "Task",
+      "summary": "Investigation about how separate Poll & Survey Interaction Type as new creative in rtb-trader (from MVP)",
+      "status": "Code Review",
+      "assignee": "Yevgeniy Wyszyński",
+      "priority": "Medium",
+      "created": "2026-05-28T05:45:09.859-0400",
+      "updated": "2026-05-29T04:25:30.475-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-562",
+      "teamField": "AE - WAW - Copernicium",
+      "teamName": "Copernicium"
+    },
+    {
+      "key": "AETVP-528",
+      "type": "Task",
+      "summary": "test campaign on tv in the office",
+      "status": "In Progress",
+      "assignee": "Patryk Palyska",
+      "priority": "Critical",
+      "created": "2026-05-18T07:43:24.327-0400",
+      "updated": "2026-05-29T03:40:08.546-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-528",
+      "teamField": "AE - WAW - Copernicium",
+      "teamName": "Copernicium"
+    },
+    {
+      "key": "AETVP-526",
+      "type": "Task",
+      "summary": "setup testing campaign",
+      "status": "In Progress",
+      "assignee": "Paweł Olwert",
+      "priority": "Critical",
+      "created": "2026-05-18T07:42:00.067-0400",
+      "updated": "2026-05-26T05:50:57.722-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-526",
+      "teamField": "AE - WAW - Copernicium",
+      "teamName": "Copernicium"
+    },
+    {
+      "key": "AETVP-524",
+      "type": "Task",
+      "summary": "[InteractiveAds SDK] Improvements - (1) custom message handling, (2) visibility delay.",
+      "status": "In Progress",
+      "assignee": "Kamil Madejek",
+      "priority": "Medium",
+      "created": "2026-05-18T05:01:30.194-0400",
+      "updated": "2026-05-26T05:49:40.782-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-524",
+      "teamField": "AE - WAW - Copernicium",
+      "teamName": "Copernicium"
+    },
+    {
+      "key": "AETVP-476",
+      "type": "Task",
+      "summary": "[vertica-rollups] Add iadpoll metrics aggregation",
+      "status": "In Progress",
+      "assignee": "Kamil Madejek",
+      "priority": "Medium",
+      "created": "2026-05-06T09:19:42.880-0400",
+      "updated": "2026-05-26T05:45:29.253-0400",
+      "url": "https://adgear.atlassian.net/browse/AETVP-476",
+      "teamField": "AE - WAW - Copernicium",
+      "teamName": "Copernicium"
+    }
+  ]
+}

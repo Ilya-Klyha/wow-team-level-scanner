@@ -1,0 +1,39 @@
+Team: Abyss
+Project: MAW
+Query Date: 2026-06-12
+Total Active Issues: 3
+================================================================================
+
+Key: MAW-376
+Summary: Enabling dynamic parameters
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Rafal Stefanowicz
+Created: 2026-06-03T05:33:10.473-0400
+Updated: 2026-06-09T03:48:47.202-0400
+URL: https://adgear.atlassian.net/browse/MAW-376
+--------------------------------------------------------------------------------
+
+Key: MAW-375
+Summary: Enabling standard pixel selection
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Maciej Lewandowski
+Created: 2026-06-03T05:28:21.431-0400
+Updated: 2026-06-08T09:39:55.961-0400
+URL: https://adgear.atlassian.net/browse/MAW-375
+--------------------------------------------------------------------------------
+
+Key: MAW-374
+Summary: Dynamic parameters support for pixels v1
+Type: Story
+Status: In Progress
+Priority: Medium
+Assignee: Maksim Matchenia
+Created: 2026-06-03T05:24:21.018-0400
+Updated: 2026-06-08T09:31:03.178-0400
+URL: https://adgear.atlassian.net/browse/MAW-374
+--------------------------------------------------------------------------------
+

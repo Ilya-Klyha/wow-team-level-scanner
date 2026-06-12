@@ -1,0 +1,319 @@
+{
+  "team": "EP Core",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/EPCW/boards/10972",
+  "boardId": "10972",
+  "projectKey": "EPCW",
+  "extractedAt": "2026-06-12T14:22:47+02:00",
+  "issues": [
+    {
+      "key": "EPCW-272",
+      "type": "Task",
+      "summary": "Okta App creation, Testing and Cutover sonarqube-stg(eks-use1-ep-test-1) service",
+      "status": "In Progress",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-272",
+      "description": "### **Context**\n\nAs SonarQube STG  is installed on eks-use1-ep-test-1. A new okta app has to be created as sonarqube is saml authentication with okta, SAML apps only support a single ACS URL (sso_url,"
+    },
+    {
+      "key": "EPCW-197",
+      "type": "Task",
+      "summary": "Upgrade Grafana DEV to 12.x",
+      "status": "In Progress",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-197",
+      "description": "_**As a**_ EP Core team member working on Grafana  \n_**I want to have**_ latest possible Grafana version  \n_**So that I can**_ use new features and fix security problems\n\n---\n\n### Context\n\nWe did an u"
+    },
+    {
+      "key": "EPCW-195",
+      "type": "Task",
+      "summary": "Create Documentation for SonarQube Migration and findings",
+      "status": "Code Review",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-195",
+      "description": "### **Context**\n\nWe run SonarQube STG on <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/ep-sonarqube/blob/main/charts/use1-rdev-stg.yaml</custom> we would like to migrate it to"
+    },
+    {
+      "key": "EPCW-171",
+      "type": "Task",
+      "summary": "Force top 5 tenants to create cleanup mechanism for their docker images",
+      "status": "In Progress",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-171",
+      "description": "## Context\n\nWe are running out of data transfer and data storage limits in artifactory.\n\n## Requirements\n\n* We MUST reach out top 5 component group owners from<custom data-type=\"emoji\" data-id=\"id-0\">"
+    },
+    {
+      "key": "EPCW-163",
+      "type": "Task",
+      "summary": "Create eks-euw1-se-tooling-dev-1",
+      "status": "In Progress",
+      "assignee": "Chandra Prakash",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-163",
+      "description": "### **Context**\n\nCreate prod EKS cluster for EP **eks-euw1-se-tooling-dev-1** in AWS account: `samsungads-se-tooling-dev`.\n\n---\n\n### Requirements\n\n* We MUST create new EKS cluster **eks-euw1-se-toolin"
+    },
+    {
+      "key": "EPCW-158",
+      "type": "Task",
+      "summary": "Enforce ECR Security Compliance via SCP \u2013 Mandatory Security Tag, Scan on Push & KMS Encryption",
+      "status": "In Progress",
+      "assignee": "Stanis\u0142aw Caba\u0142a",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-158",
+      "description": "_**As a**_ Cloud Security & EP Core team member managing AWS ECR repositories,  \n_**I want to have**_ security controls enforced at the organizational level for all new ECR repositories,  \n_**So that "
+    },
+    {
+      "key": "EPCW-155",
+      "type": "Task",
+      "summary": "[POC] Enable EKS to JFrog connectivity via AWS PrivateLink",
+      "status": "In Progress",
+      "assignee": "Pagalavan",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-155",
+      "description": "## Purpose\n\nRoutes all Artifactory traffic from EKS cluster `eks-use1-ep-dev-1` through AWS PrivateLink instead of NAT Gateways. This keeps traffic entirely within the AWS backbone, eliminates public "
+    },
+    {
+      "key": "EPCW-153",
+      "type": "Task",
+      "summary": "Implement JFrog Kubelet Credential Provider on EKS (passwordless image pulls) [EKS]",
+      "status": "In Progress",
+      "assignee": "Marek Barczyk",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-153",
+      "description": "## Goal\n\nImplement the [JFrog Kubelet Credential Provider](https://github.com/jfrog/jfrog-credentials-provider) on EKS clusters to eliminate long lived static credentials. The provider runs as a Daemo"
+    },
+    {
+      "key": "EPCW-148",
+      "type": "Bug",
+      "summary": "Cleanup NACL rancher configuration",
+      "status": "In Progress",
+      "assignee": "Lukasz Sutkowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-148",
+      "description": "## Context\n\nThe <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/terraform/tree/master/aws/adgearprod/nacl-block</custom> Terraform configuration has accumulated several issues t"
+    },
+    {
+      "key": "EPCW-131",
+      "type": "Task",
+      "summary": "Migrate Listmonk to EKS eks-use1-ep-prod-1 with domain rename",
+      "status": "In Progress",
+      "assignee": "Bartosz Brodecki",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-131",
+      "description": "### **Context**\n\nListmonk is currently deployed on the Rancher cluster `use1-rdev` via the Helm chart in `github.com/adgear/ep-listmonk`. The service uses an RDS PostgreSQL database which data must be"
+    },
+    {
+      "key": "EPCW-96",
+      "type": "Task",
+      "summary": "Do a Poc testing migration path of ingress-NGINX using Traefik",
+      "status": "In Progress",
+      "assignee": "Juan Antonio Costa Bermudo",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-96",
+      "description": "**As a** EP owner,  \n**I want** to find an alternative for NGINX controller in Rancher/EKS,  \n**so that I can** avoid breaking existing applications while maintaining a secure posture in production.\n\n"
+    },
+    {
+      "key": "EPCW-95",
+      "type": "Task",
+      "summary": "Re-try recreation of all master nodes on RKE1",
+      "status": "In Progress",
+      "assignee": "Dariusz Nejbauer",
+      "priority": "High",
+      "url": "https://adgear.atlassian.net/browse/EPCW-95",
+      "description": "### **Context**\n\n<custom data-type=\"mention\" data-id=\"id-0\">@Stanis\u0142aw Caba\u0142a</custom> created RKE1 master node full recovery procedure <custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atla"
+    },
+    {
+      "key": "EPCW-22",
+      "type": "Task",
+      "summary": "Grant EP Data team a dedicated ArgoCD project with admin access",
+      "status": "Code Review",
+      "assignee": "Pagalavan",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-22",
+      "description": "## Context\n\nWe have decided in [this slack thread](https://github.com/adgear/k8s-core) that EP Data should start using EP Core ArgoCD, and be able to deploy their applications using <custom data-type="
+    },
+    {
+      "key": "EPCW-9",
+      "type": "Task",
+      "summary": "Migrate SonarQube STG on use1-rdev-stg to eks-use1-ep-test-1",
+      "status": "Code Review",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-9",
+      "description": "### **Context**\n\nWe run SonarQube STG on <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/ep-sonarqube/blob/main/charts/use1-rdev-stg.yaml</custom> we would like to migrate it to"
+    },
+    {
+      "key": "EPCW-6",
+      "type": "Task",
+      "summary": "Migrate Golinks use1-rdev to eks-use1-ep-prod-1",
+      "status": "In Progress",
+      "assignee": "Lukasz Sutkowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-6",
+      "description": "### **Context**\n\nWe must migrate Golinks on <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/golinks-helm-chart/blob/master/use1-rdev.yaml</custom> to eks-use1-ep-prod-1.\n\n---\n\n#"
+    },
+    {
+      "key": "EPCW-272",
+      "type": "Task",
+      "summary": "Okta App creation, Testing and Cutover sonarqube-stg(eks-use1-ep-test-1) service",
+      "status": "In Progress",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-272",
+      "description": "### **Context**\n\nAs SonarQube STG  is installed on eks-use1-ep-test-1. A new okta app has to be created as sonarqube is saml authentication with okta, SAML apps only support a single ACS URL (sso_url,"
+    },
+    {
+      "key": "EPCW-155",
+      "type": "Task",
+      "summary": "[POC] Enable EKS to JFrog connectivity via AWS PrivateLink",
+      "status": "In Progress",
+      "assignee": "Pagalavan",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-155",
+      "description": "## Purpose\n\nRoutes all Artifactory traffic from EKS cluster `eks-use1-ep-dev-1` through AWS PrivateLink instead of NAT Gateways. This keeps traffic entirely within the AWS backbone, eliminates public "
+    },
+    {
+      "key": "EPCW-9",
+      "type": "Task",
+      "summary": "Migrate SonarQube STG on use1-rdev-stg to eks-use1-ep-test-1",
+      "status": "Code Review",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-9",
+      "description": "### **Context**\n\nWe run SonarQube STG on <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/ep-sonarqube/blob/main/charts/use1-rdev-stg.yaml</custom> we would like to migrate it to"
+    },
+    {
+      "key": "EPCW-131",
+      "type": "Task",
+      "summary": "Migrate Listmonk to EKS eks-use1-ep-prod-1 with domain rename",
+      "status": "In Progress",
+      "assignee": "Bartosz Brodecki",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-131",
+      "description": "### **Context**\n\nListmonk is currently deployed on the Rancher cluster `use1-rdev` via the Helm chart in `github.com/adgear/ep-listmonk`. The service uses an RDS PostgreSQL database which data must be"
+    },
+    {
+      "key": "EPCW-197",
+      "type": "Task",
+      "summary": "Upgrade Grafana DEV to 12.x",
+      "status": "In Progress",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-197",
+      "description": "_**As a**_ EP Core team member working on Grafana  \n_**I want to have**_ latest possible Grafana version  \n_**So that I can**_ use new features and fix security problems\n\n---\n\n### Context\n\nWe did an u"
+    },
+    {
+      "key": "EPCW-22",
+      "type": "Task",
+      "summary": "Grant EP Data team a dedicated ArgoCD project with admin access",
+      "status": "Code Review",
+      "assignee": "Pagalavan",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-22",
+      "description": "## Context\n\nWe have decided in [this slack thread](https://github.com/adgear/k8s-core) that EP Data should start using EP Core ArgoCD, and be able to deploy their applications using <custom data-type="
+    },
+    {
+      "key": "EPCW-195",
+      "type": "Task",
+      "summary": "Create Documentation for SonarQube Migration and findings",
+      "status": "Code Review",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-195",
+      "description": "### **Context**\n\nWe run SonarQube STG on <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/ep-sonarqube/blob/main/charts/use1-rdev-stg.yaml</custom> we would like to migrate it to"
+    },
+    {
+      "key": "EPCW-171",
+      "type": "Task",
+      "summary": "Force top 5 tenants to create cleanup mechanism for their docker images",
+      "status": "In Progress",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-171",
+      "description": "## Context\n\nWe are running out of data transfer and data storage limits in artifactory.\n\n## Requirements\n\n* We MUST reach out top 5 component group owners from<custom data-type=\"emoji\" data-id=\"id-0\">"
+    },
+    {
+      "key": "EPCW-145",
+      "type": "Task",
+      "summary": "Investigate: Alerting likely not working on EKS clusters",
+      "status": "Code Review",
+      "assignee": "Chandra Prakash",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-145",
+      "description": "## Context\n\nArgoCD alerting appears to be silently broken on EKS clusters. The issue was discovered when `velero` on `eks-use1-ep-dev-1` went **OutOfSync + Missing** (health) and no alert was received"
+    },
+    {
+      "key": "EPCW-158",
+      "type": "Task",
+      "summary": "Enforce ECR Security Compliance via SCP \u2013 Mandatory Security Tag, Scan on Push & KMS Encryption",
+      "status": "In Progress",
+      "assignee": "Stanis\u0142aw Caba\u0142a",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-158",
+      "description": "_**As a**_ Cloud Security & EP Core team member managing AWS ECR repositories,  \n_**I want to have**_ security controls enforced at the organizational level for all new ECR repositories,  \n_**So that "
+    },
+    {
+      "key": "EPCW-163",
+      "type": "Task",
+      "summary": "Create eks-euw1-se-tooling-dev-1",
+      "status": "In Progress",
+      "assignee": "Chandra Prakash",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-163",
+      "description": "### **Context**\n\nCreate prod EKS cluster for EP **eks-euw1-se-tooling-dev-1** in AWS account: `samsungads-se-tooling-dev`.\n\n---\n\n### Requirements\n\n* We MUST create new EKS cluster **eks-euw1-se-toolin"
+    },
+    {
+      "key": "EPCW-148",
+      "type": "Bug",
+      "summary": "Cleanup NACL rancher configuration",
+      "status": "In Progress",
+      "assignee": "Lukasz Sutkowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-148",
+      "description": "## Context\n\nThe <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/terraform/tree/master/aws/adgearprod/nacl-block</custom> Terraform configuration has accumulated several issues t"
+    },
+    {
+      "key": "EPCW-95",
+      "type": "Task",
+      "summary": "Re-try recreation of all master nodes on RKE1",
+      "status": "In Progress",
+      "assignee": "Dariusz Nejbauer",
+      "priority": "High",
+      "url": "https://adgear.atlassian.net/browse/EPCW-95",
+      "description": "### **Context**\n\n<custom data-type=\"mention\" data-id=\"id-0\">@Stanis\u0142aw Caba\u0142a</custom> created RKE1 master node full recovery procedure <custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atla"
+    },
+    {
+      "key": "EPCW-153",
+      "type": "Task",
+      "summary": "Implement JFrog Kubelet Credential Provider on EKS (passwordless image pulls) [EKS]",
+      "status": "In Progress",
+      "assignee": "Marek Barczyk",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-153",
+      "description": "## Goal\n\nImplement the [JFrog Kubelet Credential Provider](https://github.com/jfrog/jfrog-credentials-provider) on EKS clusters to eliminate long lived static credentials. The provider runs as a Daemo"
+    },
+    {
+      "key": "EPCW-6",
+      "type": "Task",
+      "summary": "Migrate Golinks use1-rdev to eks-use1-ep-prod-1",
+      "status": "In Progress",
+      "assignee": "Lukasz Sutkowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-6",
+      "description": "### **Context**\n\nWe must migrate Golinks on <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/golinks-helm-chart/blob/master/use1-rdev.yaml</custom> to eks-use1-ep-prod-1.\n\n---\n\n#"
+    },
+    {
+      "key": "EPCW-96",
+      "type": "Task",
+      "summary": "Do a Poc testing migration path of ingress-NGINX using Traefik",
+      "status": "In Progress",
+      "assignee": "Juan Antonio Costa Bermudo",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/EPCW-96",
+      "description": "**As a** EP owner,  \n**I want** to find an alternative for NGINX controller in Rancher/EKS,  \n**so that I can** avoid breaking existing applications while maintaining a secure posture in production.\n\n"
+    }
+  ]
+}

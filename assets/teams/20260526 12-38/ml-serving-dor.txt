@@ -1,0 +1,27 @@
+Team: ML Serving (Sturgeons) - MLOps, Serving
+Page ID: 21732425749
+Extracted: 2026-05-26
+
+================================================================================
+STATUS: NO DOR FOUND
+================================================================================
+
+Team responsibility:
+- ML Serving is responsible for optimizing real-time bid decisions by
+  leveraging Samsung's proprietary Machine Learning (ML) models, served with
+  online and offline features
+- Developing new functionalities
+- Creating processes
+- Ensuring system stability and integrability
+- Developing tool that allow to test E2E solution
+
+Note: This team page does not contain a Definition of Ready (DoR) section. The
+page is minimal and primarily contains team introduction, responsibilities, and
+links to Jira boards and technical specifications.
+
+The team may be using program-level DoR or has not documented their team-
+specific DoR criteria on this page.
+
+Reference link:
+https://adgear.atlassian.net/wiki/spaces/ENG/pages/20171325736 (Inference as a
+Service - Tech Spec)

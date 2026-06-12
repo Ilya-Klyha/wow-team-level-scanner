@@ -1,0 +1,29 @@
+{
+  "team": "ML Serving Sturgeons",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4090",
+  "boardId": "4090",
+  "projectKey": "PEPI",
+  "extractedAt": "2026-06-12T14:22:47+02:00",
+  "issues": [
+    {
+      "key": "PEPI-11580",
+      "type": "Task",
+      "summary": "Add alerting rules in alerting.yaml",
+      "status": "In Development",
+      "assignee": "Kornel Pietrzyk",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/PEPI-11580",
+      "description": "Define Prometheus alerting rules for per-model health. Create two severity tiers: critical (prediction failure rate breaching threshold within a 10m window) and warning (elevated default value usage)."
+    },
+    {
+      "key": "PEPI-11580",
+      "type": "Task",
+      "summary": "Add alerting rules in alerting.yaml",
+      "status": "In Development",
+      "assignee": "Kornel Pietrzyk",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/PEPI-11580",
+      "description": "Define Prometheus alerting rules for per-model health. Create two severity tiers: critical (prediction failure rate breaching threshold within a 10m window) and warning (elevated default value usage)."
+    }
+  ]
+}

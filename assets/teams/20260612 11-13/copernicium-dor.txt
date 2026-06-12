@@ -1,0 +1,14 @@
+User Story/Requirement Clarity
+Clear user story context understandable for team members. Task reporter may suggest solutions in some occasions.
+
+Acceptance Criteria and Measurement Defined
+Specific, testable acceptance criteria are provided for the user story, outlining what constitutes successful completion.
+
+Monitoring and Alerting Configured (if applicable)
+Necessary monitoring and alerting for the new feature or change have been configured (if needed).
+
+Estimates Provided
+Team has to provide realistic estimate of ticket. While estimation teams takes into consideration: complexity, Uncertainty, Effort.
+
+Dependencies
+UI Mocs, Requirements from external teams/repo owner regarding development when needed. KT sessions.

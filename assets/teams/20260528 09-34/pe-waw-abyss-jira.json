@@ -1,0 +1,19 @@
+{
+  "team": "PE-WAW-Abyss",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/9980",
+  "boardId": "9980",
+  "projectKey": "MAW",
+  "extractedAt": "2026-05-28T07:34:53Z",
+  "query": {
+    "jql": "board = 9980 AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+    "statuses": ["In Progress", "Code Review"],
+    "issueTypes": ["Story", "Bug", "Task"]
+  },
+  "summary": {
+    "total": 0,
+    "byStatus": {},
+    "byType": {},
+    "truncated": false
+  },
+  "issues": []
+}

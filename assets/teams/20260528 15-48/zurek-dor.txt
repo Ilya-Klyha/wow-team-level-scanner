@@ -1,0 +1,21 @@
+All dependencies of tasks and blockers are defined and resolved (inside and outside). Reference data sources should be provided if exists. Access should be ready before picking a story/task (For example SECO approvals). Except tasks to grant access etc.. This kind of tasks can take more than one sprint.
+
+We need define acceptance criteria
+
+The task was well described and estimated by the team. Story points are assigned. Task should be understandable for everyone.
+
+Techspec should be approved by ARB before realizing tasks (if project required techspec)
+
+Acceptance Criteria - what is the required outcome? - What is expected
+
+Rollback procedure definition if needed
+
+Code is ready and tested
+
+PO accepted change
+
+Define specific tests if needed
+
+Documentation is defined or modified
+
+PR is connected Jira or work is described in comment

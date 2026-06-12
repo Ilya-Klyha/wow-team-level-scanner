@@ -1,0 +1,48 @@
+Active Issues (5 total)
+============================================================
+
+Key: AETVP-584
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Kamil Madejek
+Title: [rtb-delivery, adgear-data, log-converter] P&S reporting: Adjust implementation to use top-level property instead of `misc`.
+URL: https://adgear.atlassian.net/browse/AETVP-584
+------------------------------------------------------------
+
+Key: AETVP-579
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Yevgeniy Wyszyński
+Title: Model, database, and creative type registration for separate Poll & Survey
+URL: https://adgear.atlassian.net/browse/AETVP-579
+------------------------------------------------------------
+
+Key: AETVP-564
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Kamil Madejek
+Title: [Spike] Investigate "infoblob" feasibility in InteractiveAd SDK custom trackers.
+URL: https://adgear.atlassian.net/browse/AETVP-564
+------------------------------------------------------------
+
+Key: AETVP-528
+Type: Task
+Status: Code Review
+Priority: Critical
+Assignee: Jacek Wróblewski
+Title: Run test campaign on TV in the office
+URL: https://adgear.atlassian.net/browse/AETVP-528
+------------------------------------------------------------
+
+Key: AETVP-476
+Type: Task
+Status: In Progress
+Priority: Medium
+Assignee: Kamil Madejek
+Title: [vertica-rollups] Add iadpoll metrics aggregation
+URL: https://adgear.atlassian.net/browse/AETVP-476
+------------------------------------------------------------
+

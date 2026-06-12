@@ -1,0 +1,17 @@
+Team: Capybaras
+Extracted: 2026-05-28T13:48:58.000Z
+Query Strategy: Sprint-based
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 16
+- In Progress: 12
+- Code Review: 4
+
+Issues by type:
+- Story: 10
+- Task: 6
+
+---
+Status: success

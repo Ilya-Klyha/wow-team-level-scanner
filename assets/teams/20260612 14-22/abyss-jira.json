@@ -1,0 +1,79 @@
+{
+  "team": "Abyss",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/9980",
+  "boardId": "9980",
+  "projectKey": "MAW",
+  "extractedAt": "2026-06-12T14:22:47+02:00",
+  "issues": [
+    {
+      "key": "MAW-376",
+      "type": "Story",
+      "summary": "Enabling dynamic parameters",
+      "status": "In Progress",
+      "assignee": "Rafal Stefanowicz",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-376",
+      "description": "**As** a Buyer,   \n**I want** the ability to add or remove order tracking parameters (order_id & order_value) to pixels (both v1 and v2 versions) inside dsp-trader  \n**so** that I can have flexible co"
+    },
+    {
+      "key": "MAW-375",
+      "type": "Story",
+      "summary": "Enabling standard pixel selection",
+      "status": "In Progress",
+      "assignee": "Maciej Lewandowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-375",
+      "description": "**As** a Buyer,   \n**I want** to have the option to select which tag type of standard segment I want to use between segment v1 and v2,   \n**so** that I can choose the most appropriate segment implemen"
+    },
+    {
+      "key": "MAW-374",
+      "type": "Story",
+      "summary": "Dynamic parameters support for pixels v1",
+      "status": "In Progress",
+      "assignee": "Maksim Matchenia",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-374",
+      "description": "**As** a Buyer,   \n**I want** to have the option to add dynamic parameters (order_id and order_value) to existing cookie-based IMG pixels (v1) functionality,   \n**so** that I can track conversion data"
+    },
+    {
+      "key": "MAW-432",
+      "type": "Story",
+      "summary": "Investigate AG_REV parameter handling",
+      "status": "In Progress",
+      "assignee": "Mateusz Ro\u015blak",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-432",
+      "description": "**As** a Developer Team Member,   \n**I want** to investigate the **AG_REV** parameter handling throughout our system to determine if it exists, is properly implemented, and is actively being used in o"
+    },
+    {
+      "key": "MAW-376",
+      "type": "Story",
+      "summary": "Enabling dynamic parameters",
+      "status": "In Progress",
+      "assignee": "Rafal Stefanowicz",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-376",
+      "description": "**As** a Buyer,   \n**I want** the ability to add or remove order tracking parameters (order_id & order_value) to pixels (both v1 and v2 versions) inside dsp-trader  \n**so** that I can have flexible co"
+    },
+    {
+      "key": "MAW-375",
+      "type": "Story",
+      "summary": "Enabling standard pixel selection",
+      "status": "In Progress",
+      "assignee": "Maciej Lewandowski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-375",
+      "description": "**As** a Buyer,   \n**I want** to have the option to select which tag type of standard segment I want to use between segment v1 and v2,   \n**so** that I can choose the most appropriate segment implemen"
+    },
+    {
+      "key": "MAW-374",
+      "type": "Story",
+      "summary": "Dynamic parameters support for pixels v1",
+      "status": "In Progress",
+      "assignee": "Maksim Matchenia",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-374",
+      "description": "**As** a Buyer,   \n**I want** to have the option to add dynamic parameters (order_id and order_value) to existing cookie-based IMG pixels (v1) functionality,   \n**so** that I can track conversion data"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+Team: Copernicium
+Project: AETVP
+Board ID: 9246
+Total Issues: 5
+Extraction Date: 2026-05-29 10:56:25.028558
+Query Type: project+team (Team field filtering enabled)
+
+================================================================================
+
+[AETVP-562] Task: Investigation about how separate Poll & Survey Interaction Type as new creative in rtb-trader (from MVP)
+  Assignee: Yevgeniy Wyszyński | Priority: Medium | Status: Code Review
+  Team: AE - WAW - Copernicium
+  Updated: 2026-05-29
+  https://adgear.atlassian.net/browse/AETVP-562
+
+[AETVP-528] Task: test campaign on tv in the office
+  Assignee: Patryk Palyska | Priority: Critical | Status: In Progress
+  Team: AE - WAW - Copernicium
+  Updated: 2026-05-29
+  https://adgear.atlassian.net/browse/AETVP-528
+
+[AETVP-526] Task: setup testing campaign
+  Assignee: Paweł Olwert | Priority: Critical | Status: In Progress
+  Team: AE - WAW - Copernicium
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-526
+
+[AETVP-524] Task: [InteractiveAds SDK] Improvements - (1) custom message handling, (2) visibility delay.
+  Assignee: Kamil Madejek | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Copernicium
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-524
+
+[AETVP-476] Task: [vertica-rollups] Add iadpoll metrics aggregation
+  Assignee: Kamil Madejek | Priority: Medium | Status: In Progress
+  Team: AE - WAW - Copernicium
+  Updated: 2026-05-26
+  https://adgear.atlassian.net/browse/AETVP-476
+
+================================================================================
+Status: success
+Total issues: 5

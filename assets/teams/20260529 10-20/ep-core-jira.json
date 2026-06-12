@@ -1,0 +1,1935 @@
+{
+  "metadata": {
+    "team_name": "EP Core",
+    "issue_count": 25,
+    "extraction_date": "2026-06-10T15:01:18.641748",
+    "project_key": "EPCW"
+  },
+  "issues": [
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2545427",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2545427",
+      "key": "EPCW-142",
+      "fields": {
+        "summary": "[Adhoc] [APLAN-PROD] [Vertica Eon/k8s] Troubleshooting cascading issue in resource pool ",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-27T08:12:27.362-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "Description :\\[Adhoc\\] \\[APLAN-PROD\\] \\[Vertica Eon/k8s\\] Troubleshooting cascading issue in resource pool   \n  \n\"Ideally, all long-running ETL jobs should be executed through the `etl_long_rp` queue rather than the `etl_rp` queue, which has a runtime limit of 15 seconds. However, these jobs are currently failing and not being routed to the `etl_long_rp` pool as intended.\"  \n\n```\nairflow.exceptions.AirflowException: load_data_to_vertica ** Provided SQL failed. Exception message: Severity: ERROR, Message: Execution time exceeded run time cap of 00:00:15, Sqlstate: 57014, Routine: _reportEEErrors, File: /data/jenkins/workspace/RE-ReleaseBuilds/RE-Miner/server/vertica/Dist/PlanExecCoordinator.cpp, Line: 3181, Error Code: 3326, SQL: 'COPY aplan_prod.smtvinfo_exposure_events (psid,state,city,postal,metro_code,isp,model_id,crt_dt filler VARCHAR,created AS TO_DATE(crt_dt, \\'YYYYMMDD\\'),dt_str filler VARCHAR,source_partition_date AS TO_DATE(dt_str, \\'YYYYMMDD\\'),tifa,chipset,year,country,os_str FILLER varchar,os as case when os_str = \\'\\' THEN NULL ELSE CAST(os_str AS INT) END,run_date FILLER varchar) FROM \\'s3://adgear-etl-audience-planner/udw/samsungtv-info/date=2026-05-26/*/samsungtv-info/*.csv.gz\\' GZIP  DELIMITER \\'|\\'  ENCLOSED \\'\"\\'  SKIP 1  REJECTED DATA AS TABLE aplan_prod.smtvinfo_exposure_events_errors;'.\n```\n\nAcceptance criteria \"Ideally, all long-running ETL jobs should be executed through the `etl_long_rp` queue rather than the `etl_rp` queue, which has a runtime limit of 15 seconds. However, these jobs are currently failing and not being routed to the `etl_long_rp` pool as intended.\"  \n  \nOutcome : \"Ideally, all long-running ETL jobs should be executed through the `etl_long_rp` queue rather than the `etl_rp` queue, which has a runtime limit of 15 seconds. However, these jobs are currently failing and not being routed to the `etl_long_rp` pool as intended.\"  \n  \nREF: [https://audience-builder-airflow.use1-rprod.k8s.adgear.com/dags/audience_builder_sf_samsung_tv_info_pipeline_v24/grid?search=audience_builder_sf_samsung_tv_info_pipeline_v24&dag_run_id=scheduled__2026-05-26T07%3A30%3A00%2B00%3A00&task_id=vertica_temp_load_task&tab=logs](https://audience-builder-airflow.use1-rprod.k8s.adgear.com/dags/audience_builder_sf_samsung_tv_info_pipeline_v24/grid?search=audience_builder_sf_samsung_tv_info_pipeline_v24&dag_run_id=scheduled__2026-05-26T07%3A30%3A00%2B00%3A00&task_id=vertica_temp_load_task&tab=logs)  \n  \n[https://audience-builder-airflow.use1-rprod.k8s.adgear.com/dags/audience_builder_sf_program_meta_pipeline_v24/grid?dag_run_id=scheduled__2026-05-26T00%3A30%3A00%2B00%3A00&task_id=task_schedule_vertica_load&tab=logs](https://audience-builder-airflow.use1-rprod.k8s.adgear.com/dags/audience_builder_sf_program_meta_pipeline_v24/grid?dag_run_id=scheduled__2026-05-26T00%3A30%3A00%2B00%3A00&task_id=task_schedule_vertica_load&tab=logs)  \n  \n[https://grafana.int.adgear.com/d/vertica-queries/vertica-queries?from=now-5m&to=now&timezone=Asia%2FCalcutta&var-datasource=P3D518DB6F196F9A7&var-db_name=6a4558568eff5d0287685291157f87&var-subcluster_name=$\\__all&var-node_name=$\\__all&var-pool_name=etl_long_rp&var-request_type=$\\__all&var-storage_usage=CATALOG&orgId=1&refresh=5s](https://grafana.int.adgear.com/d/vertica-queries/vertica-queries?from=now-5m&to=now&timezone=Asia%2FCalcutta&var-datasource=P3D518DB6F196F9A7&var-db_name=6a4558568eff5d0287685291157f87&var-subcluster_name=$__all&var-node_name=$__all&var-pool_name=etl_long_rp&var-request_type=$__all&var-storage_usage=CATALOG&orgId=1&refresh=5s)",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3Abf667be5-73ab-4829-b295-0785aec04b4c",
+          "accountId": "712020:bf667be5-73ab-4829-b295-0785aec04b4c",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/32"
+          },
+          "displayName": "s.megha",
+          "active": true,
+          "timeZone": "Asia/Kolkata",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-27T11:29:44.290-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-142"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2544812",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2544812",
+      "key": "EPCW-139",
+      "fields": {
+        "summary": "Enable monitoring for searxng sandbox instance",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-26T19:21:16.419-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "Enable monitoring for “searxng”.  \n\nSlack threads: <custom data-type=\"smartlink\" data-id=\"id-0\">https://ads-ams25.slack.com/archives/C0ANCL1804S/p1779383758075239</custom>   \n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=557058%3Ab1cc3ad3-29e7-486f-9827-7970e7ba0fc8",
+          "accountId": "557058:b1cc3ad3-29e7-486f-9827-7970e7ba0fc8",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/c5f3ed6cd7da8fa88ab76ba6622703c3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDS-0.png",
+            "24x24": "https://secure.gravatar.com/avatar/c5f3ed6cd7da8fa88ab76ba6622703c3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDS-0.png",
+            "16x16": "https://secure.gravatar.com/avatar/c5f3ed6cd7da8fa88ab76ba6622703c3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDS-0.png",
+            "32x32": "https://secure.gravatar.com/avatar/c5f3ed6cd7da8fa88ab76ba6622703c3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDS-0.png"
+          },
+          "displayName": "Dinesh Kumar Shanmugasundaram",
+          "active": true,
+          "timeZone": "America/Los_Angeles",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-26T20:31:35.500-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-139"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2543772",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2543772",
+      "key": "EPCW-138",
+      "fields": {
+        "summary": "ADR: EKS cluster and AWS account topology for EP Core",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-26T06:11:04.137-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "## Context\n\nEP Core operates a growing set of workloads with very different trust, blast-radius, and availability requirements. Currently there is no written record where we should migrate our workload to.\n\nThis ticket is to produce an **ADR** that captures the decision and the reasoning behind it so we would know which accounts are for what purpose, and how to use them. This will allow us to schedule the EP Core migration better.\n\n**Topics the ADR must address**\n\n1\\. Where to place typical EP Core and EP Data workloads\n\n2\\. Sensitive / privileged resources\n\n* **Terraform Enterprise (TFE)** — has AWS credentials and state for all accounts; should it be isolated\n* **Vault** — secrets backend; blast radius of a compromise is very high\n* Should these run on a dedicated account/cluster? What are the access control implications?\n\n3\\. **CI/CD** — self-hosted GitHub Actions runners\n\n4\\. **Observability stack**\n\n* VictoriaMetrics, Grafana, VictoriaMetrics, Loki — need to scrape metrics from all clusters\n* **Should observability run in a shared account/cluster accessible from all environments (network segement)?**\n\n5\\. **AWS account structure**\n\n* Should each concern (platform, data, CICD, observability) get a dedicated AWS account?\n* What are the pros and cons vs. fewer, larger accounts?\n\n## Requirements\n\n* We MUST create ADR with the description which **AWS account** EP should provision for EP\n* We MUST create ADR with the description which **EKS accounts** EP should provision for EP\n* We MUST explicitly tell which Global Network segment given EKS will be using\n* We MUST list pros and cons of every choice\n* We MUST give it to Security for review and approval\n* We MUST decide as a team on the approach\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=6298bf93e000550067e708af",
+          "accountId": "6298bf93e000550067e708af",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6298bf93e000550067e708af/d03b0093-e5ea-4a82-8f72-475ca9b20bb6/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6298bf93e000550067e708af/d03b0093-e5ea-4a82-8f72-475ca9b20bb6/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6298bf93e000550067e708af/d03b0093-e5ea-4a82-8f72-475ca9b20bb6/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6298bf93e000550067e708af/d03b0093-e5ea-4a82-8f72-475ca9b20bb6/32"
+          },
+          "displayName": "Marek Barczyk",
+          "active": true,
+          "timeZone": "Poland",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-28T04:25:41.721-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-138"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2538460",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2538460",
+      "key": "EPCW-128",
+      "fields": {
+        "summary": "failing dmp-clink deployment on prod cluster",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-22T05:33:18.836-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "As a member of EP Data Team I would need to fix prod dmp-flink deployment issue reported by Contexual team.\n\n**Outcome:**\n\ndmp-flink deloyment failing with reason app is not able to connect bootstrap servers.\n\nTasks:\n\n* Verify flink applicatio properties and update flink deployment config properties.\n* delete and redeploy dmp-flink namespace flinkdeployment.\n\n**Acceptance Criteria:**\n\n* Prod ns dmp-flink app should run success with out kafka bootstrap issues.\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A692e3401-b7d1-4089-8f86-577298e32c51",
+          "accountId": "712020:692e3401-b7d1-4089-8f86-577298e32c51",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png",
+            "24x24": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png",
+            "16x16": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png",
+            "32x32": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png"
+          },
+          "displayName": "Guruswamy Suvarapu",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-22T05:36:25.421-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-128"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2538335",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2538335",
+      "key": "EPCW-125",
+      "fields": {
+        "summary": "Listmonk is not sending campaings",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10104",
+          "id": "10104",
+          "description": "A problem which impairs or prevents the functions of the product.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+          "name": "Bug",
+          "subtask": false,
+          "avatarId": 10303,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-22T01:32:36.099-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "## Context\n\nWe have a problem where after sending a single announcement in listmonk, the subsequent one fails. The workaround is restart Listmonk every time we want to send a campaign. It works only for one campaign.\n\n## Requirements\n\n* Listmonk MUST be able to deliver the messages without pod restarts.\n* We COULD create a test distribution list which we can use to replicate the problem, we could use email: `team-infra@adgear.com`.\n* We MUST **not announce** listmonk upgrade to anyone except EP Data on [#engineering-platform-internal](https://ads-ams.enterprise.slack.com/archives/C04K29ETB1C).\n* We COULD check if Listmonk upgrade will fix it.\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A1785f7fa-64f8-470c-b0e2-6ea017a6c0dd",
+          "accountId": "712020:1785f7fa-64f8-470c-b0e2-6ea017a6c0dd",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/4575326b0855de97cc14525b8199ab53?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FSC-0.png",
+            "24x24": "https://secure.gravatar.com/avatar/4575326b0855de97cc14525b8199ab53?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FSC-0.png",
+            "16x16": "https://secure.gravatar.com/avatar/4575326b0855de97cc14525b8199ab53?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FSC-0.png",
+            "32x32": "https://secure.gravatar.com/avatar/4575326b0855de97cc14525b8199ab53?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FSC-0.png"
+          },
+          "displayName": "Stanisław Cabała",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-29T04:03:38.435-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-125"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2415793",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2415793",
+      "key": "EPCW-96",
+      "fields": {
+        "summary": "Do a Poc testing migration path of ingress-NGINX using Traefik",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-03-09T03:53:55.143-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "**As a** EP owner,  \n**I want** to find an alternative for NGINX controller in Rancher/EKS,  \n**so that I can** avoid breaking existing applications while maintaining a secure posture in production.\n\n---\n\n### **Context**\n\nAs an outcome of the task <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/PEEPC-1968</custom> , EP decided to do a proof of concept with Traefik to have a similar scenario as we have today with ingress-NGINX (which is announced to be deprecated at the end of march 2026).  \n  \nMore information:  \n  \n<custom data-type=\"smartlink\" data-id=\"id-1\">https://doc.traefik.io/traefik/migrate/nginx-to-traefik/</custom> \n\n[Traefik Kubernetes Ingress NGINX Routing Configuration - Traefik](https://doc.traefik.io/traefik/reference/routing-configuration/kubernetes/ingress-nginx/)\n\n---\n\n### Requirements\n\n* We MUST check the traefik ingress controller to substitute the current ingress-NGINX\n\n    * The alternative MUST require minimal migration effort\n    * We MUST evaluate all annotations used in Ingress (are compatible with the new solution)\n    \n* Engineering teams MUST be able to expose internal services easily\n* Engineering teams SHOULD not require any approval or PR creation, it should be self-served\n* We MUST continue the POC in eks-use1-test-2 (EKS) or use1-ep-test-2 (Rancher)\n* We MUST present the outcome to the team\n* We MUST document it\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3Ac4d2d756-cc89-43e3-a8c6-c41c54fe36f4",
+          "accountId": "712020:c4d2d756-cc89-43e3-a8c6-c41c54fe36f4",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/86519e97856b1d09628c6075d8d38d79?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJB-6.png",
+            "24x24": "https://secure.gravatar.com/avatar/86519e97856b1d09628c6075d8d38d79?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJB-6.png",
+            "16x16": "https://secure.gravatar.com/avatar/86519e97856b1d09628c6075d8d38d79?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJB-6.png",
+            "32x32": "https://secure.gravatar.com/avatar/86519e97856b1d09628c6075d8d38d79?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJB-6.png"
+          },
+          "displayName": "Juan Antonio Costa Bermudo",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-22T12:13:28.261-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-96"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2485343",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2485343",
+      "key": "EPCW-95",
+      "fields": {
+        "summary": "Re-try recreation of all master nodes on RKE1",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-04-15T03:58:55.794-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "### **Context**\n\n<custom data-type=\"mention\" data-id=\"id-0\">@Stanisław Cabała</custom> created RKE1 master node full recovery procedure <custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atlassian.net/wiki/spaces/ENG/pages/20903526687/Kubernetes+cluster+recovery+after+all+master+loss</custom>, but when we tried it, it failed. We were not able to join second etcd node. Since then we have made Rancher Management version upgrade. We need to test the procedure once more.\n\nTicket is very important because use1-rprod is running on RKE1.\n\n**Don’t take this ticket if you are not 100% committed to make it work. This is very important.**\n\n---\n\n### Requirements\n\n* We MUST test RKE1 full master node recovery procedure once more\n* We MUST test it on use1-ep-test-1 (which is using RKE1)\n* If we fail to recover, we need to re-create use1-ep-test-1 to RKE1\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A457b6b9b-f836-4623-9300-33f5023a00dc",
+          "accountId": "712020:457b6b9b-f836-4623-9300-33f5023a00dc",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/18763bc4a705d8f73f827a9938654205?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDN-0.png",
+            "24x24": "https://secure.gravatar.com/avatar/18763bc4a705d8f73f827a9938654205?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDN-0.png",
+            "16x16": "https://secure.gravatar.com/avatar/18763bc4a705d8f73f827a9938654205?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDN-0.png",
+            "32x32": "https://secure.gravatar.com/avatar/18763bc4a705d8f73f827a9938654205?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDN-0.png"
+          },
+          "displayName": "Dariusz Nejbauer",
+          "active": true,
+          "timeZone": "UTC",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/2",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/high_new.svg",
+          "name": "High",
+          "id": "2"
+        },
+        "updated": "2026-05-27T10:41:24.304-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-95"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2535944",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2535944",
+      "key": "EPCW-93",
+      "fields": {
+        "summary": "enable cross-region Kafka PrivateLink test topic and S3 connector via VPC endpoint",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-20T03:54:15.568-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": null,
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A887d3910-a6a7-4034-8134-62a65d1335b9",
+          "accountId": "712020:887d3910-a6a7-4034-8134-62a65d1335b9",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/66547028f0e6a180e481a8e0223ec9ff?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKP-6.png",
+            "24x24": "https://secure.gravatar.com/avatar/66547028f0e6a180e481a8e0223ec9ff?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKP-6.png",
+            "16x16": "https://secure.gravatar.com/avatar/66547028f0e6a180e481a8e0223ec9ff?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKP-6.png",
+            "32x32": "https://secure.gravatar.com/avatar/66547028f0e6a180e481a8e0223ec9ff?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKP-6.png"
+          },
+          "displayName": "Kusha Pande",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-21T03:52:17.299-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-93"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2535851",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2535851",
+      "key": "EPCW-90",
+      "fields": {
+        "summary": "To enable exactly.once.source.support in the Kafka connector -  DEV",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-20T02:41:20.217-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "to enable `exactly.once.source.support` in the Kafka connector outputting to s3://adgear-logs-trader-production-us-east-1-raw/production/kafka-topics/  \nResource: <custom data-type=\"smartlink\" data-id=\"id-0\">https://docs.confluent.io/platform/current/installation/configuration/connect/index.html#exactly-once-source-support</custom>   \nwe are specifically interested in the connector outputting to these s3 paths  \ns3://adgear-logs-trader-production-us-east-1-raw/production/kafka-topics/topics/apse1-dsp-prod/trader.delivery.production/  \ns3://adgear-logs-trader-production-us-east-1-raw/production/kafka-topics/topics/euw1-dsp-prod/trader.delivery.production/  \ns3://adgear-logs-trader-production-us-east-1-raw/production/kafka-topics/topics/use1-dsp-prod/trader.delivery.production/  \ns3://adgear-logs-trader-production-us-east-1-raw/production/kafka-topics/topics/usw2-dsp-prod/trader.delivery.production/\n\nmainly the `trader.delivery.production` topic in all regions\n\n‌\n\nSteps:\n\n* Create a kafka connect cluster and add the required resources to it and and spawn the connector in Dev\n* Let the requesters test the working of this requested property and then proceed with implementing it in PROD.\n\n  \n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A30a63bc1-333f-4bf8-9aa0-0cd9a2109d73",
+          "accountId": "712020:30a63bc1-333f-4bf8-9aa0-0cd9a2109d73",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/a91c4464970216cb76dfb72ebe517a68?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBP-6.png",
+            "24x24": "https://secure.gravatar.com/avatar/a91c4464970216cb76dfb72ebe517a68?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBP-6.png",
+            "16x16": "https://secure.gravatar.com/avatar/a91c4464970216cb76dfb72ebe517a68?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBP-6.png",
+            "32x32": "https://secure.gravatar.com/avatar/a91c4464970216cb76dfb72ebe517a68?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBP-6.png"
+          },
+          "displayName": "Balaji Peruru",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-27T06:26:11.250-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-90"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2535805",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2535805",
+      "key": "EPCW-86",
+      "fields": {
+        "summary": "Issue in resource pool export_rp ",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-20T02:15:56.573-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "## 📝 Context & Background\n\nFollowing our migration from Vertica 10 to Vertica 24.4 running on Kubernetes Eon Mode, we encountered a critical performance regression where specific data export queries (running via the raven_export user out of the export_rp pool) were stalling for 111+ seconds.  \nInvestigation revealed that the Vertica 24.4 query optimizer introduces stricter execution rules for unsegmented temporary tables (temp_0000) and standard UNION clauses. This layout forced a global network broadcast re-segmentation, flooding our 45-node Kubernetes cluster overlay network with \\~90 GB of distributed traffic (\\~2 GB sent/received per pod). Because export_rp was configured with a MAXMEMORYSIZE of 90% and a high PLANNEDCONCURRENCY of 5, individual queries were being thread-starved while simultaneously endangering the core general pool's memory stability.\n\n## 🎯 Objectives\n\n* Isolate Resource Footprint: Prevent the export_rp pool from dynamically scaling to 90%, which starves the core general execution pool.\n* Maximize Thread Performance: Allocate greater internal pipeline thread budgets to heavy network-bound queries.\n* Enforce Safety Limits: Protect the 45 Kubernetes statefulset pods from memory-exhaustion or long application hangs.\n\n---\n\n## 🚀 Goals\n\n* Reduce target query execution time from 111 seconds to under 15 seconds without modifying application source code or table schemas.\n* Safeguard cluster-wide memory limits from dynamic overcommitment during high-volume application runs.\n\n---\n\n## 📝 Acceptance Criteria\n\n* export_rp pool properties successfully altered across all 45 nodes.\n* Maximum memory threshold clamped to prevent cluster memory starvation.\n* Initial execution thread budget per query expanded by decreasing planned concurrency slots.\n* Single-query memory ceiling implemented to prevent any single bad execution path from overwhelming a pod.\n* Session/query timeout duration aligned to match standard cluster timeouts (5 minutes).\n* Verified query execution duration for raven_export users consistently executes in $\\\\le$ 10 seconds.\n\n---\n\n## 🛠️ Implementation Steps\n\nRun the following administration overrides in the database console to update the cluster topology:\n\n\\-- Step 1: Clamp maximum resource pool expansion to protect the 'general' poolALTER RESOURCE POOL export_rp MAXMEMORYSIZE '40%';  \n\\-- Step 2: Drop concurrency slots to force larger worker-thread allocations per queryALTER RESOURCE POOL export_rp PLANNEDCONCURRENCY 2;  \n\\-- Step 3: Inject a per-query memory ceiling to block dynamic runaway allocationALTER RESOURCE POOL export_rp MAXQUERYMEMORYSIZE '15G';  \n\\-- Step 4: Align queue timeouts to match cluster standards and prevent app hangsALTER RESOURCE POOL export_rp QUEUETIMEOUT '00:05';\n\n---\n\n## 🏆 Measurable Outcomes\n\n* Performance Velocity: Target query step execution dropped from 111.9 seconds to 10 seconds (a \\~91% processing speed improvement).\n* Parallel Execution Safety: Thread budget optimization successfully managed the \\~2 GB per-node network broadcast queue efficiently within container limits.\n* Cluster Reliability: The database engine is fully insulated against out-of-memory crashes or service degradation during concurrent ETL and export schedules.\n\n---",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=615b11f0d9820f0070a1c389",
+          "accountId": "615b11f0d9820f0070a1c389",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/693ee3be95b677f7f5cd33689e6983d7?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLN-1.png",
+            "24x24": "https://secure.gravatar.com/avatar/693ee3be95b677f7f5cd33689e6983d7?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLN-1.png",
+            "16x16": "https://secure.gravatar.com/avatar/693ee3be95b677f7f5cd33689e6983d7?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLN-1.png",
+            "32x32": "https://secure.gravatar.com/avatar/693ee3be95b677f7f5cd33689e6983d7?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FLN-1.png"
+          },
+          "displayName": "Loy Noronha",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-26T08:47:43.898-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-86"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2230307",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2230307",
+      "key": "EPCW-84",
+      "fields": {
+        "summary": "Enable NVIDIA GPU operator in DSP clusters",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2025-12-01T11:26:41.673-0500",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "**As a** ML engineer,  \n**I want** to use GPU instances in all DSP clusters  \n**so that I can** more powerful EC2 instances types designed for ML workloads.\n\n---\n\n### **Context**\n\nAfter the proof of concept done here (<custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/PEEPC-1578</custom> ), EP team has to enable NVIDIA GPU operator in all DSP clusters.  \n  \n**WAIT UNTIL ML SERVING TEAM will do the test in use1-rdev**\n\n---\n\n### Requirements\n\n* We MUST enable the NVIDIA GPU operator in these clusters\n* We MUST update the list in the following document in Confluence (<custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atlassian.net/wiki/spaces/ENG/pages/22169485463/GPU+Acceleration+on+Rancher+clusters#List-with-Rancher-clusters-with-GPU-support</custom>)\n\n### Assumptions\n\nAsk <custom data-type=\"mention\" data-id=\"id-2\">@Juan Antonio Costa Bermudo</custom> about this",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=557058%3Abf807724-b0b5-429e-ba6c-11532691c48d",
+          "accountId": "557058:bf807724-b0b5-429e-ba6c-11532691c48d",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/557058:bf807724-b0b5-429e-ba6c-11532691c48d/a4fa7310-0424-4ff2-a758-d0065f30574b/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/557058:bf807724-b0b5-429e-ba6c-11532691c48d/a4fa7310-0424-4ff2-a758-d0065f30574b/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/557058:bf807724-b0b5-429e-ba6c-11532691c48d/a4fa7310-0424-4ff2-a758-d0065f30574b/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/557058:bf807724-b0b5-429e-ba6c-11532691c48d/a4fa7310-0424-4ff2-a758-d0065f30574b/32"
+          },
+          "displayName": "Chandra Prakash",
+          "active": true,
+          "timeZone": "Asia/Kolkata",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-27T13:10:15.433-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-84"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2533931",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2533931",
+      "key": "EPCW-77",
+      "fields": {
+        "summary": "IAM Migration to TFE",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-19T04:53:06.123-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "### 📋 Description\n\nAs part of the Terraform Enterprise migration initiative, all IAM roles tagged with `owner=cg-ep-data` need to be discovered, documented, and migrated from the existing Terraform setup to Terraform Enterprise (TFE). This ensures centralized state management, better governance, and consistent infrastructure provisioning.\n\n**Tag filter:** `owner=cg-ep-data`\n\n---\n\n‌\n\n### 🔗 References\n\n* [What is Terraform Enterprise](https://adgear.atlassian.net/wiki/spaces/ENG/pages/20124500089/)\n* [Prerequisites for using TFE](https://adgear.atlassian.net/wiki/spaces/ENG/pages/20119749243/)\n* [EP - Terraform Enterprise - Runbook](https://adgear.atlassian.net/wiki/spaces/ENG/pages/20151336993/)\n* [How-to migrate a classic Terraform repository to Terraform Enterprise - Engineering - Confluence](https://adgear.atlassian.net/wiki/spaces/ENG/pages/20062438141/How-to+migrate+a+classic+Terraform+repository+to+Terraform+Enterprise)  \n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3Abf667be5-73ab-4829-b295-0785aec04b4c",
+          "accountId": "712020:bf667be5-73ab-4829-b295-0785aec04b4c",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/32"
+          },
+          "displayName": "s.megha",
+          "active": true,
+          "timeZone": "Asia/Kolkata",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-27T11:47:34.291-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-77"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2521855",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2521855",
+      "key": "EPCW-76",
+      "fields": {
+        "summary": "Setup MCP RI with verticadb 26.2 DEV",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-11T10:59:57.860-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": " Setup and Documentation for MCP setup RI with verticadb 26.2   \nFor automating Vertica SQL quering and Logging ",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3Abf667be5-73ab-4829-b295-0785aec04b4c",
+          "accountId": "712020:bf667be5-73ab-4829-b295-0785aec04b4c",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bf667be5-73ab-4829-b295-0785aec04b4c/1c9aaaa7-747f-4e37-8650-d80653077d7c/32"
+          },
+          "displayName": "s.megha",
+          "active": true,
+          "timeZone": "Asia/Kolkata",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-27T08:22:04.203-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-76"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2533802",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2533802",
+      "key": "EPCW-73",
+      "fields": {
+        "summary": "Migration of S3 to TFE",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-19T03:22:37.566-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "Migrate Terraform configurations in `ep-terraform` and `terraform-hermes` repositories from S3 backend to Terraform Enterprise (TFE) for improved collaboration and governance. Resolve all state drift - every configuration must show `terraform plan = \"No changes\"` before migration.\n\nThere is over 100 configurations across development (rdev/adgeardev) and production (rprod/adgearprod) environments, plus Samsung Ads accounts. We have to follow [official migration documentation](https://adgear.atlassian.net/wiki/spaces/ENG/pages/20062438141/): create TFE workspaces, update provider configurations to use TFE cloud backend, migrate state via `tf init`, clean up S3 files.  \n  \nState drift resolution is critical blocker - migration cannot proceed until all configs are clean.",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A1f3a5082-e69a-44ca-af44-a36f39c48bd4",
+          "accountId": "712020:1f3a5082-e69a-44ca-af44-a36f39c48bd4",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/d6c04488737db1c80a3ba6858b3782d4?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMK-2.png",
+            "24x24": "https://secure.gravatar.com/avatar/d6c04488737db1c80a3ba6858b3782d4?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMK-2.png",
+            "16x16": "https://secure.gravatar.com/avatar/d6c04488737db1c80a3ba6858b3782d4?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMK-2.png",
+            "32x32": "https://secure.gravatar.com/avatar/d6c04488737db1c80a3ba6858b3782d4?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMK-2.png"
+          },
+          "displayName": "Michał Kaliszewski",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-26T08:19:01.879-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-73"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2533753",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2533753",
+      "key": "EPCW-71",
+      "fields": {
+        "summary": " tf apply failure - Git repo ep-terraform tf module incompatible fix for hermes druid cluster",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-19T02:54:55.316-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "[\\[PEEPD-2835\\] tf module incompatible fix for hermes druid in dev by balajip2k · Pull Request #3683 · adgear/ep-terraform](https://github.com/adgear/ep-terraform/pull/3683) - PR is merged and tf apply is getting failed. This task is to address the failure and fix the issue.",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A30a63bc1-333f-4bf8-9aa0-0cd9a2109d73",
+          "accountId": "712020:30a63bc1-333f-4bf8-9aa0-0cd9a2109d73",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/a91c4464970216cb76dfb72ebe517a68?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBP-6.png",
+            "24x24": "https://secure.gravatar.com/avatar/a91c4464970216cb76dfb72ebe517a68?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBP-6.png",
+            "16x16": "https://secure.gravatar.com/avatar/a91c4464970216cb76dfb72ebe517a68?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBP-6.png",
+            "32x32": "https://secure.gravatar.com/avatar/a91c4464970216cb76dfb72ebe517a68?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBP-6.png"
+          },
+          "displayName": "Balaji Peruru",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-25T02:58:39.793-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-71"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2533750",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2533750",
+      "key": "EPCW-70",
+      "fields": {
+        "summary": "Ads druid post deploy support",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-19T02:51:59.480-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "As part of this task, we will be fixing below.\n\n1. Supervisor segements storage to s3 issue fix.\n2. supervisor logs not stored to s3 issue fix.\n3. Supervisor task failures after timeouts\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A692e3401-b7d1-4089-8f86-577298e32c51",
+          "accountId": "712020:692e3401-b7d1-4089-8f86-577298e32c51",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png",
+            "24x24": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png",
+            "16x16": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png",
+            "32x32": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png"
+          },
+          "displayName": "Guruswamy Suvarapu",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-26T02:58:25.732-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-70"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2531943",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2531943",
+      "key": "EPCW-54",
+      "fields": {
+        "summary": "Enable Autoscaling for forecasting druid MM",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-18T03:29:23.491-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "As a member of EP Data Team I would need to add autoscal for forecast MM’s for cost savings.\n\n**Outcome:**\n\nDruid cluster should be available with MM auto scaling feature.\n\nTasks:\n\n* Add git workflow to autoscale MM’s replicas.\n* Validate MM’s replicas once the autosale applied.\n* Send slack alert once validation completed.\n\n**Acceptance Criteria:**\n\n* Time based autoscaler should be available for MM farecast\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A692e3401-b7d1-4089-8f86-577298e32c51",
+          "accountId": "712020:692e3401-b7d1-4089-8f86-577298e32c51",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png",
+            "24x24": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png",
+            "16x16": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png",
+            "32x32": "https://secure.gravatar.com/avatar/409dfd6705d457f2e0c44eea76b9028e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-3.png"
+          },
+          "displayName": "Guruswamy Suvarapu",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-26T02:59:31.991-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-54"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2531884",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2531884",
+      "key": "EPCW-51",
+      "fields": {
+        "summary": "KMS key policy allows all actions ",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-18T02:58:32.312-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "<custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/INF-9093</custom> ",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A887d3910-a6a7-4034-8134-62a65d1335b9",
+          "accountId": "712020:887d3910-a6a7-4034-8134-62a65d1335b9",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/66547028f0e6a180e481a8e0223ec9ff?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKP-6.png",
+            "24x24": "https://secure.gravatar.com/avatar/66547028f0e6a180e481a8e0223ec9ff?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKP-6.png",
+            "16x16": "https://secure.gravatar.com/avatar/66547028f0e6a180e481a8e0223ec9ff?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKP-6.png",
+            "32x32": "https://secure.gravatar.com/avatar/66547028f0e6a180e481a8e0223ec9ff?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKP-6.png"
+          },
+          "displayName": "Kusha Pande",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-25T03:11:01.290-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-51"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2531696",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2531696",
+      "key": "EPCW-28",
+      "fields": {
+        "summary": "Database Migration & Tenant Configuration (First Batch) - Phase 1:",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-18T01:55:43.472-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "Migrate the first batch of tenant databases from shared RDS to the new instance, including data cleanup for largest databases, and update Helmfile configurations to use new credentials.                                 \n\n  Acceptance Criteria:                                                                                                                                                                                                      \n\n* First batch databases exported with proper schema and data integrity                                                                                                                                                    \n* Internal cleanup performed on largest databases before migration                                                                                                                                                        \n* Databases restored to new RDS instance with correct ownership and permissions                                                                                                                                           \n* Tenant configurations updated with useTenantCredentials: true in helmfiles                                                                                                                                              \n* Production deployments completed for migrated tenants                                                                                                                                                   \n* All migrated Airflow instances successfully connecting and functioning\n* Data integrity verification completed (row counts, checksums)    \n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3Aed0ffd58-2937-4b92-876f-70018a4cb040",
+          "accountId": "712020:ed0ffd58-2937-4b92-876f-70018a4cb040",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/9d08632fa4243acc8e7ef1efd1ea198f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FWL-5.png",
+            "24x24": "https://secure.gravatar.com/avatar/9d08632fa4243acc8e7ef1efd1ea198f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FWL-5.png",
+            "16x16": "https://secure.gravatar.com/avatar/9d08632fa4243acc8e7ef1efd1ea198f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FWL-5.png",
+            "32x32": "https://secure.gravatar.com/avatar/9d08632fa4243acc8e7ef1efd1ea198f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FWL-5.png"
+          },
+          "displayName": "Wojciech Lewandowski",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-25T11:08:32.594-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-28"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2528380",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2528380",
+      "key": "EPCW-26",
+      "fields": {
+        "summary": "Depreceate and remove pagerbeauty",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-15T06:37:49.616-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "**As a** member of engineering,  \n**I want to** remove pagerbeauty  \n**So that I** don’t have obsolate software on clusters.\n\n---\n\n### **Context**\n\nDuring grafana upgrade rollout we found out that pagerbeauty cannot be used on our clusters no longer as a visualization tool as it is using plugin inside grafana, which is depreceated. We should decomission and remove pagerbeauty.\n\n---\n\n### Requirements\n\n* We SHOULD send campaing about deprecation\n* We MUST check if it is used anywhere else\n* We MUST disable and remove pagerbeauty\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3Af183ac8a-51ea-434a-8f17-12675d4edf83",
+          "accountId": "712020:f183ac8a-51ea-434a-8f17-12675d4edf83",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/f9879e91c5b530b15a7b9cb218b201a9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMM-3.png",
+            "24x24": "https://secure.gravatar.com/avatar/f9879e91c5b530b15a7b9cb218b201a9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMM-3.png",
+            "16x16": "https://secure.gravatar.com/avatar/f9879e91c5b530b15a7b9cb218b201a9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMM-3.png",
+            "32x32": "https://secure.gravatar.com/avatar/f9879e91c5b530b15a7b9cb218b201a9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMM-3.png"
+          },
+          "displayName": "Michal Mankowski",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-28T08:32:11.174-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-26"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2528053",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2528053",
+      "key": "EPCW-22",
+      "fields": {
+        "summary": "Grant EP Data team a dedicated ArgoCD project with admin access",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-15T03:18:40.109-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "## Context\n\nWe have decided in [this slack thread](https://github.com/adgear/k8s-core) that EP Data should start using EP Core ArgoCD, and be able to deploy their applications using <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/k8s-core</custom> till now they used <custom data-type=\"smartlink\" data-id=\"id-1\">https://github.com/adgear/ep-tenant-operators/</custom> .\n\nBut we need to put some safeguards on it. We should separate EP Core apps from EP Data ones.\n\nEP Data team  now has limited, hardcoded per-app read/sync access via `role:cg-ep-data-readsync`:\n\n```\ng, A.ArgoCD.cg-ep-data.Admin, role:cg-ep-data-readsync\np, role:cg-ep-data-readsync, applications, get, k8s-core/kafka-topics, allow\np, role:cg-ep-data-readsync, applications, sync, k8s-core/kafka-topics, allow\n...\n```\n\nThis approach does not scale — every new app they own requires new RBAC lines maintained by EP Core. The EP Data team should be self-sufficient for their own applications.\n\n## Requirements\n\n* We MUST create a separate ArgoCD project `cg-ep-data` for EP Data\n* We MUST give EP Data team **full admin** access to their project `cg-ep-data`\n* We MUST give them read only access to EP Core applications\n* We MUST move all existing EP Data apps (like kafka-topics, maybe more) to project `cg-ep-data`, but only if this is **NON-DESTRUCTIVE**\n\n    * We MUST not touch tenant operators\n    \n\n## Implementation Plan\n\nBelow is a suggestion\n\nCreated using Claude, verify the plan on your own.\n\n### 1. In <custom data-type=\"smartlink\" data-id=\"id-2\">https://github.com/adgear/k8s-core</custom> create `templates/project.cg-ep-data.yaml`\n\n```yaml\napiVersion: argoproj.io/v1alpha1\nkind: AppProject\nmetadata:\n  name: cg-ep-data\nspec:\n  clusterResourceWhitelist:\n  - group: '*'\n    kind: '*'\n  destinations:\n  {{- range $ns, $enabled := .Values.cgEpDataDestinationNamespaces }}\n  {{- if $enabled }}\n  - namespace: {{$ns}}\n    server: https://kubernetes.default.svc\n  {{- end }}\n  {{- end }}\n  sourceRepos:\n  {{- $repos := list }}\n  {{- range $key, $value := .Values.cgEpDataComponents }}\n  {{- if and $value.enabled $value.repoUrl }}\n    {{- $repos = append $repos $value.repoUrl }}\n  {{- end }}\n  {{- end }}\n  {{- range ( sortAlpha $repos | uniq ) }}\n  - {{ . | squote }}\n  {{- end }}\nstatus: {}\n```\n\n### 2. Add `cgEpDataDestinationNamespaces` and `cgEpDataComponents` to `values.yaml`\n\n```yaml\n# Destination namespaces allowed in the cg-ep-data AppProject\ncgEpDataDestinationNamespaces: {}\n\n# Components owned by the EP Data team (used to build AppProject sourceRepos)\ncgEpDataComponents:\n  kafka-topics:\n    enabled: false\n    repoUrl: 'https://github.com/adgear/kafka-topics.git'\n```\n\nPer-cluster values files override as needed, e.g. in a Rancher cluster where kafka-topics is active:\n\n```yaml\ncgEpDataDestinationNamespaces:\n  ep-kafka-use1-rprod: true\n\ncgEpDataComponents:\n  kafka-topics:\n    enabled: true\n```\n\n### 3. Move `kafka-topics` app to the new project\n\nIn `templates/app.kafka-topics.yaml`, change:\n\n```yaml\nproject: k8s-core  →  project: cg-ep-data\n```\n\n> **Safe and non-destructive.** Changing `spec.project` on an existing ArgoCD Application only updates the RBAC scope — it does not delete, recreate, or affect the application or its managed Kubernetes resources.\n\nBoth changes land in the same PR and sync together. ArgoCD processes AppProject resources before Applications, so the project will exist before the app references it.\n\nTest if this is in fact non destructive\n\nMaybe there are other EP Data apps, move them as well.\n\n### 4. Update RBAC in `values.yaml`\n\n```yaml\nrbac:\n  policy.csv: |\n    # existing\n    g, A.ArgoCD.Admin, role:admin\n    g, A.ArgoCD.Engineering, role:readonly\n    g, A.ArgoCD.Security, role:readonly\n    g, A.ArgoCD.SRE, role:sre\n\n    # EP Data: admin on their project + read/sync on platform apps\n    g, A.ArgoCD.cg-ep-data.Admin, role:cg-ep-data-admin   # NEW\n    g, A.ArgoCD.cg-ep-data.Admin, role:cg-ep-data-readsync # keep existing\n\n    # new role: full control on cg-ep-data project\n    p, role:cg-ep-data-admin, applications, *, cg-ep-data/*, allow\n    p, role:cg-ep-data-admin, logs, get, cg-ep-data/*, allow\n    p, role:cg-ep-data-admin, repositories, get, *, allow\n    p, role:cg-ep-data-admin, clusters, get, *, allow\n    p, role:cg-ep-data-admin, projects, get, cg-ep-data, allow\n\n    # existing readsync role (unchanged)\n    p, role:cg-ep-data-readsync, applications, get, k8s-core/kafka-topics, allow\n    ...\n```\n\n## Affected Files\n\n* `k8s-core/templates/project.cg-ep-data.yaml` — new file\n* `k8s-core/templates/app.kafka-topics.yaml` — change `project:` field\n* `k8s-core/values.yaml` — add `cgEpDataDestinationNamespaces`, `cgEpDataComponents`, update RBAC `policy.csv`\n* Per-cluster values files — add `cgEpDataDestinationNamespaces` and enable `cgEpDataComponents` where applicable\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=6172d4b1a989710070155d5b",
+          "accountId": "6172d4b1a989710070155d5b",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/db6bf34220cf5c676da1881c82a97a65?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FP-6.png",
+            "24x24": "https://secure.gravatar.com/avatar/db6bf34220cf5c676da1881c82a97a65?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FP-6.png",
+            "16x16": "https://secure.gravatar.com/avatar/db6bf34220cf5c676da1881c82a97a65?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FP-6.png",
+            "32x32": "https://secure.gravatar.com/avatar/db6bf34220cf5c676da1881c82a97a65?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FP-6.png"
+          },
+          "displayName": "Pagalavan",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-25T05:11:30.788-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-22"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2526418",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2526418",
+      "key": "EPCW-20",
+      "fields": {
+        "summary": "Tenant docs for tenant operators",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-14T04:17:28.782-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "## Context\n\nWhen tenants need to install operator which install CRDs, they need to onboard it to [https://github.com/adgear/ep-tenant-operators](https://github.com/adgear/ep-tenant-operators/). But the docs are pretty poor. There is no instruction how it should be setup. \n\n---\n\n## Requirements\n\n* We MUST create a confluence page with information how a tenant (he is a target of the document) can install their operator on specific cluster using <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/ep-tenant-operators/</custom>\n* Since operators extends api, we MUST document how people can get access to this API\n\n    * Rancher - we use aggregated roles, [here](https://github.com/adgear/ep-tenant-operators/blob/95fe4056ca1bdadb07196b224b9544e1803e2f33/tenant-operators/templates/aggregations.yaml#L13) is an example\n    * in EKS we could use aggregated roles but we also have following projects syntax\n    \n        ```\n                    extra_access:\n                      - rules:\n                          - apiGroups: [\"druid.apache.org\"]\n                            resources: [\"druids\"]\n                            verbs: [\"get\", \"list\", \"watch\", \"create\", \"delete\", \"patch\", \"update\"]\n        ```\n    \n* We MUST document how tenants can managed CRD upgrades:\n\n    * in k8s-core we extract CRD installation from the operator\n    * but how should we do it for <custom data-type=\"smartlink\" data-id=\"id-1\">https://github.com/adgear/ep-tenant-operators/</custom> it is unclear\n    \n* It MUST cover both EKS and Rancher. Most probably the documents should be separate.\n* The document MUST be under Getting Started With → Kubernetes [tree](https://adgear.atlassian.net/wiki/spaces/ENG/pages/20872626283/Kubernetes).\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=60465fe90b784000690e4b32",
+          "accountId": "60465fe90b784000690e4b32",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/a9277305e0b2d77bc0031743995c99f0?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMA-1.png",
+            "24x24": "https://secure.gravatar.com/avatar/a9277305e0b2d77bc0031743995c99f0?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMA-1.png",
+            "16x16": "https://secure.gravatar.com/avatar/a9277305e0b2d77bc0031743995c99f0?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMA-1.png",
+            "32x32": "https://secure.gravatar.com/avatar/a9277305e0b2d77bc0031743995c99f0?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMA-1.png"
+          },
+          "displayName": "Mohd Aslam",
+          "active": true,
+          "timeZone": "America/Los_Angeles",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-28T14:13:51.772-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-20"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2526407",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2526407",
+      "key": "EPCW-19",
+      "fields": {
+        "summary": "Improvements in kruise-jobs configuration",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-14T03:56:08.193-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "## Context\n\nRecently when we have introduced an incident change <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/kruise-jobs/pull/139</custom> in <custom data-type=\"smartlink\" data-id=\"id-1\">https://github.com/adgear/kruise-jobs</custom>, which modifies `.github/workflows/sonarqube.yml` we have triggered a massive rollout of all kruise jobs to all clusters at once. It stressed `etcd`on some servers and triggered multiple alerts.\n\nWhen diagnosing this issue we have learned that we trigger kruise jobs rollout on every commit to the repository (regardless if this is about kruise jobs or not):\n\n```\napiVersion: apps.kruise.io/v1alpha1\nkind: BroadcastJob\nmetadata:\n  name: check-for-malware-{{ include \"kruise-jobs.gitSHA\" . }} \n```\n\nTo avoid any further damage we have pinned kruise-jobs to a specific sha: [https://github.com/adgear/kruise-jobs/pull/140/changes](https://github.com/adgear/kruise-jobs/pull/140/changes) and disable auto-sync in <custom data-type=\"smartlink\" data-id=\"id-2\">https://github.com/adgear/k8s-core/pull/1332</custom> .\n\nWe need to improve this mechanism and unblock release of kruise jobs again.\n\n---\n\n## Requirements\n\n* We MUST review all kruise jobs and remove the ones that we think are no longer used. We MUST present it to the team.\n* There are some EP Data jobs, ask EP Data if they are still needed.\n* We MUST trigger kruise jobs mechanism only when a kruise job specific change is made:\n\n    * For example we could create a git tag per kruise-job, and start versioning it. Pin kruise-job `name` to use specific tag. This way we would be able to target the release to a specific kruise job.\n    \n* We MUST optimize kruise jobs, for example:\n\n    * <custom data-type=\"smartlink\" data-id=\"id-3\">https://github.com/adgear/kruise-jobs/blob/master/templates/disable-snapd.yaml</custom><custom data-type=\"smartlink\" data-id=\"id-4\">https://github.com/adgear/kruise-jobs/blob/master/templates/disable-unattended-os-upgrades.yaml</custom> most probably could be merged?\n    * <custom data-type=\"smartlink\" data-id=\"id-5\">https://github.com/adgear/kruise-jobs/blob/master/templates/root-pass-rotation.yaml</custom>  is this still needed? Do we have root password at all?\n    \n* When we improve kruise-jobs we MUST re-enable auto sync\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=63f34d604e86f362d399e71a",
+          "accountId": "63f34d604e86f362d399e71a",
+          "avatarUrls": {
+            "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f34d604e86f362d399e71a/78a1a4b9-17fc-46e9-9ae5-45521dbf2f24/48",
+            "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f34d604e86f362d399e71a/78a1a4b9-17fc-46e9-9ae5-45521dbf2f24/24",
+            "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f34d604e86f362d399e71a/78a1a4b9-17fc-46e9-9ae5-45521dbf2f24/16",
+            "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/63f34d604e86f362d399e71a/78a1a4b9-17fc-46e9-9ae5-45521dbf2f24/32"
+          },
+          "displayName": "Lukasz Sutkowski",
+          "active": true,
+          "timeZone": "Europe/Warsaw",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-28T11:44:14.134-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-19"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2245333",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2245333",
+      "key": "EPCW-10",
+      "fields": {
+        "summary": "Investigate Metrics Ingest Servers aws-useast1a-metrics-ingest-1.sys.adgear.com & aws-useast1f-metrics-ingest-2.sys.adgear.com .Audit, Dependency Mapping & Platform Standardization (Owner: cg-ep-core)",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2025-12-10T03:49:30.947-0500",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "**As a** EP member  \n**I want** decommission SALT  \n**so that I can** streamline the toolstack\n\n---\n\n### **Context**\n\nDuring a review of Salt minion managed nodes, we identified two Metrics Ingest servers with limited documentation around: What exact services are running What systems depend on them How they are provisioned and maintained Whether they meet Engineering Platform (EP) standards The servers are:   \n`aws-useast1a-metrics-ingest-1.sys.adgear.com` `aws-useast1f-metrics-ingest-2.sys.adgear.com` Ownership is confirmed as `cg-ep-core`. We need to perform a full technical, dependency, and compliance audit, and then define a migration/standardization plan if required.\n\n_Update 2026/04/21_  \n_We want to decommission these servers in future. We need to investigate if we can turn it off without an impact._\n\n---\n\n### Requirements\n\n* We MUST investigate technical & service discovery- Data **ingest sources** (which systems push metrics)\n* We MUST investigate dependency & use-cases - Which applications, clusters, or regions push data here, Which alerts/dashboards depend on this ingest path\n* We MUST validate Platform Compliance & IaC Validation- provisioned via Terraform? \n* We MUST propose migration to Kubernetes, Helm, OR EP-approved TF module if is needed\n* We MUST present to Team our finding\n* We MUST document it\n\n---\n\n### User Documentation and Communication\n\n* <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/wiki/spaces/ENG/pages/19532776102/VMStaticScrape</custom> \n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=712020%3A63ec543d-b357-4be9-a6d8-6090165faedf",
+          "accountId": "712020:63ec543d-b357-4be9-a6d8-6090165faedf",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/68aa844d41dd2c303a7910dc910e8779?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-4.png",
+            "24x24": "https://secure.gravatar.com/avatar/68aa844d41dd2c303a7910dc910e8779?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-4.png",
+            "16x16": "https://secure.gravatar.com/avatar/68aa844d41dd2c303a7910dc910e8779?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-4.png",
+            "32x32": "https://secure.gravatar.com/avatar/68aa844d41dd2c303a7910dc910e8779?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBB-4.png"
+          },
+          "displayName": "Bartosz Brodecki",
+          "active": true,
+          "timeZone": "Europe/Warsaw",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-29T03:21:31.284-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10675",
+          "description": "This status is managed internally by Jira Software",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/",
+          "name": "Code Review",
+          "id": "10675",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-10"
+    },
+    {
+      "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+      "id": "2515883",
+      "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issue/2515883",
+      "key": "EPCW-9",
+      "fields": {
+        "summary": "Migrate SonarQube STG on use1-rdev-stg to eks-use1-ep-test-1",
+        "issuetype": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/issuetype/10101",
+          "id": "10101",
+          "description": "A task that needs to be done.",
+          "iconUrl": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "subtask": false,
+          "avatarId": 10318,
+          "hierarchyLevel": 0
+        },
+        "created": "2026-05-07T05:34:35.366-0400",
+        "project": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/project/20506",
+          "id": "20506",
+          "key": "EPCW",
+          "name": "EP",
+          "projectTypeKey": "software",
+          "simplified": false,
+          "avatarUrls": {
+            "48x48": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493",
+            "24x24": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=small",
+            "16x16": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=xsmall",
+            "32x32": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/universal_avatar/view/type/project/avatar/10493?size=medium"
+          },
+          "projectCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/projectCategory/15081",
+            "id": "15081",
+            "description": "",
+            "name": "Ways Of Working"
+          }
+        },
+        "description": "### **Context**\n\nWe run SonarQube STG on <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/ep-sonarqube/blob/main/charts/use1-rdev-stg.yaml</custom> we would like to migrate it to eks-use1-ep-test-1.\n\n---\n\n### Requirements\n\n* We MUST migrate SonarQube STG to eks-use1-ep-test-1\n* We MUST prepare a migration procedure how to migrate SonarQube PRD with minimal downtime\n\n    * We could bootstrap SonarQube STG on EKS next to SonarQube STG on Rancher, two will run parallel\n    * The clients can use old one, after SonarQube STG on EKS we would shift the traffic\n    * If the migration takes up-to 4h, we don’t care if we loose 4h worth of data from SonarQube scans, let’s keep it simple\n    \n* We MUST reach out to SonarQube support and most probably ask them for a new license for SonarQube STG in new cluster, we should explain them that we are migrating it from one cluster to the other\n* At the end we MUST remove SonarQube STG from <custom data-type=\"smartlink\" data-id=\"id-1\">https://github.com/adgear/ep-sonarqube/blob/main/charts/use1-rdev-stg.yaml</custom>\n\n---\n\n### Other\n\n* Be careful SonarQube STG and PRD runs in the same cluster use1-rdev, just in a different namespaces\n* SonarQube is using RDS, we need to migrate it somehow\n\n",
+        "assignee": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/user?accountId=6128f8753fe26c00696db666",
+          "accountId": "6128f8753fe26c00696db666",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/340fd65a3b53abde091944178b673733?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNY-5.png",
+            "24x24": "https://secure.gravatar.com/avatar/340fd65a3b53abde091944178b673733?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNY-5.png",
+            "16x16": "https://secure.gravatar.com/avatar/340fd65a3b53abde091944178b673733?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNY-5.png",
+            "32x32": "https://secure.gravatar.com/avatar/340fd65a3b53abde091944178b673733?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNY-5.png"
+          },
+          "displayName": "Nitish Yadav",
+          "active": true,
+          "timeZone": "America/New_York",
+          "accountType": "atlassian"
+        },
+        "priority": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/priority/3",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/priorities/medium.svg",
+          "name": "Medium",
+          "id": "3"
+        },
+        "updated": "2026-05-27T03:28:01.395-0400",
+        "status": {
+          "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/status/10609",
+          "description": "This status is meant for an engineer be used to publish that they are working on the ticket",
+          "iconUrl": "https://adgear.atlassian.net/images/icons/status_generic.gif",
+          "name": "In Progress",
+          "id": "10609",
+          "statusCategory": {
+            "self": "https://api.atlassian.com/ex/jira/477780ca-aefd-44dc-9382-5e69f4091970/rest/api/3/statuscategory/4",
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        }
+      },
+      "webUrl": "https://adgear.atlassian.net/browse/EPCW-9"
+    }
+  ]
+}

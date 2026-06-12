@@ -1,0 +1,20 @@
+{
+  "team": "ML Serving Sturgeons",
+  "project": "PEPI",
+  "query_date": "2026-06-12",
+  "total_issues": 1,
+  "issues": [
+    {
+      "key": "PEPI-11580",
+      "summary": "Add alerting rules in alerting.yaml",
+      "status": "In Development",
+      "type": "Task",
+      "assignee": "Kornel Pietrzyk",
+      "priority": "Medium",
+      "created": "2026-04-08T04:36:14.688-0400",
+      "updated": "2026-05-08T04:42:44.597-0400",
+      "url": "https://adgear.atlassian.net/browse/PEPI-11580",
+      "description": "Define Prometheus alerting rules for per-model health. Create two severity tiers: critical (prediction failure rate breaching threshold within a 10m window) and warning (elevated default value usage). Critical alerts route to PagerDuty; warning alerts route to Slack.\n\n**TODO:**\n\n* Define `critical` alert: per-model prediction error rate > threshold over 10m window\n* Define `warning` alert: per-model default value usage rate > threshold over 10m window\n* Set appropriate `for` duration and evaluation intervals\n* Add labels for severity, team, and routing\n* Test alerting rules against sample metric data\n* Review thresholds with ML engineers\n\n**Acceptance Criteria:**\n\n* Critical alert fires within the 10m evaluation window when a single model's prediction error rate exceeds the agreed threshold\n* Warning alert fires when default value usage rate exceeds the agreed threshold\n* Alerts include model name and version in annotations\n\n"
+    }
+  ]
+}

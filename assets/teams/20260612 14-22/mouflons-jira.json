@@ -1,0 +1,29 @@
+{
+  "team": "Mouflons",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4503",
+  "boardId": "4503",
+  "projectKey": "PEPI",
+  "extractedAt": "2026-06-12T14:22:47+02:00",
+  "issues": [
+    {
+      "key": "PEPI-11393",
+      "type": "Task",
+      "summary": "Analyze preliminary result of A/B tests of MC EE models",
+      "status": "In Development",
+      "assignee": "Marek Kocha\u0144czyk",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/PEPI-11393",
+      "description": "Hard-exploratory models are scoring impression opportunities in the campaigns of:\n\n* House of Fun (gaming): 03/12 \u2013 TBA (ended),\n* Idle Tower Defense (gaming) \u2013 since March 12th,\n* Age of Learning (no"
+    },
+    {
+      "key": "PEPI-11393",
+      "type": "Task",
+      "summary": "Analyze preliminary result of A/B tests of MC EE models",
+      "status": "In Development",
+      "assignee": "Marek Kocha\u0144czyk",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/PEPI-11393",
+      "description": "Hard-exploratory models are scoring impression opportunities in the campaigns of:\n\n* House of Fun (gaming): 03/12 \u2013 TBA (ended),\n* Idle Tower Defense (gaming) \u2013 since March 12th,\n* Age of Learning (no"
+    }
+  ]
+}

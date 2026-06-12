@@ -1,0 +1,6 @@
+Bigos DoR and DoD for Story/Task
+
+Reference: The team page references an external DoR document at:
+https://adgear.atlassian.net/wiki/spaces/ENG/pages/22175482213
+
+Note: The Bigos team page does not contain inline DoR - STORY/TASK criteria. Instead, it directs users to follow the link above for the full Definition of Ready and Definition of Done for Story/Task.

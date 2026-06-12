@@ -1,0 +1,359 @@
+Team: Copernicium
+Project: AETVP
+Total Issues: 14
+Extraction Date: 2026-06-10 15:01:18
+
+================================================================================
+
+
+================================================================================
+Issue: AETVP-562
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: Investigation about how separate Poll & Survey Interaction Type as new creative in rtb-trader (from MVP)
+Assignee: Yevgeniy Wyszyński
+URL: https://adgear.atlassian.net/browse/AETVP-562
+Created: 2026-05-28T05:45:09.859-0400
+Updated: 2026-05-29T04:25:30.475-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: AETVP-553
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Events Tracking] XP reporting for events tracking
+Assignee: sujan challa
+URL: https://adgear.atlassian.net/browse/AETVP-553
+Created: 2026-05-21T14:09:58.121-0400
+Updated: 2026-05-26T15:46:04.778-0400
+================================================================================
+
+Description:
+As a developer, i’d like to answer the following questions around this feature
+
+* Is the FF request to unleash request sent from the browser or routed though backend?
+* What dimensions/properties are available to pass to unleash in order to create the experiment (e.g. tifa, location, city, zip etc).
+* How will the reporting of results look like. Did the XP result in more folks clicking on click2email.
+
+
+
+
+================================================================================
+Issue: AETVP-545
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Amazon SDK] Continue testing latest version of SDK + companion app
+Assignee: Neville Mehta
+URL: https://adgear.atlassian.net/browse/AETVP-545
+Created: 2026-05-20T17:48:52.343-0400
+Updated: 2026-05-26T16:28:37.213-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: AETVP-536
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Support versioning in tvp-interactive-ad repo codebase and CD
+Assignee: Alex Sekowski
+URL: https://adgear.atlassian.net/browse/AETVP-536
+Created: 2026-05-19T18:39:38.089-0400
+Updated: 2026-05-20T16:38:46.178-0400
+================================================================================
+
+Description:
+tvp-interactive-ad should:
+
+* allow version increments
+* move build stage to pre-CI stage
+* commit built version history to codebase
+* expose all overlay version variants in CDN
+
+
+
+
+================================================================================
+Issue: AETVP-528
+Type: Task
+Status: In Progress
+Priority: Critical
+Summary: test campaign on tv in the office
+Assignee: Patryk Palyska
+URL: https://adgear.atlassian.net/browse/AETVP-528
+Created: 2026-05-18T07:43:24.327-0400
+Updated: 2026-05-29T03:40:08.546-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: AETVP-526
+Type: Task
+Status: In Progress
+Priority: Critical
+Summary: setup testing campaign
+Assignee: Paweł Olwert
+URL: https://adgear.atlassian.net/browse/AETVP-526
+Created: 2026-05-18T07:42:00.067-0400
+Updated: 2026-05-26T05:50:57.722-0400
+================================================================================
+
+Description:
+[No description]
+
+
+================================================================================
+Issue: AETVP-524
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [InteractiveAds SDK] Improvements - (1) custom message handling, (2) visibility delay.
+Assignee: Kamil Madejek
+URL: https://adgear.atlassian.net/browse/AETVP-524
+Created: 2026-05-18T05:01:30.194-0400
+Updated: 2026-05-26T05:49:40.782-0400
+================================================================================
+
+Description:
+### Acceptance criteria
+
+1. Overlay handles three custom messages `selectNext`, `selectPrevious`, `chooseAnswer`. As of now, these will work just as Down, Up, and Enter key events work currently, but this implementation may be subject to change.
+2. Add a handling of an optional parameter from overlay data `VisibilityDelayMs`. The overlay should delay showing of survey and timer by the period specified. Internal timer related to ad duration should be working independently - e.g. if adDuration = 30s and VisibiltyDelayMs=5000, timer should become visible at 00:25 state.
+
+
+
+
+================================================================================
+Issue: AETVP-520
+Type: Task
+Status: Code Review
+Priority: Medium
+Summary: validate 3P VAST in rtb-trader
+Assignee: Alex Sekowski
+URL: https://adgear.atlassian.net/browse/AETVP-520
+Created: 2026-05-12T19:39:36.093-0400
+Updated: 2026-05-26T17:04:16.025-0400
+================================================================================
+
+Description:
+when 3P VAST is added to interactive ad:
+
+* validate VAST tag against IAB rules
+* give user feedback on errors, warnings
+* enable inspection of VAST on a modal
+
+
+
+
+================================================================================
+Issue: AETVP-490
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [OEF] Remove EventCategory from codebase
+Assignee: Raj Kinkhabwala
+URL: https://adgear.atlassian.net/browse/AETVP-490
+Created: 2026-05-07T16:28:24.394-0400
+Updated: 2026-05-27T14:27:42.491-0400
+================================================================================
+
+Description:
+As an OEF engineer, I want to remove the `EventCategory` enum and all its usage so that status codes alone drive BI categorization, reducing code bloat and improving readability.
+
+**Context**
+
+The current logging system uses a two-field approach: `event_category` (functional grouping) + `status_code` (specific event). In practice, `eventCategory: EventCategory.AD_LIFECYCLE` is repeated on nearly every log call without adding value — the BI tool can categorize events by status code ranges (2xxx = success, 4xxx = client error, 5xxx = system error) without needing a separate category field.
+
+Removing `event_category` simplifies every log call, reduces server payload size, and improves code readability.
+
+**Acceptance criteria and requirements**
+
+* `EventCategory` enum is deleted from `src/oef/src/constants/status-codes.ts`
+* `eventCategory` field is removed from `LogMethodOptions`, `Log` type, and `isLogMethodOptions` type guard in `logger.ts`
+* `EventCategory` export is removed from `src/oef/src/utils/logger/index.ts`
+* All imports and usages of `EventCategory` are removed from: `iad-base.ts`, `ico-base.ts`, `interactive-ad.ts`, `in-content-overlay.ts`, `control-panel.ts`, `interactive-ad-factory.ts`, `in-content-overlay-factory.ts`, `brightline.ts`, `minigames.ts`, `samsung-interactive-ad.ts`, `nasb-in-content-overlay.ts`
+* Console log format changes from `[ad_lifecycle:2005]` to `[2005]` (status code only)
+* Logs that previously only had `eventCategory` (no status code) become plain messages with log level only
+* `event_category` field no longer appears in server log payloads
+* All existing tests pass after changes
+* No regressions in log output for critical funnel events (STREAM_URL_SET through CLOSED_CALLBACK)
+
+
+
+
+================================================================================
+Issue: AETVP-476
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [vertica-rollups] Add iadpoll metrics aggregation
+Assignee: Kamil Madejek
+URL: https://adgear.atlassian.net/browse/AETVP-476
+Created: 2026-05-06T09:19:42.880-0400
+Updated: 2026-05-26T05:45:29.253-0400
+================================================================================
+
+Description:
+### Background
+
+`vertica-rollups` is a Spark job that reads processed Avro delivery logs from S3, aggregates them into rollup records and loads the results into Vertica fact tables. The rollup record schema is code-generated from `table.sql`.
+
+A single `iadpoll` event carries the answer index in the `misc` map field as `{"iadpoll_answer_index": "N"}`. The event logic must read this value from `misc` and use it to increment both the general `iadpoll_answers` counter and the specific `iadpoll_answer_N` counter simultaneously — this is the same multi-column increment pattern used by `impression` events.
+
+> **Note:** This is a non-standard approach compared to other metrics which read dedicated typed fields. The `misc` map must be parsed at runtime and the key `"iadpoll_answer_index"` looked up. A missing or malformed value should be handled gracefully (increment only `iadpoll_answers`, skip per-answer counters).
+
+### Description
+
+Add 5 new metric columns to the rollup schema, implement the aggregation logic in the event logic class (reading the answer index from `misc`) and update the SQL rollup script to insert the new columns into `f_buyer_delivery_all`.
+
+### Acceptance Criteria
+
+* Five new metric columns (`iadpoll_answers`, `iadpoll_answer_1` through `iadpoll_answer_4`) are present in the rollup schema and generated POJO
+* A non-dropped `iadpoll` event correctly increments `iadpoll_answers` and the appropriate per-answer counter based on the value in `misc["iadpoll_answer_index"]`
+* A missing or invalid `iadpoll_answer_index` in `misc` increments only `iadpoll_answers` without error
+* The rollup SQL correctly aggregates and inserts all 5 new columns into `f_buyer_delivery_all`
+* A new release of `vertica-rollups` is cut
+* Airflow configuration is updated with the new jar version
+
+### Tech Scope of Work
+
+`core/src/main/resources/trader/delivery/table.sql`  
+Add 5 new metric columns (`iadpoll_answers`, `iadpoll_answer_1` through `iadpoll_answer_4`) with `INT NOT NULL ENCODING RLE` before the `PRIMARY KEY` block, after the existing `iadscrolls` column. Run `mvn clean install` after this change to regenerate the POJO.
+
+`core/src/main/scala/.../TraderDeliveryEventLogic.scala`
+
+This file requires changes in **two places**:
+
+1. **Add** `isIadpoll` flag and include it in `isDisplay` (around line 41–50, alongside the existing `isIadscroll` flag):
+
+    ```scala
+    val isIadpoll = eventType.exists(_ == EventType.IADPOLL)
+    
+    val isDisplay = isImpression || isClick || isMoatMeasurable ||
+                    isMoatViewable || isScan || isIadclick || isIadscroll || isIadpoll
+    ```
+
+    Without this change, `iadpoll` events will not be included in `v_rollup_source_trader_display_and_video` and will never reach `f_buyer_delivery_all`.
+
+
+2. **Add iadpoll metrics in the display metrics section** (around line 162–170, alongside the existing `isIadscroll` block):
+
+    ```scala
+    if (isIadpoll) {
+      rollupRecordBuilder.iadpollAnswers(1)
+      val misc = r.deepMap(_.getMisc)
+      misc.deepMap(_.get("iadpoll_answer_index")).foreach { answerIndex =>
+        Try(answerIndex.toString.toInt).toOption.foreach {
+          case 1 => rollupRecordBuilder.iadpollAnswer1(1)
+          case 2 => rollupRecordBuilder.iadpollAnswer2(1)
+          case 3 => rollupRecordBuilder.iadpollAnswer3(1)
+          case 4 => rollupRecordBuilder.iadpollAnswer4(1)
+          case _ => // ignore out-of-range values
+        }
+      }
+    }
+    ```
+
+`core/src/main/resources/trader/delivery/rollup.sql`  
+Add all 5 new columns to the INSERT column list and corresponding `SUM(...)` expressions in the SELECT for the `f_buyer_delivery_all` insert statement, after the existing `iadscrolls` entries.
+
+
+================================================================================
+Issue: AETVP-449
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: Update the creative form values as per UX mock
+Assignee: Becky Lee
+URL: https://adgear.atlassian.net/browse/AETVP-449
+Created: 2026-04-28T20:45:55.085-0400
+Updated: 2026-05-26T14:55:22.758-0400
+================================================================================
+
+Description:
+[https://www.figma.com/design/Cc5q3Zl8nZWZOrXLutCMux/branch/mxWIH0F5MLXQQKaNbKBHha/Interactive-Ad---Carousel-Ads?m=auto&node-id=1-4&t=fzHkvYPT1oun7ztM-1](https://www.figma.com/design/Cc5q3Zl8nZWZOrXLutCMux/branch/mxWIH0F5MLXQQKaNbKBHha/Interactive-Ad---Carousel-Ads?m=auto&node-id=1-4&t=fzHkvYPT1oun7ztM-1)
+
+* Implement the Creative Form routing per UX spec;
+* Revise unit tests basing on revisions;
+* Revise E2E test basing on new routing and removal of Interaction Type from the Creative Form.
+
+
+
+
+================================================================================
+Issue: AETVP-325
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: As the business, I want to introduce a new CTA engagement metric that tells me whether viewers exposed to the CTA, engaged with them or not.
+Assignee: Anthony Johnson
+URL: https://adgear.atlassian.net/browse/AETVP-325
+Created: 2026-04-03T14:10:45.344-0400
+Updated: 2026-05-21T16:21:10.041-0400
+================================================================================
+
+Description:
+* Proposed calculation for new **CTA Engagement Rate** metric in S-DSP: acceptInvitation / creativeView
+
+
+
+
+================================================================================
+Issue: AETVP-306
+Type: Story
+Status: In Progress
+Priority: Medium
+Summary: [Log Server] Enable batching for Log Server
+Assignee: Ivan Barrios
+URL: https://adgear.atlassian.net/browse/AETVP-306
+Created: 2025-10-14T18:21:03.247-0400
+Updated: 2026-05-27T14:19:55.248-0400
+================================================================================
+
+Description:
+Enable batch logging for Log Server to reduce WAF (reducing number of requests) and lowering the minimum number of servers required.   
+  
+Add new v2 endpoint to Prometheus instrumentation and create new Grafana panel to display the results. (on the server side/tvp-log-server)
+
+
+================================================================================
+Issue: AETVP-262
+Type: Task
+Status: In Progress
+Priority: Medium
+Summary: [Config Service] Add support for different ad experiences within SIA in config service
+Assignee: Meghana Koushik
+URL: https://adgear.atlassian.net/browse/AETVP-262
+Created: 2026-02-27T17:21:32.212-0500
+Updated: 2026-05-27T13:34:31.290-0400
+================================================================================
+
+Description:
+Config server should be able to return which ad experience is enabled within SIA alongside the SIA enabled flag
+
+Example
+
+```
+{
+samsunginteractivead: "on",
+  sia_experiences: {
+    clicktoemail: "on",
+    productcarousel: "on",
+    pasueads: "on"
+  }
+}
+```
+

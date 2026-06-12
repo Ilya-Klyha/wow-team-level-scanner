@@ -1,0 +1,17 @@
+Team: EP-Core
+Extracted: 2026-05-28T13:48:58.000Z
+Query Strategy: Sprint-based
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 50
+- In Progress: 36
+- Code Review: 14
+
+Issues by type:
+- Task: 48
+- Bug: 2
+
+---
+Status: success

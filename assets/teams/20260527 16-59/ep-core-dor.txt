@@ -1,0 +1,25 @@
+Team: EP-Core
+Page: https://adgear.atlassian.net/wiki/spaces/ENG/pages/22817472513
+Page ID: 22817472513
+Extracted: 2026-05-27T14:59:45Z
+
+=== DEFINITION OF READY (DoR) - STORY/TASK ===
+
+Team DoR criteria:
+- The user story and/or requirement is clearly articulated, concise, and understandable to all team members. Concrete and measurable.
+- We have clear & testable Acceptance Criteria.
+- All necessary documents are provided if task requires such like TechSpecs. Task was estimated by the team. Story points are assigned.
+- All dependencies of tasks and blockers are defined and resolved. (inside and outside).
+- Label Lifeguard is added to ticket (when it is needed).
+
+Additional team information:
+- Mission Statement: The Engineering Platform (EP) Core team builds, maintains, and evolves a self-service, secure, and observable platform that enables all engineering teams at Samsung Ads & future also in SBT to deploy, operate, and scale their applications efficiently.
+- Core Values:
+  * Developer Experience First: Every decision is evaluated through the lens of developer productivity
+  * Security is Non-Negotiable: Never compromise on security; controls are built-in, not bolted on
+  * Operational Excellence: Run our own platform services with the same rigor we expect from customers
+  * Collaboration Over Silos: Close collaboration with all engineering teams to understand needs and build solutions together
+  * Continuous Improvement: Learn from failures, and iterate rapidly
+
+---
+Status: success

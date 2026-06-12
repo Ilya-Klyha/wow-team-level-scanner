@@ -1,0 +1,6 @@
+Team DoR (linked to external page)
+
+The page links to an external DoR document:
+https://adgear.atlassian.net/wiki/spaces/ENG/pages/19623772331/Definition+of+Done+Definition+of+Ready#Definition-of-Ready
+
+Note: The actual DoR content is stored on a separate Confluence page and not directly in the team page.

@@ -1,0 +1,32 @@
+Team: Zurek
+Page: https://adgear.atlassian.net/wiki/spaces/ENG/pages/21748023571
+Page ID: 21748023571
+Extracted: 2026-05-27T14:59:45Z
+
+=== DEFINITION OF READY (DoR) - STORY/TASK ===
+
+Zurek DoR Story/Task - Definition of Ready:
+- All dependencies of tasks and blockers are defined and resolved (inside and outside). Reference data sources should be provided if exists. Access should be ready before picking a story/task (For example SECO approvals). Except tasks to grant access etc.. This kind of tasks can take more than one sprint.
+- We need define acceptance criteria
+- The task was well described and estimated by the team. Story points are assigned. Task should be understandable for everyone.
+- Techspec should be approved by ARB before realizing tasks (if project required techspec)
+
+Acceptance Criteria - what is the required outcome? - What is expected:
+- Rollback procedure definition if needed
+- Code is ready and tested
+- PO accepted change
+- Define specific tests if needed
+- Documentation is defined or modified
+- PR is connected Jira or work is described in comment
+
+Additional team information:
+- Part of Ads Reporting (Bigos & Zurek)
+- Component team, primarily dedicated to the 'UDW migration' initiative
+- Responsibility includes migration to UDW of Audience Analytics Reports (R&F, Lift, IR and Linear Ads)
+- Tech lead: Jacek Pielaszkiewicz
+- Scrum Master: rotating
+- Product Owner: Jacek Pielaszkiewicz
+- Estimating Stories in story points using pseudo Fibonacci scale by Planning Poker or Affinity Mapping
+
+---
+Status: success

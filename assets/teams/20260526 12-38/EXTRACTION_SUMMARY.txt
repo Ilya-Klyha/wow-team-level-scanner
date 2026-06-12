@@ -1,0 +1,172 @@
+================================================================================
+SRPOL TEAMS DoR EXTRACTION SUMMARY
+================================================================================
+
+Extraction Date: 2026-05-26
+Source: https://adgear.atlassian.net/wiki/spaces/ENG/pages/19470090380/SRPOL+Teams
+
+================================================================================
+OVERALL STATISTICS
+================================================================================
+
+Total Teams Processed: 16
+DoR Successfully Extracted: 13
+DoR Not Found: 3
+Errors: 0
+
+Success Rate: 81.25%
+
+================================================================================
+TEAMS WITH SUCCESSFUL DoR EXTRACTION
+================================================================================
+
+1. Beacon (PE - WAW - Abyss)
+   - File: beacon-dor.txt
+   - Status: Complete - Epic/Offering and Story/Task levels
+   - Notable: Comprehensive DoR with ARB, Privacy, Security approvals required
+
+2. TV Native Ad Experiences (Radium)
+   - File: radium-dor.txt
+   - Status: Complete - Story/Task level
+   - Notable: Includes Figma requirements for visual projects
+
+3. Family Hub Creative Preview DSP (Europium)
+   - File: europium-dor.txt
+   - Status: Complete - Story/Task level
+   - Notable: Strict rule - no work without DoR except production incidents
+
+4. TV Plus Ad Experiences (Copernicium)
+   - File: copernicium-dor.txt
+   - Status: Complete - Story/Task level
+   - Notable: UI mocks and external team requirements emphasized
+
+5. CTV-2-Mobile (Mouflons)
+   - File: mouflons-dor.txt
+   - Status: Complete - Principle-based approach
+   - Notable: 4 Questions framework (What, Why, Priority, Risks)
+
+6. CTV-2-CTV and CTV-2-Web (Wolves)
+   - File: wolves-dor.txt
+   - Status: Complete - Principle-based approach
+   - Notable: Same framework as Mouflons (shared practices)
+
+7. Upper Funnel - Reach Solutions (Polonium UF)
+   - File: polonium-uf-dor.txt
+   - Status: Complete - Story/Task level
+   - Notable: 5-day In Progress rule with Jira comment requirement
+
+8. Audience Reporting Service (Bigos & Zurek)
+   - File: bigos-zurek-dor.txt
+   - Status: Complete - Dual team structure
+   - Notable: Separate DoR for Bigos (features) and Zurek (UDW migration)
+
+9. MLE OTS OR (Capybaras)
+   - File: capybaras-dor.txt
+   - Status: Complete - Story/Task level
+   - Notable: Task naming conventions [SRPOL-OR] and [SRPOL-OTS]
+
+10. Engineering Platform (EP Core)
+    - File: ep-core-dor.txt
+    - Status: Complete - Story/Task level
+    - Notable: Lifeguard label requirement, strong mission statement
+
+11. DSP Ad Serving (Igni)
+    - File: igni-dor.txt
+    - Status: Complete - Story/Task level
+    - Notable: Contact person requirement for external tasks
+
+================================================================================
+TEAMS WITH INCOMPLETE/MISSING DoR
+================================================================================
+
+12. Polonium LF
+    - File: polonium-lf-dor.txt
+    - Status: INCOMPLETE (WIP)
+    - Reason: Page marked as Work In Progress, references another team
+    - Recommendation: Team needs to define their own DoR
+
+13. MLOps Serving (Sturgeons)
+    - File: ml-serving-dor.txt
+    - Status: NOT FOUND
+    - Reason: Minimal team page, primarily links and responsibilities
+    - Recommendation: May be using program-level DoR
+
+14. MLOps Platform (Pandas)
+    - File: ml-platform-dor.txt
+    - Status: NOT FOUND
+    - Reason: Minimal team page, primarily links and responsibilities
+    - Recommendation: May be using program-level DoR
+
+15. SRE
+    - File: sre-dor.txt
+    - Status: NOT FOUND
+    - Reason: References Team Lava structure but no complete DoR
+    - Recommendation: Define team-specific DoR or document use of program DoR
+
+================================================================================
+COMMON DoR PATTERNS ACROSS TEAMS
+================================================================================
+
+Most Common Criteria:
+1. User Story/Requirement Clarity (15/16 teams)
+2. Acceptance Criteria Defined (15/16 teams)
+3. Estimates Provided (14/16 teams)
+4. Dependencies Identified (13/16 teams)
+5. Monitoring/Alerting (where applicable) (8/16 teams)
+
+Team-Specific Additions:
+- UX/Figma requirements (6 teams)
+- Contact person information (3 teams)
+- TechSpec/ARB approvals (5 teams)
+- Rollback procedures (2 teams)
+- Feature flags (3 teams)
+
+Scrum Master Models:
+- Rotation (12 teams)
+- Fixed/Dedicated (3 teams)
+- Not specified (1 team)
+
+================================================================================
+FILES GENERATED
+================================================================================
+
+Location: C:/Users/i.klyha/Desktop/Claude/wow-scanner-tool/assets/teams/
+
+Configuration:
+- teams.json (master file with all team metadata)
+
+DoR Files (16 total):
+- beacon-dor.txt
+- radium-dor.txt
+- europium-dor.txt
+- copernicium-dor.txt
+- mouflons-dor.txt
+- wolves-dor.txt
+- polonium-lf-dor.txt
+- polonium-uf-dor.txt
+- bigos-zurek-dor.txt
+- capybaras-dor.txt
+- ml-serving-dor.txt
+- ml-platform-dor.txt
+- ep-core-dor.txt
+- igni-dor.txt
+- sre-dor.txt
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+For Teams with Missing DoR:
+1. Polonium LF: Complete the WIP page and define team-specific DoR
+2. MLOps Serving & Platform: Document whether using program DoR or create own
+3. SRE: Create complete team page with DoR or reference program DoR
+
+For All Teams:
+1. Consider standardizing on common DoR framework across SRPOL
+2. Document whether Epic/Offering level DoR applies
+3. Regular review and updates of DoR criteria
+4. Share best practices between teams (e.g., 4 Questions from Mouflons/Wolves)
+
+================================================================================
+END OF REPORT
+================================================================================

@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "teamName": "Europium",
+    "projectKey": "AENW",
+    "boardId": "8979",
+    "extractionDate": "2026-06-10T15:05:12.218105",
+    "extractionTimestamp": "2026-06-10 15:05:12"
+  },
+  "query": {
+    "jql": "sprint in openSprints() AND project = AENW AND status IN (\"In Progress\", \"Code Review\") AND issuetype IN (Story, Bug, Task)",
+    "queryType": "sprint",
+    "teamFilterEnabled": false,
+    "localFilterApplied": true,
+    "teamPattern": "Europium"
+  },
+  "summary": {
+    "total": 4,
+    "byStatus": {
+      "In Progress": 4
+    },
+    "byType": {
+      "Story": 4
+    }
+  },
+  "issues": [
+    {
+      "key": "AENW-895",
+      "type": "Story",
+      "summary": "[Microsite P2] General Settings Section UI Fixes",
+      "status": "In Progress",
+      "assignee": "Grzegorz Prasal",
+      "priority": "Medium",
+      "created": "2026-06-02T17:48:51.413-0400",
+      "updated": "2026-06-03T04:28:44.806-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-895",
+      "teamField": "AP - WAW - Europium",
+      "teamName": "Europium"
+    },
+    {
+      "key": "AENW-859",
+      "type": "Story",
+      "summary": "[Microsite P2] Implement rtb-delivery endpoint and handler",
+      "status": "In Progress",
+      "assignee": "Raman Krot",
+      "priority": "Medium",
+      "created": "2026-06-01T09:08:15.461-0400",
+      "updated": "2026-06-08T06:17:12.518-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-859",
+      "teamField": "AP - WAW - Europium",
+      "teamName": "Europium"
+    },
+    {
+      "key": "AENW-701",
+      "type": "Story",
+      "summary": "[Microsite p2] UseCase + Task \u00e2\u20ac\u201d HTML Generation",
+      "status": "In Progress",
+      "assignee": "Micha\u0139\u201a Wi\u00c4\u2026cek",
+      "priority": "Medium",
+      "created": "2026-05-11T08:28:32.848-0400",
+      "updated": "2026-06-09T04:55:21.040-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-701",
+      "teamField": "AP - WAW - Europium",
+      "teamName": "Europium"
+    },
+    {
+      "key": "AENW-685",
+      "type": "Story",
+      "summary": "[Micoristes P2] Create Micro Frontend",
+      "status": "In Progress",
+      "assignee": "Karol Strojek",
+      "priority": "Medium",
+      "created": "2026-05-11T07:56:42.992-0400",
+      "updated": "2026-06-03T04:21:47.640-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-685",
+      "teamField": "AP - WAW - Europium",
+      "teamName": "Europium"
+    }
+  ]
+}

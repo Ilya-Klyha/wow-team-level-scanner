@@ -1,0 +1,17 @@
+Team: Copernicium
+Extracted: 2026-05-28T13:48:58.000Z
+Query Strategy: Sprint-based
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 15
+- In Progress: 14
+- Code Review: 1
+
+Issues by type:
+- Task: 11
+- Story: 4
+
+---
+Status: success
