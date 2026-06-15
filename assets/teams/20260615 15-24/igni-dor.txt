@@ -1,0 +1,7 @@
+- Clear requirement (user story or task specification)
+- Acceptance criteria defined
+- Estimation done
+- Dependencies identified and documented
+- Technical design reviewed (if applicable)
+- Fits in one sprint
+- No unresolved blockers

@@ -1,7 +1,0 @@
-- The user story and/or requirement is clearly articulated, concise, and understandable to all team members. Concrete and measurable.
-- We have clear & testable Acceptance Criteria (it should contain information about feature flag + expected release env).
-- Mockups are provided by UX/UI team if they are required. If task is related to documentation there is necessity to define templates or common look of document with stakeholders (PO).
-- All necessary documents are provided and the related to tasks TechSpecs have been approved by local architect.
-- Task was estimated by the team. Story points are assigned.
-- All known dependencies of tasks and blockers are defined and resolved (inside and outside).
-- Story is decomposed into smaller chunk under a structure with FE & BE subtasks by Scrum Team.

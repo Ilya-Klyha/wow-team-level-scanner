@@ -1,0 +1,261 @@
+DEFINITION OF READY (DoR) - INDUSTRY BEST PRACTICES STANDARD
+=============================================================
+
+Version: 1.0
+Date: 2026-06-15
+Sources: Scrum Guide 2020, INVEST Criteria (Bill Wake, 2003), SAFe 6.0,
+         Professional Scrum Developer Guidelines, Agile Alliance
+
+
+1. PURPOSE OF DEFINITION OF READY
+----------------------------------
+
+The Definition of Ready (DoR) is a team-level agreement that specifies
+the criteria a Product Backlog Item (PBI) must satisfy before the team
+accepts it into a Sprint. It ensures:
+
+- Shared understanding between Product Owner and Development Team
+- Reduced waste from mid-sprint clarification and rework
+- Predictable sprint delivery and sustainable pace
+- Clear accountability for preparation vs. execution
+
+The DoR answers: "Can we start this work with confidence that we have
+everything needed to complete it within the sprint?"
+
+
+2. ESSENTIAL DoR AREAS (10 CRITERIA)
+-------------------------------------
+
+A comprehensive Definition of Ready should address ALL of the following
+areas. Each area represents a dimension that, when missing, creates risk
+of mid-sprint blockers, scope creep, or delivery failure.
+
+2.1 USER STORY / REQUIREMENT CLARITY
+   - The requirement is clearly articulated and understandable by any
+     team member without additional explanation
+   - Written in user story format ("As a [role], I want [goal], so that
+     [benefit]") OR as a clear technical requirement statement
+   - Context and business value are explicit
+   - The "why" behind the work is documented
+
+2.2 ACCEPTANCE CRITERIA (AC)
+   - Specific, testable, and measurable acceptance criteria are defined
+   - AC follows a structured format (Given/When/Then, numbered list,
+     or verifiable checklist)
+   - Each criterion is independently verifiable (pass/fail)
+   - Edge cases and boundary conditions are addressed
+   - AC is confirmed/agreed with the team
+
+2.3 ESTIMATION / SIZING
+   - The item is small enough to be completed within a single sprint
+   - If too large, it has been decomposed into smaller items
+   - Complexity, uncertainty, and effort are factored into estimates
+
+2.4 DEPENDENCIES IDENTIFIED AND RESOLVED
+   - All internal dependencies (other teams, other backlog items) are
+     identified and documented
+   - External dependencies (third-party APIs, vendor deliverables,
+     infrastructure) are identified
+   - Blocking dependencies are resolved BEFORE sprint start, or a
+     clear resolution plan with timeline exists
+   - Points of contact for dependencies are identified
+
+2.5 DESIGN / UX / TECHNICAL SPECIFICATION
+   - UI/UX mockups or wireframes are finalized and available (if the
+     item involves user-facing changes)
+   - Technical approach is discussed and agreed (architecture decisions
+     documented if non-trivial)
+   - TechSpec reviewed and approved by architect (if required by team)
+   - API contracts or interface definitions are available (if applicable)
+   - For backend/infrastructure work: system design is clear
+
+2.6 SCOPE / SPRINT FIT
+   - The item's scope is clearly bounded (what is IN and what is OUT)
+   - The item can realistically be completed within a single sprint
+   - No open questions that could expand scope remain unresolved
+   - "Done" is clearly understood for this item
+   - If scope changes are needed, a new item is created
+
+2.7 RISKS AND BLOCKERS IDENTIFIED
+   - Known risks are documented with mitigation strategies
+   - Potential blockers are identified and either resolved or have
+     contingency plans
+   - Technical uncertainty is acknowledged and bounded (spike may be
+     needed for high-uncertainty items)
+   - Compliance, security, or regulatory risks are flagged
+
+2.8 STAKEHOLDER ALIGNMENT / PO APPROVAL
+   - Product Owner has reviewed and prioritized the item
+   - Business stakeholders have validated the requirements
+   - There is no ambiguity about what "success" looks like
+   - The item is aligned with current sprint/release goals
+   - Any required approvals (legal, compliance) are obtained
+
+2.9 TECHNICAL FEASIBILITY CONFIRMED
+   - The team has confirmed the work is technically feasible with
+     current tools, infrastructure, and skills
+   - Required access, permissions, and environments are available
+   - No infrastructure prerequisites are missing
+   - Performance requirements are understood and achievable
+   - Engineering investigation or spike completed (if needed)
+
+2.10 TESTING STRATEGY / APPROACH
+   - Test approach is identified (unit tests, integration tests,
+     manual testing, E2E)
+   - Test data and test environments are available or planned
+   - Non-functional requirements (performance, security) have
+     identified validation methods
+   - Regression impact is understood
+
+
+3. INVEST CRITERIA FOR STORY READINESS
+---------------------------------------
+
+Stories should satisfy the INVEST model (Bill Wake, 2003):
+
+- Independent: Can be delivered without tight coupling to other items
+- Negotiable: Flexible and open to discussion, not a fixed contract
+- Valuable: Delivers clear business or customer value
+- Estimable: Can be sized or forecasted with reasonable confidence
+- Small: Fits within a single sprint
+- Testable: Can be validated through clear acceptance criteria
+
+
+4. QUALITY CHARACTERISTICS OF A GOOD DoR
+------------------------------------------
+
+A high-quality DoR document itself should exhibit these properties:
+
+4.1 SPECIFICITY
+   - Criteria are concrete and unambiguous
+   - Avoids vague terms like "appropriate", "sufficient", "if needed"
+     without defining what triggers the condition
+   - Each criterion has a clear verification method
+
+4.2 MEASURABILITY
+   - Each criterion can be evaluated as pass/fail
+   - Team members would independently agree on whether a criterion is met
+   - No subjective interpretation required
+
+4.3 ACTIONABILITY
+   - The DoR guides behavior (refinement activities, preparation steps)
+   - Criteria are achievable within normal refinement cadence
+
+4.4 COMPLETENESS
+   - Addresses different work types (stories, bugs, tasks, spikes)
+   - Includes both functional and non-functional considerations
+
+4.5 PROPORTIONALITY
+   - Not overly restrictive (doesn't block valuable work)
+   - Not too permissive (doesn't allow ambiguous work into sprint)
+   - Includes "conditional" criteria (e.g., "if UI changes: mockups needed")
+   - Balances thoroughness with agility
+
+4.6 TEAM OWNERSHIP
+   - Created and maintained by the team (not imposed externally)
+   - Regularly reviewed and updated based on retrospective learnings
+   - All team members understand and agree to the DoR
+
+
+5. COMMON ANTI-PATTERNS
+-------------------------
+
+5.1 TOO VAGUE
+   - "Requirements are clear" (clear to whom? how verified?)
+   - "Acceptance criteria defined" (without specifying quality/format)
+   - "Dependencies resolved" (without defining what "resolved" means)
+
+5.2 TOO RIGID
+   - Requiring full technical specification for every item regardless
+     of complexity
+   - Mandating user story format for all work types (ops, spikes)
+   - No conditional criteria (everything applies to everything)
+
+5.3 INCOMPLETE
+   - Only covers requirements/AC but ignores estimation, dependencies,
+     testing
+   - No mention of scope boundaries or sprint fit
+   - No stakeholder/PO validation step
+
+5.4 NOT ACTIONABLE
+   - Lists what should exist but not who provides it
+   - No connection to refinement process or workflow
+   - No clear "not ready" consequence defined
+
+5.5 COPY-PASTE
+   - Generic checklist copied from internet without team customization
+   - Does not reflect team's actual domain, tooling, or workflow
+   - Never reviewed or updated since creation
+
+
+6. DoR BY WORK TYPE
+--------------------
+
+Different work types may require different readiness criteria:
+
+6.1 USER STORIES / TASKS
+   - Full DoR applies (all 10 areas)
+   - AC is mandatory and must be specific
+   - UX mockups required if user-facing
+
+6.2 BUG 
+   - Reproduction steps documented
+   - Expected vs. actual behavior described
+   - Severity and priority assessed
+   - Root cause identified (or investigation bounded)
+
+
+6.3 SPIKES
+   - Time-box defined
+   - Questions to answer are explicit
+   - Expected output format defined (document, prototype, decision)
+   - May be exempt from AC, testing, and estimation criteria
+
+
+7. ASSESSMENT SCORING GUIDE
+-----------------------------
+
+When evaluating a team's DoR quality, assess across these dimensions:
+
+COVERAGE (25% weight):
+   Score based on how many of the 10 Essential Areas (Section 2) the
+   DoR addresses. 10/10 = 100%, 5/10 = 50%, etc.
+
+CLARITY & SPECIFICITY (20% weight):
+   Score based on how specific and unambiguous the criteria are.
+   100% = every criterion is concrete and verifiable
+   50% = mix of specific and vague criteria
+   0% = all criteria are generic/copy-paste
+
+MEASURABILITY (15% weight):
+   Score based on whether each criterion has a clear pass/fail check.
+   100% = all criteria are objectively verifiable
+   50% = some criteria are subjective
+   0% = criteria cannot be consistently evaluated
+
+COMPANY STANDARD ALIGNMENT (15% weight):
+   Score based on alignment with company-level DoR guidance.
+   100% = fully aligned with company DoR principles
+   50% = partially aligned
+   0% = contradicts or ignores company guidance
+
+INDUSTRY BEST PRACTICES ALIGNMENT (10% weight):
+   Score based on adherence to INVEST, Scrum Guide, and SAFe guidance.
+   100% = exemplifies industry best practices
+   50% = follows some practices
+   0% = contradicts established practices
+
+ACTIONABILITY (10% weight):
+   Score based on whether DoR drives specific behaviors.
+   100% = clear ownership, workflow integration, consequences
+   50% = some actionable guidance
+   0% = passive checklist with no behavioral guidance
+
+AC GUIDANCE (5% weight):
+   Score based on how well DoR addresses acceptance criteria quality.
+   100% = specific format requirements, quality standards for AC
+   50% = mentions AC must exist
+   0% = no mention of AC quality or format
+
+---
+END OF DOCUMENT

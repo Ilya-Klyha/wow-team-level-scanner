@@ -1,0 +1,8 @@
+- User Story format or clear requirement description provided
+- Acceptance Criteria defined in measurable terms
+- Story points estimated by the team
+- Dependencies identified and documented
+- Technical approach discussed and agreed
+- UX/UI mockups provided (if applicable)
+- Sprint-sized (can be completed in one sprint)
+- Product Owner approved priority and scope

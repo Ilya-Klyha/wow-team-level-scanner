@@ -1,0 +1,115 @@
+{
+  "team": "Bigos",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/ASPW/boards/9016",
+  "boardId": "9016",
+  "projectKey": "ASPW",
+  "extractedAt": "2026-06-15T13:24:00.000Z",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "sprint in openSprints() AND project = ASPW AND customfield_10114 = \"Bigos\" AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "queryType": "sprint+team",
+    "teamFilterEnabled": true,
+    "statuses": [
+      "In Progress",
+      "Code Review",
+      "In Development"
+    ],
+    "issueTypes": [
+      "Story",
+      "Bug",
+      "Task"
+    ]
+  },
+  "summary": {
+    "total": 7,
+    "byStatus": {
+      "In Progress": 5,
+      "Code Review": 2
+    },
+    "byType": {
+      "Story": 3,
+      "Bug": 2,
+      "Task": 2
+    },
+    "truncated": false
+  },
+  "issues": [
+    {
+      "key": "ASPW-601",
+      "type": "Story",
+      "summary": "Implement consent management platform integration",
+      "status": "In Progress",
+      "assignee": "Grzegorz Blaszczyk",
+      "priority": "High",
+      "created": "2026-06-10T09:00:00.000Z",
+      "updated": "2026-06-14T16:00:00.000Z",
+      "url": "https://adgear.atlassian.net/browse/ASPW-601"
+    },
+    {
+      "key": "ASPW-602",
+      "type": "Story",
+      "summary": "Build privacy-compliant data export feature",
+      "status": "In Progress",
+      "assignee": "Iwona Nowicka",
+      "priority": "High",
+      "created": "2026-06-10T09:00:00.000Z",
+      "updated": "2026-06-14T16:00:00.000Z",
+      "url": "https://adgear.atlassian.net/browse/ASPW-602"
+    },
+    {
+      "key": "ASPW-603",
+      "type": "Bug",
+      "summary": "Fix cookie consent banner display on mobile devices",
+      "status": "Code Review",
+      "assignee": "Artur Wozniak",
+      "priority": "High",
+      "created": "2026-06-10T09:00:00.000Z",
+      "updated": "2026-06-14T16:00:00.000Z",
+      "url": "https://adgear.atlassian.net/browse/ASPW-603"
+    },
+    {
+      "key": "ASPW-604",
+      "type": "Task",
+      "summary": "Update GDPR compliance documentation",
+      "status": "In Progress",
+      "assignee": "Beata Kaczmarek",
+      "priority": "Medium",
+      "created": "2026-06-10T09:00:00.000Z",
+      "updated": "2026-06-14T16:00:00.000Z",
+      "url": "https://adgear.atlassian.net/browse/ASPW-604"
+    },
+    {
+      "key": "ASPW-605",
+      "type": "Story",
+      "summary": "Add user data deletion request workflow",
+      "status": "In Progress",
+      "assignee": "Dariusz Pawlak",
+      "priority": "High",
+      "created": "2026-06-10T09:00:00.000Z",
+      "updated": "2026-06-14T16:00:00.000Z",
+      "url": "https://adgear.atlassian.net/browse/ASPW-605"
+    },
+    {
+      "key": "ASPW-606",
+      "type": "Bug",
+      "summary": "Resolve opt-out signal propagation delay",
+      "status": "In Progress",
+      "assignee": "Elzbieta Michalska",
+      "priority": "Critical",
+      "created": "2026-06-10T09:00:00.000Z",
+      "updated": "2026-06-14T16:00:00.000Z",
+      "url": "https://adgear.atlassian.net/browse/ASPW-606"
+    },
+    {
+      "key": "ASPW-607",
+      "type": "Task",
+      "summary": "Implement automated privacy impact assessments",
+      "status": "Code Review",
+      "assignee": "Filip Zajac",
+      "priority": "Medium",
+      "created": "2026-06-10T09:00:00.000Z",
+      "updated": "2026-06-14T16:00:00.000Z",
+      "url": "https://adgear.atlassian.net/browse/ASPW-607"
+    }
+  ]
+}

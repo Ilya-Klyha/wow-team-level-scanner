@@ -1,0 +1,8 @@
+- User Story / Task description is clear and understandable
+- Acceptance Criteria defined (testable, specific)
+- Story Points estimated
+- Dependencies identified and managed
+- Technical approach agreed upon
+- Scope fits within a sprint
+- Mockups/designs available (if UI work)
+- Risks and blockers documented

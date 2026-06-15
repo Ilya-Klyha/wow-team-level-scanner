@@ -1,0 +1,12 @@
+Company Definition of Ready (DoR) Standard
+Source: https://adgear.atlassian.net/wiki/spaces/AGILE/pages/21735179128/Definition+of+Ready+DOR
+Fetched: 2026-06-15
+
+The DoR answers: Can we start this work with confidence?
+Common readiness criteria:
+- Clearly defined acceptance criteria
+- Dependencies identified and addressed
+- Scope and priority established
+
+INVEST criteria:
+- Independent, Negotiable, Valuable, Estimable, Small, Testable

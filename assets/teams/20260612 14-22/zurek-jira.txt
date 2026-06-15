@@ -1,4 +1,0 @@
-Team: Zurek
-Board: https://adgear.atlassian.net/jira/software/c/projects/PEA/boards/2881
-Project: PEA
-Total issues: 0

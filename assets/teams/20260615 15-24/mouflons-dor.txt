@@ -1,0 +1,9 @@
+- User Story/Requirement Clarity: Story follows INVEST principles and is clearly written
+- Measurable/Verifiable Acceptance Criteria: AC are in SMART format (Specific, Measurable, Achievable, Relevant, Time-bound)
+- Dependencies Identified & Resolved: All blocking dependencies documented with resolution status
+- Estimation Completed: Story points assigned after team discussion
+- Design Artifacts Ready: Mockups/wireframes attached for UI changes, technical design for backend
+- Sprint Fit Confirmed: Item sized to complete within sprint
+- Risks & Blockers: Risk register updated, no open blockers
+- Testing Strategy: Test approach defined (unit, integration, e2e)
+- Stakeholder Alignment: PO sign-off on requirements and priority

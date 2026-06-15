@@ -1,5 +1,52 @@
 # WoW DoR Scanner - Changelog
 
+## Version 4.0 - 2026-06-15
+
+### New Feature: DoR Quality Assessment (Step 12)
+
+#### Overview
+Added automated assessment of each team's Definition of Ready document quality. Evaluates DoR definitions against industry best practices and the company's own DoR standard, producing a quality score (1-100%) per team.
+
+#### New Files
+- `assets/dor-standard.txt` - Persistent industry best practices reference document (10 essential DoR areas, INVEST criteria, quality characteristics, scoring guide)
+- `${OUTPUT_DIR}/company-dor-standard.txt` - Per-scan cached company DoR standard from Confluence
+
+#### New Step 12 (AUTO-EXECUTE after Step 11)
+- **12.0**: Loads industry standard from `assets/dor-standard.txt`
+- **12.1**: Fetches company DoR from Confluence page 21735179128
+- **12.2**: Identifies teams with defined DoR (excludes teams without DoR)
+- **12.3**: LLM-based quality evaluation across 7 weighted dimensions
+- **12.4**: Adds "DoR quality" sheet to Report-DoR.xlsx (3rd sheet)
+- **12.5**: Reports completion with top/bottom team rankings
+
+#### 7 Quality Dimensions
+| Dimension | Weight |
+|-----------|--------|
+| Coverage (10 essential areas) | 25% |
+| Clarity & Specificity | 20% |
+| Measurability | 15% |
+| Company Standard Alignment | 15% |
+| Industry Best Practices | 10% |
+| Actionability | 10% |
+| AC Guidance | 5% |
+
+#### Report-DoR.xlsx Changes
+- **Before**: 2 sheets (Summary + DoR Compliance)
+- **After**: 3 sheets (Summary + DoR Compliance + DoR quality)
+- **"DoR quality" sheet format**:
+  - Row 1: KPI "DoR quality lvl" with average % (color-coded)
+  - Row 3: Table header (Team | Quality | Note)
+  - Rows 4+: Team data sorted by quality descending
+  - Conditional formatting: green >= 70%, orange 40-69%, red < 40%
+  - "Note" column: short, specific feedback on DoR gaps/weaknesses
+
+#### Important Rules Updated
+- Rule 12 updated to acknowledge 3rd sheet from Step 12
+- Rule 13 added for DoR Quality Assessment constraints
+- Automation rules updated to include Step 12 auto-execution
+
+---
+
 ## Version 3.1 - 2026-06-12
 
 ### Bug Fixes and Improvements
@@ -38,12 +85,12 @@
 - **Impact**: Old `/wow-team-scanner` command no longer works
 
 #### 2. Abyss Team Name Changed
-- **Before**: "PE-WAW-Abyss" in Team column of Report.xlsx
-- **After**: "Abyss" in Team column of Report.xlsx
+- **Before**: "PE-WAW-Abyss" in Team column of Report-DoR.xlsx
+- **After**: "Abyss" in Team column of Report-DoR.xlsx
 - **Logic**: Team names with "XX - YYY - Name" pattern now extract only the last segment
 - **Impact**: File naming also changes: `abyss-dor.txt` instead of `pe-waw-abyss-dor.txt`
 
-#### 3. Summary Sheet Added to Report.xlsx
+#### 3. Summary Sheet Added to Report-DoR.xlsx
 - **Before**: 1 sheet ("DoR Compliance")
 - **After**: 2 sheets ("Summary" as first sheet, "DoR Compliance" as second)
 - **Summary sheet columns**:
@@ -171,7 +218,7 @@ DoR Analysis Accuracy (CRITICAL):
 
 To validate these improvements:
 1. Re-run `/wow-team-scanner` on the same data
-2. Compare new Report.xlsx with previous version
+2. Compare new Report-DoR.xlsx with previous version
 3. Check specific issues mentioned in feedback:
    - MAW-418 (should be excluded as Sub-task)
    - AENW-939 (should pass with requirement description)

@@ -60,7 +60,19 @@
       "Bash(node:*)",
       "Bash(python:*)",
       "mcp__plugin_atlassian_atlassian__getConfluencePageDescendants",
-      "mcp__plugin_atlassian_atlassian__searchConfluenceUsingCql"
+      "mcp__plugin_atlassian_atlassian__searchConfluenceUsingCql",
+      "WebFetch(domain:scrumguides.org)",
+      "WebFetch(domain:www.scaledagileframework.com)",
+      "WebFetch(domain:www.agilealliance.org)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.scrum.org)",
+      "Bash(mv \"ads-reporting-dor.txt\" \"zurek-dor.txt\")",
+      "Bash(mv \"polonium-upper-funnel-dor.txt\" \"polonium-uf-dor.txt\")",
+      "Bash(mv \"ml-serving-dor.txt\" \"ml-serving-sturgeons-dor.txt\")",
+      "Bash(mv \"ml-platform-dor.txt\" \"ml-platform-pandas-dor.txt\")",
+      "Bash(mv \"srpol-sre-dor.txt\" \"sre-dor.txt\")",
+      "Bash(cp \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 12-57\"/*-dor.txt \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 15-17/\")",
+      "Bash(cp \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 12-57\"/*-jira.* \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 15-17/\")"
     ]
   }
 }

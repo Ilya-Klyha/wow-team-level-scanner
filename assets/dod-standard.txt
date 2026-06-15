@@ -1,0 +1,254 @@
+DEFINITION OF DONE (DoD) - INDUSTRY BEST PRACTICES STANDARD
+=============================================================
+
+Version: 1.0
+Date: 2026-06-15
+Sources: Scrum Guide 2020, SAFe 6.0, Professional Scrum Developer Guidelines,
+         Agile Alliance, IEEE Software Engineering Standards
+
+
+1. PURPOSE OF DEFINITION OF DONE
+----------------------------------
+
+The Definition of Done (DoD) is a shared agreement within a Scrum Team that
+describes the quality standards and completion criteria that EVERY increment
+must satisfy before it can be considered releasable.
+
+The DoD ensures:
+- Consistent quality across all work items
+- Transparency about what "complete" means
+- Reduction of technical debt accumulation
+- Shared accountability for product quality
+- Releasable increments at the end of every sprint
+
+The DoD answers: "Is this work truly complete, meeting all quality
+standards, and ready for production use?"
+
+
+2. ESSENTIAL DoD AREAS (10 CRITERIA)
+-------------------------------------
+
+A comprehensive Definition of Done should address ALL of the following
+areas. Each area represents a quality gate that, when missing, creates
+risk of defects, rework, or production incidents.
+
+2.1 CODE REVIEW COMPLETED
+   - All code changes have been peer-reviewed by at least one other
+     developer
+   - Review comments have been addressed and resolved
+   - Code meets team coding standards and guidelines
+   - No critical or high-severity issues flagged in review
+   - Approval/sign-off documented (PR merged, LGTM)
+
+2.2 UNIT AND INTEGRATION TESTS WRITTEN AND PASSING
+   - New/modified code has corresponding unit tests
+   - Code coverage meets team-defined threshold (e.g., 80%)
+   - Integration tests cover key interaction paths
+   - All existing tests continue to pass (no regressions)
+   - Tests are automated and repeatable
+
+2.3 ACCEPTANCE CRITERIA MET AND VERIFIED
+   - All acceptance criteria defined in the story are satisfied
+   - Product Owner has verified/accepted the implementation
+   - Functional testing confirms expected behavior
+   - Edge cases identified in AC have been addressed
+   - Demo or walkthrough completed with stakeholders
+
+2.4 CI/CD PIPELINE PASSING
+   - All automated pipeline stages pass (build, lint, test, scan)
+   - No new warnings or errors introduced
+   - Static analysis / code quality gates pass
+   - Security scanning shows no new vulnerabilities
+   - Build artifacts are generated successfully
+
+2.5 DEPLOYED TO STAGING/PRODUCTION
+   - Code is deployed to staging/pre-production environment
+   - Deployment verified with smoke tests
+   - Feature flags configured for controlled rollout (if applicable)
+   - Rollback plan identified and tested
+   - Production deployment completed or scheduled
+
+2.6 DOCUMENTATION UPDATED
+   - API documentation updated for new/changed endpoints
+   - README or developer guides updated if architecture changed
+   - User-facing documentation updated (if applicable)
+   - Runbooks updated for operational procedures
+   - Architecture Decision Records (ADRs) created for significant decisions
+
+2.7 NO KNOWN DEFECTS / TECHNICAL DEBT DOCUMENTED
+   - No known critical or high-severity bugs remain
+   - Technical debt introduced is documented in backlog
+   - No regression in existing functionality
+   - Known limitations are documented
+   - TODO/FIXME items are captured as follow-up tickets
+
+2.8 PERFORMANCE AND SECURITY VALIDATED (IF APPLICABLE)
+   - Performance testing completed for performance-sensitive changes
+   - Response times meet defined SLAs/SLOs
+   - Security review completed for security-sensitive changes
+   - No new security vulnerabilities introduced
+   - Load/stress testing done for scalability-critical features
+
+2.9 MONITORING AND ALERTING CONFIGURED
+   - Relevant metrics and logs are captured for new features
+   - Alerting thresholds configured for critical paths
+   - Dashboards updated to include new components
+   - Health checks implemented for new services
+   - On-call team aware of new components/changes
+
+2.10 PO/STAKEHOLDER ACCEPTANCE
+   - Product Owner has reviewed and accepted the work
+   - Sprint Review demo completed (or recorded)
+   - Stakeholder feedback incorporated or captured
+   - Release notes prepared (if applicable)
+   - Business value delivered is confirmed
+
+
+3. QUALITY CHARACTERISTICS OF A GOOD DoD
+------------------------------------------
+
+A high-quality DoD document itself should exhibit these properties:
+
+3.1 SPECIFICITY
+   - Criteria are concrete and unambiguous
+   - Each criterion has a clear verification method
+   - Avoids vague terms without defining conditions
+   - Specifies exact thresholds where applicable (e.g., "80% coverage")
+
+3.2 MEASURABILITY
+   - Each criterion can be evaluated as pass/fail
+   - Evidence of completion can be demonstrated
+   - Team members would independently agree on status
+   - Automated checks verify where possible
+
+3.3 ACTIONABILITY
+   - Clear WHO is responsible for verifying each criterion
+   - DoD integrates with team workflow (PR templates, CI gates)
+   - Criteria drive specific actions during development
+   - Consequences of not meeting DoD are defined
+
+3.4 COMPLETENESS
+   - Covers all 10 essential areas (or explicitly states exclusions)
+   - Addresses different work types (stories, bugs, tasks)
+   - Includes both functional and non-functional quality aspects
+   - Covers the full lifecycle (code, test, deploy, document)
+
+3.5 PROPORTIONALITY
+   - Conditional criteria for different contexts ("if applicable")
+   - Not overly burdensome for simple changes
+   - Balances thoroughness with delivery speed
+   - Investigation/spike tasks have appropriate exemptions
+
+3.6 EVIDENCE-ORIENTED
+   - Specifies what evidence is required for each criterion
+   - Evidence can be found in standard locations (Jira, PR, CI)
+   - Documentation requirements are specific (what and where)
+   - Verification trail is maintainable
+
+
+4. COMMON ANTI-PATTERNS
+-------------------------
+
+4.1 TOO VAGUE
+   - "Code is reviewed" (by whom? what constitutes review?)
+   - "Tests pass" (which tests? what coverage?)
+   - "Documentation updated" (what documentation? where?)
+
+4.2 TOO RIGID
+   - Requiring all criteria for investigation/spike tasks
+   - Mandating documentation updates for trivial bug fixes
+   - No conditional logic ("if applicable") for context-dependent criteria
+
+4.3 INCOMPLETE
+   - Only covers coding/testing but ignores deployment and monitoring
+   - No mention of PO acceptance or stakeholder verification
+   - Missing operational readiness (monitoring, alerting, runbooks)
+
+4.4 NOT ENFORCEABLE
+   - No integration with team workflow (PR templates, CI gates)
+   - No clear verification method for process criteria
+   - "Honor system" without accountability mechanisms
+
+4.5 STALE
+   - Never updated since team formation
+   - Does not reflect current tooling or processes
+   - Contains references to deprecated systems
+
+
+5. DoD BY WORK TYPE
+--------------------
+
+Different work types may require different completion criteria:
+
+5.1 USER STORIES / FEATURES
+   - Full DoD applies (all 10 areas)
+   - PO acceptance mandatory
+   - User-facing documentation required
+
+5.2 BUG FIXES
+   - Full DoD applies
+   - Root cause documented
+   - Regression test added
+   - Documentation update may be optional for minor fixes
+
+5.3 TECHNICAL TASKS / INFRASTRUCTURE
+   - Code review and testing required
+   - Operational documentation critical (runbooks)
+   - PO acceptance may be replaced by tech lead acceptance
+   - Performance validation important
+
+5.4 SPIKES / INVESTIGATIONS
+   - Time-box respected
+   - Findings documented
+   - Recommendations provided
+   - Code review, deployment, testing may be EXEMPT
+   - Output: document/decision, not code
+
+
+6. ASSESSMENT SCORING GUIDE
+-----------------------------
+
+When evaluating a team's DoD quality, assess across these dimensions:
+
+COVERAGE (25% weight):
+   Score based on how many of the 10 Essential Areas (Section 2) the
+   DoD addresses. 10/10 = 100%, 5/10 = 50%, etc.
+
+CLARITY & SPECIFICITY (20% weight):
+   Score based on how specific and unambiguous the criteria are.
+   100% = every criterion is concrete and verifiable
+   50% = mix of specific and vague criteria
+   0% = all criteria are generic/copy-paste
+
+MEASURABILITY (15% weight):
+   Score based on whether each criterion has a clear pass/fail check.
+   100% = all criteria are objectively verifiable
+   50% = some criteria are subjective
+   0% = criteria cannot be consistently evaluated
+
+COMPANY STANDARD ALIGNMENT (15% weight):
+   Score based on alignment with company-level DoD guidance.
+   100% = fully aligned with company DoD principles
+   50% = partially aligned
+   0% = contradicts or ignores company guidance
+
+INDUSTRY BEST PRACTICES ALIGNMENT (10% weight):
+   Score based on adherence to Scrum Guide and SAFe guidance.
+   100% = exemplifies industry best practices
+   50% = follows some practices
+   0% = contradicts established practices
+
+ACTIONABILITY (10% weight):
+   Score based on whether DoD drives specific behaviors.
+   100% = clear ownership, workflow integration, verification methods
+   50% = some actionable guidance
+   0% = passive checklist with no behavioral guidance
+
+EVIDENCE REQUIREMENTS (5% weight):
+   Score based on how well DoD specifies what evidence is needed.
+   100% = specific evidence requirements for each criterion
+   50% = mentions evidence for some criteria
+   0% = no mention of evidence or verification artifacts
+
+---
+END OF DOCUMENT

@@ -1,5 +1,0 @@
-Query Timestamp: 2026-05-27T15:57:47Z
-Team: ads-reporting-bigos-zurek
-Total Issues: 0
-
-No issues found matching criteria: status IN ("In progress", "Code review") AND issuetype IN (Story, Bug, Task)

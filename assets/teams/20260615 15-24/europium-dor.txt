@@ -1,0 +1,7 @@
+- Clear description of what needs to be done (user story or task description)
+- Acceptance criteria defined and testable
+- Estimated by the team (story points)
+- Dependencies identified and resolved or plan in place
+- Technical design reviewed (if needed)
+- Fits within a sprint
+- No unresolved blockers

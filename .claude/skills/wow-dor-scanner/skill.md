@@ -2,7 +2,8 @@
 name: wow-dor-scanner
 description: >
   Extract SRPOL team data, DoR - STORY/TASK criteria, and active Jira issues from the SRPOL Teams Confluence page.
-  Analyzes DoR compliance for each issue and generates Excel report with Summary sheet.
+  Analyzes DoR compliance for each issue and assesses DoR quality per team against industry and company standards.
+  Generates Excel report with Summary, DoR Compliance, and DoR quality sheets.
   Automatically scans the configured page. Requires Atlassian MCP. Usage: /wow-dor-scanner
 ---
 
@@ -36,21 +37,25 @@ https://adgear.atlassian.net/wiki/spaces/ENG/pages/19470090380/SRPOL+Teams
    - Binary compliance assessment: "Yes" (green) or "No" (red)
    - Provides feedback only for non-compliant issues explaining why DoR not met
    - Generates Excel report with 2 sheets: Summary (all teams overview) + DoR Compliance (9 columns: Team, Issue Key, Issue Type, URL, Title, Status, Assignee, DoR Compliance, Note)
-5. Saves all data to absolute path: `C:\Users\i.klyha\Desktop\Claude\wow-scanner-tool\assets\teams\<timestamp>/` where timestamp is in CET format: `YYYYMMDD HH-MM`
+5. Assesses DoR Quality:
+   - Evaluates quality of each team's DoR document against industry best practices (assets/dor-standard.txt) and company standard (Confluence page 21735179128)
+   - Scores each team 1-100% across 7 dimensions (coverage, clarity, measurability, company alignment, industry alignment, actionability, AC guidance)
+   - Adds "DoR quality" sheet to Report-DoR.xlsx with KPI, team scores, and specific improvement notes
+6. Saves all data to absolute path: `C:\Users\i.klyha\Desktop\Claude\wow-scanner-tool\assets\teams\<timestamp>/` where timestamp is in CET format: `YYYYMMDD HH-MM`
    - DoR files: `[team-name]-dor.txt`
    - Jira files: `[team-name]-jira.json` and `[team-name]-jira.txt`
    - Master file: `teams.json`
-   - DoR Analysis Report: `Report.xlsx`
+   - DoR Analysis Report: `Report-DoR.xlsx`
    - Analysis Summary: `DOR_ANALYSIS_SUMMARY.md`
 
 ## Instructions
 
-**CRITICAL - FULL AUTOMATION:** This skill must execute all 11 steps automatically without pausing or asking for user confirmation. The entire workflow from data extraction (Steps 1-10) to DoR analysis and Excel report generation (Step 11) should run continuously. Only stop execution if:
+**CRITICAL - FULL AUTOMATION:** This skill must execute all 12 steps automatically without pausing or asking for user confirmation. The entire workflow from data extraction (Steps 1-10) to DoR analysis (Step 11) to DoR quality assessment (Step 12) should run continuously. Only stop execution if:
 - Authentication fails (Step 2)
 - Critical errors occur that prevent continuation
 - Prerequisites are missing (e.g., no teams found)
 
-Do NOT pause between steps to ask for approval. Do NOT stop after Step 10. Proceed directly from Step 10 to Step 11 automatically.
+Do NOT pause between steps to ask for approval. Do NOT stop after Step 10 or Step 11. Proceed directly from Step 10 to Step 11 to Step 12 automatically.
 
 When invoked:
 
@@ -851,9 +856,9 @@ Proceeding to Step 11: DoR Compliance Analysis...
 
 After completing all extraction steps, analyze how well each Jira issue meets its team's DoR criteria and generate a comprehensive Excel report.
 
-**CRITICAL - FIXED REPORT FORMAT:** The Report.xlsx file MUST conform to the exact schema defined below. This format is MANDATORY and MUST NOT be changed, modified, or "improved" between skill executions.
+**CRITICAL - FIXED REPORT FORMAT:** The Report-DoR.xlsx file MUST conform to the exact schema defined below. This format is MANDATORY and MUST NOT be changed, modified, or "improved" between skill executions.
 
-#### Report.xlsx Schema Specification
+#### Report-DoR.xlsx Schema Specification
 
 **MANDATORY STRUCTURE:**
 
@@ -986,7 +991,7 @@ Place a short KPI summary at the very top of the sheet (above the table header):
 **NO SUMMARY ROWS:** Do not add total counts, statistics, or summary rows at bottom of "DoR Compliance" sheet
 
 **VALIDATION:**
-After generating Report.xlsx, verify:
+After generating Report-DoR.xlsx, verify:
 - Exactly 2 sheets: "Summary" (first) and "DoR Compliance" (second)
 - Summary sheet has KPI section (rows 1-2) + exactly 4 columns (A through D) starting at row 4
 - Summary sheet lists ALL teams from the SRPOL Teams page
@@ -1567,7 +1572,7 @@ for (const team of all_teams) {
 Use both `report_data` and `summary_data` arrays:
 ```bash
 cd "${OUTPUT_DIR}"
-python3 generate_report.py '${JSON.stringify(report_data)}' '${JSON.stringify(summary_data)}' 'Report.xlsx'
+python3 generate_report.py '${JSON.stringify(report_data)}' '${JSON.stringify(summary_data)}' 'Report-DoR.xlsx'
 ```
 
 **Step 4: Fallback to CSV if Python unavailable:**
@@ -1665,7 +1670,7 @@ ${teams_without_dor.map(t => `- ${t.name}`).join('\n')}
 
 ## Files Generated
 
-- **Report.xlsx** (or Report.csv) - Full compliance report
+- **Report-DoR.xlsx** (or Report.csv) - Full compliance report
 - **DOR_ANALYSIS_SUMMARY.md** - This summary document
 - **teams.json** - Updated with analysis metadata
 
@@ -1688,7 +1693,7 @@ ${teams_without_dor.map(t => `- ${t.name}`).join('\n')}
 
 ---
 
-**Report Location:** \`${OUTPUT_DIR}/Report.xlsx\`
+**Report Location:** \`${OUTPUT_DIR}/Report-DoR.xlsx\`
 ```
 
 **Helper function:**
@@ -1734,7 +1739,7 @@ teams_data.metadata.dor_analysis = {
   issues_meeting_dor: meeting_count,
   issues_not_meeting_dor: not_meeting_count,
   compliance_rate: total_analyzed > 0 ? (meeting_count / total_analyzed * 100).toFixed(1) : "0",
-  report_file: python_available ? "Report.xlsx" : "Report.csv",
+  report_file: python_available ? "Report-DoR.xlsx" : "Report.csv",
   summary_file: "DOR_ANALYSIS_SUMMARY.md",
   analysis_method: "llm_batched"
 }
@@ -1788,7 +1793,7 @@ Total Issues: ${total_analyzed}
   - Meeting DoR: ${meeting_count} (${(meeting_count/total_analyzed*100).toFixed(1)}%)
   - Not Meeting DoR: ${not_meeting_count} (${(not_meeting_count/total_analyzed*100).toFixed(1)}%)
 
-Report saved to: ${OUTPUT_DIR}/Report.xlsx
+Report saved to: ${OUTPUT_DIR}/Report-DoR.xlsx
 
 Summary saved to: ${OUTPUT_DIR}/DOR_ANALYSIS_SUMMARY.md
 
@@ -1801,7 +1806,7 @@ ${getTopGaps(teams_analyzed, 3).map((gap, i) =>
 ).join('\n')}
 
 Next steps:
-  1. Open Report.xlsx to review detailed findings
+  1. Open Report-DoR.xlsx to review detailed findings
   2. Address high-priority DoR gaps in your team
   3. Consider updating DoR criteria based on findings
 
@@ -1817,6 +1822,294 @@ Analysis duration: ${formatDuration(analysis_duration)}
 - Continue with partial results if some teams succeed
 - Log all errors to `DOR_ANALYSIS_ERRORS.log`
 
+### Step 12: DoR Quality Assessment (AUTO-EXECUTE after Step 11)
+
+**This step executes automatically after Step 11 completes.** Do not pause or ask for user confirmation. This step assesses the QUALITY of each team's Definition of Ready document itself (not issue compliance).
+
+#### Step 12.0: Load DoR Standard Reference
+
+Read the persistent DoR Standard reference document:
+```
+Read("C:\Users\i.klyha\Desktop\Claude\wow-scanner-tool\assets\dor-standard.txt")
+```
+
+If the file does not exist, output warning and skip Step 12 entirely:
+```
+[WARNING] DoR Standard document not found at assets/dor-standard.txt
+Skipping DoR Quality Assessment.
+```
+
+Store the content as `dor_standard_text` for use in Step 12.3.
+
+#### Step 12.1: Fetch Company DoR Standard
+
+Fetch the company's Definition of Ready page from Confluence:
+```
+mcp__plugin_atlassian_atlassian__getConfluencePage(
+  cloudId: "adgear.atlassian.net",
+  pageId: "21735179128",
+  contentFormat: "markdown"
+)
+```
+
+Parse the response to extract the company DoR text content. Store as `company_dor_text`.
+
+Save to `${OUTPUT_DIR}/company-dor-standard.txt` for traceability.
+
+If fetch fails, log warning but continue using only the industry standard:
+```
+[WARNING] Could not fetch company DoR page (21735179128). Using industry standard only.
+```
+
+#### Step 12.2: Identify Teams to Assess
+
+From the teams data collected in Steps 8-10, identify teams that have a defined DoR:
+```javascript
+const teams_to_assess = all_teams.filter(t => 
+  t.dorStatus === "found" || t.dor_source !== null
+)
+```
+
+Only teams with extracted DoR criteria (those with a `[team-name]-dor.txt` file) are assessed. Teams without DoR (e.g., ML Serving Sturgeons, SRE) are excluded.
+
+#### Step 12.3: Quality Assessment (LLM-Based)
+
+For EACH team with a defined DoR, evaluate quality using the following prompt structure. Process all teams in a single batched LLM call for efficiency:
+
+**Assessment Prompt:**
+```
+You are evaluating the quality of a team's Definition of Ready (DoR) document.
+
+INDUSTRY STANDARD (best practices reference):
+---
+${dor_standard_text}
+---
+
+COMPANY STANDARD (organizational DoR guidance):
+---
+${company_dor_text}
+---
+
+TEAM DoR TO ASSESS (Team: ${team_name}):
+---
+${team_dor_text}
+---
+
+Evaluate this team's DoR across 7 dimensions. Score each dimension 0-100:
+
+1. COVERAGE (weight: 25%): How many of these 10 essential areas are addressed?
+   - User Story/Requirement Clarity
+   - Acceptance Criteria
+   - Estimation/Sizing
+   - Dependencies Identified & Resolved
+   - Design/UX/Technical Spec (when applicable)
+   - Scope/Sprint Fit
+   - Risks/Blockers Identified
+   - Stakeholder Alignment/PO Approval
+   - Technical Feasibility Confirmed
+   - Testing Strategy/Approach
+   Score: (areas covered / 10) * 100
+
+2. CLARITY & SPECIFICITY (weight: 20%): Are criteria specific and unambiguous?
+   - 100 = every criterion is concrete, specific, verifiable
+   - 50 = mix of specific and vague criteria
+   - 0 = all criteria are generic/copy-paste
+
+3. MEASURABILITY (weight: 15%): Can each criterion be objectively verified (pass/fail)?
+   - 100 = all criteria have clear pass/fail checks
+   - 50 = some criteria are subjective
+   - 0 = criteria cannot be consistently evaluated
+
+4. COMPANY STANDARD ALIGNMENT (weight: 15%): Alignment with company DoR page
+   - Clearly defined acceptance criteria
+   - Dependencies identified and addressed
+   - Scope and priority established
+   - INVEST principles considered
+   Score based on how well the team DoR reflects these principles
+
+5. INDUSTRY BEST PRACTICES (weight: 10%): Adherence to INVEST, Scrum Guide, SAFe
+   - 100 = exemplifies industry best practices
+   - 50 = follows some practices
+   - 0 = contradicts established practices
+
+6. ACTIONABILITY (weight: 10%): Does DoR drive specific behaviors?
+   - 100 = clear ownership, workflow integration, consequences for not meeting DoR
+   - 50 = some actionable guidance
+   - 0 = passive checklist with no behavioral guidance
+
+7. AC GUIDANCE (weight: 5%): How well does DoR address acceptance criteria quality?
+   - 100 = specific format requirements, quality standards for AC
+   - 50 = mentions AC must exist
+   - 0 = no mention of AC quality or format
+
+RESPOND IN VALID JSON ONLY. Array of objects, one per team:
+[
+  {
+    "team": "Team Name",
+    "coverage": <0-100>,
+    "clarity": <0-100>,
+    "measurability": <0-100>,
+    "company_alignment": <0-100>,
+    "industry_alignment": <0-100>,
+    "actionability": <0-100>,
+    "ac_guidance": <0-100>,
+    "overall": <weighted average as integer>,
+    "note": "<short specific comment on main gaps/weaknesses, max 80 chars>"
+  }
+]
+
+The "note" field must be SHORT and SPECIFIC. Focus on what is MISSING or WEAK.
+Examples of good notes:
+- "Missing estimation criteria and risk identification"
+- "AC guidance too vague, no scope/sprint fit criterion"
+- "No testing strategy, dependencies not addressed"
+- "Strong coverage but criteria lack measurability"
+
+Do NOT include positive feedback in the note. Only gaps and weaknesses.
+If the DoR is excellent (score >= 90), note can be: "Comprehensive, minor gaps only"
+```
+
+**Parse the JSON response.** If parsing fails, retry once with explicit "RESPOND IN JSON ONLY" instruction.
+
+**Weighted Average Calculation:**
+```
+overall = round(
+  coverage * 0.25 +
+  clarity * 0.20 +
+  measurability * 0.15 +
+  company_alignment * 0.15 +
+  industry_alignment * 0.10 +
+  actionability * 0.10 +
+  ac_guidance * 0.05
+)
+```
+
+#### Step 12.4: Add "DoR quality" Sheet to Report-DoR.xlsx
+
+Use Python with openpyxl to open the existing Report-DoR.xlsx and add a third sheet:
+
+```python
+from openpyxl import load_workbook
+from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from openpyxl.utils import get_column_letter
+
+# Open EXISTING Report-DoR.xlsx (preserves Summary + DoR Compliance sheets)
+wb = load_workbook(f"{OUTPUT_DIR}/Report-DoR.xlsx")
+
+# Create new sheet
+ws = wb.create_sheet("DoR quality")
+
+# --- KPI Section (Row 1) ---
+ws.cell(1, 1).value = "DoR quality lvl"
+ws.cell(1, 1).font = Font(bold=True, size=11)
+ws.cell(1, 2).value = f"{average_quality}%"
+
+# Color-code KPI value
+if average_quality >= 70:
+    ws.cell(1, 2).font = Font(bold=True, size=11, color="006600")
+elif average_quality >= 40:
+    ws.cell(1, 2).font = Font(bold=True, size=11, color="CC6600")
+else:
+    ws.cell(1, 2).font = Font(bold=True, size=11, color="CC0000")
+
+# Row 2: empty separator
+
+# --- Table Header (Row 3) ---
+header_fill = PatternFill(start_color="366092", end_color="366092", fill_type="solid")
+header_font = Font(bold=True, color="FFFFFF", size=11)
+thin_border = Border(
+    left=Side(style='thin'), right=Side(style='thin'),
+    top=Side(style='thin'), bottom=Side(style='thin')
+)
+
+headers = [("Team", 25), ("Quality", 12), ("Note", 60)]
+for col, (header, width) in enumerate(headers, 1):
+    cell = ws.cell(3, col)
+    cell.value = header
+    cell.fill = header_fill
+    cell.font = header_font
+    cell.alignment = Alignment(horizontal='center', vertical='center')
+    cell.border = thin_border
+    ws.column_dimensions[get_column_letter(col)].width = width
+
+# --- Data Rows (Row 4+) ---
+green_fill = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
+orange_fill = PatternFill(start_color="FFF2CC", end_color="FFF2CC", fill_type="solid")
+red_fill = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
+
+# Sort results by quality score descending
+sorted_results = sorted(results, key=lambda x: x["overall"], reverse=True)
+
+for row_idx, result in enumerate(sorted_results, 4):
+    # Team name
+    ws.cell(row_idx, 1).value = result["team"]
+    ws.cell(row_idx, 1).border = thin_border
+
+    # Quality percentage
+    quality_cell = ws.cell(row_idx, 2)
+    quality_cell.value = f"{result['overall']}%"
+    quality_cell.border = thin_border
+    quality_cell.alignment = Alignment(horizontal='center')
+
+    # Conditional fill for quality
+    if result['overall'] >= 70:
+        quality_cell.fill = green_fill
+    elif result['overall'] >= 40:
+        quality_cell.fill = orange_fill
+    else:
+        quality_cell.fill = red_fill
+
+    # Note column
+    note_cell = ws.cell(row_idx, 3)
+    note_cell.value = result["note"]
+    note_cell.border = thin_border
+    note_cell.alignment = Alignment(wrap_text=True)
+
+# Freeze panes at row 4 (below header)
+ws.freeze_panes = 'A4'
+
+# Save (overwrites file, preserving all 3 sheets)
+wb.save(f"{OUTPUT_DIR}/Report-DoR.xlsx")
+```
+
+**CRITICAL:** Use `load_workbook()` (not `Workbook()`) to preserve existing sheets.
+
+**Fallback:** If openpyxl fails or Report-DoR.xlsx doesn't exist, create a standalone `DoR-Quality.csv` with the same data.
+
+#### Step 12.5: Report DoR Quality Assessment Completion
+
+Output final summary to console:
+
+```
+=== DoR Quality Assessment Complete ===
+
+Teams Assessed: ${teams_assessed_count}
+Average DoR Quality: ${average_quality}%
+
+Top Quality DoRs:
+  1. ${top1_team} - ${top1_score}%
+  2. ${top2_team} - ${top2_score}%
+  3. ${top3_team} - ${top3_score}%
+
+Needs Improvement:
+  1. ${bottom1_team} - ${bottom1_score}% (${bottom1_note})
+  2. ${bottom2_team} - ${bottom2_score}% (${bottom2_note})
+  3. ${bottom3_team} - ${bottom3_score}% (${bottom3_note})
+
+Results added to: ${OUTPUT_DIR}/Report-DoR.xlsx (sheet "DoR quality")
+
+Standards used:
+  - Industry: assets/dor-standard.txt
+  - Company: Confluence page 21735179128 (Definition of Ready DOR)
+```
+
+**Error handling for Step 12:**
+- If dor-standard.txt missing: skip entire Step 12 with warning
+- If company DoR page fetch fails: continue with industry standard only
+- If LLM evaluation fails: retry once, then mark team as "assessment_failed" with score 0
+- If Report-DoR.xlsx cannot be loaded: create standalone DoR-Quality.csv
+- If openpyxl unavailable: create standalone DoR-Quality.csv
+
 ## Error Handling
 
 - **Continue on error:** If one team page fails, continue with remaining teams
@@ -1827,12 +2120,13 @@ Analysis duration: ${formatDuration(analysis_duration)}
 - **Team pattern mismatch:** If fetched issues don't match team pattern, log warning but include issues in results (may indicate unassigned/shared issues)
 
 **Automation Rules:**
-- **Only stop for critical failures:** Continue execution through all 11 steps unless:
+- **Only stop for critical failures:** Continue execution through all 12 steps unless:
   - Authentication fails completely (Step 2)
   - No teams found in source page (Step 5)
   - Output directory cannot be created (Step 4)
 - **Do not stop for partial failures:** If some teams fail, continue with successful teams
 - **Automatic Step 11:** Execute Step 11 (DoR analysis) automatically after Step 10, even if Step 11 has no explicit user request
+- **Automatic Step 12:** Execute Step 12 (DoR quality assessment) automatically after Step 11 completes. Skip Step 12 only if assets/dor-standard.txt does not exist
 
 ## Tool Requirements
 
@@ -1913,11 +2207,20 @@ Optional tools:
    - Include Team field in query results for verification
    - Validate that returned issues match expected team pattern
 
-12. **Report.xlsx Fixed Schema:**
+12. **Report-DoR.xlsx Fixed Schema:**
    - EXACTLY 2 sheets: "Summary" (first) and "DoR Compliance" (second)
    - Summary sheet: KPI section (rows 1-2: "% Teams with DoR: X%", "% Jira Tasks fitting DoR: Y%") + table with 4 columns (Team, DoR, Jira Tasks in progress, % Tasks fitting DoR) starting at row 4 - lists ALL teams
    - DoR Compliance sheet: 9 columns (Team, Issue Key, Issue Type, URL, Title, Status, Assignee, DoR Compliance, Note)
    - DoR Compliance values: "Pass" (green) or "Fail" (red) ONLY
    - Note column: Empty for "Pass", explanation for "Fail"
-   - No additional sheets beyond these two, no additional columns or summary rows
+   - No additional columns or summary rows in these two sheets
    - Format specification in Step 11 is MANDATORY and immutable
+   - Step 12 adds a THIRD sheet "DoR quality" (does not modify the first two sheets)
+
+13. **DoR Quality Assessment (Step 12):**
+   - Only assesses teams that have defined DoR (excludes teams with dor_source = null)
+   - Uses BOTH industry standard (assets/dor-standard.txt) AND company standard (Confluence page 21735179128)
+   - Quality score is 1-100% integer per team
+   - Added as 3rd sheet to existing Report-DoR.xlsx (does NOT modify Summary or DoR Compliance sheets)
+   - Sheet format: KPI row ("DoR quality lvl" + average %), empty row, table (Team | Quality | Note)
+   - "Note" column contains short, specific feedback on what is missing/weak in team's DoR

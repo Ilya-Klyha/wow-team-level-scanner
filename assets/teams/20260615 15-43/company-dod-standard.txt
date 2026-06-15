@@ -1,0 +1,11 @@
+Company Definition of Done (DoD) Standard
+Source: https://adgear.atlassian.net/wiki/spaces/AGILE/pages/21735212005/Definition+of+Done+DoD
+Fetched: 2026-06-15
+
+The DoD answers: Can we close this work with confidence?
+Key principles:
+- Consistent bar for completeness
+- Builds trust inside and outside the team
+- Reduces hidden work and rework
+- Multi-level: task, story, feature/release
+- Visible, achievable, evolutionary

@@ -1,0 +1,7 @@
+- User story or requirement documented clearly
+- Acceptance criteria provided in testable format
+- Story estimated (story points)
+- Dependencies identified and addressed
+- Technical approach reviewed
+- Fits in sprint
+- PO approved
