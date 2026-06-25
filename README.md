@@ -241,3 +241,5 @@ For issues or questions:
 - Check the Troubleshooting section above
 - Review the tool logs in Claude Code output
 - Verify Confluence page structure matches expected format
+#   w o w - t e a m - l e v e l - s c a n n e r  
+ 
