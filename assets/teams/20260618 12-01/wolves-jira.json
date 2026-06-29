@@ -1,0 +1,14 @@
+{
+  "team": "Wolves",
+  "extractedAt": "2026-06-18T12:01:00+02:00",
+  "query": {
+    "queryType": "project",
+    "teamFilterEnabled": true
+  },
+  "summary": {
+    "total": 0,
+    "byStatus": {},
+    "byType": {}
+  },
+  "issues": []
+}

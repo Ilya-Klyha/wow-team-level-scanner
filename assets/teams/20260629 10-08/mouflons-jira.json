@@ -1,0 +1,22 @@
+{
+  "query": {
+    "jql": "project = PEPI AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "project": "PEPI",
+    "team": "Mouflons",
+    "scan_date": "2026-06-29"
+  },
+  "issues": [
+    {
+      "key": "PEPI-11393",
+      "summary": "Analyze preliminary result of A/B tests of MC EE models",
+      "status": "In Development",
+      "issuetype": "Task",
+      "assignee": "Marek Kochańczyk",
+      "priority": "Medium",
+      "created": "2026-03-16T09:01:26.302-0400",
+      "updated": "2026-03-31T05:58:34.172-0400",
+      "team": "AS - WAW - Mouflons"
+    }
+  ],
+  "total": 1
+}

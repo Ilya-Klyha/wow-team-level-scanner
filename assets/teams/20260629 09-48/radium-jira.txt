@@ -1,0 +1,90 @@
+TEAM: Radium
+PROJECT: AENW
+BOARD: https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8976
+TOTAL ISSUES: 12
+
+======================================================================
+
+[1] AENW-1061 - Story
+    Title: Many time consuming additional ad-hoc meetings not related to existing tasks in Sprint [MarcinA]
+    Status: In Progress
+    Assignee: Marcin Al-Jawahiri
+    URL: https://adgear.atlassian.net/browse/AENW-1061
+    Has Description: Yes
+
+[2] AENW-1040 - Story
+    Title: [SW Test Pro - solution] Marcin Al-Jawahiri
+    Status: In Progress
+    Assignee: Marcin Al-Jawahiri
+    URL: https://adgear.atlassian.net/browse/AENW-1040
+    Has Description: Yes
+
+[3] AENW-1036 - Story
+    Title: Changes in DA - outcome task of AENW-1016
+    Status: In Progress
+    Assignee: Krzysztof Urbański
+    URL: https://adgear.atlassian.net/browse/AENW-1036
+    Has Description: Yes
+
+[4] AENW-1035 - Story
+    Title: Changes in rtb-bidder - outcome task of AENW-1016
+    Status: In Progress
+    Assignee: Krzysztof Urbański
+    URL: https://adgear.atlassian.net/browse/AENW-1035
+    Has Description: Yes
+
+[5] AENW-1015 - Story
+    Title: Prepare env for RoR training dev (including DSP)
+    Status: In Progress
+    Assignee: Marcin Al-Jawahiri
+    URL: https://adgear.atlassian.net/browse/AENW-1015
+    Has Description: Yes
+
+[6] AENW-943 - Story
+    Title: [Retro Action Item] Establish Reporting workforce
+    Status: In Progress
+    Assignee: Patryk Palyska
+    URL: https://adgear.atlassian.net/browse/AENW-943
+    Has Description: Yes
+
+[7] AENW-913 - Task
+    Title: [Training] Ruby udemy training - Prepare to 13-17 July
+    Status: In Progress
+    Assignee: Marcin Al-Jawahiri
+    URL: https://adgear.atlassian.net/browse/AENW-913
+    Has Description: No
+
+[8] AENW-910 - Task
+    Title: [Training] Ruby udemy training - Prepare to 13-17 July 
+    Status: In Progress
+    Assignee: Marcin Matyszkowicz
+    URL: https://adgear.atlassian.net/browse/AENW-910
+    Has Description: No
+
+[9] AENW-907 - Task
+    Title: Spike: Investigate ad serving pipeline for Samsung TV+
+    Status: In Progress
+    Assignee: Krzysztof Urbański
+    URL: https://adgear.atlassian.net/browse/AENW-907
+    Has Description: Yes
+
+[10] AENW-906 - Task
+    Title: Deliver TVs to Cracow 
+    Status: In Progress
+    Assignee: Patryk Palyska
+    URL: https://adgear.atlassian.net/browse/AENW-906
+    Has Description: No
+
+[11] AENW-796 - Story
+    Title: [DSP-UI] Remove FF after E2E tests
+    Status: Code Review
+    Assignee: Unassigned
+    URL: https://adgear.atlassian.net/browse/AENW-796
+    Has Description: No
+
+[12] AENW-127 - Story
+    Title: [DSP-UI] Add new click action "QR Code Microsite"
+    Status: In Progress
+    Assignee: Unassigned
+    URL: https://adgear.atlassian.net/browse/AENW-127
+    Has Description: Yes

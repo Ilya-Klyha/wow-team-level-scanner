@@ -1,0 +1,88 @@
+{
+  "team": "Europium",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8979",
+  "boardId": "8979",
+  "projectKey": "AENW",
+  "extractedAt": "2026-06-29T07:56:14Z",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = AENW AND status in (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype in (Story, Bug, Task)",
+    "filterMethod": "client-side customfield_10114.name exact match",
+    "teamFieldValue": "AP - WAW - Europium"
+  },
+  "summary": {
+    "totalIssues": 7,
+    "byType": {
+      "Story": 7
+    },
+    "byStatus": {
+      "In Progress": 5,
+      "Code Review": 2
+    }
+  },
+  "issues": [
+    {
+      "key": "AENW-1047",
+      "summary": "[CP Improvements] Hide Right Align CTA Switch Behind Feature Flag",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Karol Strojek",
+      "url": "https://adgear.atlassian.net/browse/AENW-1047",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-1032",
+      "summary": "[CP Improvements] Creative Preview 2026 Unified First Screen — Design Fixes",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Karol Strojek",
+      "url": "https://adgear.atlassian.net/browse/AENW-1032",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-968",
+      "summary": "vertica-rollups - add fields metrics table",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Raman Krot",
+      "url": "https://adgear.atlassian.net/browse/AENW-968",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-966",
+      "summary": "adgear-data - add new fields to avro",
+      "issueType": "Story",
+      "status": "Code Review",
+      "assignee": "Raman Krot",
+      "url": "https://adgear.atlassian.net/browse/AENW-966",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-872",
+      "summary": "[Microsite UCS] Implement microstie pre-transcoding pipeline and background image processing",
+      "issueType": "Story",
+      "status": "Code Review",
+      "assignee": "Michał Wiącek",
+      "url": "https://adgear.atlassian.net/browse/AENW-872",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-685",
+      "summary": "[Micoristes P2] Create Micro Frontend",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Karol Strojek",
+      "url": "https://adgear.atlassian.net/browse/AENW-685",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-605",
+      "summary": "[Microsite p2] Videos Section",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Grzegorz Prasal",
+      "url": "https://adgear.atlassian.net/browse/AENW-605",
+      "hasDescription": true
+    }
+  ]
+}

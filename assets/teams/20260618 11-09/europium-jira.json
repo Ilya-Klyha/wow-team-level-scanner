@@ -1,0 +1,51 @@
+{
+  "team": "Europium",
+  "query_date": "2026-06-18",
+  "issue_count": 4,
+  "issues": [
+    {
+      "key": "AENW-1032",
+      "summary": "[CP Improvements] Creative Preview 2026 Unified First Screen — Design Fixes",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Karol Strojek",
+      "priority": "Medium",
+      "description": "## Summary\n\nConfigure alerting rules for microsite frontend health metrics. Alerts should notify the team when error rates spike, page loads are consistently slow, or video playback is degraded — enabling proactive response before campaigns are impacted.\n\n## Context\n\n* Metrics flow: TV → metrics.js → telemetry endpoint → Kafka → metrics store → Grafana/Alertmanager\n* Alerts should fire to Slack (non-critical) and PagerDuty (critical, if SLA-impacting)\n* Microsites serve ads on Samsung TVs — a broken microsite = lost revenue + bad advertiser experience\n* Reference dashboard: \"Microsite Frontend Health\" (separate task)\n\n## Acceptance Criteria\n\n### Critical Alerts (Slack + PagerDuty)\n\n* \\[ \\] **High error rate**: JS error rate > 10% of page loads over 15min window\n* \\[ \\] **Video playback failure**: Video error rate > 5% over 15min window\n* \\[ \\] **Complete outage**: Zero metrics received for > 10min (when expected traffic > 0)\n\n## Context\n\nThe `Immersive Masthead 2026` preview in Creative Preview tool has several visual discrepancies compared to the updated design spec.\n\n**Component:** `immersive-masthead-2026-preview.tsx`\n\n## Issues to Fix\n\n### 1. Gradient is too strong and behaves incorrectly\n\n* Current: `bottom-dim.png` and `left-dim.png` overlays are too intense\n* Expected: Subtler gradient that matches the updated Figma design\n* The gradient should transition/animate differently during fullscreen expansion\n\n**Files:** `BottomDim`, `LeftDim` styled components + asset PNGs (`bottom-dim.png`, `left-dim.png`)\n\n### 2. Missing blur on top section selector\n\n* Current: `top-menu-focus.png` has no blur effect\n* Expected: Blur/frosted glass effect on the top section selector when focused\n\n**Files:** `TopMenuImage` component, possibly needs CSS `backdrop-filter: blur()` or updated asset (`top-menu-focus.png`)\n\n### 3. Incorrect apps displayed\n\n* Current: `apps.png` shows outdated set of applications\n* Expected: Updated app icons matching the 2026 design (new apps lineup)\n\n**Files:** `apps.png` asset needs replacement\n\n### 4. Incorrect background color\n\n* Current: `background-2026.png` has wrong color tone\n* Expected: Updated background color per design spec\n\n**Files:** `background-2026.png` (and possibly `background-2026-expanded.png`) need replacement\n\n## Acceptance Criteria\n\n* \\[ \\] Gradient overlays match Figma design — correct opacity, direction, and animation behavior\n* \\[ \\] Top section selector has blur/frosted glass effect when focused\n* \\[ \\] Apps row shows correct 2026 app lineup\n* \\[ \\] Background color matches design spec\n* \\[ \\] All states work correctly: default view, focused (top section selected), fullscreen expanded, fullscreen video play\n\n## Technical Notes\n\n* Assets to update: `bottom-dim.png`, `left-dim.png`, `top-menu-focus.png`, `apps.png`, `background-2026.png`, `background-2026-expanded.png`\n* May need CSS changes for blur effect (`backdrop-filter`) instead of/in addition to asset replacement\n* Gradient behavior during transitions controlled by styled-components props: `$isFullScreen`, `$fullScreenExpanded`\n\n",
+      "team_field": "AP - WAW - Europium",
+      "url": "https://adgear.atlassian.net/browse/AENW-1032"
+    },
+    {
+      "key": "AENW-874",
+      "summary": "[Microsite UCS] Kafka consumer processor for microsite transcoding callbacks",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Michał Wiącek",
+      "priority": "Medium",
+      "description": "### Description\n\nAdd a new processor `Microsites::Ucs::TranscodingProcessor` to handle UCS transcoding callbacks for microsites on the existing Kafka topic (`sdsp.ucs.stream`).\n\n### Acceptance Criteria\n\n* `Microsites::Ucs::TranscodingProcessor` registered in `MessageProcessor::PROCESSORS` under key `microsite_video`\n* On `status: \"transcoded\"`: saves video variants to `MicrositeVideo.variants` (jsonb), extracts poster frame URL, transitions `processing_status` to `:ready`\n* On `status: \"error\"`: transitions `MicrositeVideo.processing_status` to `:failed`, microsite to `:partially_failed`\n* When ALL microsite videos are `:ready` → microsite `processing_status` → `:ready`\n* When ANY microsite video is `:failed` → microsite `processing_status` → `:partially_failed`\n* Triggers HTML generation task when microsite reaches `:ready`\n* Handles `RecordNotFound` gracefully (logs warning, skips)\n* Migration: `add_column :microsite_videos, :poster_frame_url, :string`\n* Unit tests\n\n### Technical Notes\n\n* Correlation: `MicrositeVideo.find_by(video_asset_id: msg['original_asset_id'])`\n* Kafka message (after `deep_transform_keys(&:underscore)`):\n\n    ```\n    {\n      \"ad_tag_id\": \"...\",\n      \"status\": \"transcoded\",\n      \"original_asset_id\": \"{asset_id}\",\n      \"ad_type\": \"microsite_video\",\n      \"metadata\": { \"data\": [\n        { \"url\": \"...\", \"width\": 1920, \"height\": 1080, \"video_bit_rate\": 5400, \"asset_type\": \"video\" },\n        { \"url\": \"...\", \"asset_type\": \"Image\" }\n      ]}\n    }\n    ```\n\n",
+      "team_field": "AP - WAW - Europium",
+      "url": "https://adgear.atlassian.net/browse/AENW-874"
+    },
+    {
+      "key": "AENW-685",
+      "summary": "[Micoristes P2] Create Micro Frontend",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Karol Strojek",
+      "priority": "Medium",
+      "description": "## BUSINESS IMPACT\n\nThe Microsite section currently lives inside the DSP shell (`rtb-trader/ui/dsp/src/pages/microsites/`). As the feature grows in complexity (form builder, preview panel, listing, backend integration, asset uploads), keeping it in the DSP shell creates deployment coupling — any microsite change requires a full DSP shell deploy, and vice versa. Extracting microsites into their own micro frontend (MFE) enables independent deployments, faster CI/CD, smaller bundle sizes, and team autonomy — matching the established pattern used by `creatives-management`, `planning`, `sellers-ui`, `supply`, and `targeting` realms.\n\n## USER STORY\n\nAs a developer working on the Microsite feature, I want the microsite UI to be a standalone micro frontend with its own build, deploy, and hosting infrastructure, so that I can develop and deploy microsite changes independently without coupling to the DSP shell release cycle.\n\n## ACCEPTANCE CRITERIA\n\n* New workspace `rtb-trader/ui/microsites-management/` created in the monorepo\n* Module Federation configured — exposes `remoteEntry.js` with microsite routes\n* DSP shell (`rtb-trader/ui/dsp`) consumes the new MFE as a remote\n* All needed pages/components migrated from `rtb-trader/ui/dsp/src/pages/microsites/` to the new workspace\n* Independent build and dev server works (`pnpm dev` in the new workspace)\n* GHA workflow for deploying to S3 (staging + prod)\n* Terraform configuration in `module-federation-ui-tf` for the new realm (S3 + CloudFront + WAF)\n\n",
+      "team_field": "AP - WAW - Europium",
+      "url": "https://adgear.atlassian.net/browse/AENW-685"
+    },
+    {
+      "key": "AENW-605",
+      "summary": "[Microsite p2] Videos Section",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Grzegorz Prasal",
+      "priority": "Medium",
+      "description": "## BUSINESS IMPACT\n\nVideo is the highest-engagement creative format on Samsung TV. Microsites with video content see significantly higher dwell time and interaction rates compared to static-only microsites. This section allows advertisers to add up to 3 auto-playing videos in a loop, configure third-party video tracking (quartile progress events), and add click trackers — all essential for campaign measurement and optimization. Without proper video tracking, advertisers cannot measure video completion rates, which is a standard industry requirement.\n\n## USER STORY\n\nAs a user creating a microsite with video, I want to upload up to 3 videos that auto-play in a loop, configure click trackers, and select which video progress events to track (start, quartiles, complete), so that I can create an engaging video experience with full measurement coverage.\n\n## ACCEPTANCE CRITERIA\n\n### Section Shell & Tabs\n\n* Collapsible \"Videos\" section (visible only when Video toggle is ON)\n* Header: \"The videos will auto-play in order in a loop. You can add up to **3** videos.\"\n* Tab bar: \"1st Video\" active by default, \"+ Video\" button to add tabs (max 3)\n* Tabs labeled: \"1st Video\", \"2nd Video\", \"3rd Video\"\n* Each tab (except last remaining) can be removed\n* Switching tabs shows the corresponding video form\n\n### Single Video Form\n\n* **Video File** — radio group with help icon (?):\n\n    * ● Upload Hosted Video (default) → drag-and-drop area (MP4, MOV)\n    * ○ Upload VAST URL → text input\n    \n* **Video thumbnail** — info banner: \"Video thumbnail available only when 2 or more videos selected.\"\n* **Impression Tracker** — dynamic list with \"+ Add\" button, each with text input + ✕ remove\n\n### Video Third Party Trackers\n\n* Checkbox group under \"PROGRESS\" label:\n\n    * Select All, Start, First quartile, Midpoint, Third quartile, Complete\n    \n* \"Select All\" toggles all checkboxes\n* Checked items appear as removable tags/chips below\n\n",
+      "team_field": "AP - WAW - Europium",
+      "url": "https://adgear.atlassian.net/browse/AENW-605"
+    }
+  ]
+}

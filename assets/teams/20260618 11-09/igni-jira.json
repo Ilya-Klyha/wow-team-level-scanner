@@ -1,0 +1,62 @@
+{
+  "team": "Igni",
+  "query_date": "2026-06-18",
+  "issue_count": 5,
+  "issues": [
+    {
+      "key": "ASPW-1115",
+      "summary": "Update consumerd runbook",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Paweł Kwietniewski",
+      "priority": "Medium",
+      "description": "Current document:\n\n<custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/wiki/spaces/ENG/pages/22238068883/RTB-Bidder+deployment+procedure?atlOrigin=eyJpIjoiYmIwNmViYTI1YjhjNDgwOWE3MDYyN2M4M2E5NTY4ZGMiLCJwIjoiY29uZmx1ZW5jZS1jaGF0cy1pbnQifQ</custom>   \n  \nAC:\n\n* verify above document by running consumerd release\n* if any problems arise during releae procedure, fix them in the document\n\n",
+      "team_field": "AP - WAW - Igni",
+      "url": "https://adgear.atlassian.net/browse/ASPW-1115"
+    },
+    {
+      "key": "ASPW-689",
+      "summary": "CCPA - Transition of Metadata from Erlang Based Implementation to Golang BERT Encoder",
+      "status": "Code Review",
+      "issuetype": "Story",
+      "assignee": "Franciszek Strzeżek",
+      "priority": "Medium",
+      "description": "At Present below given metadata take significant time in execution  \n**CCPA** - 16 minutes  \nWe want to extend golang bert encoder for these object types to optimize the time in execution",
+      "team_field": "AP - WAW - Igni",
+      "url": "https://adgear.atlassian.net/browse/ASPW-689"
+    },
+    {
+      "key": "ASPW-637",
+      "summary": "consumerd ready file logic is broken ",
+      "status": "In Progress",
+      "issuetype": "Bug",
+      "assignee": "Adam Doliński",
+      "priority": "Medium",
+      "description": "_As a_ platform engineer, _I want_ to investigate why the `deployed_at` file is created before all required files are downloaded and ready to serve, _so that_ dependent services (e.g. RTB Bidder) do not start with incomplete data.\n\n## Business Context\n\nConsumer Daemon can create the `deployed_at` marker file even though some files failed to download. Dependent services use this marker as a readiness signal and begin their startup process — which then fails because required files are missing. This applies to both sidecar and DaemonSet deployment modes.\n\nThe issue was observed in RTB Bidder, where the bidder started and failed due to missing GeoIP files, entering a retry loop until ConsumerD's next scheduled poll cycle downloaded the missing file. This causes unnecessary startup delays and error noise, and may affect any consumer relying on the `deployed_at` signal.\n\nGeoIP files are not checked, because they are not listed in an explict way. Only their folder is listed. The contents of this folder is not checked. Additional checks need to be added for the contents of such folders.\n\n## Acceptance Criteria\n\n* Root cause identified: determine why the freshness/existence checks in `WriteMetaDataGenerationFile` do not prevent `deployed_at` creation when a download has failed\n* Document which specific condition is not covered (missing file, stale file, or file in a config section not checked)\n* Propose a fix that ensures `deployed_at` is only written when ALL configured files and folders are present and fresh\n* Verify with unit tests that the fix does not introduce false negatives\n\n",
+      "team_field": "AP - WAW - Igni",
+      "url": "https://adgear.atlassian.net/browse/ASPW-637"
+    },
+    {
+      "key": "ASPW-560",
+      "summary": "Knowledge Transfer session about rewriting objects to new native Golang encoder",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Franciszek Strzeżek",
+      "priority": "Medium",
+      "description": "Overview of new solution.\n\nSolution Diagram.\n\nHow to implement new type.\n\nHow to test new implementation.\n\nHow to deploy.",
+      "team_field": "AP - WAW - Igni",
+      "url": "https://adgear.atlassian.net/browse/ASPW-560"
+    },
+    {
+      "key": "ASPW-6",
+      "summary": "Data Activation - consumerd pod takes 5-10 minutes, need to optimize",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Paweł Kwietniewski",
+      "priority": "Medium",
+      "description": "## Task Description\n\n_As a_ engineer, _I want_ Consumer Daemon to manage S3 connections efficiently and minimize resource usage during file downloads _so that_ pods operate with stable resource consumption, connections are reused across poll cycles, and data delivery throughput is maximized.\n\n## Business Context\n\nConsumer Daemon downloads \\~45 bert2.gz files from S3 every 5 minutes. Current implementation has several inefficiencies:\n\n* Connections are dropped between poll cycles — reuse rate averages \\~62% (range 47-87%)\n* Files are downloaded entirely into RAM before being written to disk\n* Downloads are sequential — connection pool capacity is underutilized\n* S3 Downloader is recreated per file with potentially suboptimal parameters\n\nUse the Grafana dashboard to monitor connection behavior before and after each change:  \n[https://grafana.int.adgear.com/d/s3-mrap-connections-gatex/s3-mrap-and-connection-metrics?orgId=1&refresh=30s&from=now-24h&to=now](https://grafana.int.adgear.com/d/s3-mrap-connections-gatex/s3-mrap-and-connection-metrics?orgId=1&refresh=30s&from=now-24h&to=now)\n\n## Subtasks (in order of execution)\n\n1. **Connection pool configuration:** Increase IdleConnTimeout and MaxIdleConns so connections survive between poll cycles\n2. **Stream downloads to disk:** Eliminate RAM buffering by downloading directly to temporary files\n3. **Downloader tuning:** Reuse Downloader instance, optimize partsize and concurrency parameters\n4. **Parallel file downloads:** Download multiple files concurrently (only after C proves RAM reduction and D informs concurrency limits)\n\n## Acceptance Criteria\n\n* Connection reuse rate > 90% (Subtask A)\n* Pod memory usage reduced and decoupled from file sizes (Subtask C)\n* Download cycle time reduced (Subtasks B + D)\n* No regression in data freshness `deployed_at`  file continues to be generated on time)\n* All new parameters are configurable via YAML config\n* Each subtask is deployed and validated independently via metrics\n\n---\n\n## Old, stale description\n\nAs a deployer, I want to optimize the process of creating and running ConsumerD during the RTB-Bidder/RTB Gateway deployment, reducing it from the current 10-15 minutes to 3-5 minutes, in order to enable faster response to errors during the deployment process.\n\nAcceptance Criteria:\n\n* Identification and potential optimization of the pod startup process\n* Analysis of the ConsumerD deployment methods (SideCar vs DaemonSet vs ...)\n\nContact Point:\n\n* <custom data-type=\"mention\" data-id=\"id-0\">@ADITI BHATT</custom> \n\nSubtasks:\n\n* Identify files that load significantly longer than others\n* Identify potential errors during pod creation causing pod restarts\n* Explore ways to optimize the pod creation process with ConsumerD. Implement these optimizations if possible\n\n",
+      "team_field": "AP - WAW - Igni",
+      "url": "https://adgear.atlassian.net/browse/ASPW-6"
+    }
+  ]
+}

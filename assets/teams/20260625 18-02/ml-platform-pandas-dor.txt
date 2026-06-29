@@ -1,0 +1,17 @@
+Task subject
+Task subject is descriptive and unique.
+
+User Story/Requirement Clarity
+Clear user story context understandable for team members. Task reporter may suggest solutions in some occasions.
+
+Acceptance Criteria
+Specific and testable acceptance criteria.
+
+Estimates Provided
+Team has to provide realistic estimate of ticket. While estimation teams takes into consideration:
+- complexity
+- Uncertainty
+- Effort
+
+Dependencies
+Requirements from external teams/repo owners regarding development when needed. All dependencies are set in Jira ticket.

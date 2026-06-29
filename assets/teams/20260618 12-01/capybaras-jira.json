@@ -1,0 +1,29 @@
+{
+  "team": "Capybaras",
+  "extractedAt": "2026-06-18T12:01:00+02:00",
+  "query": {
+    "queryType": "project",
+    "teamFilterEnabled": true
+  },
+  "summary": {
+    "total": 1,
+    "byStatus": {
+      "In Progress": 1
+    },
+    "byType": {
+      "Task": 1
+    }
+  },
+  "issues": [
+    {
+      "key": "RSW-1306",
+      "type": "Task",
+      "summary": "[AU] E2E Segment Generation Validation - Pipeline Trigger & Size Consistency on PROD",
+      "status": "In Progress",
+      "assignee": "Tomasz Zarod",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/RSW-1306",
+      "description": "End-to-end segment generation validation task. Validate pipeline trigger and size consistency on production."
+    }
+  ]
+}

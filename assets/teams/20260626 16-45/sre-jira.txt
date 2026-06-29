@@ -1,0 +1,11 @@
+Team: SRE
+Project: EEEW
+Extracted: 2026-06-26T15:03:00.897132Z
+
+=== ACTIVE ISSUES (2 total) ===
+
+--- Code Review (2) ---
+[EEEW-338] Story: AI skill for managing AWS IAM
+  Assignee: Akif Burak Yildirim | https://adgear.atlassian.net/browse/EEEW-338
+[EEEW-337] Story: AI skill for provisioning AWS S3 buckets
+  Assignee: Akif Burak Yildirim | https://adgear.atlassian.net/browse/EEEW-337

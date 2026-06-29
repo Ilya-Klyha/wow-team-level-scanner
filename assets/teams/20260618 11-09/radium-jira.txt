@@ -1,0 +1,50 @@
+JIRA ACTIVE ISSUES - Radium
+============================================================
+Query Date: 2026-06-18
+Total Issues: 11
+============================================================
+
+[AENW-1042] [Ad Response Generator] Verify/Add support for Spotlight Row and Beacon ad units
+  Type: Story | Status: In Progress | Assignee: Krzysztof Urbański
+  URL: https://adgear.atlassian.net/browse/AENW-1042
+
+[AENW-1040] [SW Test Pro - solution] Marcin Al-Jawahiri
+  Type: Story | Status: In Progress | Assignee: Marcin Al-Jawahiri
+  URL: https://adgear.atlassian.net/browse/AENW-1040
+
+[AENW-1036] Changes in DA - outcome task of AENW-1016
+  Type: Story | Status: In Progress | Assignee: Marcin Al-Jawahiri
+  URL: https://adgear.atlassian.net/browse/AENW-1036
+
+[AENW-1016] Investigate why tiles with microsite are not pushed to TV
+  Type: Story | Status: In Progress | Assignee: Marcin Matyszkowicz
+  URL: https://adgear.atlassian.net/browse/AENW-1016
+
+[AENW-957] [DSP-ruby] change MAX immersion image file size
+  Type: Bug | Status: Code Review | Assignee: Jakub Anioł
+  URL: https://adgear.atlassian.net/browse/AENW-957
+
+[AENW-913] [Training] Ruby udemy training - Prepare to 13-17 July
+  Type: Task | Status: In Progress | Assignee: Marcin Al-Jawahiri
+  URL: https://adgear.atlassian.net/browse/AENW-913
+
+[AENW-907] Spike: Investigate ad serving pipeline for Samsung TV+
+  Type: Task | Status: In Progress | Assignee: Krzysztof Urbański
+  URL: https://adgear.atlassian.net/browse/AENW-907
+
+[AENW-906] Deliver TVs to Cracow 
+  Type: Task | Status: In Progress | Assignee: Patryk Palyska
+  URL: https://adgear.atlassian.net/browse/AENW-906
+
+[AENW-796] [DSP-UI] Remove FF after E2E tests
+  Type: Story | Status: Code Review | Assignee: Unassigned
+  URL: https://adgear.atlassian.net/browse/AENW-796
+
+[AENW-767] [DSP-JS] Adding a new click action type "click-to-email" on the UI side
+  Type: Task | Status: In Progress | Assignee: Jakub Anioł
+  URL: https://adgear.atlassian.net/browse/AENW-767
+
+[AENW-127] [DSP-UI] Add new click action "QR Code Microsite"
+  Type: Story | Status: In Progress | Assignee: Unassigned
+  URL: https://adgear.atlassian.net/browse/AENW-127
+

@@ -1,0 +1,3 @@
+Team: SRE
+JQL: Team = "T - WAW - Embedded SREs SRPOL" AND statusCategory = "In Progress" AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task
+Results: 0 issues

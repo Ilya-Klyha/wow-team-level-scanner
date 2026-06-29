@@ -1,0 +1,97 @@
+TEAM: EP Core
+PROJECT: EPCW
+BOARD: https://adgear.atlassian.net/jira/software/c/projects/EPCW/boards/10972
+TOTAL ISSUES: 13
+
+======================================================================
+
+[1] EPCW-382 - Bug
+    Title: GitHub runners 24.04 build is failing
+    Status: In Progress
+    Assignee: Stanisław Cabała
+    URL: https://adgear.atlassian.net/browse/EPCW-382
+    Has Description: Yes
+
+[2] EPCW-377 - Task
+    Title: Test the fully removal of NGINX Ingress Controller in eks-use1-sandbox
+    Status: In Progress
+    Assignee: Juan Antonio Costa Bermudo
+    URL: https://adgear.atlassian.net/browse/EPCW-377
+    Has Description: Yes
+
+[3] EPCW-375 - Task
+    Title: Productionize Traefik configuration for EKS
+    Status: Code Review
+    Assignee: Juan Antonio Costa Bermudo
+    URL: https://adgear.atlassian.net/browse/EPCW-375
+    Has Description: Yes
+
+[4] EPCW-360 - Task
+    Title: Update external actions on ep-core workflows (Beginning of June)
+    Status: Code Review
+    Assignee: Bartosz Brodecki
+    URL: https://adgear.atlassian.net/browse/EPCW-360
+    Has Description: Yes
+
+[5] EPCW-308 - Task
+    Title: Fix packer-recipes pipelines - bastion host terminated during SRE cleanup
+    Status: In Progress
+    Assignee: Bartosz Brodecki
+    URL: https://adgear.atlassian.net/browse/EPCW-308
+    Has Description: Yes
+
+[6] EPCW-304 - Task
+    Title: Eliminate workload restart requirement during RKE1 recovery
+    Status: In Progress
+    Assignee: Dariusz Nejbauer
+    URL: https://adgear.atlassian.net/browse/EPCW-304
+    Has Description: Yes
+
+[7] EPCW-300 - Task
+    Title: Upgrade Grafana PROD to 12.4
+    Status: In Progress
+    Assignee: Michal Mankowski
+    URL: https://adgear.atlassian.net/browse/EPCW-300
+    Has Description: Yes
+
+[8] EPCW-279 - Task
+    Title: Create JFrog PrivateLink VPC Endpoints across all VPCs
+    Status: In Progress
+    Assignee: Pagalavan
+    URL: https://adgear.atlassian.net/browse/EPCW-279
+    Has Description: Yes
+
+[9] EPCW-276 - Task
+    Title: Fix ArgoCD cluster wide permissions on CRDs
+    Status: Code Review
+    Assignee: Stanisław Cabała
+    URL: https://adgear.atlassian.net/browse/EPCW-276
+    Has Description: Yes
+
+[10] EPCW-273 - Task
+    Title: Remove SonarQube STG from use1-rdev
+    Status: In Progress
+    Assignee: Nitish Yadav
+    URL: https://adgear.atlassian.net/browse/EPCW-273
+    Has Description: Yes
+
+[11] EPCW-171 - Task
+    Title: Force top 5 tenants to create cleanup mechanism for their docker images
+    Status: In Progress
+    Assignee: Michal Mankowski
+    URL: https://adgear.atlassian.net/browse/EPCW-171
+    Has Description: Yes
+
+[12] EPCW-148 - Bug
+    Title: Cleanup NACL rancher configuration
+    Status: In Progress
+    Assignee: Lukasz Sutkowski
+    URL: https://adgear.atlassian.net/browse/EPCW-148
+    Has Description: Yes
+
+[13] EPCW-141 - Task
+    Title: Decommision Metrics Ingest Servers aws-useast1a-metrics-ingest-1.sys.adgear.com & aws-useast1f-metrics-ingest-2.sys.adgear.com
+    Status: In Progress
+    Assignee: Chandra Prakash
+    URL: https://adgear.atlassian.net/browse/EPCW-141
+    Has Description: Yes

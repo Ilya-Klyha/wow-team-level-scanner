@@ -1,0 +1,28 @@
+Team DoD
+
+Principle: Done according to Team
+Description:
+- Acceptance criteria met or discussed and verified by Product Owner.
+- Outputs documented in Jira comments.
+- If Outcome is quantifiable, then it is measured and documented.
+
+Comments:
+- Documentation
+  - Documentation should be understandable for future reference by the Team
+  - Write your work so it can be taken over by another person or by you in 3 months.
+  - Note things that may be useful for the team now or in the future.
+  - Note things that interested you.
+- Jira
+  - At least 1 comment on Jira before closing a task/story/bug or before a break (e.g., vacation).
+  - Information about what was achieved or what couldn't be done and why.
+  - Ticket state is one of: DONE, BLOCKED, CANCELED, or POSTPONED
+
+Principle: Done according to Developers
+Description: Developers' responsibility is to Test, Review, and Check Quality.
+- Common sense used.
+- Code self-reviewed (using linter or AI with our Skill.md), described, and then sent for approval by Team members
+- All new logic tested.
+- SonarQube quality gate passes.
+
+Comments:
+- Specific quality checking methods will be developed by the team

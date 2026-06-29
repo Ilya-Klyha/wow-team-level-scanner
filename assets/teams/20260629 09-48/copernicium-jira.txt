@@ -1,0 +1,76 @@
+TEAM: Copernicium
+PROJECT: AETVP
+BOARD: https://adgear.atlassian.net/jira/software/c/projects/AETVP/boards/9246
+TOTAL ISSUES: 10
+
+======================================================================
+
+[1] AETVP-625 - Task
+    Title: Reporting data aggregation deployment & confirmation
+    Status: Code Review
+    Assignee: Kamil Madejek
+    URL: https://adgear.atlassian.net/browse/AETVP-625
+    Has Description: Yes
+
+[2] AETVP-624 - Story
+    Title: [tvp-interactive-ad] Polls & Surveys two options below centered video new template
+    Status: In Progress
+    Assignee: Jacek Wróblewski
+    URL: https://adgear.atlassian.net/browse/AETVP-624
+    Has Description: Yes
+
+[3] AETVP-623 - Story
+    Title: [tvp-remotion] Polls & Surveys with two options below centered video + FALLBACK
+    Status: In Progress
+    Assignee: Kamil Fraczek
+    URL: https://adgear.atlassian.net/browse/AETVP-623
+    Has Description: Yes
+
+[4] AETVP-622 - Story
+    Title: [rtb-trader] Polls & Surveys ad with 2-4 answer options possible
+    Status: In Progress
+    Assignee: Yevgeniy Wyszyński
+    URL: https://adgear.atlassian.net/browse/AETVP-622
+    Has Description: Yes
+
+[5] AETVP-618 - Story
+    Title: [rtb-trader] P&S DSP form validations
+    Status: Code Review
+    Assignee: Yevgeniy Wyszyński
+    URL: https://adgear.atlassian.net/browse/AETVP-618
+    Has Description: Yes
+
+[6] AETVP-617 - Story
+    Title: [tvp-interactive-ad] Adjust Interactive Overlay to Figma mocks
+    Status: In Progress
+    Assignee: Jacek Wróblewski
+    URL: https://adgear.atlassian.net/browse/AETVP-617
+    Has Description: Yes
+
+[7] AETVP-616 - Story
+    Title: [tvp-remotion] Adjust video template in Remotion to Figma mocks + FALLBACK
+    Status: In Progress
+    Assignee: Kamil Fraczek
+    URL: https://adgear.atlassian.net/browse/AETVP-616
+    Has Description: Yes
+
+[8] AETVP-611 - Story
+    Title: [tvp-interactive-ad] Use included overlay background image
+    Status: Code Review
+    Assignee: Jacek Wróblewski
+    URL: https://adgear.atlassian.net/browse/AETVP-611
+    Has Description: Yes
+
+[9] AETVP-610 - Task
+    Title: [data-activation] Include overlay background image in poll ad data
+    Status: In Progress
+    Assignee: Maciej Wróblewski
+    URL: https://adgear.atlassian.net/browse/AETVP-610
+    Has Description: Yes
+
+[10] AETVP-609 - Story
+    Title: [rtb-trader] Extract part of ad background for usage as overlay background
+    Status: In Progress
+    Assignee: Maciej Wróblewski
+    URL: https://adgear.atlassian.net/browse/AETVP-609
+    Has Description: Yes

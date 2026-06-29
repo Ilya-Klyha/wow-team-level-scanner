@@ -1,0 +1,92 @@
+[
+  {
+    "key": "AETVP-617",
+    "summary": "[tvp-interactive-ad] Adjust Interactive Overlay to Figma mocks",
+    "status": "In Progress",
+    "issuetype": "Story",
+    "assignee": "Jacek Wróblewski",
+    "priority": "Medium",
+    "created": "2026-06-15T08:52:38.608-0400",
+    "updated": "2026-06-26T03:13:32.524-0400"
+  },
+  {
+    "key": "AETVP-610",
+    "summary": "[data-activation] Include overlay background image in poll ad data",
+    "status": "In Progress",
+    "issuetype": "Task",
+    "assignee": "Maciej Wróblewski",
+    "priority": "Medium",
+    "created": "2026-06-11T03:08:05.004-0400",
+    "updated": "2026-06-25T12:09:10.573-0400"
+  },
+  {
+    "key": "AETVP-609",
+    "summary": "[rtb-trader] Extract part of ad background for usage as overlay background",
+    "status": "In Progress",
+    "issuetype": "Story",
+    "assignee": "Maciej Wróblewski",
+    "priority": "Medium",
+    "created": "2026-06-11T03:06:34.527-0400",
+    "updated": "2026-06-25T07:51:27.176-0400"
+  },
+  {
+    "key": "AETVP-625",
+    "summary": "Reporting data aggregation deployment & confirmation",
+    "status": "Code Review",
+    "issuetype": "Task",
+    "assignee": "Kamil Madejek",
+    "priority": "Medium",
+    "created": "2026-06-17T05:39:39.852-0400",
+    "updated": "2026-06-25T05:35:19.415-0400"
+  },
+  {
+    "key": "AETVP-623",
+    "summary": "[tvp-remotion] Polls & Surveys with two options below centered video + FALLBACK",
+    "status": "In Progress",
+    "issuetype": "Story",
+    "assignee": "Kamil Fraczek",
+    "priority": "Medium",
+    "created": "2026-06-17T03:05:32.177-0400",
+    "updated": "2026-06-24T07:51:16.521-0400"
+  },
+  {
+    "key": "AETVP-618",
+    "summary": "[rtb-trader] P&S DSP form validations",
+    "status": "Code Review",
+    "issuetype": "Story",
+    "assignee": "Yevgeniy Wyszyński",
+    "priority": "Medium",
+    "created": "2026-06-15T08:53:05.120-0400",
+    "updated": "2026-06-23T09:49:50.539-0400"
+  },
+  {
+    "key": "AETVP-611",
+    "summary": "[tvp-interactive-ad] Use included overlay background image",
+    "status": "Code Review",
+    "issuetype": "Story",
+    "assignee": "Jacek Wróblewski",
+    "priority": "Medium",
+    "created": "2026-06-11T03:09:14.219-0400",
+    "updated": "2026-06-22T08:08:40.103-0400"
+  },
+  {
+    "key": "AETVP-624",
+    "summary": "[tvp-interactive-ad] Polls & Surveys two options below centered video new template",
+    "status": "In Progress",
+    "issuetype": "Story",
+    "assignee": "Jacek Wróblewski",
+    "priority": "Medium",
+    "created": "2026-06-17T03:06:55.119-0400",
+    "updated": "2026-06-22T05:58:43.039-0400"
+  },
+  {
+    "key": "AETVP-616",
+    "summary": "[tvp-remotion] Adjust video template in Remotion to Figma mocks + FALLBACK",
+    "status": "In Progress",
+    "issuetype": "Story",
+    "assignee": "Kamil Fraczek",
+    "priority": "Medium",
+    "created": "2026-06-15T08:52:03.482-0400",
+    "updated": "2026-06-18T10:19:42.645-0400"
+  }
+]

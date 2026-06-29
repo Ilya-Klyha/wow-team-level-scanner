@@ -1,0 +1,667 @@
+{
+  "Abyss": [
+    {
+      "key": "MAW-477",
+      "summary": "Pixel form view update",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Maciej Lewandowski"
+    },
+    {
+      "key": "MAW-474",
+      "summary": "Pixels list view update",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Rafal Stefanowicz"
+    },
+    {
+      "key": "MAW-472",
+      "summary": "Remove .gif extension handling for server side pixel",
+      "issuetype": "Story",
+      "status": "Code Review",
+      "assignee": "Maksim Matchenia"
+    },
+    {
+      "key": "MAW-468",
+      "summary": "Connect conversion revenue from v2 to reporting",
+      "issuetype": "Story",
+      "status": "Code Review",
+      "assignee": "Mateusz Roślak"
+    }
+  ],
+  "Radium": [
+    {
+      "key": "AENW-1061",
+      "summary": "Many time consuming additional ad-hoc meetings not related to existing tasks in Sprint [MarcinA]",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri"
+    },
+    {
+      "key": "AENW-1040",
+      "summary": "[SW Test Pro - solution] Marcin Al-Jawahiri",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri"
+    },
+    {
+      "key": "AENW-1036",
+      "summary": "Changes in DA - outcome task of AENW-1016",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Krzysztof Urbański"
+    },
+    {
+      "key": "AENW-1035",
+      "summary": "Changes in rtb-bidder - outcome task of AENW-1016",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Krzysztof Urbański"
+    },
+    {
+      "key": "AENW-1015",
+      "summary": "Prepare env for RoR training dev (including DSP)",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri"
+    },
+    {
+      "key": "AENW-943",
+      "summary": "[Retro Action Item] Establish Reporting workforce",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Patryk Palyska"
+    },
+    {
+      "key": "AENW-913",
+      "summary": "[Training] Ruby udemy training - Prepare to 13-17 July",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri"
+    },
+    {
+      "key": "AENW-910",
+      "summary": "[Training] Ruby udemy training - Prepare to 13-17 July ",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Marcin Matyszkowicz"
+    },
+    {
+      "key": "AENW-907",
+      "summary": "Spike: Investigate ad serving pipeline for Samsung TV+",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Krzysztof Urbański"
+    },
+    {
+      "key": "AENW-906",
+      "summary": "Deliver TVs to Cracow ",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Patryk Palyska"
+    },
+    {
+      "key": "AENW-796",
+      "summary": "[DSP-UI] Remove FF after E2E tests",
+      "issuetype": "Story",
+      "status": "Code Review",
+      "assignee": "Unassigned"
+    },
+    {
+      "key": "AENW-127",
+      "summary": "[DSP-UI] Add new click action \"QR Code Microsite\"",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Unassigned"
+    }
+  ],
+  "Europium": [
+    {
+      "key": "AENW-1032",
+      "summary": "[CP Improvements] Creative Preview 2026 Unified First Screen — Design Fixes",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Karol Strojek"
+    },
+    {
+      "key": "AENW-968",
+      "summary": "vertica-rollups - add fields metrics table",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Raman Krot"
+    },
+    {
+      "key": "AENW-966",
+      "summary": "adgear-data - add new fields to avro",
+      "issuetype": "Story",
+      "status": "Code Review",
+      "assignee": "Raman Krot"
+    },
+    {
+      "key": "AENW-872",
+      "summary": "[Microsite UCS] Implement microstie pre-transcoding pipeline and background image processing",
+      "issuetype": "Story",
+      "status": "Code Review",
+      "assignee": "Michał Wiącek"
+    },
+    {
+      "key": "AENW-685",
+      "summary": "[Micoristes P2] Create Micro Frontend",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Karol Strojek"
+    },
+    {
+      "key": "AENW-605",
+      "summary": "[Microsite p2] Videos Section",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Grzegorz Prasal"
+    }
+  ],
+  "Copernicium": [
+    {
+      "key": "AETVP-625",
+      "summary": "Reporting data aggregation deployment & confirmation",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Kamil Madejek"
+    },
+    {
+      "key": "AETVP-624",
+      "summary": "[tvp-interactive-ad] Polls & Surveys two options below centered video new template",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Jacek Wróblewski"
+    },
+    {
+      "key": "AETVP-623",
+      "summary": "[tvp-remotion] Polls & Surveys with two options below centered video + FALLBACK",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Kamil Fraczek"
+    },
+    {
+      "key": "AETVP-622",
+      "summary": "[rtb-trader] Polls & Surveys ad with 2-4 answer options possible",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Yevgeniy Wyszyński"
+    },
+    {
+      "key": "AETVP-618",
+      "summary": "[rtb-trader] P&S DSP form validations",
+      "issuetype": "Story",
+      "status": "Code Review",
+      "assignee": "Yevgeniy Wyszyński"
+    },
+    {
+      "key": "AETVP-617",
+      "summary": "[tvp-interactive-ad] Adjust Interactive Overlay to Figma mocks",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Jacek Wróblewski"
+    },
+    {
+      "key": "AETVP-616",
+      "summary": "[tvp-remotion] Adjust video template in Remotion to Figma mocks + FALLBACK",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Kamil Fraczek"
+    },
+    {
+      "key": "AETVP-611",
+      "summary": "[tvp-interactive-ad] Use included overlay background image",
+      "issuetype": "Story",
+      "status": "Code Review",
+      "assignee": "Jacek Wróblewski"
+    },
+    {
+      "key": "AETVP-610",
+      "summary": "[data-activation] Include overlay background image in poll ad data",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Maciej Wróblewski"
+    },
+    {
+      "key": "AETVP-609",
+      "summary": "[rtb-trader] Extract part of ad background for usage as overlay background",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Maciej Wróblewski"
+    }
+  ],
+  "Mouflons": [
+    {
+      "key": "PEPI-11393",
+      "summary": "Analyze preliminary result of A/B tests of MC EE models",
+      "issuetype": "Task",
+      "status": "In Development",
+      "assignee": "Marek Kochańczyk"
+    }
+  ],
+  "Wolves": [],
+  "Polonium UF": [
+    {
+      "key": "RSW-1367",
+      "summary": "Custom App Group not visible in \"Unexposed Target Audience duplication within the Samsung Universe\" section",
+      "issuetype": "Bug",
+      "status": "Code Review",
+      "assignee": "Piotr Stefański"
+    },
+    {
+      "key": "RSW-1039",
+      "summary": "[BE] Add GET endpoint for fetching presets from AI-backend",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Dmitriy Borowski"
+    },
+    {
+      "key": "RSW-884",
+      "summary": "[FE] Add Reset session button with confirmation modal",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Zbigniew Stolarski"
+    },
+    {
+      "key": "RSW-882",
+      "summary": "[FE] Handle chatbot functionality on mocks",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Katarzyna Kokieć"
+    }
+  ],
+  "Bigos": [
+    {
+      "key": "MAW-503",
+      "summary": "TV App Insights Report Seems Wonky",
+      "issuetype": "Bug",
+      "status": "In Progress",
+      "assignee": "Krzysztof Środoń"
+    },
+    {
+      "key": "MAW-463",
+      "summary": "Sloth SLO Dashboards — SLO Compliance Monitoring for Conversion API",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Krzysztof Środoń"
+    },
+    {
+      "key": "MAW-437",
+      "summary": "[SRE] Silver Layer Pipeline — Deployment, Flyway Migrations & Snowpark Orchestration",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Rahul Tomer"
+    },
+    {
+      "key": "MAW-435",
+      "summary": "Segment Creation from CAPI Events",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Kirill Timoszenko"
+    },
+    {
+      "key": "MAW-372",
+      "summary": "Setup git Agent",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Kirill Timoszenko"
+    },
+    {
+      "key": "MAW-366",
+      "summary": " Internal Monitoring & Observability",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Rafał Parol"
+    }
+  ],
+  "Capybaras": [
+    {
+      "key": "RSW-1427",
+      "summary": "Cumulative Reach: Respect exclude_dsp_reach flag in CR calculation",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Piotr Marciniak"
+    },
+    {
+      "key": "RSW-1377",
+      "summary": "[SRPOL-OR] Verify FRITES is production ready",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Cezary Kret"
+    },
+    {
+      "key": "RSW-1306",
+      "summary": "[AU] E2E Segment Generation Validation — Pipeline Trigger & Size Consistency on PROD",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Tomasz Zaród"
+    },
+    {
+      "key": "RSW-1235",
+      "summary": "[SRPOL-OR] Perform tests for PoC based on Airflow queue",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Dariusz Bielawski"
+    },
+    {
+      "key": "RSW-555",
+      "summary": "[SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Dariusz Bielawski"
+    }
+  ],
+  "ML Serving Sturgeons": [
+    {
+      "key": "PEPI-11580",
+      "summary": "Add alerting rules in alerting.yaml",
+      "issuetype": "Task",
+      "status": "In Development",
+      "assignee": "Kornel Pietrzyk"
+    }
+  ],
+  "ML Platform Pandas": [],
+  "EP Core": [
+    {
+      "key": "EPCW-392",
+      "summary": "EP Data: Kafka connectivity issues from use1-rdev to eks-use1-ep-dev-1",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Marek Barczyk"
+    },
+    {
+      "key": "EPCW-380",
+      "summary": "Resolve ControlplaneHighMemoryUsage alert - rolling rke2-server restart on usw2-ssp-prod and aps1-ssp-prod",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Chandra Prakash"
+    },
+    {
+      "key": "EPCW-377",
+      "summary": "Test the fully removal of NGINX Ingress Controller in eks-use1-sandbox",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Juan Antonio Costa Bermudo"
+    },
+    {
+      "key": "EPCW-375",
+      "summary": "Productionize Traefik configuration for EKS",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Juan Antonio Costa Bermudo"
+    },
+    {
+      "key": "EPCW-365",
+      "summary": "[Lifeguard] Controlplane node high memory usage on multiple clusters",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Nitish Yadav"
+    },
+    {
+      "key": "EPCW-360",
+      "summary": "Update external actions on ep-core workflows (Beginning of June)",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Bartosz Brodecki"
+    },
+    {
+      "key": "EPCW-313",
+      "summary": "[SPIKE] Check option to connect Listmonk with AWS SES",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Bartosz Brodecki"
+    },
+    {
+      "key": "EPCW-308",
+      "summary": "Fix packer-recipes pipelines - bastion host terminated during SRE cleanup",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Bartosz Brodecki"
+    },
+    {
+      "key": "EPCW-306",
+      "summary": "eks-euw1-udw-dev: alertmanager returning 503, not reachable from Karma",
+      "issuetype": "Bug",
+      "status": "Code Review",
+      "assignee": "Chandra Prakash"
+    },
+    {
+      "key": "EPCW-304",
+      "summary": "Eliminate workload restart requirement during RKE1 recovery",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Dariusz Nejbauer"
+    },
+    {
+      "key": "EPCW-300",
+      "summary": "Upgrade Grafana PROD to 12.4",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Michal Mankowski"
+    },
+    {
+      "key": "EPCW-279",
+      "summary": "Create JFrog PrivateLink VPC Endpoints across all VPCs",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Pagalavan"
+    },
+    {
+      "key": "EPCW-276",
+      "summary": "Fix ArgoCD cluster wide permissions on CRDs",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Stanisław Cabała"
+    },
+    {
+      "key": "EPCW-273",
+      "summary": "Remove SonarQube STG from use1-rdev",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Nitish Yadav"
+    },
+    {
+      "key": "EPCW-199",
+      "summary": "[POC] Understand consequences of changing owner in ep-argo-cd projects.yaml",
+      "issuetype": "Bug",
+      "status": "In Progress",
+      "assignee": "Marek Barczyk"
+    },
+    {
+      "key": "EPCW-171",
+      "summary": "Force top 5 tenants to create cleanup mechanism for their docker images",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Michal Mankowski"
+    },
+    {
+      "key": "EPCW-148",
+      "summary": "Cleanup NACL rancher configuration",
+      "issuetype": "Bug",
+      "status": "In Progress",
+      "assignee": "Lukasz Sutkowski"
+    },
+    {
+      "key": "EPCW-6",
+      "summary": "Migrate Golinks use1-rdev to eks-use1-ep-prod-1",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Lukasz Sutkowski"
+    }
+  ],
+  "Zurek": [
+    {
+      "key": "PEA-4226",
+      "summary": "[UDWMIG][LIFT][STANDARD] Deployment to production",
+      "issuetype": "Task",
+      "status": "In Development",
+      "assignee": "Piotr Jaromin"
+    },
+    {
+      "key": "PEA-4219",
+      "summary": "Statistics on impressions and reach for Lift, R&F and Delivery reports",
+      "issuetype": "Task",
+      "status": "In Development",
+      "assignee": "Marcin Nowacki"
+    },
+    {
+      "key": "PEA-4217",
+      "summary": "[Audience Service][EMR][Incremental Reach] Spark version of the Incremental Reach reporty decomision",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Jacek Pielaszkiewicz"
+    },
+    {
+      "key": "PEA-4215",
+      "summary": "[Audience Service][PERF] PMP R&F Report optimization - analysis",
+      "issuetype": "Bug",
+      "status": "In Development",
+      "assignee": "Michał Kościelak"
+    },
+    {
+      "key": "PEA-4161",
+      "summary": "[TEST] Support for declared IP in RF methodology",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Marcin Nowacki"
+    },
+    {
+      "key": "PEA-4160",
+      "summary": "[UDWMIG][LIFT][STANDARD][SNOWFLAKE] Report data integration tests",
+      "issuetype": "Task",
+      "status": "In Development",
+      "assignee": "Michał Kościelak"
+    },
+    {
+      "key": "PEA-4101",
+      "summary": "[BUG] Monthly reach is exceeding the monthly active user count in India for the PMP R&F report.",
+      "issuetype": "Bug",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau"
+    },
+    {
+      "key": "PEA-4067",
+      "summary": "[UDWMIG][LIFT] Improving deployment on dev schemas",
+      "issuetype": "Task",
+      "status": "In Development",
+      "assignee": "Michał Lis"
+    },
+    {
+      "key": "PEA-3959",
+      "summary": "[Audience Service][EMR][LINEAR ADS] Test EMR cluster for Linear Ads report",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau"
+    },
+    {
+      "key": "PEA-3958",
+      "summary": "[Audience Service][EMR][LINEAR ADS] EMR cluster Upgrade development  - adaptations for  Linear Ads report",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau"
+    },
+    {
+      "key": "PEA-3955",
+      "summary": "[Audience Service][EMR][PMP LIFT] Deployment/switch to new EMR cluster PMP lift report",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau"
+    },
+    {
+      "key": "PEA-3952",
+      "summary": "[Audience Service][EMR][PMP IR] Deployment/switch to new EMR cluster PMP IR report",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau"
+    },
+    {
+      "key": "PEA-3951",
+      "summary": "[Audience Service][EMR][PMP RF] Deployment/switch to new EMR cluster PMP RF",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau"
+    },
+    {
+      "key": "PEA-3948",
+      "summary": "[Audience Service][EMR][LIFT] Deployment/switch to new EMR cluster Lift",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau"
+    },
+    {
+      "key": "PEA-1930",
+      "summary": "[UDWMIG][LIFT][WEBSITE_PIXELS][SNOWFLAKE] Procedure LIFT_WEB_PIXEL_POPULATE_INTERMEDIATE_TABLES_TMP_LIFT_UNEXPOSED_AUDIENCE_JOINED() implementation",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Aron Gruzman"
+    },
+    {
+      "key": "PEA-1923",
+      "summary": "[UDWMIG][LIFT][WEBSITE_PIXELS] Procedure LIFT_WEB_PIXEL_POPULATE_INTERMEDIATE_TABLES_TMP_LIFT_UNEXPOSED_AUDIENCE() implementation",
+      "issuetype": "Story",
+      "status": "In Development",
+      "assignee": "Aron Gruzman"
+    }
+  ],
+  "Igni": [
+    {
+      "key": "ASPW-1115",
+      "summary": "Update consumerd runbook",
+      "issuetype": "Task",
+      "status": "In Progress",
+      "assignee": "Paweł Kwietniewski"
+    },
+    {
+      "key": "ASPW-893",
+      "summary": "Enable Parallel File Downloads",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Alexander Andersson"
+    },
+    {
+      "key": "ASPW-733",
+      "summary": "Migrate SQL-Based record deviation from PD alerts to Grafana Dashboard",
+      "issuetype": "Task",
+      "status": "Code Review",
+      "assignee": "Paweł Kwietniewski"
+    },
+    {
+      "key": "ASPW-690",
+      "summary": "Fine tuning of data-activation alerts to reduce alert fatigue",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Marek Kurcz"
+    },
+    {
+      "key": "ASPW-637",
+      "summary": "consumerd ready file logic is broken ",
+      "issuetype": "Bug",
+      "status": "Code Review",
+      "assignee": "Adam Doliński"
+    },
+    {
+      "key": "ASPW-386",
+      "summary": "Create airflow (dev) job that will refresh database dump",
+      "issuetype": "Story",
+      "status": "In Progress",
+      "assignee": "Paweł Kwietniewski"
+    }
+  ],
+  "SRE": [
+    {
+      "key": "EEEW-338",
+      "summary": "AI skill for managing AWS IAM",
+      "issuetype": "Story",
+      "status": "Code Review",
+      "assignee": "Akif Burak Yildirim"
+    },
+    {
+      "key": "EEEW-337",
+      "summary": "AI skill for provisioning AWS S3 buckets",
+      "issuetype": "Story",
+      "status": "Code Review",
+      "assignee": "Akif Burak Yildirim"
+    }
+  ]
+}

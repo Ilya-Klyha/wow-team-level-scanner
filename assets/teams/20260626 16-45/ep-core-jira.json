@@ -1,0 +1,244 @@
+{
+  "team": "EP Core",
+  "projectKey": "EPCW",
+  "extractedAt": "2026-06-26T15:03:00.893246Z",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql_executed": "project = EPCW AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "queryType": "project_wide_with_client_filter",
+    "filterMethod": "client_side",
+    "teamPattern": "T - WAW - EP Core",
+    "projectKey": "EPCW",
+    "totalProjectIssues": 42,
+    "matchedTeamIssues": 18
+  },
+  "summary": {
+    "total": 18,
+    "byStatus": {
+      "In Progress": 11,
+      "Code Review": 7
+    },
+    "byType": {
+      "Task": 15,
+      "Bug": 3
+    }
+  },
+  "issues": [
+    {
+      "key": "EPCW-392",
+      "type": "Task",
+      "summary": "EP Data: Kafka connectivity issues from use1-rdev to eks-use1-ep-dev-1",
+      "status": "In Progress",
+      "assignee": "Marek Barczyk",
+      "priority": "Medium",
+      "created": "2026-06-25T07:04:14.217-0400",
+      "updated": "2026-06-25T07:07:38.405-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-392",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-380",
+      "type": "Task",
+      "summary": "Resolve ControlplaneHighMemoryUsage alert - rolling rke2-server restart on usw2-ssp-prod and aps1-ssp-prod",
+      "status": "In Progress",
+      "assignee": "Chandra Prakash",
+      "priority": "Medium",
+      "created": "2026-06-23T04:52:47.480-0400",
+      "updated": "2026-06-26T08:56:41.095-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-380",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-377",
+      "type": "Task",
+      "summary": "Test the fully removal of NGINX Ingress Controller in eks-use1-sandbox",
+      "status": "In Progress",
+      "assignee": "Juan Antonio Costa Bermudo",
+      "priority": "Medium",
+      "created": "2026-06-23T03:30:19.951-0400",
+      "updated": "2026-06-23T07:00:30.842-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-377",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-375",
+      "type": "Task",
+      "summary": "Productionize Traefik configuration for EKS",
+      "status": "Code Review",
+      "assignee": "Juan Antonio Costa Bermudo",
+      "priority": "Medium",
+      "created": "2026-06-23T02:59:55.162-0400",
+      "updated": "2026-06-24T05:39:54.747-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-375",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-365",
+      "type": "Task",
+      "summary": "[Lifeguard] Controlplane node high memory usage on multiple clusters",
+      "status": "Code Review",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "created": "2026-06-21T23:58:11.542-0400",
+      "updated": "2026-06-22T05:02:35.729-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-365",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-360",
+      "type": "Task",
+      "summary": "Update external actions on ep-core workflows (Beginning of June)",
+      "status": "Code Review",
+      "assignee": "Bartosz Brodecki",
+      "priority": "Medium",
+      "created": "2026-04-15T04:07:56.813-0400",
+      "updated": "2026-06-26T09:08:09.713-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-360",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-313",
+      "type": "Task",
+      "summary": "[SPIKE] Check option to connect Listmonk with AWS SES",
+      "status": "Code Review",
+      "assignee": "Bartosz Brodecki",
+      "priority": "Medium",
+      "created": "2026-06-16T06:47:44.145-0400",
+      "updated": "2026-06-25T06:14:41.795-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-313",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-308",
+      "type": "Task",
+      "summary": "Fix packer-recipes pipelines - bastion host terminated during SRE cleanup",
+      "status": "In Progress",
+      "assignee": "Bartosz Brodecki",
+      "priority": "High",
+      "created": "2026-06-16T04:00:42.685-0400",
+      "updated": "2026-06-26T09:08:12.617-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-308",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-306",
+      "type": "Bug",
+      "summary": "eks-euw1-udw-dev: alertmanager returning 503, not reachable from Karma",
+      "status": "Code Review",
+      "assignee": "Chandra Prakash",
+      "priority": "Medium",
+      "created": "2026-06-10T06:13:01.925-0400",
+      "updated": "2026-06-25T05:02:02.033-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-306",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-304",
+      "type": "Task",
+      "summary": "Eliminate workload restart requirement during RKE1 recovery",
+      "status": "In Progress",
+      "assignee": "Dariusz Nejbauer",
+      "priority": "High",
+      "created": "2026-06-16T03:35:28.891-0400",
+      "updated": "2026-06-23T06:48:10.098-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-304",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-300",
+      "type": "Task",
+      "summary": "Upgrade Grafana PROD to 12.4",
+      "status": "In Progress",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "created": "2026-06-16T03:14:00.097-0400",
+      "updated": "2026-06-26T09:14:33.282-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-300",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-279",
+      "type": "Task",
+      "summary": "Create JFrog PrivateLink VPC Endpoints across all VPCs",
+      "status": "In Progress",
+      "assignee": "Pagalavan",
+      "priority": "Medium",
+      "created": "2026-06-15T08:05:15.548-0400",
+      "updated": "2026-06-23T04:58:30.707-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-279",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-276",
+      "type": "Task",
+      "summary": "Fix ArgoCD cluster wide permissions on CRDs",
+      "status": "Code Review",
+      "assignee": "Stanis\u0142aw Caba\u0142a",
+      "priority": "Medium",
+      "created": "2026-06-12T07:02:35.790-0400",
+      "updated": "2026-06-26T06:01:27.394-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-276",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-273",
+      "type": "Task",
+      "summary": "Remove SonarQube STG from use1-rdev",
+      "status": "In Progress",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "created": "2026-06-11T23:51:01.077-0400",
+      "updated": "2026-06-24T05:04:13.624-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-273",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-199",
+      "type": "Bug",
+      "summary": "[POC] Understand consequences of changing owner in ep-argo-cd projects.yaml",
+      "status": "In Progress",
+      "assignee": "Marek Barczyk",
+      "priority": "Medium",
+      "created": "2026-06-05T06:11:35.208-0400",
+      "updated": "2026-06-25T07:34:32.059-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-199",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-171",
+      "type": "Task",
+      "summary": "Force top 5 tenants to create cleanup mechanism for their docker images",
+      "status": "In Progress",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "created": "2026-06-02T07:02:11.658-0400",
+      "updated": "2026-06-25T10:41:22.393-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-171",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-148",
+      "type": "Bug",
+      "summary": "Cleanup NACL rancher configuration",
+      "status": "In Progress",
+      "assignee": "Lukasz Sutkowski",
+      "priority": "Medium",
+      "created": "2026-05-27T10:51:44.745-0400",
+      "updated": "2026-06-17T06:43:28.388-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-148",
+      "teamField": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-6",
+      "type": "Task",
+      "summary": "Migrate Golinks use1-rdev to eks-use1-ep-prod-1",
+      "status": "Code Review",
+      "assignee": "Lukasz Sutkowski",
+      "priority": "Medium",
+      "created": "2026-05-07T05:11:31.790-0400",
+      "updated": "2026-06-25T06:08:32.856-0400",
+      "url": "https://adgear.atlassian.net/browse/EPCW-6",
+      "teamField": "T - WAW - EP Core"
+    }
+  ]
+}

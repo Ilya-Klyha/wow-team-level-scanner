@@ -1,0 +1,8 @@
+Definition of Done
+
+- All acceptance criteria are met
+- Relevant tests written according to ACs
+- Review conducted by 2 devs (nice-to-have - depending on the workload)
+- Merged to master/main and released
+- PR description filled out properly
+- Required documentation updated

@@ -27,22 +27,36 @@ https://adgear.atlassian.net/wiki/spaces/ENG/pages/19470090380/SRPOL+Teams
    - Team names from actual Confluence page titles (cleaned by removing "Team", "Team Space" etc.)
    - Definition of Done (DoD) - STORY/TASK criteria from each team's page (excludes DoD - OFFERING/EPIC)
    - If DoD section is empty but contains a link, follows the link to extract DoD from the referenced page
-3. Generates Report:
-   - Excel report with 1 sheet: Summary (Team | DoD) showing which teams have DoD defined
-   - KPI: "% Teams with DoD"
-4. Saves all data to absolute path: `C:\Users\i.klyha\Desktop\Claude\wow-scanner-tool\assets\teams\<timestamp>/` where timestamp is in CET format: `YYYYMMDD HH-MM`
+3. Assesses DoD Quality:
+   - Evaluates each team's DoD document against industry standard (assets/dod-standard.txt) and company standard (Confluence page 21735212005)
+   - 7-dimension weighted scoring: Coverage (25%), Clarity (20%), Measurability (15%), Company Alignment (15%), Industry (10%), Actionability (10%), Evidence (5%)
+4. Generates Reports:
+   - Excel report: `Report-DoD.xlsx` (2 sheets: Summary + DoD quality)
+   - HTML dashboard: `Report-DoD.html` (self-contained visual report)
+5. Saves all data to absolute path: `C:\Users\i.klyha\Desktop\Claude\wow-scanner-tool\assets\teams\<timestamp>/` where timestamp is in CET format: `YYYYMMDD HH-MM`
    - DoD files: `[team-name]-dod.txt`
    - Master file: `teams.json`
-   - Report: `Report-DoD.xlsx`
+   - Data files: `summary_data.json`, `quality_data.json`
+   - Reports: `Report-DoD.xlsx`, `Report-DoD.html`
 
 ## Instructions
 
-**CRITICAL - FULL AUTOMATION:** This skill must execute all 10 steps automatically without pausing or asking for user confirmation. Only stop execution if:
+**CRITICAL - FULL AUTOMATION:** This skill must execute all 11 steps automatically without pausing or asking for user confirmation. Only stop execution if:
 - Authentication fails (Step 2)
 - Critical errors occur that prevent continuation
 - Prerequisites are missing (e.g., no teams found)
 
 Do NOT pause between steps to ask for approval.
+
+### Execution Constraints - Shell and Python
+
+**RULE: Python scripts longer than 5 lines MUST be written to files before execution.**
+
+When the Python code to execute is more than 5 lines OR contains any quote characters (single or double):
+1. Use the Write tool to save the script to `${OUTPUT_DIR}/[descriptive_name].py`
+2. Execute with Bash: `cd "${OUTPUT_DIR}" && python3 [descriptive_name].py`
+
+**This rule applies to ALL steps. When in doubt, write to a file.**
 
 When invoked:
 
@@ -113,6 +127,32 @@ mcp__plugin_atlassian_atlassian__getConfluencePage(
 
 Parse the HTML table to extract team page links and sprint board links. Same logic as wow-dor-scanner: extract page IDs from URLs, build list of team references.
 
+**MULTI-LINK DISAMBIGUATION RULE:**
+
+When a table cell in column 1 (SRPOL Ads Team) contains MULTIPLE `<a>` elements:
+
+1. Filter to ONLY links matching Confluence wiki page URL patterns:
+   - Tiny links: URL contains `/wiki/x/[ID]`
+   - Full page URLs: URL contains `/wiki/spaces/.../pages/[NUMERIC_ID]`
+   - Exclude: Jira links, external links, anchors, non-wiki URLs.
+
+2. From the filtered list, select the FIRST link by DOM/HTML order.
+   - Position in HTML is the ONLY selector.
+   - Do NOT prefer links based on label text (e.g., "Team Page", "Team Space").
+   - Do NOT prefer links based on URL format (numeric ID vs. tiny link ID).
+   - Inline card links (`data-card-appearance="inline"`) with no visible text ARE valid.
+
+3. Extract page ID from the selected URL:
+   - `/wiki/x/[ID]` → use ID portion directly as pageId (e.g., "AQAHUAU")
+   - `/wiki/spaces/.../pages/[NUMERIC_ID]` → use NUMERIC_ID as pageId
+
+Example - EP Core cell contains:
+```
+<a href="...wiki/x/AQAHUAU" data-card-appearance="inline">...</a>
+<a href="...wiki/spaces/ENG/pages/19133628629"><u>EP Team Page</u></a>
+```
+Result: Select first link → pageId = "AQAHUAU" (correct WoW team page)
+
 ### Step 7: Generate Initial teams.json
 
 Write master JSON with metadata and empty teams array to `${OUTPUT_DIR}/teams.json`.
@@ -176,150 +216,28 @@ For each team:
    }
    ```
 
-### Step 9: Generate Report-DoD.xlsx and Report Completion
+### Step 9: Save Summary Data (AUTO-EXECUTE after Step 8)
 
-#### Step 9.1: Generate Report-DoD.xlsx
+Write `${OUTPUT_DIR}/summary_data.json` containing all 15 teams with their DoD status.
 
-Use Python/openpyxl to generate Report-DoD.xlsx with EXACTLY 1 sheet.
-
-##### Report-DoD.xlsx Schema Specification
-
-**Sheet Count:** Exactly ONE sheet
-**Sheet 1 Name:** "Summary"
-
-**KPI Summary Section (row 1):**
-
-| Row | Column A | Column B |
-|-----|----------|----------|
-| 1 | "% Teams with DoD" | "{X}%" |
-| 2 | *(empty row - separator)* | |
-
-**KPI Formatting:**
-- Bold font, left-aligned
-- Green font color if >= 70%, Orange if 40-69%, Red if < 40%
-
-**KPI Calculation:**
-- % Teams with DoD = (teams with DoD "Yes") / (total teams) * 100, rounded to 1 decimal
-
-**Table Header Row (row 3):**
-
-| Column | Header Text | Width |
-|--------|-------------|-------|
-| A | Team | 25 |
-| B | DoD | 10 |
-
-**Data rows (4+):**
-- Column A: ALL team names extracted from SRPOL Teams page
-- Column B: "Yes" if team has DoD defined (extraction_status = "success"), "No" if not found
-  - "Yes": Green background (#C6EFCE)
-  - "No": Red background (#FFC7CE)
-
-**Formatting:**
-- Header row: Dark blue background (#366092), white bold font, center aligned
-- Data rows: Thin borders, vertical center
-- Freeze panes at A4
-
-**Python script structure:**
-```python
-from openpyxl import Workbook
-from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-from openpyxl.utils import get_column_letter
-
-wb = Workbook()
-ws = wb.active
-ws.title = "Summary"
-
-# KPI
-teams_with_dod = sum(1 for t in teams if t["has_dod"])
-total_teams = len(teams)
-pct = round(teams_with_dod / total_teams * 100, 1)
-
-ws.cell(1, 1).value = "% Teams with DoD"
-ws.cell(1, 1).font = Font(bold=True, size=11)
-ws.cell(1, 2).value = f"{pct}%"
-if pct >= 70:
-    ws.cell(1, 2).font = Font(bold=True, size=11, color="006600")
-elif pct >= 40:
-    ws.cell(1, 2).font = Font(bold=True, size=11, color="CC6600")
-else:
-    ws.cell(1, 2).font = Font(bold=True, size=11, color="CC0000")
-
-# Header row 3
-header_fill = PatternFill(start_color="366092", end_color="366092", fill_type="solid")
-header_font = Font(bold=True, color="FFFFFF", size=11)
-thin_border = Border(left=Side(style='thin'), right=Side(style='thin'),
-                     top=Side(style='thin'), bottom=Side(style='thin'))
-
-for col, (header, width) in enumerate([("Team", 25), ("DoD", 10)], 1):
-    cell = ws.cell(3, col)
-    cell.value = header
-    cell.fill = header_fill
-    cell.font = header_font
-    cell.alignment = Alignment(horizontal='center', vertical='center')
-    cell.border = thin_border
-    ws.column_dimensions[get_column_letter(col)].width = width
-
-# Data rows
-yes_fill = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
-no_fill = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
-
-for row_idx, team in enumerate(teams, 4):
-    ws.cell(row_idx, 1).value = team["name"]
-    ws.cell(row_idx, 1).border = thin_border
-    ws.cell(row_idx, 1).alignment = Alignment(vertical='center')
-
-    dod_val = "Yes" if team["has_dod"] else "No"
-    cell = ws.cell(row_idx, 2)
-    cell.value = dod_val
-    cell.fill = yes_fill if dod_val == "Yes" else no_fill
-    cell.border = thin_border
-    cell.alignment = Alignment(horizontal='center', vertical='center')
-
-ws.freeze_panes = 'A4'
-wb.save(f"{OUTPUT_DIR}/Report-DoD.xlsx")
-```
-
-**Fallback:** If openpyxl unavailable, create CSV with same data.
-
-#### Step 9.2: Update teams.json with final metadata
-
+**Schema** (see `assets/templates/dod-data-schemas.md`):
 ```json
-{
-  "metadata": {
-    ...
-    "analysisCompleted": true,
-    "reportFile": "Report-DoD.xlsx",
-    "kpis": {
-      "pctTeamsWithDod": 87
-    }
-  }
-}
+[
+  {"team": "Abyss", "dod": "Yes"},
+  {"team": "Radium", "dod": "Yes"},
+  {"team": "Europium", "dod": "Yes"},
+  ...
+  {"team": "SRE", "dod": "No"}
+]
 ```
 
-#### Step 9.3: Output final summary
+Rules:
+- Always exactly 15 entries in fixed order: Abyss, Radium, Europium, Copernicium, Mouflons, Wolves, Polonium UF, Bigos, Capybaras, ML Serving Sturgeons, ML Platform Pandas, EP Core, Zurek, Igni, SRE
+- `dod`: "Yes" if extraction_status = "success"; "No" if extraction_status = "not_found" or "error"
 
-```
-=== DoD Extraction Complete ===
+**DO NOT generate any report files in this step.** Only write the JSON data file.
 
-Source: SRPOL Teams page
-Scan timestamp (CET): [CET_TIMESTAMP]
-Teams found: [X]
-
-DoD Status:
-  - Teams with DoD: [Y] ({pct}%)
-  - Teams without DoD: [Z]
-
-Teams without DoD:
-  - [team names list]
-
-Report saved to: ${OUTPUT_DIR}/Report-DoD.xlsx
-Files saved to: ${OUTPUT_DIR}/
-
-All files:
-  - teams.json
-  - DoD files: [team1]-dod.txt, [team2]-dod.txt, ...
-  - Report-DoD.xlsx
-```
+Proceed immediately to Step 10.
 
 ### Step 10: DoD Quality Assessment (AUTO-EXECUTE after Step 9)
 
@@ -332,10 +250,10 @@ Read the persistent DoD Standard reference document:
 Read("C:\Users\i.klyha\Desktop\Claude\wow-scanner-tool\assets\dod-standard.txt")
 ```
 
-If the file does not exist, output warning and skip Step 10 entirely:
+If the file does not exist, output warning and skip Step 10 entirely (proceed to Step 11 with empty quality_data.json = `[]`):
 ```
 [WARNING] DoD Standard document not found at assets/dod-standard.txt
-Skipping DoD Quality Assessment.
+Skipping DoD Quality Assessment. Writing empty quality_data.json.
 ```
 
 Store content as `dod_standard_text`.
@@ -357,7 +275,7 @@ If fetch fails, log warning but continue using only the industry standard.
 
 #### Step 10.2: Identify Teams to Assess
 
-Only teams with defined DoD (extraction_status = "success") are assessed. Teams without DoD are excluded.
+Only teams with defined DoD (extraction_status = "success") are assessed. Teams without DoD are excluded from quality_data.json.
 
 #### Step 10.3: Quality Assessment (LLM-Based)
 
@@ -440,7 +358,7 @@ RESPOND IN VALID JSON ONLY. Array of objects, one per team:
     "industry_alignment": <0-100>,
     "actionability": <0-100>,
     "evidence": <0-100>,
-    "overall": <weighted average as integer>,
+    "overall": <weighted average, rounded to 1 decimal>,
     "note": "<short specific comment on main gaps/weaknesses, max 80 chars>"
   }
 ]
@@ -460,80 +378,39 @@ overall = round(
   industry_alignment * 0.10 +
   actionability * 0.10 +
   evidence * 0.05
-)
+, 1)
 ```
 
-#### Step 10.4: Add "DoD quality" Sheet to Report-DoD.xlsx
+#### Step 10.4: Save Quality Data
 
-Use Python with openpyxl to open the existing Report-DoD.xlsx and add a second sheet:
+Write `${OUTPUT_DIR}/quality_data.json` with the assessment results.
 
-```python
-from openpyxl import load_workbook
-from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-from openpyxl.utils import get_column_letter
-
-wb = load_workbook(f"{OUTPUT_DIR}/Report-DoD.xlsx")
-ws = wb.create_sheet("DoD quality")
-
-# Row 1: KPI
-ws.cell(1, 1).value = "DoD quality lvl"
-ws.cell(1, 1).font = Font(bold=True, size=11)
-ws.cell(1, 2).value = f"{average_quality}%"
-if average_quality >= 70:
-    ws.cell(1, 2).font = Font(bold=True, size=11, color="006600")
-elif average_quality >= 40:
-    ws.cell(1, 2).font = Font(bold=True, size=11, color="CC6600")
-else:
-    ws.cell(1, 2).font = Font(bold=True, size=11, color="CC0000")
-
-# Row 3: Table header
-header_fill = PatternFill(start_color="366092", end_color="366092", fill_type="solid")
-header_font = Font(bold=True, color="FFFFFF", size=11)
-thin_border = Border(left=Side(style='thin'), right=Side(style='thin'),
-                     top=Side(style='thin'), bottom=Side(style='thin'))
-
-for col, (header, width) in enumerate([("Team", 25), ("Quality", 12), ("Note", 60)], 1):
-    cell = ws.cell(3, col)
-    cell.value = header
-    cell.fill = header_fill
-    cell.font = header_font
-    cell.alignment = Alignment(horizontal='center', vertical='center')
-    cell.border = thin_border
-    ws.column_dimensions[get_column_letter(col)].width = width
-
-# Data rows (sorted by quality descending)
-green_fill = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
-orange_fill = PatternFill(start_color="FFF2CC", end_color="FFF2CC", fill_type="solid")
-red_fill = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
-
-for row_idx, result in enumerate(sorted_results, 4):
-    ws.cell(row_idx, 1).value = result["team"]
-    ws.cell(row_idx, 1).border = thin_border
-
-    quality_cell = ws.cell(row_idx, 2)
-    quality_cell.value = f"{result['overall']}%"
-    quality_cell.border = thin_border
-    quality_cell.alignment = Alignment(horizontal='center')
-    if result['overall'] >= 70:
-        quality_cell.fill = green_fill
-    elif result['overall'] >= 40:
-        quality_cell.fill = orange_fill
-    else:
-        quality_cell.fill = red_fill
-
-    note_cell = ws.cell(row_idx, 3)
-    note_cell.value = result["note"]
-    note_cell.border = thin_border
-    note_cell.alignment = Alignment(wrap_text=True)
-
-ws.freeze_panes = 'A4'
-wb.save(f"{OUTPUT_DIR}/Report-DoD.xlsx")
+**Schema** (see `assets/templates/dod-data-schemas.md`):
+```json
+[
+  {
+    "team": "Europium",
+    "overall": 77.5,
+    "coverage": 85,
+    "clarity": 85,
+    "measurability": 80,
+    "company_alignment": 85,
+    "industry_alignment": 80,
+    "actionability": 80,
+    "evidence": 70,
+    "note": "Missing explicit performance/security validation and PO acceptance"
+  }
+]
 ```
 
-**CRITICAL:** Use `load_workbook()` to preserve existing "Summary" sheet.
-**Fallback:** If openpyxl fails, create standalone DoD-Quality.csv.
+Sort by `overall` descending before writing.
 
-#### Step 10.5: Report DoD Quality Assessment Completion
+**DO NOT generate any report files in this step.** Only write the JSON data file.
+**DO NOT write openpyxl code.** DO NOT open Report-DoD.xlsx with load_workbook.
+
+Proceed immediately to Step 11.
+
+#### Step 10.5: Output Quality Assessment Summary
 
 ```
 === DoD Quality Assessment Complete ===
@@ -551,18 +428,93 @@ Needs Improvement:
   2. ${bottom2_team} - ${bottom2_score}% (${bottom2_note})
   3. ${bottom3_team} - ${bottom3_score}% (${bottom3_note})
 
-Results added to: ${OUTPUT_DIR}/Report-DoD.xlsx (sheet "DoD quality")
-
 Standards used:
   - Industry: assets/dod-standard.txt
   - Company: Confluence page 21735212005 (Definition of Done DoD)
+
+Proceeding to Step 11: Report Generation...
 ```
 
-**Error handling for Step 10:**
-- If dod-standard.txt missing: skip entire Step 10 with warning
-- If company DoD page fetch fails: continue with industry standard only
-- If LLM evaluation fails: retry once, then mark as "assessment_failed" with score 0
-- If Report-DoD.xlsx cannot be loaded: create standalone DoD-Quality.csv
+### Step 11: Generate Reports via Canonical Template (AUTO-EXECUTE after Step 10)
+
+**This step executes the canonical report generator script. No report code is written by the LLM.**
+
+**This step executes automatically after Step 10 completes.** Do not pause or ask for user confirmation.
+
+#### Step 11.1: Verify Prerequisites
+
+Check that both JSON data files exist in `${OUTPUT_DIR}`:
+- `summary_data.json` (saved in Step 9)
+- `quality_data.json` (saved in Step 10.4)
+
+If `quality_data.json` is missing (Step 10 was skipped), create it with empty array `[]` before proceeding.
+
+#### Step 11.2: Verify and Copy Template Script
+
+```bash
+test -f "C:/Users/i.klyha/Desktop/Claude/wow-scanner-tool/assets/templates/generate_dod_reports.py" && echo "OK" || echo "MISSING"
+```
+
+If the template script does not exist, output error:
+```
+ERROR: Template script not found at assets/templates/generate_dod_reports.py
+Cannot generate reports without the canonical template.
+```
+Then skip report generation but do NOT fail the overall skill.
+
+If it exists, copy it to the output directory:
+```bash
+cp "C:/Users/i.klyha/Desktop/Claude/wow-scanner-tool/assets/templates/generate_dod_reports.py" "${OUTPUT_DIR}/generate_dod_reports.py"
+```
+
+#### Step 11.3: Execute Template Script
+
+```bash
+cd "${OUTPUT_DIR}" && python3 generate_dod_reports.py summary_data.json quality_data.json "." "{SCAN_DATE}"
+```
+
+Where `{SCAN_DATE}` is the scan date in YYYY-MM-DD format (e.g., "2026-06-29").
+
+This single command produces BOTH:
+- `Report-DoD.xlsx` (2 sheets: Summary, DoD quality)
+- `Report-DoD.html` (self-contained dashboard)
+
+#### Step 11.4: Validate Reports
+
+```bash
+cp "C:/Users/i.klyha/Desktop/Claude/wow-scanner-tool/assets/templates/validate_dod_reports.py" "${OUTPUT_DIR}/validate_dod_reports.py"
+cd "${OUTPUT_DIR}" && python3 validate_dod_reports.py "."
+```
+
+If validation fails, output the errors but do NOT attempt to "fix" by regenerating with different code.
+
+#### Step 11.5: Report Completion
+
+Output:
+```
+=== Reports Generated ===
+
+Excel: ${OUTPUT_DIR}/Report-DoD.xlsx (2 sheets: Summary, DoD quality)
+HTML:  ${OUTPUT_DIR}/Report-DoD.html
+
+Validation: PASSED (or list specific errors)
+
+All files saved to: ${OUTPUT_DIR}/
+  - teams.json
+  - summary_data.json
+  - quality_data.json
+  - DoD files: [team1]-dod.txt, [team2]-dod.txt, ...
+  - Report-DoD.xlsx
+  - Report-DoD.html
+```
+
+**FORBIDDEN in Step 11:**
+- DO NOT write Python code to generate reports
+- DO NOT create openpyxl scripts
+- DO NOT write HTML strings
+- DO NOT modify generate_dod_reports.py
+- DO NOT generate "fallback" CSV files
+- The ONLY actions are: copy template, execute template, validate output
 
 ## Error Handling
 
@@ -571,12 +523,14 @@ Standards used:
 - **Graceful degradation:** Partial data is better than no data
 
 **Automation Rules:**
-- **Only stop for critical failures:** Continue execution through all 10 steps unless:
+- **Only stop for critical failures:** Continue execution through all 11 steps unless:
   - Authentication fails completely (Step 2)
   - No teams found in source page (Step 5)
   - Output directory cannot be created (Step 4)
 - **Do not stop for partial failures:** If some teams fail, continue with successful teams
-- **Automatic Step 10:** Execute Step 10 (DoD quality assessment) automatically after Step 9. Skip only if assets/dod-standard.txt does not exist
+- **Automatic Step 9:** Save summary_data.json immediately after DoD extraction
+- **Automatic Step 10:** Execute DoD quality assessment automatically after Step 9. Skip only if assets/dod-standard.txt does not exist
+- **Automatic Step 11:** Execute report generation automatically after Step 10
 
 ## Tool Requirements
 
@@ -584,14 +538,13 @@ Required tools:
 - **ToolSearch** - Check for Atlassian MCP availability
 - **mcp__plugin_atlassian_atlassian__getAccessibleAtlassianResources** - Verify authentication
 - **mcp__plugin_atlassian_atlassian__getConfluencePage** - Fetch Confluence pages
-- **Write** - Create JSON, TXT, Python files
+- **Write** - Create JSON, TXT files
 - **Read** - Verify file contents
 - **Bash** - Create directories, get current time, execute Python scripts
 
 Optional tools:
 - **Grep** - Search for patterns
 - **Glob** - Find files
-- **Python 3 + openpyxl** - Generate Excel reports (fallback to CSV if unavailable)
 
 ## Important Rules
 
@@ -605,16 +558,32 @@ Optional tools:
 
 5. **Linked DoD Pages:** Follow links in DoD sections to extract from referenced pages. ONLY if DoD heading was found first.
 
-6. **Report-DoD.xlsx Fixed Schema:**
-   - Step 9 creates 1 sheet: "Summary" (KPI + Team|DoD table)
-   - Step 10 adds a 2nd sheet: "DoD quality" (does not modify Summary sheet)
-   - Summary: KPI row "% Teams with DoD" + 2-column table (Team, DoD)
-   - DoD quality: KPI row "DoD quality lvl" + 3-column table (Team, Quality, Note)
-   - DoD values: "Yes" (green) or "No" (red)
+6. **Report Generation is 100% Deterministic (Template-Based):**
+   - Reports are generated ONLY by `assets/templates/generate_dod_reports.py` - NEVER by LLM-written code
+   - The LLM's responsibility ends at producing valid JSON data files (summary_data.json, quality_data.json)
+   - The template script is NEVER modified, NEVER regenerated, NEVER "improved" during skill execution
+   - If the template script doesn't exist, the skill outputs an error (doesn't create a replacement)
+   - The template produces BOTH Report-DoD.xlsx AND Report-DoD.html in a single execution
+   - DO NOT write openpyxl code, DO NOT write HTML strings, DO NOT create CSV fallbacks
+   - `src/generate-dod-report.py` and inline Python for report generation are LEGACY - do not use
 
-7. **DoD Quality Assessment (Step 10):**
+7. **Report-DoD.xlsx Fixed Schema:**
+   - EXACTLY 2 sheets: "Summary" (first), "DoD quality" (second)
+   - Summary: merged A1:B1 KPI "% Teams with DoD", value in C1 with conditional fill, header row 3, data rows 4-18
+   - DoD quality: KPI row "DoD quality lvl", header row 3 (Team | Quality | Note), data sorted by score descending
+   - DoD values in Summary: "Yes" (green fill #C6EFCE, font #006100) or "No" (red fill #FFC7CE, font #9C0006)
+   - Quality scores: green >= 75%, yellow >= 50%, red < 50%
+   - Teams without DoD shown as "N/A" in quality sheet
+
+8. **DoD Quality Assessment (Step 10) - 7 Dimension Weighted Model:**
    - Only assesses teams that have defined DoD
    - Uses BOTH industry standard (assets/dod-standard.txt) AND company standard (Confluence page 21735212005)
-   - Quality score is 1-100% integer per team
-   - Added as 2nd sheet to existing Report-DoD.xlsx
+   - 7 dimensions: Coverage (25%), Clarity (20%), Measurability (15%), Company Alignment (15%), Industry (10%), Actionability (10%), Evidence (5%)
+   - Overall score = weighted average (0-100, 1 decimal)
    - "Note" column contains short, specific feedback on what is missing/weak
+   - Results saved to quality_data.json; the template script handles all Excel/HTML rendering
+
+9. **Data File Ordering:**
+   - summary_data.json MUST be written BEFORE Step 11 execution
+   - quality_data.json MUST be written BEFORE Step 11 execution
+   - If Step 10 is skipped, write empty `[]` to quality_data.json before Step 11

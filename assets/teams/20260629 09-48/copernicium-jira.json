@@ -1,0 +1,116 @@
+{
+  "team": "Copernicium",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/AETVP/boards/9246",
+  "boardId": "9246",
+  "projectKey": "AETVP",
+  "extractedAt": "2026-06-29T07:56:14Z",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = AETVP AND status in (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype in (Story, Bug, Task)",
+    "filterMethod": "client-side customfield_10114.name exact match",
+    "teamFieldValue": "AE - WAW - Copernicium"
+  },
+  "summary": {
+    "totalIssues": 10,
+    "byType": {
+      "Task": 2,
+      "Story": 8
+    },
+    "byStatus": {
+      "Code Review": 3,
+      "In Progress": 7
+    }
+  },
+  "issues": [
+    {
+      "key": "AETVP-625",
+      "summary": "Reporting data aggregation deployment & confirmation",
+      "issueType": "Task",
+      "status": "Code Review",
+      "assignee": "Kamil Madejek",
+      "url": "https://adgear.atlassian.net/browse/AETVP-625",
+      "hasDescription": true
+    },
+    {
+      "key": "AETVP-624",
+      "summary": "[tvp-interactive-ad] Polls & Surveys two options below centered video new template",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Jacek Wróblewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-624",
+      "hasDescription": true
+    },
+    {
+      "key": "AETVP-623",
+      "summary": "[tvp-remotion] Polls & Surveys with two options below centered video + FALLBACK",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Kamil Fraczek",
+      "url": "https://adgear.atlassian.net/browse/AETVP-623",
+      "hasDescription": true
+    },
+    {
+      "key": "AETVP-622",
+      "summary": "[rtb-trader] Polls & Surveys ad with 2-4 answer options possible",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Yevgeniy Wyszyński",
+      "url": "https://adgear.atlassian.net/browse/AETVP-622",
+      "hasDescription": true
+    },
+    {
+      "key": "AETVP-618",
+      "summary": "[rtb-trader] P&S DSP form validations",
+      "issueType": "Story",
+      "status": "Code Review",
+      "assignee": "Yevgeniy Wyszyński",
+      "url": "https://adgear.atlassian.net/browse/AETVP-618",
+      "hasDescription": true
+    },
+    {
+      "key": "AETVP-617",
+      "summary": "[tvp-interactive-ad] Adjust Interactive Overlay to Figma mocks",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Jacek Wróblewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-617",
+      "hasDescription": true
+    },
+    {
+      "key": "AETVP-616",
+      "summary": "[tvp-remotion] Adjust video template in Remotion to Figma mocks + FALLBACK",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Kamil Fraczek",
+      "url": "https://adgear.atlassian.net/browse/AETVP-616",
+      "hasDescription": true
+    },
+    {
+      "key": "AETVP-611",
+      "summary": "[tvp-interactive-ad] Use included overlay background image",
+      "issueType": "Story",
+      "status": "Code Review",
+      "assignee": "Jacek Wróblewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-611",
+      "hasDescription": true
+    },
+    {
+      "key": "AETVP-610",
+      "summary": "[data-activation] Include overlay background image in poll ad data",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Maciej Wróblewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-610",
+      "hasDescription": true
+    },
+    {
+      "key": "AETVP-609",
+      "summary": "[rtb-trader] Extract part of ad background for usage as overlay background",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Maciej Wróblewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-609",
+      "hasDescription": true
+    }
+  ]
+}

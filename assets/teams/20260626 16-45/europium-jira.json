@@ -1,0 +1,111 @@
+{
+  "team": "Europium",
+  "projectKey": "AENW",
+  "extractedAt": "2026-06-26T15:03:00.879001Z",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql_executed": "project = AENW AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "queryType": "project_wide_with_client_filter",
+    "filterMethod": "client_side",
+    "teamPattern": "AP - WAW - Europium",
+    "projectKey": "AENW",
+    "totalProjectIssues": 39,
+    "matchedTeamIssues": 7
+  },
+  "summary": {
+    "total": 7,
+    "byStatus": {
+      "In Progress": 5,
+      "Code Review": 2
+    },
+    "byType": {
+      "Story": 7
+    }
+  },
+  "issues": [
+    {
+      "key": "AENW-1047",
+      "type": "Story",
+      "summary": "[CP Improvements] Hide Right Align CTA Switch Behind Feature Flag",
+      "status": "In Progress",
+      "assignee": "Karol Strojek",
+      "priority": "Medium",
+      "created": "2026-06-17T07:55:58.848-0400",
+      "updated": "2026-06-26T10:43:34.660-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-1047",
+      "teamField": "AP - WAW - Europium"
+    },
+    {
+      "key": "AENW-1032",
+      "type": "Story",
+      "summary": "[CP Improvements] Creative Preview 2026 Unified First Screen \u2014 Design Fixes",
+      "status": "In Progress",
+      "assignee": "Karol Strojek",
+      "priority": "Medium",
+      "created": "2026-06-17T04:52:01.567-0400",
+      "updated": "2026-06-18T04:53:36.666-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-1032",
+      "teamField": "AP - WAW - Europium"
+    },
+    {
+      "key": "AENW-968",
+      "type": "Story",
+      "summary": "vertica-rollups - add fields metrics table",
+      "status": "In Progress",
+      "assignee": "Raman Krot",
+      "priority": "Medium",
+      "created": "2026-06-15T05:56:19.013-0400",
+      "updated": "2026-06-23T08:55:37.694-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-968",
+      "teamField": "AP - WAW - Europium"
+    },
+    {
+      "key": "AENW-966",
+      "type": "Story",
+      "summary": "adgear-data - add new fields to avro",
+      "status": "Code Review",
+      "assignee": "Raman Krot",
+      "priority": "Medium",
+      "created": "2026-06-15T04:58:05.361-0400",
+      "updated": "2026-06-23T08:47:05.472-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-966",
+      "teamField": "AP - WAW - Europium"
+    },
+    {
+      "key": "AENW-872",
+      "type": "Story",
+      "summary": "[Microsite UCS] Implement microstie pre-transcoding pipeline and background image processing",
+      "status": "Code Review",
+      "assignee": "Micha\u0142 Wi\u0105cek",
+      "priority": "Medium",
+      "created": "2026-06-02T06:49:27.253-0400",
+      "updated": "2026-06-26T07:30:17.832-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-872",
+      "teamField": "AP - WAW - Europium"
+    },
+    {
+      "key": "AENW-685",
+      "type": "Story",
+      "summary": "[Micoristes P2] Create Micro Frontend",
+      "status": "In Progress",
+      "assignee": "Karol Strojek",
+      "priority": "Medium",
+      "created": "2026-05-11T07:56:42.992-0400",
+      "updated": "2026-06-17T08:03:07.171-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-685",
+      "teamField": "AP - WAW - Europium"
+    },
+    {
+      "key": "AENW-605",
+      "type": "Story",
+      "summary": "[Microsite p2] Videos Section",
+      "status": "In Progress",
+      "assignee": "Grzegorz Prasal",
+      "priority": "Medium",
+      "created": "2026-05-04T07:22:34.564-0400",
+      "updated": "2026-06-22T04:56:00.233-0400",
+      "url": "https://adgear.atlassian.net/browse/AENW-605",
+      "teamField": "AP - WAW - Europium"
+    }
+  ]
+}

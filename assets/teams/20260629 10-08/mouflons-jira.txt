@@ -1,0 +1,12 @@
+Team: Mouflons
+Project: PEPI
+Active Issues: 1
+Scan Date: 2026-06-29
+============================================================
+
+PEPI-11393 | Task | In Development
+  Summary: Analyze preliminary result of A/B tests of MC EE models
+  Assignee: Marek Kochańczyk
+  Priority: Medium
+  Updated: 2026-03-31T05:58:34.172-0400
+

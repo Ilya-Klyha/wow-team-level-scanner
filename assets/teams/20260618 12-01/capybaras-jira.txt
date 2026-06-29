@@ -1,0 +1,16 @@
+Team: Capybaras
+Extracted: 2026-06-18T12:01:00+02:00
+Query Strategy: Project-based (local team filter)
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 1
+- In Progress: 1
+
+[RSW-1306] Task: [AU] E2E Segment Generation Validation - Pipeline Trigger & Size Consistency on PROD
+  Assignee: Tomasz Zarod | Priority: Medium | Status: In Progress
+  https://adgear.atlassian.net/browse/RSW-1306
+
+---
+Status: success

@@ -1,0 +1,22 @@
+{
+  "query": {
+    "jql": "project = PEPI AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "project": "PEPI",
+    "team": "ML Serving Sturgeons",
+    "scan_date": "2026-06-29"
+  },
+  "issues": [
+    {
+      "key": "PEPI-11580",
+      "summary": "Add alerting rules in alerting.yaml",
+      "status": "In Development",
+      "issuetype": "Task",
+      "assignee": "Kornel Pietrzyk",
+      "priority": "Medium",
+      "created": "2026-04-08T04:36:14.688-0400",
+      "updated": "2026-05-08T04:42:44.597-0400",
+      "team": "T - WAW - ML Sturgeons"
+    }
+  ],
+  "total": 1
+}

@@ -1,0 +1,17 @@
+Team: Polonium UF
+Project: RSW
+Extracted: 2026-06-26T15:03:00.885177Z
+
+=== ACTIVE ISSUES (4 total) ===
+
+--- In Progress (1) ---
+[RSW-882] Task: [FE] Handle chatbot functionality on mocks
+  Assignee: Katarzyna Kokieć | https://adgear.atlassian.net/browse/RSW-882
+
+--- Code Review (3) ---
+[RSW-1367] Bug: Custom App Group not visible in "Unexposed Target Audience duplication within the Samsung Universe" section
+  Assignee: Piotr Stefański | https://adgear.atlassian.net/browse/RSW-1367
+[RSW-1039] Task: [BE] Add GET endpoint for fetching presets from AI-backend
+  Assignee: Dmitriy Borowski | https://adgear.atlassian.net/browse/RSW-1039
+[RSW-884] Task: [FE] Add Reset session button with confirmation modal
+  Assignee: Zbigniew Stolarski | https://adgear.atlassian.net/browse/RSW-884

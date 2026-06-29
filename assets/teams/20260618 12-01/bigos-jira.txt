@@ -1,0 +1,36 @@
+Team: Bigos
+Extracted: 2026-06-18T12:01:00+02:00
+Query Strategy: Project-based (local team filter)
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 6
+- In Progress: 6
+
+[MAW-446] Story: Bronze-to-Silver Data Transformation - Master Context & SQL View Generation
+  Assignee: Rahul Tomer | Priority: Medium | Status: In Progress
+  https://adgear.atlassian.net/browse/MAW-446
+
+[MAW-445] Story: Public REST API Endpoint - part II
+  Assignee: Lukasz Kaminski | Priority: Medium | Status: In Progress
+  https://adgear.atlassian.net/browse/MAW-445
+
+[MAW-435] Story: Segment Creation from CAPI Events
+  Assignee: Kirill Timoszenko | Priority: Medium | Status: In Progress
+  https://adgear.atlassian.net/browse/MAW-435
+
+[MAW-366] Story: Internal Monitoring & Observability
+  Assignee: Rafal Parol | Priority: Medium | Status: In Progress
+  https://adgear.atlassian.net/browse/MAW-366
+
+[MAW-339] Story: Partial Success Error Handling
+  Assignee: Rafal Parol | Priority: Medium | Status: In Progress
+  https://adgear.atlassian.net/browse/MAW-339
+
+[MAW-372] Task: Setup git Agent
+  Assignee: Kirill Timoszenko | Priority: Medium | Status: In Progress
+  https://adgear.atlassian.net/browse/MAW-372
+
+---
+Status: success

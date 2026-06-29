@@ -1,0 +1,71 @@
+{
+  "team": "Capybaras",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10156",
+  "boardId": "10156",
+  "projectKey": "RSW",
+  "extractedAt": "2026-06-29T07:56:14Z",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = RSW AND status in (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype in (Story, Bug, Task)",
+    "filterMethod": "client-side customfield_10114.name exact match",
+    "teamFieldValue": "AS - WAW - Capybaras"
+  },
+  "summary": {
+    "totalIssues": 5,
+    "byType": {
+      "Task": 4,
+      "Story": 1
+    },
+    "byStatus": {
+      "In Progress": 4,
+      "Code Review": 1
+    }
+  },
+  "issues": [
+    {
+      "key": "RSW-1427",
+      "summary": "Cumulative Reach: Respect exclude_dsp_reach flag in CR calculation",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Piotr Marciniak",
+      "url": "https://adgear.atlassian.net/browse/RSW-1427",
+      "hasDescription": true
+    },
+    {
+      "key": "RSW-1377",
+      "summary": "[SRPOL-OR] Verify FRITES is production ready",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Cezary Kret",
+      "url": "https://adgear.atlassian.net/browse/RSW-1377",
+      "hasDescription": true
+    },
+    {
+      "key": "RSW-1306",
+      "summary": "[AU] E2E Segment Generation Validation — Pipeline Trigger & Size Consistency on PROD",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Tomasz Zaród",
+      "url": "https://adgear.atlassian.net/browse/RSW-1306",
+      "hasDescription": true
+    },
+    {
+      "key": "RSW-1235",
+      "summary": "[SRPOL-OR] Perform tests for PoC based on Airflow queue",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Dariusz Bielawski",
+      "url": "https://adgear.atlassian.net/browse/RSW-1235",
+      "hasDescription": true
+    },
+    {
+      "key": "RSW-555",
+      "summary": "[SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach",
+      "issueType": "Story",
+      "status": "Code Review",
+      "assignee": "Jakub Fołtyn",
+      "url": "https://adgear.atlassian.net/browse/RSW-555",
+      "hasDescription": true
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+Team: EP Core
+Project: EPCW
+Active Issues: 12
+Scan Date: 2026-06-29
+============================================================
+
+EPCW-382 | Bug | In Progress
+  Summary: GitHub runners 24.04 build is failing
+  Assignee: Stanisław Cabała
+  Priority: Medium
+  Updated: 2026-06-29T01:16:48.335-0400
+
+EPCW-377 | Task | In Progress
+  Summary: Test the fully removal of NGINX Ingress Controller in eks-use1-sandbox
+  Assignee: Juan Antonio Costa Bermudo
+  Priority: Medium
+  Updated: 2026-06-23T07:00:30.842-0400
+
+EPCW-360 | Task | Code Review
+  Summary: Update external actions on ep-core workflows (Beginning of June)
+  Assignee: Bartosz Brodecki
+  Priority: Medium
+  Updated: 2026-06-26T09:08:09.713-0400
+
+EPCW-308 | Task | In Progress
+  Summary: Fix packer-recipes pipelines - bastion host terminated during SRE cleanup
+  Assignee: Bartosz Brodecki
+  Priority: High
+  Updated: 2026-06-26T09:08:12.617-0400
+
+EPCW-304 | Task | In Progress
+  Summary: Eliminate workload restart requirement during RKE1 recovery
+  Assignee: Dariusz Nejbauer
+  Priority: High
+  Updated: 2026-06-23T06:48:10.098-0400
+
+EPCW-300 | Task | In Progress
+  Summary: Upgrade Grafana PROD to 12.4
+  Assignee: Michal Mankowski
+  Priority: Medium
+  Updated: 2026-06-29T03:40:17.059-0400
+
+EPCW-279 | Task | In Progress
+  Summary: Create JFrog PrivateLink VPC Endpoints across all VPCs
+  Assignee: Pagalavan
+  Priority: Medium
+  Updated: 2026-06-29T03:58:25.751-0400
+
+EPCW-276 | Task | Code Review
+  Summary: Fix ArgoCD cluster wide permissions on CRDs
+  Assignee: Stanisław Cabała
+  Priority: Medium
+  Updated: 2026-06-29T02:36:09.623-0400
+
+EPCW-273 | Task | In Progress
+  Summary: Remove SonarQube STG from use1-rdev
+  Assignee: Nitish Yadav
+  Priority: Medium
+  Updated: 2026-06-29T01:49:58.721-0400
+
+EPCW-171 | Task | In Progress
+  Summary: Force top 5 tenants to create cleanup mechanism for their docker images
+  Assignee: Michal Mankowski
+  Priority: Medium
+  Updated: 2026-06-25T10:41:22.393-0400
+
+EPCW-148 | Bug | In Progress
+  Summary: Cleanup NACL rancher configuration
+  Assignee: Lukasz Sutkowski
+  Priority: Medium
+  Updated: 2026-06-17T06:43:28.388-0400
+
+EPCW-141 | Task | In Progress
+  Summary: Decommision Metrics Ingest Servers aws-useast1a-metrics-ingest-1.sys.adgear.com & aws-useast1f-metrics-ingest-2.sys.adgear.com
+  Assignee: Chandra Prakash
+  Priority: Medium
+  Updated: 2026-06-29T03:41:25.817-0400
+

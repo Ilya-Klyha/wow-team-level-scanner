@@ -1,0 +1,92 @@
+[
+  {
+    "team": "Abyss",
+    "dor": "Yes",
+    "jira_tasks": 0,
+    "pct_fitting_dor": "-"
+  },
+  {
+    "team": "Radium",
+    "dor": "Yes",
+    "jira_tasks": 3,
+    "pct_fitting_dor": "33%"
+  },
+  {
+    "team": "Europium",
+    "dor": "Yes",
+    "jira_tasks": 1,
+    "pct_fitting_dor": "100%"
+  },
+  {
+    "team": "Copernicium",
+    "dor": "Yes",
+    "jira_tasks": 9,
+    "pct_fitting_dor": "89%"
+  },
+  {
+    "team": "Mouflons",
+    "dor": "Yes",
+    "jira_tasks": 0,
+    "pct_fitting_dor": "-"
+  },
+  {
+    "team": "Wolves",
+    "dor": "Yes",
+    "jira_tasks": 0,
+    "pct_fitting_dor": "-"
+  },
+  {
+    "team": "Polonium UF",
+    "dor": "Yes",
+    "jira_tasks": 4,
+    "pct_fitting_dor": "100%"
+  },
+  {
+    "team": "Bigos",
+    "dor": "Yes",
+    "jira_tasks": 0,
+    "pct_fitting_dor": "-"
+  },
+  {
+    "team": "Capybaras",
+    "dor": "Yes",
+    "jira_tasks": 4,
+    "pct_fitting_dor": "25%"
+  },
+  {
+    "team": "ML Serving Sturgeons",
+    "dor": "No",
+    "jira_tasks": 1,
+    "pct_fitting_dor": "-"
+  },
+  {
+    "team": "ML Platform Pandas",
+    "dor": "Yes",
+    "jira_tasks": 0,
+    "pct_fitting_dor": "-"
+  },
+  {
+    "team": "EP Core",
+    "dor": "Yes",
+    "jira_tasks": 10,
+    "pct_fitting_dor": "10%"
+  },
+  {
+    "team": "Zurek",
+    "dor": "Yes",
+    "jira_tasks": 15,
+    "pct_fitting_dor": "0%"
+  },
+  {
+    "team": "Igni",
+    "dor": "Yes",
+    "jira_tasks": 1,
+    "pct_fitting_dor": "100%"
+  },
+  {
+    "team": "SRE",
+    "dor": "No",
+    "jira_tasks": 3,
+    "pct_fitting_dor": "-"
+  }
+]

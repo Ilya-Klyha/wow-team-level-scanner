@@ -1,0 +1,97 @@
+TEAM: Zurek
+PROJECT: PEA
+BOARD: https://adgear.atlassian.net/jira/software/c/projects/PEA/boards/2881
+TOTAL ISSUES: 13
+
+======================================================================
+
+[1] PEA-4226 - Task
+    Title: [UDWMIG][LIFT][STANDARD] Deployment to production
+    Status: In Development
+    Assignee: Piotr Jaromin
+    URL: https://adgear.atlassian.net/browse/PEA-4226
+    Has Description: No
+
+[2] PEA-4219 - Task
+    Title: Statistics on impressions and reach for Lift, R&F and Delivery reports
+    Status: In Development
+    Assignee: Marcin Nowacki
+    URL: https://adgear.atlassian.net/browse/PEA-4219
+    Has Description: Yes
+
+[3] PEA-4217 - Story
+    Title: [Audience Service][EMR][Incremental Reach] Spark version of the Incremental Reach reporty decomision
+    Status: In Development
+    Assignee: Jacek Pielaszkiewicz
+    URL: https://adgear.atlassian.net/browse/PEA-4217
+    Has Description: Yes
+
+[4] PEA-4215 - Bug
+    Title: [Audience Service][PERF] PMP R&F Report optimization - analysis
+    Status: In Development
+    Assignee: Michał Kościelak
+    URL: https://adgear.atlassian.net/browse/PEA-4215
+    Has Description: Yes
+
+[5] PEA-4161 - Story
+    Title: [TEST] Support for declared IP in RF methodology
+    Status: In Development
+    Assignee: Marcin Nowacki
+    URL: https://adgear.atlassian.net/browse/PEA-4161
+    Has Description: Yes
+
+[6] PEA-4160 - Task
+    Title: [UDWMIG][LIFT][STANDARD][SNOWFLAKE] Report data integration tests
+    Status: In Development
+    Assignee: Michał Kościelak
+    URL: https://adgear.atlassian.net/browse/PEA-4160
+    Has Description: Yes
+
+[7] PEA-4067 - Task
+    Title: [UDWMIG][LIFT] Improving deployment on dev schemas
+    Status: In Development
+    Assignee: Michał Lis
+    URL: https://adgear.atlassian.net/browse/PEA-4067
+    Has Description: Yes
+
+[8] PEA-3960 - Story
+    Title: [Audience Service][EMR][LINEAR ADS] Deployment/switch to new EMR cluster Linear Ads
+    Status: In Development
+    Assignee: Anton Krasnikau
+    URL: https://adgear.atlassian.net/browse/PEA-3960
+    Has Description: Yes
+
+[9] PEA-3955 - Story
+    Title: [Audience Service][EMR][PMP LIFT] Deployment/switch to new EMR cluster PMP lift report
+    Status: In Development
+    Assignee: Anton Krasnikau
+    URL: https://adgear.atlassian.net/browse/PEA-3955
+    Has Description: Yes
+
+[10] PEA-3952 - Story
+    Title: [Audience Service][EMR][PMP IR] Deployment/switch to new EMR cluster PMP IR report
+    Status: In Development
+    Assignee: Anton Krasnikau
+    URL: https://adgear.atlassian.net/browse/PEA-3952
+    Has Description: Yes
+
+[11] PEA-3951 - Story
+    Title: [Audience Service][EMR][PMP RF] Deployment/switch to new EMR cluster PMP RF
+    Status: In Development
+    Assignee: Anton Krasnikau
+    URL: https://adgear.atlassian.net/browse/PEA-3951
+    Has Description: Yes
+
+[12] PEA-3948 - Story
+    Title: [Audience Service][EMR][LIFT] Deployment/switch to new EMR cluster Lift
+    Status: In Development
+    Assignee: Anton Krasnikau
+    URL: https://adgear.atlassian.net/browse/PEA-3948
+    Has Description: Yes
+
+[13] PEA-1931 - Story
+    Title: [UDWMIG][LIFT][WEBSITE_PIXELS][SNOWFLAKE] Procedure LIFT_WEB_PIXEL_POPULATE_INTERMEDIATE_TABLES_TMP_LIFT_TRADER_IMP_JOINED() implementation
+    Status: In Development
+    Assignee: Aron Gruzman
+    URL: https://adgear.atlassian.net/browse/PEA-1931
+    Has Description: Yes

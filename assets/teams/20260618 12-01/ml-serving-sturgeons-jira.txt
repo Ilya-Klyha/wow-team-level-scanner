@@ -1,0 +1,13 @@
+Team: ML Serving Sturgeons
+Extracted: 2026-06-18T12:01:00+02:00
+Query Strategy: Project-based (local team filter)
+
+=== ACTIVE ISSUES (In Progress, Code Review) ===
+
+Summary:
+- Total issues: 0
+
+No active issues found for this team.
+
+---
+Status: success

@@ -1,0 +1,33 @@
+{
+  "query": {
+    "jql": "project = ML AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "project": "ML",
+    "team": "ML Platform Pandas",
+    "scan_date": "2026-06-29"
+  },
+  "issues": [
+    {
+      "key": "ML-55",
+      "summary": "Implement Test DAG MLOps based on SDK",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Tomasz Teter",
+      "priority": "Medium",
+      "created": "2026-05-07T09:52:56.776-0400",
+      "updated": "2026-05-20T05:25:04.125-0400",
+      "team": null
+    },
+    {
+      "key": "ML-10",
+      "summary": "Support after MWAA upgrade to 2.10.3",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Tomasz Teter",
+      "priority": "Medium",
+      "created": "2026-04-20T13:55:18.034-0400",
+      "updated": "2026-04-23T09:43:19.611-0400",
+      "team": null
+    }
+  ],
+  "total": 2
+}

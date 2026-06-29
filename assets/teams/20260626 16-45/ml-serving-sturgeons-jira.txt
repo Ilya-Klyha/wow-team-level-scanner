@@ -1,0 +1,9 @@
+Team: ML Serving Sturgeons
+Project: PEPI
+Extracted: 2026-06-26T15:03:00.889635Z
+
+=== ACTIVE ISSUES (1 total) ===
+
+--- In Development (1) ---
+[PEPI-11580] Task: Add alerting rules in alerting.yaml
+  Assignee: Kornel Pietrzyk | https://adgear.atlassian.net/browse/PEPI-11580

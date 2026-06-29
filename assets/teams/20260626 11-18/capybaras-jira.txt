@@ -1,0 +1,9 @@
+JIRA ACTIVE ISSUES - Capybaras
+============================================================
+Query Date: 2026-06-26
+Total Issues: 0
+============================================================
+
+No active issues found for this team.
+Note: Both primary (sprint in openSprints()) and fallback queries returned 0 results.
+The customfield_10114 Team field may require ID-based JQL filtering.

@@ -1,0 +1,128 @@
+{
+  "team": "Radium",
+  "query_date": "2026-06-18",
+  "issue_count": 11,
+  "issues": [
+    {
+      "key": "AENW-1042",
+      "summary": "[Ad Response Generator] Verify/Add support for Spotlight Row and Beacon ad units",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Krzysztof Urbański",
+      "priority": "Medium",
+      "description": "Acceptance Criteria:\n\nAd Response Generator is capable of generating ad response for stv_sponsored_row and stv_spotlight_sponsored_row ad units",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-1042"
+    },
+    {
+      "key": "AENW-1040",
+      "summary": "[SW Test Pro - solution] Marcin Al-Jawahiri",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "description": "Acceptance criteria\n\n1. Attend \\[PROFESSIONAL\\] Discussion of SW Test task (from, June 12) \\[PL\\]\n2. Try to solve excercise\n\n",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-1040"
+    },
+    {
+      "key": "AENW-1036",
+      "summary": "Changes in DA - outcome task of AENW-1016",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "description": "Team decided to add placeholder task for <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/AENW-1016</custom> to make sure we can start implementation already in this sprint.  \nAcceptance criteria:  \n\\[TODO\\] update after investigation is done <custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atlassian.net/browse/AENW-1016</custom>",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-1036"
+    },
+    {
+      "key": "AENW-1016",
+      "summary": "Investigate why tiles with microsite are not pushed to TV",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Marcin Matyszkowicz",
+      "priority": "Medium",
+      "description": "Follow up of task: <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/AENW-579</custom>   \nWhen setting up creative with 4 tiles, tiles with click actions different that “microsite” are displayed on TV. Tiles with click action “microsite” are not displayed at all. We suspect config of those tiles is not in ad response.\n\nWe performed an analysis of changes required on full codebase using Claude Opus 1m (repositories analysed in single context: rtb-trader, rtb-bidder, rtb-delivery, rtb-gateway, data-activation-producer-wrapper). Results in attachment. We need to go through it and validate if reasoning is correct and use it as starting point in user stories creation. This prompt cost was 63USD, better be good <custom data-type=\"emoji\" data-id=\"id-1\">:smile:</custom>   \n  \nAcceptance criteria:  \n\\- We know the reason why TV does not gets proper ad response with all tiles and correct click actions on local environment.  \n\\- Follow up implementation detailed (repository, description) tasks created, added to backlog",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-1016"
+    },
+    {
+      "key": "AENW-957",
+      "summary": "[DSP-ruby] change MAX immersion image file size",
+      "status": "Code Review",
+      "issuetype": "Bug",
+      "assignee": "Jakub Anioł",
+      "priority": "Medium",
+      "description": "![](blob:https://media.staging.atl-paas.net/?type=file&localId=b734c2204cd1&id=3a17edfa-375a-43d1-be9b-f3d9b9a99021&&collection=&height=213&occurrenceKey=null&width=1171&__contextId=null&__displayType=null&__external=false&__fileMimeType=null&__fileName=null&__fileSize=null&__mediaTraceId=null&url=null)\nValidation should as for Immersive no=t as for banner\n\n‌\n\nAcceptance criteria - file size up to 1 MB should be allowed",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-957"
+    },
+    {
+      "key": "AENW-913",
+      "summary": "[Training] Ruby udemy training - Prepare to 13-17 July",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Marcin Al-Jawahiri",
+      "priority": "Medium",
+      "description": "",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-913"
+    },
+    {
+      "key": "AENW-907",
+      "summary": "Spike: Investigate ad serving pipeline for Samsung TV+",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Krzysztof Urbański",
+      "priority": "Medium",
+      "description": "**Description:**\n\nInvestigate and document the ad serving pipeline for Samsung TV+ platform. The current ad response generator supports Samsung TV Native, which requests ads from the bidder. TV+ is a different platform that uses a different mechanism for requesting ads — likely involving delivery directly rather than the bidder.\n\n **Goal:**\n\nBuild a clear understanding of the TV+ ad serving flow and determine what changes are needed in ad response generator to support it.\n\n**Areas to investigate:**\n\n* Systems involved — identify all services/components in the TV+ ad serving chain (delivery, bidder, CDN, any intermediaries)\n* Request format — what does the ad request to the server look like (endpoint, parameters, headers)\n* Data dependencies — what data needs to exist for a TV+ ad to be served (flights, creatives, targeting, schedules)\n* Response format — what is returned (VAST XML, JSON, other) and how it differs from TV Native responses\n* Impact on ad response generator — identify which modules/scripts need changes and what new components are required\n\n**Expected output:**\n\n  A document covering:\n\n1. End-to-end request flow for TV+ ad serving\n2. List of systems/services involved with their roles\n3. **Example request/response (or pointer to where to find one)**\n4. Proposed changes to ad response generator — what to add and where\n\n‌\n\n  **Acceptance Criteria:**\n\n* \\[ \\] TV+ ad serving flow is documented end-to-end (from request trigger to final response)\n* \\[ \\] All involved systems/services are identified with their roles\n* \\[ \\] Request format is documented (endpoint, parameters, headers, example)\n* \\[ \\] Response format is documented with example\n* \\[ \\] Key differences from TV Native pipeline are listed\n* \\[ \\] A list of required changes in ad response generator is provided, specifying:\n\n    * Which existing files/modules need modification\n    * What new modules/scripts need to be created\n    * What new parameters/arguments are needed (e.g. new CLI flags)\n    * What new data dependencies or external services are required\n    \n* \\[ \\] Rough effort estimate for implementation is provided\n* Jira task to do implementation in ad response generator\n\n    \n\n\n\n",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-907"
+    },
+    {
+      "key": "AENW-906",
+      "summary": "Deliver TVs to Cracow ",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Patryk Palyska",
+      "priority": "Medium",
+      "description": "",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-906"
+    },
+    {
+      "key": "AENW-796",
+      "summary": "[DSP-UI] Remove FF after E2E tests",
+      "status": "Code Review",
+      "issuetype": "Story",
+      "assignee": "Unassigned",
+      "priority": "Medium",
+      "description": "",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-796"
+    },
+    {
+      "key": "AENW-767",
+      "summary": "[DSP-JS] Adding a new click action type \"click-to-email\" on the UI side",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Jakub Anioł",
+      "priority": "Medium",
+      "description": "Acceptance criteria\n\nFF is working locally, in the preprod and production\n\nEmail is visible in the click actiuon  list as an another option\n\nWhen clickng Email option all elements in the form are visible",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-767"
+    },
+    {
+      "key": "AENW-127",
+      "summary": "[DSP-UI] Add new click action \"QR Code Microsite\"",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Unassigned",
+      "priority": "Medium",
+      "description": "As a DSP user on 2022-2026 forms for Masthead experiences i want new click action QR Code Microsite” so that I can use QR Code microsite template without remembering microsite URL\n\n‌\n\nFunctional requirements:\n\n1. New option on “Click Action” dropdown - “Shoppable Microsite”\n2. When “Shoppable Microsite” is selected a new field Target URL is created.\n3. When “Shoppable Microsite” is selected a text field “Target URL” should appear. URL typed here should be url encoded added to “Microsite URL” field as URL query parameter so JS on microsite can read it\n\nAcceptance criteria:\n\n* all functional requirements are implemented correctly\n\nGeneral UI (mock says Click action Shoppable Microsite but actually should be QR Code Microsite):\n\n![](blob:https://media.staging.atl-paas.net/?type=file&localId=null&id=c5e943b0-d577-44f6-9f3e-618774219816&&collection=&height=262&occurrenceKey=null&width=639&__contextId=null&__displayType=null&__external=false&__fileMimeType=null&__fileName=null&__fileSize=null&__mediaTraceId=null&url=null)\nAfter user entered Target URL (mock says Click action Microsite but actually should be QR Code Microsite):\n\n![](blob:https://media.staging.atl-paas.net/?type=file&localId=null&id=7602003c-d799-4941-9465-d7e81a1a2e11&&collection=&height=269&occurrenceKey=null&width=644&__contextId=null&__displayType=null&__external=false&__fileMimeType=null&__fileName=null&__fileSize=null&__mediaTraceId=null&url=null)\n‌\n\nFinal state after automatically appending url encoded target url (mock says Click action Microsite but actually should be QR Code Microsite)\n\n![](blob:https://media.staging.atl-paas.net/?type=file&localId=null&id=d61b5b4e-9606-4643-a579-2a478653a4e2&&collection=&height=263&occurrenceKey=null&width=637&__contextId=null&__displayType=null&__external=false&__fileMimeType=null&__fileName=null&__fileSize=null&__mediaTraceId=null&url=null)\nTask should be done with proper payload",
+      "team_field": "AE - WAW - Radium",
+      "url": "https://adgear.atlassian.net/browse/AENW-127"
+    }
+  ]
+}

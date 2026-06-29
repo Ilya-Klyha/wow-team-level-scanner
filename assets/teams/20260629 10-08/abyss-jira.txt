@@ -1,0 +1,30 @@
+Team: Abyss
+Project: MAW
+Active Issues: 4
+Scan Date: 2026-06-29
+============================================================
+
+MAW-477 | Story | In Progress
+  Summary: Pixel form view update
+  Assignee: Maciej Lewandowski
+  Priority: Medium
+  Updated: 2026-06-18T01:41:14.509-0400
+
+MAW-474 | Story | In Progress
+  Summary: Pixels list view update
+  Assignee: Rafal Stefanowicz
+  Priority: Medium
+  Updated: 2026-06-26T12:46:27.634-0400
+
+MAW-472 | Story | Code Review
+  Summary: Remove .gif extension handling for server side pixel
+  Assignee: Maksim Matchenia
+  Priority: Medium
+  Updated: 2026-06-24T04:19:43.604-0400
+
+MAW-468 | Story | Code Review
+  Summary: Connect conversion revenue from v2 to reporting
+  Assignee: Mateusz Roślak
+  Priority: Medium
+  Updated: 2026-06-23T09:43:40.677-0400
+

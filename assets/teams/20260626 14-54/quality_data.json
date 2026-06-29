@@ -1,0 +1,77 @@
+[
+  {
+    "team": "Abyss",
+    "coverage": 50,
+    "note": "Missing: design/UX specification, scope/sprint fit, risks/blockers, stakeholder alignment, technical feasibility"
+  },
+  {
+    "team": "Radium",
+    "coverage": 50,
+    "note": "Missing: design/UX specification, scope/sprint fit, risks/blockers, stakeholder alignment, technical feasibility"
+  },
+  {
+    "team": "Europium",
+    "coverage": 70,
+    "note": "Missing: risks/blockers explicit, stakeholder alignment, technical feasibility"
+  },
+  {
+    "team": "Copernicium",
+    "coverage": 50,
+    "note": "Missing: scope/sprint fit, risks/blockers, stakeholder alignment, technical feasibility, testing strategy"
+  },
+  {
+    "team": "Mouflons",
+    "coverage": 60,
+    "note": "Missing: design/UX specification, scope/sprint fit, technical feasibility, testing strategy"
+  },
+  {
+    "team": "Wolves",
+    "coverage": 60,
+    "note": "Missing: design/UX specification, scope/sprint fit, technical feasibility, testing strategy"
+  },
+  {
+    "team": "Polonium UF",
+    "coverage": 90,
+    "note": "Missing: testing strategy"
+  },
+  {
+    "team": "Bigos",
+    "coverage": 70,
+    "note": "Missing: risks/blockers, stakeholder alignment, technical feasibility"
+  },
+  {
+    "team": "Capybaras",
+    "coverage": 50,
+    "note": "Missing: design/UX specification, scope/sprint fit, risks/blockers, stakeholder alignment, technical feasibility"
+  },
+  {
+    "team": "ML Serving Sturgeons",
+    "coverage": 0,
+    "note": "Missing: all criteria (no DoR defined)"
+  },
+  {
+    "team": "ML Platform Pandas",
+    "coverage": 40,
+    "note": "Missing: design/UX specification, scope/sprint fit, risks/blockers, stakeholder alignment, technical feasibility, testing strategy"
+  },
+  {
+    "team": "EP Core",
+    "coverage": 50,
+    "note": "Missing: design/UX specification, scope/sprint fit, risks/blockers, stakeholder alignment, technical feasibility"
+  },
+  {
+    "team": "Zurek",
+    "coverage": 40,
+    "note": "Missing: design/UX specification, scope/sprint fit, risks/blockers, stakeholder alignment, technical feasibility, testing strategy"
+  },
+  {
+    "team": "Igni",
+    "coverage": 50,
+    "note": "Missing: design/UX specification, scope/sprint fit, risks/blockers, technical feasibility, testing strategy"
+  },
+  {
+    "team": "SRE",
+    "coverage": 0,
+    "note": "Missing: all criteria (no DoR defined)"
+  }
+]

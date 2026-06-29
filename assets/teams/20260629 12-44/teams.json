@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "scan_date": "2026-06-29T10:44:00Z",
+    "scan_timestamp_cet": "20260629 12-44",
+    "source_page": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/19470090380/SRPOL+Teams",
+    "team_count": 15,
+    "cloudId": "adgear.atlassian.net",
+    "scanner_version": "2.0"
+  },
+  "teams": [
+    {
+      "name": "Abyss",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22648881240/PE+-+WAW+-+Abyss",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/9980",
+      "dod_file": "abyss-dod.txt",
+      "page_id": "22648881240",
+      "extraction_status": "success",
+      "dod_source": "direct"
+    },
+    {
+      "name": "Radium",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/20720615642/Radium+Team+Space",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8976",
+      "dod_file": "radium-dod.txt",
+      "page_id": "20720615642",
+      "extraction_status": "success",
+      "dod_source": "direct"
+    },
+    {
+      "name": "Europium",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22431629392/Team+Europium",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8979",
+      "dod_file": "europium-dod.txt",
+      "page_id": "22431629392",
+      "extraction_status": "success",
+      "dod_source": "direct"
+    },
+    {
+      "name": "Copernicium",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/20734247032/Copernicium+Team+Space",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/AETVP/boards/9246",
+      "dod_file": "copernicium-dod.txt",
+      "page_id": "20734247032",
+      "extraction_status": "success",
+      "dod_source": "direct"
+    },
+    {
+      "name": "Mouflons",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22381756417/Team+Mouflons",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4503",
+      "dod_file": "mouflons-dod.txt",
+      "page_id": "22381756417",
+      "extraction_status": "success",
+      "dod_source": "direct"
+    },
+    {
+      "name": "Wolves",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22374940673/Team+Wolves",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4504",
+      "dod_file": "wolves-dod.txt",
+      "page_id": "22374940673",
+      "extraction_status": "success",
+      "dod_source": "direct"
+    },
+    {
+      "name": "Polonium UF",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22606053416/Polonium+Upper+Funnel+-+Team+page",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10403/backlog",
+      "dod_file": "polonium-uf-dod.txt",
+      "page_id": "22606053416",
+      "extraction_status": "success",
+      "dod_source": "linked_page"
+    },
+    {
+      "name": "Bigos",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22695936064/Bigos+-+Team+page",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/11439/backlog",
+      "dod_file": "bigos-dod.txt",
+      "page_id": "22695936064",
+      "extraction_status": "success",
+      "dod_source": "linked_page"
+    },
+    {
+      "name": "Capybaras",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22696132609/Capybaras+-+Team+page",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10156",
+      "dod_file": "capybaras-dod.txt",
+      "page_id": "22696132609",
+      "extraction_status": "success",
+      "dod_source": "direct"
+    },
+    {
+      "name": "ML Serving Sturgeons",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732425749/ML+Serving+Sturgeons",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4090",
+      "dod_file": "ml-serving-sturgeons-dod.txt",
+      "page_id": "21732425749",
+      "extraction_status": "not_found",
+      "dod_source": null
+    },
+    {
+      "name": "ML Platform Pandas",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732360213/ML+Platform+Pandas",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/projects/ML/boards/10470",
+      "dod_file": "ml-platform-pandas-dod.txt",
+      "page_id": "21732360213",
+      "extraction_status": "success",
+      "dod_source": "linked_page"
+    },
+    {
+      "name": "EP Core",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/19133628629/EP+Team+Page",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/EPCW/boards/10972",
+      "dod_file": "ep-core-dod.txt",
+      "page_id": "19133628629",
+      "extraction_status": "not_found",
+      "dod_source": null
+    },
+    {
+      "name": "Zurek",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/21748023571/Ads+Reporting+Bigos+Zurek",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/PEA/boards/2881?quickFilter=5159",
+      "dod_file": "zurek-dod.txt",
+      "page_id": "21748023571",
+      "extraction_status": "success",
+      "dod_source": "direct"
+    },
+    {
+      "name": "Igni",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22435922026/SRPOL+Team+-+Igni",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/ASPW/boards/9477",
+      "dod_file": "igni-dod.txt",
+      "page_id": "22435922026",
+      "extraction_status": "success",
+      "dod_source": "direct"
+    },
+    {
+      "name": "SRE",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22719529363/Team+SRPOL+SRE",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/EEEW/boards/10332",
+      "dod_file": "sre-dod.txt",
+      "page_id": "22719529363",
+      "extraction_status": "not_found",
+      "dod_source": null
+    }
+  ]
+}

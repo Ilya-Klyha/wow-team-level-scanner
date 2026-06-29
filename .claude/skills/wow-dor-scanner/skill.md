@@ -3,7 +3,7 @@ name: wow-dor-scanner
 description: >
   Extract SRPOL team data, DoR - STORY/TASK criteria, and active Jira issues from the SRPOL Teams Confluence page.
   Analyzes DoR compliance for each issue and assesses DoR quality per team against industry and company standards.
-  Generates Excel report with Summary, DoR Compliance, and DoR quality sheets.
+  Generates Excel report with Summary, DoR Compliance, and DoR quality sheets, plus an HTML dashboard for visual presentation.
   Automatically scans the configured page. Requires Atlassian MCP. Usage: /wow-dor-scanner
 ---
 
@@ -38,24 +38,45 @@ https://adgear.atlassian.net/wiki/spaces/ENG/pages/19470090380/SRPOL+Teams
    - Provides feedback only for non-compliant issues explaining why DoR not met
    - Generates Excel report with 2 sheets: Summary (all teams overview) + DoR Compliance (9 columns: Team, Issue Key, Issue Type, URL, Title, Status, Assignee, DoR Compliance, Note)
 5. Assesses DoR Quality:
-   - Evaluates quality of each team's DoR document against industry best practices (assets/dor-standard.txt) and company standard (Confluence page 21735179128)
-   - Scores each team 1-100% across 7 dimensions (coverage, clarity, measurability, company alignment, industry alignment, actionability, AC guidance)
-   - Adds "DoR quality" sheet to Report-DoR.xlsx with KPI, team scores, and specific improvement notes
+   - Evaluates coverage of each team's DoR document against the DoR Standard (assets/dor-standard.txt) combined with company standard (Confluence page 21735179128)
+   - Scores each team 0-100 points representing how many standard criteria are covered
+   - Adds "DoR quality" sheet to Report-DoR.xlsx with KPI (average coverage), team coverage scores, and notes listing which standard points are missing
 6. Saves all data to absolute path: `C:\Users\i.klyha\Desktop\Claude\wow-scanner-tool\assets\teams\<timestamp>/` where timestamp is in CET format: `YYYYMMDD HH-MM`
    - DoR files: `[team-name]-dor.txt`
    - Jira files: `[team-name]-jira.json` and `[team-name]-jira.txt`
    - Master file: `teams.json`
    - DoR Analysis Report: `Report-DoR.xlsx`
+   - HTML Dashboard Report: `Report-DoR.html`
    - Analysis Summary: `DOR_ANALYSIS_SUMMARY.md`
 
 ## Instructions
 
-**CRITICAL - FULL AUTOMATION:** This skill must execute all 12 steps automatically without pausing or asking for user confirmation. The entire workflow from data extraction (Steps 1-10) to DoR analysis (Step 11) to DoR quality assessment (Step 12) should run continuously. Only stop execution if:
+**CRITICAL - FULL AUTOMATION:** This skill must execute all 13 steps automatically without pausing or asking for user confirmation. The entire workflow from data extraction (Steps 1-10) to DoR analysis (Step 11) to DoR quality assessment (Step 12) to HTML report generation (Step 13) should run continuously. Only stop execution if:
 - Authentication fails (Step 2)
 - Critical errors occur that prevent continuation
 - Prerequisites are missing (e.g., no teams found)
 
-Do NOT pause between steps to ask for approval. Do NOT stop after Step 10 or Step 11. Proceed directly from Step 10 to Step 11 to Step 12 automatically.
+Do NOT pause between steps to ask for approval. Do NOT stop after Step 10, Step 11, or Step 12. Proceed directly from Step 10 to Step 11 to Step 12 to Step 13 automatically.
+
+### Execution Constraints - Shell and Python
+
+**RULE: Python scripts longer than 5 lines MUST be written to files before execution.**
+
+When the Python code to execute is more than 5 lines OR contains any quote characters (single or double):
+1. Use the Write tool to save the script to `${OUTPUT_DIR}/[descriptive_name].py`
+2. Execute with Bash: `cd "${OUTPUT_DIR}" && python3 [descriptive_name].py`
+
+**WHY:** Shell heredocs (`python3 << 'EOF'`) and inline Python (`python3 -c "..."`) fail unpredictably when the code contains quotes, f-strings, or special characters. This causes `unexpected EOF` errors that halt execution mid-skill. Writing to a file eliminates ALL shell escaping issues permanently.
+
+**Exception:** Single-line Python commands without quotes may use `python3 -c` directly:
+```bash
+# OK - no quotes in Python code
+python3 -c "import sys; print(sys.version)"
+# FORBIDDEN - has quotes, must use file instead  
+python3 -c "data = {'key': 'value'}"
+```
+
+**This rule applies to ALL steps including Steps 9, 11, 12, and 13. When in doubt, write to a file.**
 
 When invoked:
 
@@ -162,10 +183,36 @@ Parse the HTML to locate and extract the table:
    - Look for columns containing: "SPRINT board" or "Board"
 3. Extract `<tbody>` rows:
    - For each `<tr>` row, extract `<td>` cells
-   - From first column: extract team page URL
+   - From first column: extract team page URL (see MULTI-LINK DISAMBIGUATION RULE below)
    - From SPRINT board column: extract sprint board link
    - Extract page ID from team page URLs (number after `/pages/` or the tiny link ID after `/wiki/x/`)
    - **Do NOT extract team name yet** - it will be retrieved from the actual page title
+
+**MULTI-LINK DISAMBIGUATION RULE:**
+
+When a table cell in column 1 (SRPOL Ads Team) contains MULTIPLE `<a>` elements:
+
+1. Filter to ONLY links matching Confluence wiki page URL patterns:
+   - Tiny links: URL contains `/wiki/x/[ID]`
+   - Full page URLs: URL contains `/wiki/spaces/.../pages/[NUMERIC_ID]`
+   - Exclude: Jira links, external links, anchors, non-wiki URLs.
+
+2. From the filtered list, select the FIRST link by DOM/HTML order.
+   - Position in HTML is the ONLY selector.
+   - Do NOT prefer links based on label text (e.g., "Team Page", "Team Space").
+   - Do NOT prefer links based on URL format (numeric ID vs. tiny link ID).
+   - Inline card links (`data-card-appearance="inline"`) with no visible text ARE valid.
+
+3. Extract page ID from the selected URL:
+   - `/wiki/x/[ID]` → use ID portion directly as pageId (e.g., "AQAHUAU")
+   - `/wiki/spaces/.../pages/[NUMERIC_ID]` → use NUMERIC_ID as pageId
+
+Example - EP Core cell contains:
+```
+<a href="...wiki/x/AQAHUAU" data-card-appearance="inline">...</a>
+<a href="...wiki/spaces/ENG/pages/19133628629"><u>EP Team Page</u></a>
+```
+Result: Select first link → pageId = "AQAHUAU" (correct WoW team page)
 
 **HTML Parsing Patterns:**
 - Table rows: Text between `<tr>` and `</tr>`
@@ -353,7 +400,7 @@ For each team in the list:
 
 #### Step 9.0: Configure Team Custom Field (Hardcoded)
 
-The Team custom field is essential for accurate team-specific filtering in shared projects (AENW, PEPI, RSW).
+The Team custom field is essential for accurate team-specific filtering in shared projects (AENW, PEPI, RSW etc).
 
 **Field ID**: `customfield_10114` (verified in Jira instance)
 
@@ -363,10 +410,11 @@ The Team custom field is essential for accurate team-specific filtering in share
 const TEAM_FIELD_ID = "customfield_10114"
 
 console.log(`[INFO] Using Team field: ${TEAM_FIELD_ID}`)
+console.log(`[INFO] Filter method: client-side (Team-type fields do NOT support JQL filtering)`)
 
-// Optional: Validate field is accessible
+// Optional: Validate field is present in issue responses
 try {
-  const testQuery = `project = AENW AND ${TEAM_FIELD_ID} IS NOT EMPTY`
+  const testQuery = `project = AENW AND status IN ("In Progress", "Code Review", "In Development") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task`
   const result = await mcp__plugin_atlassian_atlassian__searchJiraIssuesUsingJql({
     cloudId: "adgear.atlassian.net",
     jql: testQuery,
@@ -374,19 +422,24 @@ try {
     maxResults: 1
   })
   
-  if (result.total > 0) {
-    console.log(`[SUCCESS] Team field validated - found issues with Team data`)
+  if (result.issues && result.issues.length > 0) {
+    const teamFieldValue = result.issues[0].fields?.[TEAM_FIELD_ID]
+    if (teamFieldValue && teamFieldValue.name) {
+      console.log(`[SUCCESS] Team field validated - sample value: "${teamFieldValue.name}"`)
+    } else {
+      console.log(`[WARNING] Team field exists but sample issue has null value`)
+    }
   } else {
-    console.log(`[WARNING] Team field exists but may not contain data`)
+    console.log(`[WARNING] No active issues found in AENW for validation`)
   }
 } catch (error) {
   console.log(`[WARNING] Cannot validate Team field: ${error.message}`)
 }
 ```
 
-**Team Name Patterns** (for JQL filtering):
+**Team Name Patterns** (for client-side filtering):
 
-Map skill team names to Team field value patterns for filtering:
+Map skill team names to Team field value patterns for client-side exact matching:
 
 ```javascript
 const TEAM_NAME_PATTERNS = {
@@ -402,16 +455,49 @@ const TEAM_NAME_PATTERNS = {
   "Capybaras": "AS - WAW - Capybaras",
   "ML Serving Sturgeons": "T - WAW - ML Sturgeons",
   "ML Platform Pandas": "T - WAW - ML Pandas",
-  "Zurek": "Zurek",
+  "Zurek": "T - WAW - Zurek",
   "EP Core": "T - WAW - EP Core",
   "Igni": "AP - WAW - Igni",
   "SRE": "T - WAW - Embedded SREs SRPOL"
 }
 ```
 
-**Note:** These patterns use exact matching (`=` operator in JQL) with the full Jira Team field values. The Team field is an object type that requires exact name matching, not fuzzy text search.
+**Note:** These patterns MUST exactly match the `customfield_10114.name` values returned in Jira issue responses. The Team field is a Jira Team-type object (not text/select), so matching is performed CLIENT-SIDE after fetching results.
 
-**Rationale**: The original discovery logic via `getJiraIssueTypeMetaWithFields` has proven unreliable in practice. Hardcoding the verified field ID provides stability while validation confirms the field is accessible.
+```
++------------------------------------------------------------------------+
+| MANDATORY: DO NOT use customfield_10114 = "..." in JQL.                |
+| The Team custom field is a Jira Team-type field that does NOT support   |
+| JQL equality filtering by name. Queries using this syntax silently      |
+| return 0 results even when matching issues exist.                       |
+|                                                                         |
+| CORRECT APPROACH: Query per project WITHOUT team filter, then filter    |
+| results client-side by checking fields.customfield_10114.name value.    |
++------------------------------------------------------------------------+
+```
+
+**Project-to-Teams Mapping:**
+
+```javascript
+/**
+ * PROJECT_TEAMS maps each Jira project key to the SRPOL teams whose issues live there.
+ * Used to deduplicate project queries: each project is queried ONCE, results split across teams.
+ */
+const PROJECT_TEAMS = {
+  "MAW":   ["Abyss", "Bigos"],
+  "AENW":  ["Radium", "Europium"],
+  "AETVP": ["Copernicium"],
+  "PEPI":  ["Mouflons", "Wolves", "ML Serving Sturgeons"],
+  "RSW":   ["Polonium UF", "Capybaras"],
+  "ML":    ["ML Platform Pandas"],
+  "EPCW":  ["EP Core"],
+  "PEA":   ["Zurek"],
+  "ASPW":  ["Igni"],
+  "EEEW":  ["SRE"]
+}
+```
+
+**Rationale**: The original discovery logic via `getJiraIssueTypeMetaWithFields` has proven unreliable in practice. Hardcoding the verified field ID provides stability while validation confirms the field is accessible. The Team-type custom field does NOT support JQL filtering (equality operator always returns 0 results), so a project-level query with client-side filtering approach is mandatory.
 
 #### Step 9.1: Process Each Team
 
@@ -437,156 +523,153 @@ For each team in the list:
    
    If board ID cannot be extracted, mark as `jiraStatus: "parse_error"` and skip
 
-3. **Build JQL query with team-specific filtering:**
-   
-   Use a two-tier query strategy with Team field filtering to accurately capture team-specific active work:
-   
-   **Primary Query (Sprint-based + Team filter):**
+3. **Build project-level JQL query (NO team filter in JQL):**
+
+   ```
+   +------------------------------------------------------------------------+
+   | MANDATORY: The query MUST NOT contain customfield_10114 = "..."         |
+   | Team-type fields cannot be filtered via JQL. Client-side filtering is   |
+   | applied AFTER results are retrieved. See Step 9.0 warning.              |
+   |                                                                         |
+   | MANDATORY: The query MUST NOT contain `sprint in openSprints()`         |
+   | The sprint filter causes data loss for issues that are active but not   |
+   | assigned to the current sprint. This is the documented root cause of a  |
+   | critical bug that caused 42% of active issues to be missed.             |
+   +------------------------------------------------------------------------+
+   ```
+
+   For each UNIQUE project key in PROJECT_TEAMS:
+
+   **JQL Template:**
    ```jql
-   sprint in openSprints() 
-   AND project = {PROJECT_KEY} 
-   AND {TEAM_FIELD_ID} = "{TEAM_PATTERN}"
-   AND status IN ("In Progress", "Code Review", "In Development") 
+   project = {PROJECT_KEY}
+   AND status IN ("In Progress", "Code Review", "In Development")
    AND issuetype IN (Story, Bug, Task)
    AND issuetype != Sub-task
    ```
-   
-   **Fallback Query (Project-based + Team filter):**
-   If sprint query returns 0 results, try:
-   ```jql
-   project = {PROJECT_KEY} 
-   AND {TEAM_FIELD_ID} = "{TEAM_PATTERN}"
-   AND status IN ("In Progress", "Code Review", "In Development") 
-   AND issuetype IN (Story, Bug, Task)
-   AND issuetype != Sub-task
-   ```
-   
-   **No Team Field Fallback:**
-   If Team field unavailable (TEAM_FIELD_ID is null), use project-only filter:
-   ```jql
-   sprint in openSprints() AND project = {PROJECT_KEY} AND status IN ("In Progress", "Code Review") AND issuetype IN (Story, Bug, Task)
-   ```
-   
-   **Query Strategy:**
-   1. If TEAM_FIELD_ID exists, use team-filtered queries (primary + fallback)
-   2. If TEAM_FIELD_ID is null, use project-only queries (old behavior)
-   3. Store which query type was successful in metadata
-   
-   **Why Team Field Works:**
-   - Each issue has a Team custom field indicating ownership
-   - Team field is an object type with a `name` property containing the full team name
-   - Using `=` (exact match) operator with the full Jira team name ensures accurate filtering
-   - The Team field values follow patterns like "AE - WAW - Radium", "AP - WAW - Igni", "T - WAW - EP Core", etc.
-   - Accurately filters team-specific issues even in shared projects (AENW, RSW, PEPI, PEA)
-   
-   **Examples:**
-   - Radium (AENW project): 
-     ```
-     sprint in openSprints() AND project = AENW AND customfield_10114 = "AE - WAW - Radium" AND status IN ("In Progress", "Code Review")
-     ```
-     Returns only issues with Team = "AE - WAW - Radium"
-   
-   - Igni (ASPW project):
-     ```
-     sprint in openSprints() AND project = ASPW AND customfield_10114 = "AP - WAW - Igni" AND status IN ("In Progress", "Code Review")
-     ```
-     Returns only issues with Team = "AP - WAW - Igni"
-   
-   - EP Core (EPCW project):
-     ```
-     project = EPCW AND customfield_10114 = "T - WAW - EP Core" AND status IN ("In Progress", "Code Review", "In Development")
-     ```
-     Returns only issues with Team = "T - WAW - EP Core"
-   
+
+   **NO ADDITIONAL CLAUSES may be added.** No team filter. No sprint filter. No ORDER BY.
+
    **CRITICAL - Case Sensitivity:** Jira status names are case-sensitive:
-   - "In Progress" (capital P)
+   - "In Progress" (capital I, capital P)
    - "Code Review" (capital C, capital R)
-   - "In Development" (capital D)
-   
-   **CRITICAL - Issue Type Filter:** Exclude Sub-tasks from analysis:
-   - Only analyze parent-level Stories, Bugs, and Tasks
+   - "In Development" (capital I, capital D)
+
+   **CRITICAL - Issue Type Filter:** Exclude Sub-tasks:
+   - Only parent-level Stories, Bugs, and Tasks are analyzed
    - Sub-tasks are implementation details and should not be assessed against DoR
    - JQL filter: `issuetype != Sub-task`
-   
-   **Query Type Tracking:**
-   Store in metadata which query succeeded:
-   - `"queryType": "sprint+team"` - Sprint + team filter worked
-   - `"queryType": "project+team"` - Project + team filter worked
-   - `"queryType": "sprint"` - Sprint only (no team filter available)
-   - `"queryType": "project"` - Project only (no team filter available)
-   - `"queryType": "none"` - All queries returned 0
 
-4. **Execute team-filtered query strategy:**
-   
-   Get team pattern for current team:
+   **CRITICAL - No Sprint Filter:**
+   - NEVER add `sprint in openSprints()` to any query - this causes data loss
+   - Issues can be "In Progress" without being in an open sprint
+
+   **Query Type Tracking:**
+   Store in metadata which result type applied:
+   - `"queryType": "project_wide_with_client_filter"` - Issues found via client-side filtering (normal success)
+   - `"queryType": "pattern_mismatch"` - Project has SRPOL issues but team's pattern matched 0
+   - `"queryType": "none"` - Project has 0 active issues overall
+
+4. **Execute project queries with pagination and client-side team assignment:**
+
+   Process each unique project key from PROJECT_TEAMS. Projects can be queried
+   in parallel (up to 5 concurrent queries recommended).
+
+   **Pagination Loop (MANDATORY for completeness):**
    ```javascript
-   const teamPattern = TEAM_NAME_PATTERNS[teamName] || teamName
+   for (const [projectKey, teamNames] of Object.entries(PROJECT_TEAMS)) {
+     const jql = `project = ${projectKey} AND status IN ("In Progress", "Code Review", "In Development") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task`
+
+     // Phase 1: Fetch ALL active issues in project (paginated)
+     let allProjectIssues = []
+     let nextPageToken = null
+     let pageCount = 0
+
+     do {
+       const result = mcp__plugin_atlassian_atlassian__searchJiraIssuesUsingJql(
+         cloudId: "adgear.atlassian.net",
+         jql: jql,
+         fields: ["key", "summary", "status", "issuetype", "assignee", "priority", "created", "updated", "customfield_10114"],
+         maxResults: 100,
+         nextPageToken: nextPageToken  // null on first call
+       )
+
+       allProjectIssues = allProjectIssues.concat(result.issues)
+       nextPageToken = result.isLast ? null : result.nextPageToken
+       pageCount++
+
+       // Safety: cap at 5 pages (500 issues) to prevent infinite loops
+       if (pageCount >= 5) {
+         console.log(`[WARNING] Project ${projectKey}: capped at 500 issues (${pageCount} pages)`)
+         break
+       }
+     } while (nextPageToken !== null)
+
+     console.log(`[INFO] Project ${projectKey}: fetched ${allProjectIssues.length} total active issues (${pageCount} page(s))`)
+
+     // Phase 2: Client-side filtering - assign issues to teams
+     for (const teamName of teamNames) {
+       const teamPattern = TEAM_NAME_PATTERNS[teamName]
+       
+       const teamIssues = allProjectIssues.filter(issue => {
+         const teamField = issue.fields?.customfield_10114
+         if (!teamField || !teamField.name) return false
+         return teamField.name === teamPattern  // EXACT match, case-sensitive
+       })
+
+       console.log(`  ${teamName}: ${teamIssues.length} issues matched pattern "${teamPattern}"`)
+
+       // Phase 3: Pattern mismatch detection (replaces old diagnostic query)
+       if (teamIssues.length === 0 && allProjectIssues.length > 0) {
+         // Check if any SRPOL team (WAW marker) has issues in this project
+         const srpolIssues = allProjectIssues.filter(issue => {
+           const name = issue.fields?.customfield_10114?.name || ""
+           return name.includes("WAW")
+         })
+
+         if (srpolIssues.length > 0) {
+           // Other SRPOL teams have work, but this team's pattern returned nothing
+           // Log observed team names for debugging
+           const observedTeams = [...new Set(srpolIssues.map(i => i.fields.customfield_10114.name))]
+           console.log(`  [WARNING] Pattern "${teamPattern}" matched 0 issues, but project has SRPOL issues from: ${observedTeams.join(", ")}`)
+           console.log(`  [WARNING] Check if team was renamed in Jira or pattern is incorrect`)
+           // queryType = "pattern_mismatch"
+         } else {
+           // No SRPOL teams have work in this project at all
+           // queryType = "none"
+         }
+       }
+
+       // Store results for this team (even if 0 issues - that's valid)
+       team.filteredIssues = teamIssues
+       team.queryType = teamIssues.length > 0 ? "project_wide_with_client_filter" 
+                       : (allProjectIssues.length > 0 ? "pattern_mismatch" : "none")
+     }
+   }
    ```
+
+   **Key behaviors:**
+   - Each project is queried EXACTLY ONCE (deduplication via PROJECT_TEAMS)
+   - Pagination ensures no issues are missed due to the 100-result cap
+   - Client-side filter uses EXACT string match on `customfield_10114.name`
+   - Issues with null/missing team field are silently discarded (not assigned to any team)
+   - Pattern mismatch detection replaces the old diagnostic query approach
+   - Results for 0-issue teams are still saved (with empty arrays) - this is success, not error
+
+   **Team field validation (inherent in client-side approach):**
+   Since issues are assigned to teams based on exact `customfield_10114.name` match,
+   validation is inherent - every issue in a team's result set is guaranteed to match.
    
-   **If Team field is available (TEAM_FIELD_ID exists):**
+   Log a summary per project for auditability:
+   ```javascript
+   // After processing all teams in a project:
+   const assignedCount = teamNames.reduce((sum, t) => sum + teams[t].filteredIssues.length, 0)
+   const unassignedCount = allProjectIssues.length - assignedCount
    
-   a) First attempt - Sprint-based + Team filter:
-      ```javascript
-      let jql_primary
-      let fields_list
-      
-      if (TEAM_FIELD_ID) {
-        jql_primary = `sprint in openSprints() AND project = ${PROJECT_KEY} AND ${TEAM_FIELD_ID} = "${teamPattern}" AND status IN ("In Progress", "Code Review") AND issuetype IN (Story, Bug, Task)`
-        fields_list = ["key", "summary", "status", "issuetype", "assignee", "priority", "created", "updated", TEAM_FIELD_ID]
-      } else {
-        jql_primary = `sprint in openSprints() AND project = ${PROJECT_KEY} AND status IN ("In Progress", "Code Review") AND issuetype IN (Story, Bug, Task)`
-        fields_list = ["key", "summary", "status", "issuetype", "assignee", "priority", "created", "updated"]
-      }
-      
-      result = mcp__plugin_atlassian_atlassian__searchJiraIssuesUsingJql(
-        cloudId: "adgear.atlassian.net",
-        jql: jql_primary,
-        fields: fields_list,
-        maxResults: 100
-      )
-      ```
-   
-   b) If result.total == 0, try fallback - Project-based + Team filter:
-      ```javascript
-      let jql_fallback
-      
-      if (TEAM_FIELD_ID) {
-        jql_fallback = `project = ${PROJECT_KEY} AND ${TEAM_FIELD_ID} = "${teamPattern}" AND status IN ("In Progress", "Code Review") AND issuetype IN (Story, Bug, Task)`
-      } else {
-        jql_fallback = `project = ${PROJECT_KEY} AND status IN ("In Progress", "Code Review") AND issuetype IN (Story, Bug, Task)`
-      }
-      
-      result = mcp__plugin_atlassian_atlassian__searchJiraIssuesUsingJql(
-        cloudId: "adgear.atlassian.net",
-        jql: jql_fallback,
-        fields: fields_list,
-        maxResults: 100
-      )
-      ```
-   
-   c) Track which query succeeded:
-      - If primary with team filter returns results: `queryType = "sprint+team"`
-      - If fallback with team filter returns results: `queryType = "project+team"`
-      - If primary without team filter: `queryType = "sprint"` (field unavailable)
-      - If fallback without team filter: `queryType = "project"` (field unavailable)
-      - If both return 0: `queryType = "none"`
-   
-   d) Validate Team field in results (if available):
-      ```javascript
-      if (TEAM_FIELD_ID && result.total > 0) {
-        // Check if Team field values match expected pattern
-        const teamFieldValues = result.issues.map(i => i.fields[TEAM_FIELD_ID])
-        const matchedIssues = teamFieldValues.filter(v => v && v.name === teamPattern).length
-        
-        console.log(`  Team field validation: ${matchedIssues}/${result.total} issues match team pattern "${teamPattern}"`)
-        
-        if (matchedIssues < result.total) {
-          console.log(`  [WARNING] ${result.total - matchedIssues} issues don't match team pattern (may be shared/unassigned)`)
-        }
-      }
-      ```
-   
-   **Note:** maxResults is capped at 100. If more issues exist, results will be truncated.
+   if (unassignedCount > 0) {
+     console.log(`  [INFO] ${projectKey}: ${unassignedCount} issues belong to non-SRPOL teams (discarded)`)
+   }
+   ```
 
 5. **Process and format results:**
    
@@ -624,11 +707,17 @@ For each team in the list:
    
    Calculate summary statistics:
    - Total issue count
-   - Count by status ("In Progress", "Code Review")
+   - Count by status ("In Progress", "Code Review", "In Development")
    - Count by type (Story, Bug, Task)
 
 6. **Save JSON file:**
    Write to `${OUTPUT_DIR}/[team-name-kebab]-jira.json` where OUTPUT_DIR is the absolute path from Step 4:
+   
+   **MANDATORY JSON SCHEMA:** The jira.json file MUST include the `query` object with the
+   actual JQL used. This is REQUIRED for debugging. Do NOT save bare arrays without metadata.
+   If the output is a bare JSON array (e.g., `[{...}, {...}]`) without the wrapping object,
+   this is a schema violation that MUST be corrected.
+   
    ```json
    {
      "team": "[Team Name]",
@@ -638,21 +727,21 @@ For each team in the list:
      "extractedAt": "[ISO-8601 timestamp]",
      "teamFieldId": "customfield_10114",
      "query": {
-       "jql": "[Successful JQL query used]",
-       "queryType": "sprint+team | project+team | sprint | project | none",
+       "jql_executed": "project = AENW AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+       "queryType": "project_wide_with_client_filter | pattern_mismatch | none",
+       "filterMethod": "client_side",
        "teamFilterEnabled": true,
        "teamPattern": "AE - WAW - Radium",
-       "queryAttempted": {
-         "primary": "sprint in openSprints() AND project = AENW AND customfield_10114 = \"AE - WAW - Radium\" ...",
-         "fallback": "project = AENW AND customfield_10114 = \"AE - WAW - Radium\" ...",
-         "primarySuccess": true
-       },
+       "projectKey": "AENW",
+       "totalProjectIssues": 25,
+       "matchedTeamIssues": 8,
        "statuses": ["In Progress", "Code Review", "In Development"],
-       "issueTypes": ["Story", "Bug", "Task"]
+       "issueTypes": ["Story", "Bug", "Task"],
+       "pagesRetrieved": 1
      },
      "summary": {
        "total": 15,
-       "byStatus": {"In Progress": 10, "Code Review": 5},
+       "byStatus": {"In Progress": 10, "Code Review": 3, "In Development": 2},
        "byType": {"Story": 8, "Bug": 4, "Task": 3},
        "truncated": false
      },
@@ -684,14 +773,15 @@ For each team in the list:
    Board ID: [Board ID]
    Project: [Project Key]
    Extracted: [ISO-8601 timestamp]
-   Query Strategy: Sprint-based (primary succeeded) | Project-based (fallback used) | No active work
+   Query Strategy: Project-wide + client-side filter (succeeded) | Pattern mismatch (team filter failed) | No active work
 
-   === ACTIVE ISSUES (In Progress, Code Review) ===
+   === ACTIVE ISSUES (In Progress, Code Review, In Development) ===
 
    Summary:
    - Total issues: 15
    - In Progress: 10
-   - Code Review: 5
+   - Code Review: 3
+   - In Development: 2
 
    Issues by type:
    - Stories: 8
@@ -797,6 +887,7 @@ For each team in the list:
      "jiraIssueCount": 15,
      "jiraBoardId": "8976",
      "jiraProjectKey": "AENW",
+     "jiraQueryType": "project_wide_with_client_filter",
      "jiraError": null
    }
    ```
@@ -806,6 +897,39 @@ For each team in the list:
    - `"no_board"` - No sprint board URL configured
    - `"parse_error"` - Cannot parse board ID from URL
    - `"access_error"` - Jira API call failed
+
+#### Step 9.2: Query Result Validation
+
+After executing queries for ALL projects and assigning issues to teams:
+
+1. **JQL compliance check:** Verify that NO executed JQL contains `customfield_10114` 
+   or `sprint in openSprints()`. If found, this is a critical implementation error.
+
+2. **Cross-team contamination check (inherent guarantee):**
+   Client-side filtering by exact `customfield_10114.name` match guarantees that no 
+   issue appears in more than one team's results (each issue has exactly one team field 
+   value). No explicit check needed - log a confirmation note:
+   ```
+   [INFO] Cross-team contamination: impossible by design (exact name match filtering)
+   ```
+
+3. **Pattern mismatch summary:**
+   List all teams where `queryType == "pattern_mismatch"`:
+   ```
+   [WARNING] Teams with potential pattern mismatch (0 issues but project has SRPOL work):
+     - {team}: pattern "{pattern}" not found in {project} (observed teams: [...])
+   ```
+
+4. **Result reasonableness check:**
+   - Total issues across all teams should be 30-100 (historically observed range)
+   - If total < 30: log warning (possible pattern issues or low activity period)
+   - If any single team has >30 issues: log info (unusually busy team)
+   
+5. **Null team field summary:**
+   Log how many issues per project had null/missing `customfield_10114` field:
+   ```
+   [INFO] Issues with null team field (discarded): MAW=2, AENW=0, PEPI=1, ...
+   ```
 
 ### Step 10: Report Completion
 
@@ -853,6 +977,49 @@ Proceeding to Step 11: DoR Compliance Analysis...
 ### Step 11: DoR Compliance Analysis (AUTO-EXECUTE)
 
 **This step executes automatically after Step 10.** Do not pause or ask for user confirmation before starting Step 11.
+
+```
++================================================================================+
+| STEP 11 EXECUTION CONTRACT - BINDING FOR EVERY RUN                             |
+|                                                                                 |
+| This step produces compliance_data.json. The ONLY valid method is:              |
+|                                                                                 |
+| 1. FETCH descriptions: Call getJiraIssue for EACH issue (batch 5 per message)   |
+| 2. PERSIST descriptions: Write ${OUTPUT_DIR}/issue_descriptions.json            |
+| 3. ANALYZE with LLM reasoning: Compare descriptions against DoR criteria        |
+| 4. PERSIST results: Write compliance_data.json                                  |
+|                                                                                 |
+| ORDERING CONSTRAINT (mechanical enforcement):                                   |
+| issue_descriptions.json MUST be written to disk BEFORE compliance_data.json.    |
+| If you are about to write compliance_data.json and issue_descriptions.json does |
+| not yet exist, STOP. You have skipped Step 11.2. Go back and execute it.        |
+|                                                                                 |
+| FORBIDDEN (violation = invalid output, report must not be generated):           |
+| - Writing Python scripts that produce compliance judgments (no analyze_dor.py)  |
+| - Producing compliance_data.json without issue_descriptions.json existing first |
+| - Using ONLY issue summaries/titles for compliance assessment                   |
+| - Keyword/regex/heuristic matching on summaries as substitute for LLM analysis  |
+| - Giving "Pass" to issues whose description was never fetched or read           |
+| - Assuming "benefit of doubt" or "in-progress means DoR was met"               |
+|                                                                                 |
+| STATISTICAL INVARIANT:                                                          |
+| On 50+ issues, a 0% failure rate is statistically impossible and indicates      |
+| the analysis was not performed. If 0 failures are detected after analysis,      |
+| output an error and DO NOT proceed to report generation.                        |
+|                                                                                 |
+| RESOURCE BUDGET:                                                                |
+| Step 11 typically requires 20-40 tool calls (fetching + analysis). This is      |
+| expected and acceptable. Do NOT optimize by skipping description fetches.       |
+| Speed is NOT a goal of Step 11. Accuracy IS the goal.                           |
++================================================================================+
+```
+
+**CONTEXT MANAGEMENT for Step 11:**
+Step 11 is the most resource-intensive step. To manage context pressure:
+- Process teams in batches of 3-4 (fetch descriptions for a batch, analyze, continue)
+- It is ACCEPTABLE for Step 11 to span 20+ tool call messages
+- NEVER sacrifice accuracy for speed or context conservation
+- If only partial teams can be analyzed due to limits, save partial results with `"analysis_status": "partial"` but NEVER mark unfetched issues as "Pass"
 
 After completing all extraction steps, analyze how well each Jira issue meets its team's DoR criteria and generate a comprehensive Excel report.
 
@@ -1027,73 +1194,124 @@ Teams to analyze: [count]
 Total issues to analyze: [count]
 ```
 
-#### Step 11.2: Fetch Full Issue Details
+#### Step 11.2: Fetch and PERSIST Full Issue Details (MANDATORY - NO SHORTCUTS)
 
-For each team to analyze, fetch full issue descriptions (needed for DoR analysis):
+**Purpose:** Fetch the full description for every issue and SAVE to disk as an audit artifact.
+This file (`issue_descriptions.json`) proves that descriptions were fetched and serves as
+input to Step 11.3. Its existence on disk is the enforcement mechanism that prevents shortcuts.
 
-```javascript
-for (const team of teams_to_analyze) {
-  // Read existing Jira data
-  const jira_json = Read(`${OUTPUT_DIR}/${team.name_kebab}-jira.json`)
-  const jira_data = JSON.parse(jira_json)
-  
-  console.log(`Fetching details for ${team.name} (${jira_data.issues.length} issues)...`)
-  
-  // Fetch full details for each issue
-  for (const issue of jira_data.issues) {
-    const full_issue = await mcp__plugin_atlassian_atlassian__getJiraIssue({
-      cloudId: "adgear.atlassian.net",
-      issueIdOrKey: issue.key,
-      fields: ["description"]
-    })
-    
-    // Extract description (handle both string and ADF format)
-    if (full_issue.fields.description) {
-      if (typeof full_issue.fields.description === 'string') {
-        issue.description = full_issue.fields.description
-      } else {
-        // ADF format - extract text content
-        issue.description = extractTextFromADF(full_issue.fields.description)
-      }
-    } else {
-      issue.description = "(No description provided)"
+**Output file:** `${OUTPUT_DIR}/issue_descriptions.json`
+
+**Schema:**
+```json
+{
+  "fetched_at": "2026-06-26T14:50:00Z",
+  "issues_fetched": 88,
+  "issues_with_description": 75,
+  "issues_without_description": 13,
+  "data": {
+    "AENW-1040": {
+      "summary": "[SW Test Pro - solution] Marcin Al-Jawahiri",
+      "team": "Radium",
+      "description": "(No description provided)",
+      "has_content": false
+    },
+    "AENW-1036": {
+      "summary": "Changes in DA - outcome task of AENW-1016",
+      "team": "Radium",
+      "description": "Context: This task implements the DA-side changes required by...",
+      "has_content": true
     }
   }
-  
-  team.enriched_issues = jira_data.issues
 }
 ```
 
-**Helper function for ADF text extraction:**
+**Execution procedure:**
+
+1. For each team to analyze, read its `[team]-jira.json` to get the issue list
+2. Fetch descriptions in BATCHES of 5 parallel `getJiraIssue` calls per tool-call message:
+
 ```javascript
-function extractTextFromADF(adf) {
-  if (!adf || !adf.content) return "(No description)"
-  
-  let text = []
-  for (const node of adf.content) {
-    if (node.type === 'paragraph' && node.content) {
-      for (const inline of node.content) {
-        if (inline.type === 'text') {
-          text.push(inline.text)
-        }
-      }
-    } else if (node.type === 'bulletList' || node.type === 'orderedList') {
-      // Extract list items
-      if (node.content) {
-        for (const listItem of node.content) {
-          if (listItem.content) {
-            text.push('- ' + extractTextFromADF({content: listItem.content}))
-          }
-        }
-      }
-    }
-  }
-  
-  return text.join('\n').trim() || "(No description)"
-}
+// Batch 5 issues per message for efficiency
+mcp__plugin_atlassian_atlassian__getJiraIssue({ cloudId: "adgear.atlassian.net", issueIdOrKey: "AENW-1040", fields: ["description"] })
+mcp__plugin_atlassian_atlassian__getJiraIssue({ cloudId: "adgear.atlassian.net", issueIdOrKey: "AENW-1036", fields: ["description"] })
+mcp__plugin_atlassian_atlassian__getJiraIssue({ cloudId: "adgear.atlassian.net", issueIdOrKey: "AENW-1035", fields: ["description"] })
+mcp__plugin_atlassian_atlassian__getJiraIssue({ cloudId: "adgear.atlassian.net", issueIdOrKey: "AENW-1015", fields: ["description"] })
+mcp__plugin_atlassian_atlassian__getJiraIssue({ cloudId: "adgear.atlassian.net", issueIdOrKey: "AENW-943", fields: ["description"] })
 ```
 
-#### Step 11.3: Analyze DoR Compliance (LLM-Based)
+3. For each response, extract description text:
+   - If `fields.description` is a string: use directly
+   - If `fields.description` is an object (ADF format): extract text content recursively
+   - If `fields.description` is null/missing: store as `"(No description provided)"` with `has_content: false`
+
+4. After ALL issues are fetched, write `issue_descriptions.json` to disk using the Write tool
+
+**ADF text extraction:**
+When description is in Atlassian Document Format (object with `type: "doc"` and `content` array):
+- Walk the content tree recursively
+- Extract text from `paragraph > text` nodes
+- Extract items from `bulletList/orderedList > listItem` nodes
+- Concatenate all text with newlines
+- If resulting text is empty/whitespace: `has_content: false`
+
+**After writing issue_descriptions.json, output confirmation:**
+```
+[CHECKPOINT] issue_descriptions.json written: X issues fetched, Y with content, Z without content
+```
+
+**CRITICAL ORDERING:** Do NOT proceed to Step 11.3 until issue_descriptions.json is physically written to disk. This file is the proof of work for Step 11.2.
+
+**EXPLICITLY FORBIDDEN in Step 11.2:**
+- Writing a Python script that "analyzes" issues without fetching descriptions
+- Using issue summaries as proxy for descriptions
+- Marking all issues as "Pass" because descriptions could not be fetched
+- Creating heuristic rules based on summary keywords (TBD, ???, etc.)
+- Any approach that produces compliance results WITHOUT reading actual issue content from Jira
+
+#### Step 11.3: Analyze DoR Compliance (LLM-Based - MANDATORY METHOD)
+
+```
++------------------------------------------------------------------------+
+| ANALYSIS METHOD: The LLM (Claude) reads descriptions from              |
+| issue_descriptions.json and makes SEMANTIC judgments against DoR.       |
+| This is NOT automatable by a Python script. The LLM understands         |
+| whether text constitutes "acceptance criteria" in a way that regex      |
+| cannot. This is WHY the LLM performs this step directly.                |
++------------------------------------------------------------------------+
+```
+
+**CALIBRATION RULES - Apply uniformly to ALL issues for consistent results:**
+
+1. **Issue has `has_content: false` in issue_descriptions.json** (empty/no description):
+   - If team DoR requires "clear description" or "requirement clarity" → **FAIL**
+   - If team DoR requires "acceptance criteria" → **FAIL**
+   - Note format: "DoR criterion '[criterion name]': no description provided"
+   - This rule is DETERMINISTIC - no LLM judgment needed for empty descriptions
+
+2. **Issue has description but NO identifiable acceptance criteria:**
+   Look for ANY of these patterns in the description text:
+   - Bullet points or numbered lists labeled as AC/criteria/requirements
+   - Sections titled "Acceptance Criteria", "AC", "Done when", "Success criteria", "Expected behavior"
+   - Structured conditions (Given/When/Then, or "verify that...", "ensure that...")
+   - If NONE found → **FAIL** for AC criterion
+   - Note: "DoR criterion '[AC criterion name]': no testable acceptance criteria found in description"
+
+3. **Issue has description AND has identifiable acceptance criteria:**
+   → **PASS** for both description and AC criteria
+
+4. **Estimation/Story Points:** Cannot be reliably verified from description alone.
+   → Do NOT fail on estimation criteria unless DoR says "estimate visible in description"
+
+5. **Dependencies:** Only fail if DoR requires dependencies AND description explicitly
+   mentions unresolved blockers. When unclear → PASS on dependency criteria.
+
+6. **Design/Mockups:** Only fail if DoR requires mockups AND the issue summary/description
+   indicates UI work AND no Figma/design link is present in description.
+
+**These calibration rules ensure CONSISTENT results across runs.** The rules make the
+"easy cases" deterministic (empty description = Fail) and reserve LLM judgment only for
+ambiguous cases (does this text constitute valid AC?).
 
 For each team, analyze all issues in ONE batched LLM call:
 
@@ -1314,16 +1532,47 @@ for (const team of teams_to_analyze) {
 // Report only includes teams that have BOTH DoR and active issues
 ```
 
-#### Step 11.5: Generate Excel Report (FIXED SCHEMA)
+#### Step 11.5: Save Compliance and Summary Data Files
 
-**CRITICAL:** This report MUST match the schema defined at the beginning of Step 11. Do not deviate from the specification.
-
-**Step 1: Check Python availability:**
-```bash
-python3 -c "import openpyxl; print('OK')" 2>/dev/null
+**PRE-CONDITION CHECK before saving compliance data:**
+Before writing compliance_data.json, verify that issue_descriptions.json exists on disk:
 ```
+Verify: ${OUTPUT_DIR}/issue_descriptions.json exists
+If NOT exists → STOP. Step 11.2 was not executed. Go back and execute it.
+If exists → proceed with saving compliance results below.
+```
+This check enforces the ordering constraint from the execution contract.
 
-**Step 2: Create Python script** (if Python available):
+**This step saves JSON data files that the canonical report generator will consume in Step 13.**
+
+1. Build `summary_data.json` from all teams metadata (schema: see `assets/templates/data-schemas.md`):
+   - 15 entries, one per team in fixed order
+   - Calculate per-team compliance percentages from compliance results
+   - `pct_fitting_dor`: "-" if no issues or no DoR; "X%" otherwise
+
+2. Save to `${OUTPUT_DIR}/compliance_data.json`:
+   - Array of all compliance analysis results
+   - Each entry has exactly 9 keys: team, issue_key, issue_type, url, title, status, assignee, dor_compliance, note
+   - dor_compliance is "Pass" or "Fail" only
+   - note is "" for Pass, non-empty explanation for Fail
+
+3. Save to `${OUTPUT_DIR}/summary_data.json`:
+   - Array of 15 team entries with keys: team, dor, jira_tasks, pct_fitting_dor
+
+**DO NOT generate Python scripts for report generation.**
+**DO NOT write openpyxl code inline.**
+**DO NOT create CSV fallbacks.**
+
+Reports will be generated in Step 13 by the canonical template script after quality data is also available.
+
+Proceed immediately to Step 11.6.
+
+**NOTE:** The old Step 11.5 Python code generation (generate_report.py, CSV fallback) has been removed.
+All report rendering is now handled by `assets/templates/generate_reports.py` in Step 13.
+
+---
+
+**[LEGACY CODE REMOVED - See assets/templates/generate_reports.py]**
 
 Write to: `${OUTPUT_DIR}/generate_report.py`
 
@@ -1874,18 +2123,48 @@ Only teams with extracted DoR criteria (those with a `[team-name]-dor.txt` file)
 
 #### Step 12.3: Quality Assessment (LLM-Based)
 
-For EACH team with a defined DoR, evaluate quality using the following prompt structure. Process all teams in a single batched LLM call for efficiency:
+For EACH team with a defined DoR, evaluate COVERAGE against the DoR Standard. Process all teams in a single batched LLM call for efficiency.
+
+**CRITICAL - FIXED ASSESSMENT METHOD:**
+The assessment compares each team's DoR against a FIXED list of standard criteria derived from the industry standard (dor-standard.txt) and company standard (Confluence page). The scoring is purely about COVERAGE: how many of the standard criteria does the team's DoR address?
+
+**Standard Criteria Checklist (10 items):**
+These are the 10 essential DoR criteria derived from both standards. Each criterion covered = 10 points. Maximum score = 100.
+
+1. **User Story/Requirement Clarity** - Clear description of what needs to be built, understandable to all team members
+2. **Acceptance Criteria** - Specific, testable conditions for successful completion
+3. **Estimation/Sizing** - Team has estimated the work (story points, t-shirt sizing, etc.)
+4. **Dependencies Identified & Resolved** - External/internal dependencies documented and addressed
+5. **Design/UX Specification** - Mockups, wireframes, or technical design provided when applicable
+6. **Scope/Sprint Fit** - Work is decomposed to fit within a single sprint
+7. **Risks/Blockers Identified** - Known risks and potential blockers documented
+8. **Stakeholder Alignment** - PO approval, priority confirmed, business value explained
+9. **Technical Feasibility Confirmed** - Technical investigation done, approach validated
+10. **Testing Strategy/Approach** - Test cases defined or testing approach documented
 
 **Assessment Prompt:**
 ```
-You are evaluating the quality of a team's Definition of Ready (DoR) document.
+You are evaluating the COVERAGE of a team's Definition of Ready (DoR) against a standard checklist.
 
-INDUSTRY STANDARD (best practices reference):
+STANDARD CHECKLIST (10 criteria, each worth 10 points):
+1. User Story/Requirement Clarity - Clear description of what needs to be built
+2. Acceptance Criteria - Specific, testable conditions for completion
+3. Estimation/Sizing - Team has estimated the work
+4. Dependencies Identified & Resolved - Dependencies documented and addressed
+5. Design/UX Specification - Mockups/designs provided when applicable
+6. Scope/Sprint Fit - Work decomposed to fit within a sprint
+7. Risks/Blockers Identified - Known risks and blockers documented
+8. Stakeholder Alignment - PO approval, priority confirmed
+9. Technical Feasibility Confirmed - Technical investigation done
+10. Testing Strategy/Approach - Test cases or testing approach defined
+
+REFERENCE STANDARDS:
+Industry standard:
 ---
 ${dor_standard_text}
 ---
 
-COMPANY STANDARD (organizational DoR guidance):
+Company standard:
 ---
 ${company_dor_text}
 ---
@@ -1895,186 +2174,55 @@ TEAM DoR TO ASSESS (Team: ${team_name}):
 ${team_dor_text}
 ---
 
-Evaluate this team's DoR across 7 dimensions. Score each dimension 0-100:
+For this team's DoR, determine which of the 10 standard criteria are COVERED (explicitly addressed in the team's DoR document). A criterion is "covered" if the team's DoR mentions it or addresses it in substance, even if using different wording.
 
-1. COVERAGE (weight: 25%): How many of these 10 essential areas are addressed?
-   - User Story/Requirement Clarity
-   - Acceptance Criteria
-   - Estimation/Sizing
-   - Dependencies Identified & Resolved
-   - Design/UX/Technical Spec (when applicable)
-   - Scope/Sprint Fit
-   - Risks/Blockers Identified
-   - Stakeholder Alignment/PO Approval
-   - Technical Feasibility Confirmed
-   - Testing Strategy/Approach
-   Score: (areas covered / 10) * 100
+RESPOND IN VALID JSON ONLY:
+{
+  "team": "Team Name",
+  "coverage": <number 0-100, count of covered criteria * 10>,
+  "covered_criteria": [<list of covered criterion numbers, e.g. [1, 2, 3, 4]>],
+  "missing_criteria": [<list of missing criterion numbers, e.g. [5, 6, 7, 8, 9, 10]>],
+  "note": "<list ONLY the missing criteria names, comma-separated>"
+}
 
-2. CLARITY & SPECIFICITY (weight: 20%): Are criteria specific and unambiguous?
-   - 100 = every criterion is concrete, specific, verifiable
-   - 50 = mix of specific and vague criteria
-   - 0 = all criteria are generic/copy-paste
+The "note" field MUST list the NAMES of the missing criteria from the standard checklist.
+Format: "Missing: [criterion name 1], [criterion name 2], ..."
+If all 10 are covered: "All standard criteria covered"
 
-3. MEASURABILITY (weight: 15%): Can each criterion be objectively verified (pass/fail)?
-   - 100 = all criteria have clear pass/fail checks
-   - 50 = some criteria are subjective
-   - 0 = criteria cannot be consistently evaluated
+Examples:
+- "Missing: Design/UX Specification, Scope/Sprint Fit, Risks/Blockers Identified, Testing Strategy"
+- "Missing: Technical Feasibility Confirmed, Testing Strategy/Approach"
+- "All standard criteria covered"
+```
 
-4. COMPANY STANDARD ALIGNMENT (weight: 15%): Alignment with company DoR page
-   - Clearly defined acceptance criteria
-   - Dependencies identified and addressed
-   - Scope and priority established
-   - INVEST principles considered
-   Score based on how well the team DoR reflects these principles
-
-5. INDUSTRY BEST PRACTICES (weight: 10%): Adherence to INVEST, Scrum Guide, SAFe
-   - 100 = exemplifies industry best practices
-   - 50 = follows some practices
-   - 0 = contradicts established practices
-
-6. ACTIONABILITY (weight: 10%): Does DoR drive specific behaviors?
-   - 100 = clear ownership, workflow integration, consequences for not meeting DoR
-   - 50 = some actionable guidance
-   - 0 = passive checklist with no behavioral guidance
-
-7. AC GUIDANCE (weight: 5%): How well does DoR address acceptance criteria quality?
-   - 100 = specific format requirements, quality standards for AC
-   - 50 = mentions AC must exist
-   - 0 = no mention of AC quality or format
-
-RESPOND IN VALID JSON ONLY. Array of objects, one per team:
+**Process ALL teams in one prompt** by including multiple TEAM DoR sections and requesting an array response:
+```json
 [
-  {
-    "team": "Team Name",
-    "coverage": <0-100>,
-    "clarity": <0-100>,
-    "measurability": <0-100>,
-    "company_alignment": <0-100>,
-    "industry_alignment": <0-100>,
-    "actionability": <0-100>,
-    "ac_guidance": <0-100>,
-    "overall": <weighted average as integer>,
-    "note": "<short specific comment on main gaps/weaknesses, max 80 chars>"
-  }
+  {"team": "Abyss", "coverage": 50, "covered_criteria": [1,2,3,4,5], "missing_criteria": [6,7,8,9,10], "note": "Missing: Scope/Sprint Fit, Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility, Testing Strategy"},
+  ...
 ]
-
-The "note" field must be SHORT and SPECIFIC. Focus on what is MISSING or WEAK.
-Examples of good notes:
-- "Missing estimation criteria and risk identification"
-- "AC guidance too vague, no scope/sprint fit criterion"
-- "No testing strategy, dependencies not addressed"
-- "Strong coverage but criteria lack measurability"
-
-Do NOT include positive feedback in the note. Only gaps and weaknesses.
-If the DoR is excellent (score >= 90), note can be: "Comprehensive, minor gaps only"
 ```
 
 **Parse the JSON response.** If parsing fails, retry once with explicit "RESPOND IN JSON ONLY" instruction.
 
-**Weighted Average Calculation:**
+**Coverage Score Calculation:**
 ```
-overall = round(
-  coverage * 0.25 +
-  clarity * 0.20 +
-  measurability * 0.15 +
-  company_alignment * 0.15 +
-  industry_alignment * 0.10 +
-  actionability * 0.10 +
-  ac_guidance * 0.05
-)
+coverage = count(covered_criteria) * 10
 ```
+Score is always a multiple of 10 (0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100).
 
-#### Step 12.4: Add "DoR quality" Sheet to Report-DoR.xlsx
+#### Step 12.4: Save Quality Data
 
-Use Python with openpyxl to open the existing Report-DoR.xlsx and add a third sheet:
+1. Save quality assessment results to `${OUTPUT_DIR}/quality_data.json`
+   - Schema: see `assets/templates/data-schemas.md`
+   - Coverage values MUST be multiples of 10 (count of covered criteria * 10)
+   - Note MUST list missing criterion names from the 10-criteria standard
+   - Criterion names used in Note: User Story/Requirement Clarity, Acceptance Criteria, Estimation/Sizing, Dependencies Identified & Resolved, Design/UX Specification, Scope/Sprint Fit, Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility Confirmed, Testing Strategy/Approach
 
-```python
-from openpyxl import load_workbook
-from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-from openpyxl.utils import get_column_letter
+2. **DO NOT open Report-DoR.xlsx with load_workbook.** DO NOT write separate openpyxl code. DO NOT create CSV fallbacks.
+   The canonical template script (`generate_reports.py`) handles ALL report generation in Step 13.
 
-# Open EXISTING Report-DoR.xlsx (preserves Summary + DoR Compliance sheets)
-wb = load_workbook(f"{OUTPUT_DIR}/Report-DoR.xlsx")
-
-# Create new sheet
-ws = wb.create_sheet("DoR quality")
-
-# --- KPI Section (Row 1) ---
-ws.cell(1, 1).value = "DoR quality lvl"
-ws.cell(1, 1).font = Font(bold=True, size=11)
-ws.cell(1, 2).value = f"{average_quality}%"
-
-# Color-code KPI value
-if average_quality >= 70:
-    ws.cell(1, 2).font = Font(bold=True, size=11, color="006600")
-elif average_quality >= 40:
-    ws.cell(1, 2).font = Font(bold=True, size=11, color="CC6600")
-else:
-    ws.cell(1, 2).font = Font(bold=True, size=11, color="CC0000")
-
-# Row 2: empty separator
-
-# --- Table Header (Row 3) ---
-header_fill = PatternFill(start_color="366092", end_color="366092", fill_type="solid")
-header_font = Font(bold=True, color="FFFFFF", size=11)
-thin_border = Border(
-    left=Side(style='thin'), right=Side(style='thin'),
-    top=Side(style='thin'), bottom=Side(style='thin')
-)
-
-headers = [("Team", 25), ("Quality", 12), ("Note", 60)]
-for col, (header, width) in enumerate(headers, 1):
-    cell = ws.cell(3, col)
-    cell.value = header
-    cell.fill = header_fill
-    cell.font = header_font
-    cell.alignment = Alignment(horizontal='center', vertical='center')
-    cell.border = thin_border
-    ws.column_dimensions[get_column_letter(col)].width = width
-
-# --- Data Rows (Row 4+) ---
-green_fill = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
-orange_fill = PatternFill(start_color="FFF2CC", end_color="FFF2CC", fill_type="solid")
-red_fill = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
-
-# Sort results by quality score descending
-sorted_results = sorted(results, key=lambda x: x["overall"], reverse=True)
-
-for row_idx, result in enumerate(sorted_results, 4):
-    # Team name
-    ws.cell(row_idx, 1).value = result["team"]
-    ws.cell(row_idx, 1).border = thin_border
-
-    # Quality percentage
-    quality_cell = ws.cell(row_idx, 2)
-    quality_cell.value = f"{result['overall']}%"
-    quality_cell.border = thin_border
-    quality_cell.alignment = Alignment(horizontal='center')
-
-    # Conditional fill for quality
-    if result['overall'] >= 70:
-        quality_cell.fill = green_fill
-    elif result['overall'] >= 40:
-        quality_cell.fill = orange_fill
-    else:
-        quality_cell.fill = red_fill
-
-    # Note column
-    note_cell = ws.cell(row_idx, 3)
-    note_cell.value = result["note"]
-    note_cell.border = thin_border
-    note_cell.alignment = Alignment(wrap_text=True)
-
-# Freeze panes at row 4 (below header)
-ws.freeze_panes = 'A4'
-
-# Save (overwrites file, preserving all 3 sheets)
-wb.save(f"{OUTPUT_DIR}/Report-DoR.xlsx")
-```
-
-**CRITICAL:** Use `load_workbook()` (not `Workbook()`) to preserve existing sheets.
-
-**Fallback:** If openpyxl fails or Report-DoR.xlsx doesn't exist, create a standalone `DoR-Quality.csv` with the same data.
+Proceed immediately to Step 12.5.
 
 #### Step 12.5: Report DoR Quality Assessment Completion
 
@@ -2084,23 +2232,24 @@ Output final summary to console:
 === DoR Quality Assessment Complete ===
 
 Teams Assessed: ${teams_assessed_count}
-Average DoR Quality: ${average_quality}%
+Average DoR Coverage: ${average_coverage}/100
 
-Top Quality DoRs:
-  1. ${top1_team} - ${top1_score}%
-  2. ${top2_team} - ${top2_score}%
-  3. ${top3_team} - ${top3_score}%
+Top Coverage:
+  1. ${top1_team} - ${top1_score}/100
+  2. ${top2_team} - ${top2_score}/100
+  3. ${top3_team} - ${top3_score}/100
 
-Needs Improvement:
-  1. ${bottom1_team} - ${bottom1_score}% (${bottom1_note})
-  2. ${bottom2_team} - ${bottom2_score}% (${bottom2_note})
-  3. ${bottom3_team} - ${bottom3_score}% (${bottom3_note})
+Lowest Coverage:
+  1. ${bottom1_team} - ${bottom1_score}/100 (${bottom1_note})
+  2. ${bottom2_team} - ${bottom2_score}/100 (${bottom2_note})
+  3. ${bottom3_team} - ${bottom3_score}/100 (${bottom3_note})
 
 Results added to: ${OUTPUT_DIR}/Report-DoR.xlsx (sheet "DoR quality")
 
 Standards used:
   - Industry: assets/dor-standard.txt
   - Company: Confluence page 21735179128 (Definition of Ready DOR)
+  - Checklist: 10 standard criteria (each = 10 points)
 ```
 
 **Error handling for Step 12:**
@@ -2110,23 +2259,108 @@ Standards used:
 - If Report-DoR.xlsx cannot be loaded: create standalone DoR-Quality.csv
 - If openpyxl unavailable: create standalone DoR-Quality.csv
 
+### Step 13: Generate All Reports via Canonical Template (AUTO-EXECUTE after Step 12)
+
+**This step executes the canonical report generator script. No report code is written by the LLM.**
+
+**This step executes automatically after Step 12 completes.** Do not pause or ask for user confirmation.
+
+#### Step 13.1: Verify Prerequisites
+
+Check that all 3 JSON data files exist in `${OUTPUT_DIR}`:
+- `summary_data.json` (saved in Step 11.5)
+- `compliance_data.json` (saved in Step 11.5)
+- `quality_data.json` (saved in Step 12.4)
+
+If any file is missing, construct it from available data before proceeding.
+
+#### Step 13.2: Verify and Copy Template Script
+
+```bash
+test -f "C:/Users/i.klyha/Desktop/Claude/wow-scanner-tool/assets/templates/generate_reports.py" && echo "OK" || echo "MISSING"
+```
+
+If the template script does not exist, output error:
+```
+ERROR: Template script not found at assets/templates/generate_reports.py
+Cannot generate reports without the canonical template.
+```
+Then skip report generation but do NOT fail the overall skill.
+
+If it exists, copy it to the output directory:
+```bash
+cp "C:/Users/i.klyha/Desktop/Claude/wow-scanner-tool/assets/templates/generate_reports.py" "${OUTPUT_DIR}/generate_reports.py"
+```
+
+#### Step 13.3: Execute Template Script
+
+```bash
+cd "${OUTPUT_DIR}" && python3 generate_reports.py summary_data.json compliance_data.json quality_data.json "." "{SCAN_DATE}"
+```
+
+Where `{SCAN_DATE}` is the scan date in YYYY-MM-DD format (e.g., "2026-06-26").
+
+This single command produces BOTH:
+- `Report-DoR.xlsx` (3 sheets: Summary, DoR Compliance, DoR quality)
+- `Report-DoR.html` (self-contained dashboard)
+
+#### Step 13.4: Validate Reports
+
+```bash
+cp "C:/Users/i.klyha/Desktop/Claude/wow-scanner-tool/assets/templates/validate_reports.py" "${OUTPUT_DIR}/validate_reports.py"
+cd "${OUTPUT_DIR}" && python3 validate_reports.py "."
+```
+
+If validation fails, output the errors but do NOT attempt to "fix" by regenerating with different code.
+The template is canonical - if validation fails, the DATA is wrong, not the renderer.
+
+**Additionally, validate compliance integrity:**
+```bash
+cp "C:/Users/i.klyha/Desktop/Claude/wow-scanner-tool/assets/templates/validate_compliance.py" "${OUTPUT_DIR}/validate_compliance.py"
+cd "${OUTPUT_DIR}" && python3 validate_compliance.py "."
+```
+
+If compliance validation fails, output the errors prominently. If the error is "issue_descriptions.json does not exist", this means Step 11.2 was skipped and the compliance results are INVALID. Note this clearly in the final output.
+
+#### Step 13.5: Report Completion
+
+Output:
+```
+=== Reports Generated ===
+
+Excel: ${OUTPUT_DIR}/Report-DoR.xlsx
+HTML:  ${OUTPUT_DIR}/Report-DoR.html
+
+Validation: PASSED (or list specific errors)
+```
+
+**FORBIDDEN in Step 13:**
+- DO NOT write Python code to generate reports
+- DO NOT create openpyxl scripts
+- DO NOT write HTML strings
+- DO NOT modify generate_reports.py
+- DO NOT add CSS classes, columns, or sections not in the template
+- DO NOT generate "fallback" CSV files
+- The ONLY actions are: copy template, execute template, validate output
+
 ## Error Handling
 
 - **Continue on error:** If one team page fails, continue with remaining teams
 - **Track failures:** Record all errors in teams.json metadata
 - **Detailed logging:** Include error messages in per-team TXT files
 - **Graceful degradation:** Partial data is better than no data
-- **Team field unavailable:** If Team custom field cannot be discovered, proceed with project-level queries but log warning about potential cross-team issues in shared projects (AENW, RSW, PEPI, PEA)
-- **Team pattern mismatch:** If fetched issues don't match team pattern, log warning but include issues in results (may indicate unassigned/shared issues)
+- **Team field unavailable:** If `customfield_10114` is not present in issue responses, all project issues are unassignable to teams; log warning about potential cross-team issues in shared projects (AENW, RSW, PEPI, PEA)
+- **Team pattern mismatch:** If client-side filtering matches 0 issues but the project has SRPOL issues from other teams, log pattern mismatch warning (team may have been renamed in Jira)
 
 **Automation Rules:**
-- **Only stop for critical failures:** Continue execution through all 12 steps unless:
+- **Only stop for critical failures:** Continue execution through all 13 steps unless:
   - Authentication fails completely (Step 2)
   - No teams found in source page (Step 5)
   - Output directory cannot be created (Step 4)
 - **Do not stop for partial failures:** If some teams fail, continue with successful teams
 - **Automatic Step 11:** Execute Step 11 (DoR analysis) automatically after Step 10, even if Step 11 has no explicit user request
 - **Automatic Step 12:** Execute Step 12 (DoR quality assessment) automatically after Step 11 completes. Skip Step 12 only if assets/dor-standard.txt does not exist
+- **Automatic Step 13:** Execute Step 13 (HTML dashboard report) automatically after Step 12 completes. This step is non-critical and should not block completion if it fails
 
 ## Tool Requirements
 
@@ -2198,29 +2432,60 @@ Optional tools:
    - Do NOT invent criteria not present in DoR (e.g., "reproduction steps" if not in DoR)
    - Interpret DoR fairly and reasonably, not overly strict on format
 
-11. **Team Field Filtering (for shared projects):**
-   - Use hardcoded Team custom field ID: `customfield_10114`
-   - Add Team field filter to JQL queries: `customfield_10114 = "Full Jira Team Name"`
-   - Use exact matching (`=` operator) with the full Jira team name from TEAM_NAME_PATTERNS
-   - The Team field is an object type that requires exact name matching, not fuzzy text search
-   - If Team field filter returns 0, fall back to project-level queries with warning
-   - Include Team field in query results for verification
-   - Validate that returned issues match expected team pattern
+11. **Team Field Filtering (client-side for shared projects):**
+   - Team custom field ID: `customfield_10114` (Jira Team-type field)
+   - DO NOT use `customfield_10114` in JQL - Team-type fields do not support JQL filtering
+   - Query ALL active issues per project (one query per unique project via PROJECT_TEAMS map)
+   - Filter results CLIENT-SIDE by checking `fields.customfield_10114.name` === team pattern
+   - Use EXACT string match (case-sensitive) with values from TEAM_NAME_PATTERNS
+   - Paginate using `nextPageToken` until `isLast: true` (cap at 5 pages / 500 issues)
+   - If pattern matches 0 issues but project has other SRPOL ("WAW") issues: log pattern mismatch warning
+   - Issues with null/missing team field are discarded (not assigned to any team)
+   - Cross-team contamination is impossible by design (exact name match guarantees uniqueness)
+   - NEVER use `sprint in openSprints()` in any query - this filter causes data loss
 
-12. **Report-DoR.xlsx Fixed Schema:**
-   - EXACTLY 2 sheets: "Summary" (first) and "DoR Compliance" (second)
-   - Summary sheet: KPI section (rows 1-2: "% Teams with DoR: X%", "% Jira Tasks fitting DoR: Y%") + table with 4 columns (Team, DoR, Jira Tasks in progress, % Tasks fitting DoR) starting at row 4 - lists ALL teams
-   - DoR Compliance sheet: 9 columns (Team, Issue Key, Issue Type, URL, Title, Status, Assignee, DoR Compliance, Note)
-   - DoR Compliance values: "Pass" (green) or "Fail" (red) ONLY
-   - Note column: Empty for "Pass", explanation for "Fail"
-   - No additional columns or summary rows in these two sheets
-   - Format specification in Step 11 is MANDATORY and immutable
-   - Step 12 adds a THIRD sheet "DoR quality" (does not modify the first two sheets)
+12. **Report Generation is 100% Deterministic (Template-Based):**
+   - Reports are generated ONLY by `assets/templates/generate_reports.py` - NEVER by LLM-written code
+   - The LLM's responsibility ends at producing valid JSON data files (summary_data.json, compliance_data.json, quality_data.json)
+   - The template script is NEVER modified, NEVER regenerated, NEVER "improved" during skill execution
+   - If the template script doesn't exist, the skill outputs an error (doesn't create a replacement)
+   - The template produces BOTH Report-DoR.xlsx AND Report-DoR.html in a single execution
+   - `src/dor-processor.py` is LEGACY - do not use it for report generation
+   - Report-DoR.xlsx schema: EXACTLY 3 sheets ("Summary", "DoR Compliance", "DoR quality")
+   - Report-DoR.html schema: Fixed 4-section dashboard (KPI cards, Team Overview, Failed Issues, Quality Assessment)
+   - DO NOT write openpyxl code, DO NOT write HTML strings, DO NOT create CSV fallbacks
 
-13. **DoR Quality Assessment (Step 12):**
+13. **DoR Quality Assessment (Step 12) - 10 Criteria Binary Model:**
    - Only assesses teams that have defined DoR (excludes teams with dor_source = null)
    - Uses BOTH industry standard (assets/dor-standard.txt) AND company standard (Confluence page 21735179128)
-   - Quality score is 1-100% integer per team
-   - Added as 3rd sheet to existing Report-DoR.xlsx (does NOT modify Summary or DoR Compliance sheets)
-   - Sheet format: KPI row ("DoR quality lvl" + average %), empty row, table (Team | Quality | Note)
-   - "Note" column contains short, specific feedback on what is missing/weak in team's DoR
+   - Compares team DoR against 10 standard criteria checklist
+   - Coverage score = count of covered criteria * 10 (always multiple of 10: 0, 10, 20, ..., 100)
+   - The 7-dimension weighted model in src/dor-processor.py (Coverage/Clarity/Measurability/Company/Industry/Actionability/AC) is DEPRECATED
+   - Do NOT output weighted sub-scores, do NOT use dimension labels in Note column
+   - Criterion names used in Note column MUST come from this list:
+     1. User Story/Requirement Clarity
+     2. Acceptance Criteria
+     3. Estimation/Sizing
+     4. Dependencies Identified & Resolved
+     5. Design/UX Specification
+     6. Scope/Sprint Fit
+     7. Risks/Blockers Identified
+     8. Stakeholder Alignment
+     9. Technical Feasibility Confirmed
+     10. Testing Strategy/Approach
+   - Note format: "Missing: [criterion names comma-separated]" or "All standard criteria covered"
+   - Save results to quality_data.json; the template script handles all Excel/HTML rendering
+
+14. **DoR Compliance Integrity (mechanical enforcement):**
+   - `issue_descriptions.json` MUST exist in OUTPUT_DIR before `compliance_data.json` is written
+   - Every issue in `compliance_data.json` MUST have a corresponding entry in `issue_descriptions.json`
+   - Issues where `issue_descriptions.json` shows `has_content: false` MUST be "Fail" in compliance_data.json (an issue with no description cannot pass DoR criteria that require clear description/AC)
+   - If compliance_data.json has 0 "Fail" entries across 50+ issues: this is an ERROR condition. Output error message: "ANALYSIS ERROR: 0% failure rate is statistically invalid. Step 11 likely skipped description fetching." Do NOT proceed to Step 13 report generation with invalid data.
+   - Historical baseline: 10-25% of issues typically fail DoR compliance
+   - Python scripts (*.py) in OUTPUT_DIR are ONLY acceptable for: Jira data processing (Step 9), template copies (generate_reports.py, validate_reports.py, validate_compliance.py). Any file named `analyze_*.py` indicates the LLM wrote a heuristic script instead of performing proper analysis = VIOLATION.
+
+15. **Step 11 Produces Two Artifacts (not one):**
+   - `issue_descriptions.json` - proves descriptions were fetched (audit trail)
+   - `compliance_data.json` - the actual compliance results
+   - Both files are REQUIRED. Missing either = incomplete Step 11.
+   - The validation script (`validate_compliance.py`) checks both files post-generation.

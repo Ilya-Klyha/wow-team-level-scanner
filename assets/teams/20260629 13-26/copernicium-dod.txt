@@ -1,0 +1,16 @@
+Team DoD
+
+Criterion: Unit and Integration Tests Written and Passed (if applicable)
+Description: Comprehensive unit and integration tests have been written for the new or modified code, and all tests pass successfully.
+
+Criterion: Design QA check (if applicable)
+Description: Information to UX when functionality is already on Pre-target environment. UX checks functionality as a whole.
+
+Criterion: Acceptance Criteria Met and Measurement Ready
+Description: All defined acceptance criteria for the user story have been satisfied and verified or separate task will be created to fulfill the commitment. As well as necessary monitoring and alerting have been configured. Any necessary documentation has been updated.
+
+Criterion: Deployed to production (if applicable), with feature flags ready for release/rollout
+Description: Current feature is deployed to prod and hidden under feature flag
+
+Criterion: Dependencies
+Description: Review must be accepted on repo owner/contributors before task is closed

@@ -1,0 +1,8 @@
+Team: Europium
+Issues in progress: 1
+================================================================================
+
+[AENW-872] [Microsite UCS] Extend microsite-ucs handler to support DSP video uploads
+  Type: Story | Status: In Progress | Assignee: Michal Wiacek
+  Priority: Medium | Updated: 2026-06-25
+

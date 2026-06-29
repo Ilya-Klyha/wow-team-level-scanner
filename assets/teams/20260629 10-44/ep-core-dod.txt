@@ -1,0 +1,6 @@
+Team DoD
+
+- Acceptance criteria passed
+- Tickets are approved by Owner of epic if story/task has a parent (Epic) if doesn't have parent story/task is approved by component lead or deputy (e.g tech leader).
+- Documentation or runbook is needed before task is closed.
+- Ticket requires demo before close.

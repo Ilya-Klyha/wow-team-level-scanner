@@ -1,0 +1,77 @@
+{
+  "query": {
+    "jql": "project = ASPW AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "project": "ASPW",
+    "team": "Igni",
+    "scan_date": "2026-06-29"
+  },
+  "issues": [
+    {
+      "key": "ASPW-1115",
+      "summary": "Update consumerd runbook",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Paweł Kwietniewski",
+      "priority": "Medium",
+      "created": "2026-06-10T05:18:08.351-0400",
+      "updated": "2026-06-19T07:09:32.497-0400",
+      "team": "AP - WAW - Igni"
+    },
+    {
+      "key": "ASPW-893",
+      "summary": "Enable Parallel File Downloads",
+      "status": "Code Review",
+      "issuetype": "Story",
+      "assignee": "Alexander Andersson",
+      "priority": "Medium",
+      "created": "2026-05-22T07:08:49.600-0400",
+      "updated": "2026-06-29T00:56:32.927-0400",
+      "team": "AP - WAW - Igni"
+    },
+    {
+      "key": "ASPW-733",
+      "summary": "Migrate SQL-Based record deviation from PD alerts to Grafana Dashboard",
+      "status": "Code Review",
+      "issuetype": "Task",
+      "assignee": "Paweł Kwietniewski",
+      "priority": "Medium",
+      "created": "2026-05-14T07:10:00.335-0400",
+      "updated": "2026-06-25T08:51:14.168-0400",
+      "team": "AP - WAW - Igni"
+    },
+    {
+      "key": "ASPW-690",
+      "summary": "Fine tuning of data-activation alerts to reduce alert fatigue",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Marek Kurcz",
+      "priority": "Medium",
+      "created": "2026-05-07T00:08:56.622-0400",
+      "updated": "2026-06-19T04:12:12.159-0400",
+      "team": "AP - WAW - Igni"
+    },
+    {
+      "key": "ASPW-637",
+      "summary": "consumerd ready file logic is broken ",
+      "status": "Code Review",
+      "issuetype": "Bug",
+      "assignee": "Adam Doliński",
+      "priority": "Medium",
+      "created": "2026-05-05T05:49:24.822-0400",
+      "updated": "2026-06-23T09:09:45.114-0400",
+      "team": "AP - WAW - Igni"
+    },
+    {
+      "key": "ASPW-386",
+      "summary": "Create airflow (dev) job that will refresh database dump",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Paweł Kwietniewski",
+      "priority": "Medium",
+      "created": "2026-04-09T05:29:14.550-0400",
+      "updated": "2026-06-19T08:29:34.311-0400",
+      "team": "AP - WAW - Igni"
+    }
+  ],
+  "total": 6
+}

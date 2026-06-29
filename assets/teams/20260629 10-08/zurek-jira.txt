@@ -1,0 +1,84 @@
+Team: Zurek
+Project: PEA
+Active Issues: 13
+Scan Date: 2026-06-29
+============================================================
+
+PEA-4226 | Task | In Development
+  Summary: [UDWMIG][LIFT][STANDARD] Deployment to production
+  Assignee: Piotr Jaromin
+  Priority: Medium
+  Updated: 2026-06-25T10:14:35.699-0400
+
+PEA-4219 | Task | In Development
+  Summary: Statistics on impressions and reach for Lift, R&F and Delivery reports
+  Assignee: Marcin Nowacki
+  Priority: Medium
+  Updated: 2026-06-25T03:46:00.406-0400
+
+PEA-4217 | Story | In Development
+  Summary: [Audience Service][EMR][Incremental Reach] Spark version of the Incremental Reach reporty decomision
+  Assignee: Jacek Pielaszkiewicz
+  Priority: Medium
+  Updated: 2026-06-24T11:24:14.689-0400
+
+PEA-4215 | Bug | In Development
+  Summary: [Audience Service][PERF] PMP R&F Report optimization - analysis
+  Assignee: Michał Kościelak
+  Priority: Medium
+  Updated: 2026-06-26T09:36:07.788-0400
+
+PEA-4161 | Story | In Development
+  Summary: [TEST] Support for declared IP in RF methodology
+  Assignee: Marcin Nowacki
+  Priority: Medium
+  Updated: 2026-06-17T05:19:47.534-0400
+
+PEA-4160 | Task | In Development
+  Summary: [UDWMIG][LIFT][STANDARD][SNOWFLAKE] Report data integration tests
+  Assignee: Michał Kościelak
+  Priority: Medium
+  Updated: 2026-06-03T07:45:09.792-0400
+
+PEA-4067 | Task | In Development
+  Summary: [UDWMIG][LIFT] Improving deployment on dev schemas
+  Assignee: Michał Lis
+  Priority: Medium
+  Updated: 2026-04-30T11:23:50.772-0400
+
+PEA-3960 | Story | In Development
+  Summary: [Audience Service][EMR][LINEAR ADS] Deployment/switch to new EMR cluster Linear Ads
+  Assignee: Anton Krasnikau
+  Priority: Medium
+  Updated: 2026-06-26T11:57:19.450-0400
+
+PEA-3955 | Story | In Development
+  Summary: [Audience Service][EMR][PMP LIFT] Deployment/switch to new EMR cluster PMP lift report
+  Assignee: Anton Krasnikau
+  Priority: Medium
+  Updated: 2026-06-26T02:44:37.084-0400
+
+PEA-3952 | Story | In Development
+  Summary: [Audience Service][EMR][PMP IR] Deployment/switch to new EMR cluster PMP IR report
+  Assignee: Anton Krasnikau
+  Priority: Medium
+  Updated: 2026-06-26T02:44:45.396-0400
+
+PEA-3951 | Story | In Development
+  Summary: [Audience Service][EMR][PMP RF] Deployment/switch to new EMR cluster PMP RF
+  Assignee: Anton Krasnikau
+  Priority: Medium
+  Updated: 2026-06-22T06:04:46.420-0400
+
+PEA-3948 | Story | In Development
+  Summary: [Audience Service][EMR][LIFT] Deployment/switch to new EMR cluster Lift
+  Assignee: Anton Krasnikau
+  Priority: Medium
+  Updated: 2026-06-19T02:59:21.823-0400
+
+PEA-1931 | Story | In Development
+  Summary: [UDWMIG][LIFT][WEBSITE_PIXELS][SNOWFLAKE] Procedure LIFT_WEB_PIXEL_POPULATE_INTERMEDIATE_TABLES_TMP_LIFT_TRADER_IMP_JOINED() implementation
+  Assignee: Aron Gruzman
+  Priority: Medium
+  Updated: 2026-06-26T09:56:41.770-0400
+

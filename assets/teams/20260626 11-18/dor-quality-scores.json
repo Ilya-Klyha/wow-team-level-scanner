@@ -1,0 +1,132 @@
+{
+  "Abyss": {
+    "coverage": 60,
+    "clarity": 60,
+    "measurability": 33,
+    "company_alignment": 75,
+    "industry_alignment": 33,
+    "actionability": 33,
+    "ac_guidance": 33,
+    "total": 51
+  },
+  "Radium": {
+    "coverage": 60,
+    "clarity": 100,
+    "measurability": 66,
+    "company_alignment": 75,
+    "industry_alignment": 33,
+    "actionability": 33,
+    "ac_guidance": 33,
+    "total": 64
+  },
+  "Europium": {
+    "coverage": 60,
+    "clarity": 80,
+    "measurability": 66,
+    "company_alignment": 75,
+    "industry_alignment": 100,
+    "actionability": 66,
+    "ac_guidance": 33,
+    "total": 70
+  },
+  "Copernicium": {
+    "coverage": 70,
+    "clarity": 40,
+    "measurability": 0,
+    "company_alignment": 75,
+    "industry_alignment": 33,
+    "actionability": 33,
+    "ac_guidance": 33,
+    "total": 44
+  },
+  "Mouflons": {
+    "coverage": 60,
+    "clarity": 100,
+    "measurability": 0,
+    "company_alignment": 100,
+    "industry_alignment": 66,
+    "actionability": 66,
+    "ac_guidance": 33,
+    "total": 64
+  },
+  "Wolves": {
+    "coverage": 60,
+    "clarity": 100,
+    "measurability": 0,
+    "company_alignment": 100,
+    "industry_alignment": 66,
+    "actionability": 66,
+    "ac_guidance": 33,
+    "total": 64
+  },
+  "Polonium UF": {
+    "coverage": 100,
+    "clarity": 80,
+    "measurability": 0,
+    "company_alignment": 75,
+    "industry_alignment": 66,
+    "actionability": 66,
+    "ac_guidance": 33,
+    "total": 67
+  },
+  "Bigos": {
+    "coverage": 80,
+    "clarity": 100,
+    "measurability": 66,
+    "company_alignment": 50,
+    "industry_alignment": 66,
+    "actionability": 33,
+    "ac_guidance": 66,
+    "total": 70
+  },
+  "Capybaras": {
+    "coverage": 60,
+    "clarity": 100,
+    "measurability": 66,
+    "company_alignment": 75,
+    "industry_alignment": 33,
+    "actionability": 66,
+    "ac_guidance": 66,
+    "total": 69
+  },
+  "ML Platform Pandas": {
+    "coverage": 70,
+    "clarity": 60,
+    "measurability": 0,
+    "company_alignment": 75,
+    "industry_alignment": 33,
+    "actionability": 33,
+    "ac_guidance": 33,
+    "total": 48
+  },
+  "EP Core": {
+    "coverage": 70,
+    "clarity": 60,
+    "measurability": 33,
+    "company_alignment": 50,
+    "industry_alignment": 33,
+    "actionability": 33,
+    "ac_guidance": 33,
+    "total": 50
+  },
+  "Zurek": {
+    "coverage": 70,
+    "clarity": 100,
+    "measurability": 33,
+    "company_alignment": 50,
+    "industry_alignment": 33,
+    "actionability": 66,
+    "ac_guidance": 33,
+    "total": 61
+  },
+  "Igni": {
+    "coverage": 70,
+    "clarity": 80,
+    "measurability": 33,
+    "company_alignment": 75,
+    "industry_alignment": 33,
+    "actionability": 0,
+    "ac_guidance": 66,
+    "total": 56
+  }
+}

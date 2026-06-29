@@ -1,0 +1,9 @@
+Zurek DoD - Definition of Done for story/task
+
+- Software should be tested or described in task if tests are not needed
+- Check if your code is updated with release branch
+- Tested on feature branch
+- Acceptance Criteria passed
+- Change should be able to roll back
+- Documentation should be updated
+- Closed after merge to main / release branch (PER)

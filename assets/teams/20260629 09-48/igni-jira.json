@@ -1,0 +1,81 @@
+{
+  "team": "Igni",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/ASPW/boards/9477",
+  "boardId": "9477",
+  "projectKey": "ASPW",
+  "extractedAt": "2026-06-29T07:56:14Z",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = ASPW AND status in (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype in (Story, Bug, Task)",
+    "filterMethod": "client-side customfield_10114.name exact match",
+    "teamFieldValue": "AP - WAW - Igni"
+  },
+  "summary": {
+    "totalIssues": 6,
+    "byType": {
+      "Task": 2,
+      "Story": 3,
+      "Bug": 1
+    },
+    "byStatus": {
+      "In Progress": 3,
+      "Code Review": 3
+    }
+  },
+  "issues": [
+    {
+      "key": "ASPW-1115",
+      "summary": "Update consumerd runbook",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Paweł Kwietniewski",
+      "url": "https://adgear.atlassian.net/browse/ASPW-1115",
+      "hasDescription": true
+    },
+    {
+      "key": "ASPW-893",
+      "summary": "Enable Parallel File Downloads",
+      "issueType": "Story",
+      "status": "Code Review",
+      "assignee": "Alexander Andersson",
+      "url": "https://adgear.atlassian.net/browse/ASPW-893",
+      "hasDescription": true
+    },
+    {
+      "key": "ASPW-733",
+      "summary": "Migrate SQL-Based record deviation from PD alerts to Grafana Dashboard",
+      "issueType": "Task",
+      "status": "Code Review",
+      "assignee": "Paweł Kwietniewski",
+      "url": "https://adgear.atlassian.net/browse/ASPW-733",
+      "hasDescription": true
+    },
+    {
+      "key": "ASPW-690",
+      "summary": "Fine tuning of data-activation alerts to reduce alert fatigue",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Marek Kurcz",
+      "url": "https://adgear.atlassian.net/browse/ASPW-690",
+      "hasDescription": true
+    },
+    {
+      "key": "ASPW-637",
+      "summary": "consumerd ready file logic is broken ",
+      "issueType": "Bug",
+      "status": "Code Review",
+      "assignee": "Adam Doliński",
+      "url": "https://adgear.atlassian.net/browse/ASPW-637",
+      "hasDescription": true
+    },
+    {
+      "key": "ASPW-386",
+      "summary": "Create airflow (dev) job that will refresh database dump",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Paweł Kwietniewski",
+      "url": "https://adgear.atlassian.net/browse/ASPW-386",
+      "hasDescription": true
+    }
+  ]
+}

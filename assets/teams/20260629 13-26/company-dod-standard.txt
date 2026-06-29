@@ -1,0 +1,6 @@
+Definition of Done (DoD) - Company Standard
+Source: https://adgear.atlassian.net/wiki/spaces/AGILE/pages/21735212005/Definition+of+Done+DoD
+
+Purpose: The DoD is a team-owned policy that determines when a piece of work is truly complete. It provides a shared understanding of what "done" means across the team and stakeholders, supporting consistent quality, reducing ambiguity, and minimizing rework.
+
+Key principles: visible, achievable, and evolutionary. Multi-level DoD (task, story, feature). Sets a consistent bar for completeness. Reduces hidden work and rework. Improves forecasting and delivery predictability.

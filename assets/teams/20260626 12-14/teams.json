@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "scan_date": "2026-06-26T10:14:04.000Z",
+    "scan_timestamp_cet": "20260626 12-14",
+    "source_page": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/19470090380/SRPOL+Teams",
+    "team_count": 15,
+    "cloudId": "adgear.atlassian.net",
+    "scanner_version": "2.0",
+    "total_active_issues": 47,
+    "compliance_pass_rate": "36%",
+    "avg_quality_score": 49,
+    "teams_with_dor": 13,
+    "teams_without_dor": 2
+  },
+  "teams": [
+    {
+      "name": "Abyss",
+      "slug": "abyss",
+      "project": "MAW",
+      "board": 9980,
+      "team_pattern": "PE - WAW - Abyss",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/9980",
+      "has_dor": true,
+      "active_issues": 0,
+      "compliance_rate": "-"
+    },
+    {
+      "name": "Radium",
+      "slug": "radium",
+      "project": "AENW",
+      "board": 8976,
+      "team_pattern": "AE - WAW - Radium",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8976",
+      "has_dor": true,
+      "active_issues": 3,
+      "compliance_rate": "33%"
+    },
+    {
+      "name": "Europium",
+      "slug": "europium",
+      "project": "AENW",
+      "board": 8979,
+      "team_pattern": "AP - WAW - Europium",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8979",
+      "has_dor": true,
+      "active_issues": 1,
+      "compliance_rate": "100%"
+    },
+    {
+      "name": "Copernicium",
+      "slug": "copernicium",
+      "project": "AETVP",
+      "board": 9246,
+      "team_pattern": "AE - WAW - Copernicium",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/AETVP/boards/9246",
+      "has_dor": true,
+      "active_issues": 9,
+      "compliance_rate": "89%"
+    },
+    {
+      "name": "Mouflons",
+      "slug": "mouflons",
+      "project": "PEPI",
+      "board": 4503,
+      "team_pattern": "AS - WAW - Mouflons",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4503",
+      "has_dor": true,
+      "active_issues": 0,
+      "compliance_rate": "-"
+    },
+    {
+      "name": "Wolves",
+      "slug": "wolves",
+      "project": "PEPI",
+      "board": 4504,
+      "team_pattern": "AS - WAW - Wolves",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4504",
+      "has_dor": true,
+      "active_issues": 0,
+      "compliance_rate": "-"
+    },
+    {
+      "name": "Polonium UF",
+      "slug": "polonium-uf",
+      "project": "RSW",
+      "board": 10403,
+      "team_pattern": "AS - WAW - Polonium UF",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10403",
+      "has_dor": true,
+      "active_issues": 4,
+      "compliance_rate": "100%"
+    },
+    {
+      "name": "Bigos",
+      "slug": "bigos",
+      "project": "MAW",
+      "board": 11439,
+      "team_pattern": "AS - WAW - Bigos",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/11439",
+      "has_dor": true,
+      "active_issues": 0,
+      "compliance_rate": "-"
+    },
+    {
+      "name": "Capybaras",
+      "slug": "capybaras",
+      "project": "RSW",
+      "board": 10156,
+      "team_pattern": "AS - WAW - Capybaras",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10156",
+      "has_dor": true,
+      "active_issues": 4,
+      "compliance_rate": "25%"
+    },
+    {
+      "name": "ML Serving Sturgeons",
+      "slug": "ml-serving-sturgeons",
+      "project": "PEPI",
+      "board": 4090,
+      "team_pattern": "T - WAW - ML Sturgeons",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4090",
+      "has_dor": false,
+      "active_issues": 1,
+      "compliance_rate": "-"
+    },
+    {
+      "name": "ML Platform Pandas",
+      "slug": "ml-platform-pandas",
+      "project": "ML",
+      "board": 10470,
+      "team_pattern": "T - WAW - ML Pandas",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/projects/ML/boards/10470",
+      "has_dor": true,
+      "active_issues": 0,
+      "compliance_rate": "-"
+    },
+    {
+      "name": "EP Core",
+      "slug": "ep-core",
+      "project": "EPCW",
+      "board": 10972,
+      "team_pattern": "T - WAW - EP Core",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/EPCW/boards/10972",
+      "has_dor": true,
+      "active_issues": 10,
+      "compliance_rate": "10%"
+    },
+    {
+      "name": "Zurek",
+      "slug": "zurek",
+      "project": "PEA",
+      "board": 2881,
+      "team_pattern": "T - WAW - Zurek",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/PEA/boards/2881",
+      "has_dor": true,
+      "active_issues": 15,
+      "compliance_rate": "0%"
+    },
+    {
+      "name": "Igni",
+      "slug": "igni",
+      "project": "ASPW",
+      "board": 9477,
+      "team_pattern": "AP - WAW - Igni",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/ASPW/boards/9477",
+      "has_dor": true,
+      "active_issues": 1,
+      "compliance_rate": "100%"
+    },
+    {
+      "name": "SRE",
+      "slug": "sre",
+      "project": "EEEW",
+      "board": 10332,
+      "team_pattern": "T - WAW - Embedded SREs SRPOL",
+      "sprint_board": "https://adgear.atlassian.net/jira/software/c/projects/EEEW/boards/10332",
+      "has_dor": false,
+      "active_issues": 3,
+      "compliance_rate": "-"
+    }
+  ]
+}

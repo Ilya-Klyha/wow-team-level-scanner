@@ -72,7 +72,13 @@
       "Bash(mv \"ml-platform-dor.txt\" \"ml-platform-pandas-dor.txt\")",
       "Bash(mv \"srpol-sre-dor.txt\" \"sre-dor.txt\")",
       "Bash(cp \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 12-57\"/*-dor.txt \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 15-17/\")",
-      "Bash(cp \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 12-57\"/*-jira.* \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 15-17/\")"
+      "Bash(cp \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 12-57\"/*-jira.* \"C:\\\\Users\\\\i.klyha\\\\Desktop\\\\Claude\\\\wow-scanner-tool\\\\assets\\\\teams\\\\20260615 15-17/\")",
+      "Bash(pip show:*)",
+      "Bash(find:*)",
+      "Bash(cmd:*)",
+      "Bash(powershell:*)",
+      "Bash(git *)",
+      "Bash(winget upgrade *)"
     ]
   }
 }

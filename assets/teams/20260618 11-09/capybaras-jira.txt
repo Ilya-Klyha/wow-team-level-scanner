@@ -1,0 +1,22 @@
+JIRA ACTIVE ISSUES - Capybaras
+============================================================
+Query Date: 2026-06-18
+Total Issues: 4
+============================================================
+
+[RSW-1306] [AU] E2E Segment Generation Validation — Pipeline Trigger & Size Consistency on PROD
+  Type: Task | Status: In Progress | Assignee: Tomasz Zaród
+  URL: https://adgear.atlassian.net/browse/RSW-1306
+
+[RSW-1235] [SRPOL-OR] Perform tests for PoC based on Airflow queue
+  Type: Task | Status: In Progress | Assignee: Dariusz Bielawski
+  URL: https://adgear.atlassian.net/browse/RSW-1235
+
+[RSW-1097] [SRPOL-OR] Add dedicated cost tracking view for OR
+  Type: Story | Status: In Progress | Assignee: Piotr Marciniak
+  URL: https://adgear.atlassian.net/browse/RSW-1097
+
+[RSW-555] [SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach
+  Type: Story | Status: In Progress | Assignee: Dariusz Bielawski
+  URL: https://adgear.atlassian.net/browse/RSW-555
+

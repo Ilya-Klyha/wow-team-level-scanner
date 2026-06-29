@@ -1,0 +1,13 @@
+TEAM: ML Serving Sturgeons
+PROJECT: PEPI
+BOARD: https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4090
+TOTAL ISSUES: 1
+
+======================================================================
+
+[1] PEPI-11580 - Task
+    Title: Add alerting rules in alerting.yaml
+    Status: In Development
+    Assignee: Kornel Pietrzyk
+    URL: https://adgear.atlassian.net/browse/PEPI-11580
+    Has Description: Yes

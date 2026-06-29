@@ -1,0 +1,12 @@
+Team: ML Serving Sturgeons
+Project: PEPI
+Active Issues: 1
+Scan Date: 2026-06-29
+============================================================
+
+PEPI-11580 | Task | In Development
+  Summary: Add alerting rules in alerting.yaml
+  Assignee: Kornel Pietrzyk
+  Priority: Medium
+  Updated: 2026-05-08T04:42:44.597-0400
+

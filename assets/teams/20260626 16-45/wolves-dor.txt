@@ -1,0 +1,35 @@
+Clear Description
+Product Owner Responsibility: Ensure descriptions are clearly articulated and understandable to all.
+Answer the 4 Questions:
+- What? = What are we building, what is the context (bigger picture), what is the work increment?
+- Why? = What is the business value, what is the impact?
+- Priority? = What is most important and why, are there time constraints?
+- Risks? = Dependencies, other teams, potential blockers, data sources - everything the team cannot resolve by itself
+Comments:
+- Have holistic understanding of project and product - share this knowledge with the team
+- Provide the contact point to other teams
+- Potential blockers should be made explicit by Product Owner
+- Link to all dependent tickets in Jira
+
+Verifiable Acceptance Criteria
+Product Owner Responsibility: Define Measurable Acceptance Criteria, meaning conditions for accepting the product created by the team. Ensures they are clearly articulated and understandable to all.
+Make them SMART:
+- Specific - Clear and unambiguous
+- Measurable - Quantifiable with defined metrics
+- Achievable - Realistic given constraints
+If numbers appear:
+- Explain where they come from (data source, analysis)
+- Identify whose requirement it is (business, technical, regulatory)
+Separate into:
+- Outputs = What the team controls and delivers
+- Outcomes = What the team doesn't control but strives to achieve through its product and work
+
+Collaborative Progress
+Team Values:
+- We trust each other
+- We don't avoid conversations - we communicate immediately in two directions
+- Business people and developers work together daily throughout the project
+Backlog Refinement:
+- Weekly discussion to gain clarity and alignment on backlog
+- Brainstorm solutions
+- Does not require full team attendance

@@ -1,0 +1,48 @@
+Team: Europium
+Project: AENW
+Active Issues: 7
+Scan Date: 2026-06-29
+============================================================
+
+AENW-1047 | Story | In Progress
+  Summary: [CP Improvements] Hide Right Align CTA Switch Behind Feature Flag
+  Assignee: Karol Strojek
+  Priority: Medium
+  Updated: 2026-06-26T10:43:34.660-0400
+
+AENW-1032 | Story | In Progress
+  Summary: [CP Improvements] Creative Preview 2026 Unified First Screen — Design Fixes
+  Assignee: Karol Strojek
+  Priority: Medium
+  Updated: 2026-06-18T04:53:36.666-0400
+
+AENW-968 | Story | In Progress
+  Summary: vertica-rollups - add fields metrics table
+  Assignee: Raman Krot
+  Priority: Medium
+  Updated: 2026-06-23T08:55:37.694-0400
+
+AENW-966 | Story | Code Review
+  Summary: adgear-data - add new fields to avro
+  Assignee: Raman Krot
+  Priority: Medium
+  Updated: 2026-06-23T08:47:05.472-0400
+
+AENW-872 | Story | Code Review
+  Summary: [Microsite UCS] Implement microstie pre-transcoding pipeline and background image processing
+  Assignee: Michał Wiącek
+  Priority: Medium
+  Updated: 2026-06-26T07:30:17.832-0400
+
+AENW-685 | Story | In Progress
+  Summary: [Micoristes P2] Create Micro Frontend
+  Assignee: Karol Strojek
+  Priority: Medium
+  Updated: 2026-06-17T08:03:07.171-0400
+
+AENW-605 | Story | In Progress
+  Summary: [Microsite p2] Videos Section
+  Assignee: Grzegorz Prasal
+  Priority: Medium
+  Updated: 2026-06-22T04:56:00.233-0400
+

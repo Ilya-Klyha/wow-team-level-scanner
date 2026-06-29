@@ -1,0 +1,54 @@
+JIRA ACTIVE ISSUES - Zurek
+============================================================
+Query Date: 2026-06-18
+Total Issues: 12
+============================================================
+
+[MAW-290] [AS] Release changes on PROD and backfill data
+  Type: Task | Status: Code Review | Assignee: Jacek Pielaszkiewicz
+  URL: https://adgear.atlassian.net/browse/MAW-290
+
+[MAW-258] [AS] Switch Audience Service pipline to new App Session and Mmp  data source
+  Type: Story | Status: In Progress | Assignee: Jacek Pielaszkiewicz
+  URL: https://adgear.atlassian.net/browse/MAW-258
+
+[PEA-4225] [Audience Service][EMR] Hive Cluster Access via Kubernetes Pod Tunnel (without jump host)
+  Type: Task | Status: In Development | Assignee: Michał Kościelak
+  URL: https://adgear.atlassian.net/browse/PEA-4225
+
+[PEA-4217] [Audience Service][EMR][Incremental Reach] Spark version of the Incremental Reach reporty decomision
+  Type: Story | Status: In Development | Assignee: Jacek Pielaszkiewicz
+  URL: https://adgear.atlassian.net/browse/PEA-4217
+
+[PEA-4204] [UDWMIG][LIFT][STANDARD] Merge feature branch to master_udw(audience-service)
+  Type: Task | Status: In Development | Assignee: Piotr Jaromin
+  URL: https://adgear.atlassian.net/browse/PEA-4204
+
+[PEA-4203] [UDWMIG][LIFT][STANDARD] Merge feature branch to master
+  Type: Task | Status: In Development | Assignee: Piotr Jaromin
+  URL: https://adgear.atlassian.net/browse/PEA-4203
+
+[PEA-4161] [TEST] Support for declared IP in RF methodology
+  Type: Story | Status: In Development | Assignee: Marcin Nowacki
+  URL: https://adgear.atlassian.net/browse/PEA-4161
+
+[PEA-4160] [UDWMIG][LIFT][STANDARD][SNOWFLAKE] Report data integration tests
+  Type: Task | Status: In Development | Assignee: Michał Kościelak
+  URL: https://adgear.atlassian.net/browse/PEA-4160
+
+[PEA-4101] [BUG] Monthly reach is exceeding the monthly active user count in India for the PMP R&F report.
+  Type: Bug | Status: In Development | Assignee: Anton Krasnikau
+  URL: https://adgear.atlassian.net/browse/PEA-4101
+
+[PEA-4067] [UDWMIG][LIFT] Improving deployment on dev schemas
+  Type: Task | Status: In Development | Assignee: Michał Lis
+  URL: https://adgear.atlassian.net/browse/PEA-4067
+
+[PEA-3950] [Audience Service][EMR][PMP RF] Test EMR cluster for PMP RF report
+  Type: Story | Status: In Development | Assignee: Anton Krasnikau
+  URL: https://adgear.atlassian.net/browse/PEA-3950
+
+[PEA-3790] [UDWMIG][LIFT][SNOWFLAKE][PRE-AGGREGATION] Fact App Open Event - deployment plan
+  Type: Task | Status: In Development | Assignee: Marcin Nowacki
+  URL: https://adgear.atlassian.net/browse/PEA-3790
+

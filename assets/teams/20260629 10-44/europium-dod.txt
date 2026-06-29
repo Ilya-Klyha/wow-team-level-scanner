@@ -1,0 +1,35 @@
+Team DoD
+
+A backlog item is Done when:
+
+Engineering:
+- Code is implemented.
+- Code review is completed
+- Tests are added/updated (if needed).
+- CI passes.
+- No critical warnings or TODO leftovers.
+
+Quality:
+- Acceptance criteria are met.
+- Edge cases considered (known edge case)
+- No known regression introduced.
+
+UX (if applicable):
+- Implementation matches approved Figma design.
+- If the story/task/functionality is:
+  - Related to frontend/UI
+  - Ready on (at least) Pre-Prod environment.
+  Then, in Jira comment section:
+  - Tag related UX designer
+  - Inform, when they can test the functionality, along with the link and necessary credentials
+- When issue is discovered then UX designer will prepare new task
+
+Operational:
+- Feature is deployable and ready for verification
+- Monitoring/logging added if required.
+- Documentation updated if needed.
+- If task is complex it should contain reproduction steps for AC approval
+
+Not done if:
+- Awaiting review.
+- It is not validated in a production-like environment

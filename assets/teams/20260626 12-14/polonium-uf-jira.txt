@@ -1,0 +1,20 @@
+Team: Polonium UF
+Issues in progress: 4
+================================================================================
+
+[RSW-1367] Custom App Group not visible in "Unexposed Target Audience duplication within the Samsung Universe" section
+  Type: Bug | Status: Code Review | Assignee: Piotr Stefański
+  Priority: Medium | Updated: 2026-06-26
+
+[RSW-884] [FE] Add Reset session button with confirmation modal
+  Type: Task | Status: Code Review | Assignee: Zbigniew Stolarski
+  Priority: Medium | Updated: 2026-06-25
+
+[RSW-1039] [BE] Add GET endpoint for fetching presets from AI-backend
+  Type: Task | Status: Code Review | Assignee: Dmitriy Borowski
+  Priority: Medium | Updated: 2026-06-25
+
+[RSW-882] [FE] Handle chatbot functionality on mocks
+  Type: Task | Status: In Progress | Assignee: Katarzyna Kokieć
+  Priority: Medium | Updated: 2026-06-23
+

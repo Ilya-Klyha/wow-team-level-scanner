@@ -1,0 +1,20 @@
+TEAM: ML Platform Pandas
+PROJECT: ML
+BOARD: https://adgear.atlassian.net/jira/software/projects/ML/boards/10470
+TOTAL ISSUES: 2
+
+======================================================================
+
+[1] ML-55 - Task
+    Title: Implement Test DAG MLOps based on SDK
+    Status: In Progress
+    Assignee: Tomasz Teter
+    URL: https://adgear.atlassian.net/browse/ML-55
+    Has Description: No
+
+[2] ML-10 - Task
+    Title: Support after MWAA upgrade to 2.10.3
+    Status: In Progress
+    Assignee: Tomasz Teter
+    URL: https://adgear.atlassian.net/browse/ML-10
+    Has Description: No

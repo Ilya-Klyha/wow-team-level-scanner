@@ -1,0 +1,22 @@
+JIRA ACTIVE ISSUES - Europium
+============================================================
+Query Date: 2026-06-18
+Total Issues: 4
+============================================================
+
+[AENW-1032] [CP Improvements] Creative Preview 2026 Unified First Screen — Design Fixes
+  Type: Story | Status: In Progress | Assignee: Karol Strojek
+  URL: https://adgear.atlassian.net/browse/AENW-1032
+
+[AENW-874] [Microsite UCS] Kafka consumer processor for microsite transcoding callbacks
+  Type: Story | Status: In Progress | Assignee: Michał Wiącek
+  URL: https://adgear.atlassian.net/browse/AENW-874
+
+[AENW-685] [Micoristes P2] Create Micro Frontend
+  Type: Story | Status: In Progress | Assignee: Karol Strojek
+  URL: https://adgear.atlassian.net/browse/AENW-685
+
+[AENW-605] [Microsite p2] Videos Section
+  Type: Story | Status: In Progress | Assignee: Grzegorz Prasal
+  URL: https://adgear.atlassian.net/browse/AENW-605
+

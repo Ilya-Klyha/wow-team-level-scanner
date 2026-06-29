@@ -1,0 +1,42 @@
+[
+  {
+    "key": "RSW-1427",
+    "summary": "Cumulative Reach: Respect exclude_dsp_reach flag in CR calculation",
+    "status": "In Progress",
+    "issuetype": "Task",
+    "assignee": "Piotr Marciniak",
+    "priority": "Medium",
+    "created": "2026-06-19T09:37:04.478-0400",
+    "updated": "2026-06-26T05:01:55.001-0400"
+  },
+  {
+    "key": "RSW-1377",
+    "summary": "[SRPOL-OR] Verify FRITES is production ready",
+    "status": "In Progress",
+    "issuetype": "Task",
+    "assignee": "Cezary Kret",
+    "priority": "Medium",
+    "created": "2026-06-17T08:00:04.650-0400",
+    "updated": "2026-06-25T10:50:27.882-0400"
+  },
+  {
+    "key": "RSW-555",
+    "summary": "[SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach",
+    "status": "In Progress",
+    "issuetype": "Story",
+    "assignee": "Dariusz Bielawski",
+    "priority": "Medium",
+    "created": "2026-01-21T08:27:52.249-0500",
+    "updated": "2026-06-23T03:33:17.149-0400"
+  },
+  {
+    "key": "RSW-1235",
+    "summary": "[SRPOL-OR] Perform tests for PoC based on Airflow queue",
+    "status": "In Progress",
+    "issuetype": "Task",
+    "assignee": "Dariusz Bielawski",
+    "priority": "Medium",
+    "created": "2026-06-02T03:28:42.086-0400",
+    "updated": "2026-06-18T05:04:11.549-0400"
+  }
+]

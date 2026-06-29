@@ -1,0 +1,22 @@
+{
+  "scanDate": "2026-06-26T11:18:00Z",
+  "queryType": "DoR Compliance - Active Issues",
+  "teams": {
+    "Abyss": {"project": "MAW", "jiraTeamField": "PE - WAW - Abyss", "issuesFound": 0, "issues": []},
+    "Radium": {"project": "AENW", "jiraTeamField": "AE - WAW - Radium", "issuesFound": 0, "issues": []},
+    "Europium": {"project": "AENW", "jiraTeamField": "AP - WAW - Europium", "issuesFound": 0, "issues": []},
+    "Copernicium": {"project": "AETVP", "jiraTeamField": "AE - WAW - Copernicium", "issuesFound": 0, "issues": []},
+    "Mouflons": {"project": "PEPI", "jiraTeamField": "AS - WAW - Mouflons", "issuesFound": 0, "issues": []},
+    "Wolves": {"project": "PEPI", "jiraTeamField": "AS - WAW - Wolves", "issuesFound": 0, "issues": []},
+    "Polonium UF": {"project": "RSW", "jiraTeamField": "AS - WAW - Polonium UF", "issuesFound": 0, "issues": []},
+    "Bigos": {"project": "MAW", "jiraTeamField": "AS - WAW - Bigos", "issuesFound": 0, "issues": []},
+    "Capybaras": {"project": "RSW", "jiraTeamField": "AS - WAW - Capybaras", "issuesFound": 0, "issues": []},
+    "ML Serving Sturgeons": {"project": "PEPI", "jiraTeamField": "T - WAW - ML Sturgeons", "issuesFound": 0, "issues": []},
+    "ML Platform Pandas": {"project": "ML", "jiraTeamField": "T - WAW - ML Pandas", "issuesFound": 0, "issues": []},
+    "EP Core": {"project": "EPCW", "jiraTeamField": "T - WAW - EP Core", "issuesFound": 0, "issues": []},
+    "Zurek": {"project": "PEA", "jiraTeamField": "Zurek", "issuesFound": 0, "issues": []},
+    "Igni": {"project": "ASPW", "jiraTeamField": "AP - WAW - Igni", "issuesFound": 0, "issues": []},
+    "SRE": {"project": "EEEW", "jiraTeamField": "T - WAW - Embedded SREs SRPOL", "issuesFound": 0, "issues": []}
+  },
+  "note": "No active issues found matching criteria (status IN 'In Progress','Code Review','In Development' with team field matching). Queries attempted both with and without sprint in openSprints() filter. The customfield_10114 (Team) field uses object-based values that may require ID-based JQL filtering rather than text string matching."
+}

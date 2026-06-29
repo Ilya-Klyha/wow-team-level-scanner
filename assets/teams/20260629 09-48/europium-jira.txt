@@ -1,0 +1,55 @@
+TEAM: Europium
+PROJECT: AENW
+BOARD: https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8979
+TOTAL ISSUES: 7
+
+======================================================================
+
+[1] AENW-1047 - Story
+    Title: [CP Improvements] Hide Right Align CTA Switch Behind Feature Flag
+    Status: In Progress
+    Assignee: Karol Strojek
+    URL: https://adgear.atlassian.net/browse/AENW-1047
+    Has Description: Yes
+
+[2] AENW-1032 - Story
+    Title: [CP Improvements] Creative Preview 2026 Unified First Screen — Design Fixes
+    Status: In Progress
+    Assignee: Karol Strojek
+    URL: https://adgear.atlassian.net/browse/AENW-1032
+    Has Description: Yes
+
+[3] AENW-968 - Story
+    Title: vertica-rollups - add fields metrics table
+    Status: In Progress
+    Assignee: Raman Krot
+    URL: https://adgear.atlassian.net/browse/AENW-968
+    Has Description: Yes
+
+[4] AENW-966 - Story
+    Title: adgear-data - add new fields to avro
+    Status: Code Review
+    Assignee: Raman Krot
+    URL: https://adgear.atlassian.net/browse/AENW-966
+    Has Description: Yes
+
+[5] AENW-872 - Story
+    Title: [Microsite UCS] Implement microstie pre-transcoding pipeline and background image processing
+    Status: Code Review
+    Assignee: Michał Wiącek
+    URL: https://adgear.atlassian.net/browse/AENW-872
+    Has Description: Yes
+
+[6] AENW-685 - Story
+    Title: [Micoristes P2] Create Micro Frontend
+    Status: In Progress
+    Assignee: Karol Strojek
+    URL: https://adgear.atlassian.net/browse/AENW-685
+    Has Description: Yes
+
+[7] AENW-605 - Story
+    Title: [Microsite p2] Videos Section
+    Status: In Progress
+    Assignee: Grzegorz Prasal
+    URL: https://adgear.atlassian.net/browse/AENW-605
+    Has Description: Yes

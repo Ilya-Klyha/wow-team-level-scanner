@@ -1,0 +1,20 @@
+TEAM: SRE
+PROJECT: EEEW
+BOARD: https://adgear.atlassian.net/jira/software/c/projects/EEEW/boards/10332
+TOTAL ISSUES: 2
+
+======================================================================
+
+[1] EEEW-338 - Story
+    Title: AI skill for managing AWS IAM
+    Status: Code Review
+    Assignee: Akif Burak Yildirim
+    URL: https://adgear.atlassian.net/browse/EEEW-338
+    Has Description: Yes
+
+[2] EEEW-337 - Story
+    Title: AI skill for provisioning AWS S3 buckets
+    Status: Code Review
+    Assignee: Akif Burak Yildirim
+    URL: https://adgear.atlassian.net/browse/EEEW-337
+    Has Description: Yes

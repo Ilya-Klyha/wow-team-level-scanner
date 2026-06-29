@@ -1,0 +1,143 @@
+{
+  "query": {
+    "jql": "project = EPCW AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "project": "EPCW",
+    "team": "EP Core",
+    "scan_date": "2026-06-29"
+  },
+  "issues": [
+    {
+      "key": "EPCW-382",
+      "summary": "GitHub runners 24.04 build is failing",
+      "status": "In Progress",
+      "issuetype": "Bug",
+      "assignee": "Stanisław Cabała",
+      "priority": "Medium",
+      "created": "2026-06-23T05:40:14.403-0400",
+      "updated": "2026-06-29T01:16:48.335-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-377",
+      "summary": "Test the fully removal of NGINX Ingress Controller in eks-use1-sandbox",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Juan Antonio Costa Bermudo",
+      "priority": "Medium",
+      "created": "2026-06-23T03:30:19.951-0400",
+      "updated": "2026-06-23T07:00:30.842-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-360",
+      "summary": "Update external actions on ep-core workflows (Beginning of June)",
+      "status": "Code Review",
+      "issuetype": "Task",
+      "assignee": "Bartosz Brodecki",
+      "priority": "Medium",
+      "created": "2026-04-15T04:07:56.813-0400",
+      "updated": "2026-06-26T09:08:09.713-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-308",
+      "summary": "Fix packer-recipes pipelines - bastion host terminated during SRE cleanup",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Bartosz Brodecki",
+      "priority": "High",
+      "created": "2026-06-16T04:00:42.685-0400",
+      "updated": "2026-06-26T09:08:12.617-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-304",
+      "summary": "Eliminate workload restart requirement during RKE1 recovery",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Dariusz Nejbauer",
+      "priority": "High",
+      "created": "2026-06-16T03:35:28.891-0400",
+      "updated": "2026-06-23T06:48:10.098-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-300",
+      "summary": "Upgrade Grafana PROD to 12.4",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "created": "2026-06-16T03:14:00.097-0400",
+      "updated": "2026-06-29T03:40:17.059-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-279",
+      "summary": "Create JFrog PrivateLink VPC Endpoints across all VPCs",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Pagalavan",
+      "priority": "Medium",
+      "created": "2026-06-15T08:05:15.548-0400",
+      "updated": "2026-06-29T03:58:25.751-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-276",
+      "summary": "Fix ArgoCD cluster wide permissions on CRDs",
+      "status": "Code Review",
+      "issuetype": "Task",
+      "assignee": "Stanisław Cabała",
+      "priority": "Medium",
+      "created": "2026-06-12T07:02:35.790-0400",
+      "updated": "2026-06-29T02:36:09.623-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-273",
+      "summary": "Remove SonarQube STG from use1-rdev",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "created": "2026-06-11T23:51:01.077-0400",
+      "updated": "2026-06-29T01:49:58.721-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-171",
+      "summary": "Force top 5 tenants to create cleanup mechanism for their docker images",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "created": "2026-06-02T07:02:11.658-0400",
+      "updated": "2026-06-25T10:41:22.393-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-148",
+      "summary": "Cleanup NACL rancher configuration",
+      "status": "In Progress",
+      "issuetype": "Bug",
+      "assignee": "Lukasz Sutkowski",
+      "priority": "Medium",
+      "created": "2026-05-27T10:51:44.745-0400",
+      "updated": "2026-06-17T06:43:28.388-0400",
+      "team": "T - WAW - EP Core"
+    },
+    {
+      "key": "EPCW-141",
+      "summary": "Decommision Metrics Ingest Servers aws-useast1a-metrics-ingest-1.sys.adgear.com & aws-useast1f-metrics-ingest-2.sys.adgear.com",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Chandra Prakash",
+      "priority": "Medium",
+      "created": "2026-05-27T04:11:12.279-0400",
+      "updated": "2026-06-29T03:41:25.817-0400",
+      "team": "T - WAW - EP Core"
+    }
+  ],
+  "total": 12
+}

@@ -1,0 +1,86 @@
+{
+  "team": "Copernicium",
+  "issue_count": 10,
+  "issues": [
+    {
+      "key": "AETVP-625",
+      "summary": "Reporting data aggregation deployment & confirmation",
+      "status": "Code Review",
+      "issuetype": "Task",
+      "assignee": "Kamil Madejek",
+      "url": "https://adgear.atlassian.net/browse/AETVP-625"
+    },
+    {
+      "key": "AETVP-624",
+      "summary": "[tvp-interactive-ad] Polls & Surveys two options below centered video new template",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Jacek Wr\u0102\u0142blewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-624"
+    },
+    {
+      "key": "AETVP-623",
+      "summary": "[tvp-remotion] Polls & Surveys with two options below centered video + FALLBACK",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Kamil Fraczek",
+      "url": "https://adgear.atlassian.net/browse/AETVP-623"
+    },
+    {
+      "key": "AETVP-622",
+      "summary": "[rtb-trader] Polls & Surveys ad with 2-4 answer options possible",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Yevgeniy Wyszy\u0139\u201eski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-622"
+    },
+    {
+      "key": "AETVP-618",
+      "summary": "[rtb-trader] P&S DSP form validations",
+      "status": "Code Review",
+      "issuetype": "Story",
+      "assignee": "Yevgeniy Wyszy\u0139\u201eski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-618"
+    },
+    {
+      "key": "AETVP-617",
+      "summary": "[tvp-interactive-ad] Adjust Interactive Overlay to Figma mocks",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Jacek Wr\u0102\u0142blewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-617"
+    },
+    {
+      "key": "AETVP-616",
+      "summary": "[tvp-remotion] Adjust video template in Remotion to Figma mocks + FALLBACK",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Kamil Fraczek",
+      "url": "https://adgear.atlassian.net/browse/AETVP-616"
+    },
+    {
+      "key": "AETVP-611",
+      "summary": "[tvp-interactive-ad] Use included overlay background image",
+      "status": "Code Review",
+      "issuetype": "Story",
+      "assignee": "Jacek Wr\u0102\u0142blewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-611"
+    },
+    {
+      "key": "AETVP-610",
+      "summary": "[data-activation] Include overlay background image in poll ad data",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Maciej Wr\u0102\u0142blewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-610"
+    },
+    {
+      "key": "AETVP-609",
+      "summary": "[rtb-trader] Extract part of ad background for usage as overlay background",
+      "status": "In Progress",
+      "issuetype": "Story",
+      "assignee": "Maciej Wr\u0102\u0142blewski",
+      "url": "https://adgear.atlassian.net/browse/AETVP-609"
+    }
+  ]
+}

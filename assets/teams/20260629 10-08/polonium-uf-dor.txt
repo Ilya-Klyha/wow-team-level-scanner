@@ -1,0 +1,12 @@
+We have clear Acceptance Criteria.
+We have defined testcases.
+In case of UI changes, there are mockups provided by UX/UI team.
+Task is estimated by the team.
+Task was investigated by engineering team.
+We have list of involved teams and Engineers/PMs.
+All dependencies like other team's tasks and blockers are resolved.
+All risks are estimated and listed.
+In case of change of requirements new task should be provided.
+Task description: Every Task should be well described, Has AC, UX design if applicable, connected to Epic, Dependencies
+Estimates Provided
+Work size: Scope is small enough to fit within a sprint

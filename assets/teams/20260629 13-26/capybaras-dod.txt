@@ -1,0 +1,13 @@
+Team DoD
+
+Criterion: Result summary
+Description: The results of the task should have been summarized in Jira Task description after completion.
+
+Criterion: Unit and Integration Tests Written and Passed (if applicable)
+Description: TBD - Comprehensive unit and integration tests have been written for the new or modified code, and all tests pass successfully.
+
+Criterion: Acceptance Criteria Met
+Description: All defined acceptance criteria for the user story have been satisfied and verified.
+
+Criterion: Deployed to Staging/Pre-production (if applicable), with feature flags ready for release/rollout
+Description: If task contains deployment to production/dev - Positive merge of PR (Pipeline Passed, Automated tests passed, PER review passed), Positive deploy, Positive test of dev environment, Positive verification of deploy by team.

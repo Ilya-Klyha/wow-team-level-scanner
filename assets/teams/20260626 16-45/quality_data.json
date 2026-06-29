@@ -1,0 +1,248 @@
+[
+  {
+    "team": "Abyss",
+    "coverage": 60,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      10
+    ],
+    "missing_criteria": [
+      5,
+      7,
+      8,
+      9
+    ],
+    "note": "Missing: Design/UX Specification, Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Radium",
+    "coverage": 70,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      10
+    ],
+    "missing_criteria": [
+      7,
+      8,
+      9
+    ],
+    "note": "Missing: Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Europium",
+    "coverage": 70,
+    "covered_criteria": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      9,
+      10
+    ],
+    "missing_criteria": [
+      3,
+      7,
+      8
+    ],
+    "note": "Missing: Estimation/Sizing, Risks/Blockers Identified, Stakeholder Alignment"
+  },
+  {
+    "team": "Copernicium",
+    "coverage": 60,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      10
+    ],
+    "missing_criteria": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "note": "Missing: Scope/Sprint Fit, Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Mouflons",
+    "coverage": 50,
+    "covered_criteria": [
+      1,
+      2,
+      4,
+      7,
+      8
+    ],
+    "missing_criteria": [
+      3,
+      5,
+      6,
+      9,
+      10
+    ],
+    "note": "Missing: Estimation/Sizing, Design/UX Specification, Scope/Sprint Fit, Technical Feasibility Confirmed, Testing Strategy/Approach"
+  },
+  {
+    "team": "Wolves",
+    "coverage": 50,
+    "covered_criteria": [
+      1,
+      2,
+      4,
+      7,
+      8
+    ],
+    "missing_criteria": [
+      3,
+      5,
+      6,
+      9,
+      10
+    ],
+    "note": "Missing: Estimation/Sizing, Design/UX Specification, Scope/Sprint Fit, Technical Feasibility Confirmed, Testing Strategy/Approach"
+  },
+  {
+    "team": "Polonium UF",
+    "coverage": 100,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "missing_criteria": [],
+    "note": "All standard criteria covered"
+  },
+  {
+    "team": "Bigos",
+    "coverage": 90,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10
+    ],
+    "missing_criteria": [
+      9
+    ],
+    "note": "Missing: Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Capybaras",
+    "coverage": 70,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      9,
+      10
+    ],
+    "missing_criteria": [
+      5,
+      7,
+      8
+    ],
+    "note": "Missing: Design/UX Specification, Risks/Blockers Identified, Stakeholder Alignment"
+  },
+  {
+    "team": "ML Platform Pandas",
+    "coverage": 50,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      10
+    ],
+    "missing_criteria": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "note": "Missing: Design/UX Specification, Scope/Sprint Fit, Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "EP Core",
+    "coverage": 60,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      7,
+      10
+    ],
+    "missing_criteria": [
+      5,
+      6,
+      8,
+      9
+    ],
+    "note": "Missing: Design/UX Specification, Scope/Sprint Fit, Stakeholder Alignment, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Zurek",
+    "coverage": 50,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      7
+    ],
+    "missing_criteria": [
+      5,
+      6,
+      8,
+      9,
+      10
+    ],
+    "note": "Missing: Design/UX Specification, Scope/Sprint Fit, Stakeholder Alignment, Technical Feasibility Confirmed, Testing Strategy/Approach"
+  },
+  {
+    "team": "Igni",
+    "coverage": 60,
+    "covered_criteria": [
+      1,
+      2,
+      3,
+      4,
+      8,
+      10
+    ],
+    "missing_criteria": [
+      5,
+      6,
+      7,
+      9
+    ],
+    "note": "Missing: Design/UX Specification, Scope/Sprint Fit, Risks/Blockers Identified, Technical Feasibility Confirmed"
+  }
+]

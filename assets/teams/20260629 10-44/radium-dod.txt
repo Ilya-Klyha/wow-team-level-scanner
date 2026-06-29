@@ -1,0 +1,24 @@
+Team Task/Story DoD (Definition of Done)
+
+Criterion: Unit and Integration Tests (if applicable)
+Description: implemented, SonarQube and review passed
+
+Criterion: Automated Pipeline ??
+Description: CI pass
+
+Criterion: local test check (if applicable)
+Description: regression and retest did not generate additional issues
+
+Criterion: Acceptance Criteria
+Description: Acceptance criteria are met.
+
+Criterion: Deploy readiness
+Description: Code is implemented, Code review is completed, Edge cases considered, Change is ready for deployment.
+Comments: Code is ready for deploy on production.
+
+Criterion: Matches the Ux design (when applicable)
+Description: Ux design is approved by reviewer and delivered on production
+Comments: To be verified thus approval to few rtb trader instance could be up to 14 days.
+
+Criterion: Ready for external review
+Description: Reviewers are notified

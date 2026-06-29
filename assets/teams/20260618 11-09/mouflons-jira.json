@@ -1,0 +1,18 @@
+{
+  "team": "Mouflons",
+  "query_date": "2026-06-18",
+  "issue_count": 1,
+  "issues": [
+    {
+      "key": "PEPI-11393",
+      "summary": "Analyze preliminary result of A/B tests of MC EE models",
+      "status": "In Development",
+      "issuetype": "Task",
+      "assignee": "Marek Kochańczyk",
+      "priority": "Medium",
+      "description": "Hard-exploratory models are scoring impression opportunities in the campaigns of:\n\n* House of Fun (gaming): 03/12 – TBA (ended),\n* Idle Tower Defense (gaming) – since March 12th,\n* Age of Learning (non-gaming): 03/12 – 03/30.\n\n",
+      "team_field": "AS - WAW - Mouflons",
+      "url": "https://adgear.atlassian.net/browse/PEPI-11393"
+    }
+  ]
+}

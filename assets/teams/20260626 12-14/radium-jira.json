@@ -1,0 +1,32 @@
+[
+  {
+    "key": "AENW-1035",
+    "summary": "Changes in rtb-bidder - outcome task of AENW-1016",
+    "status": "In Progress",
+    "issuetype": "Story",
+    "assignee": "Krzysztof Urbanski",
+    "priority": "Medium",
+    "created": "2026-06-17T06:01:26.017-0400",
+    "updated": "2026-06-25T05:15:52.767-0400"
+  },
+  {
+    "key": "AENW-907",
+    "summary": "Spike: Investigate ad serving pipeline for Samsung TV+",
+    "status": "In Progress",
+    "issuetype": "Task",
+    "assignee": "Krzysztof Urbanski",
+    "priority": "Medium",
+    "created": "2026-06-03T05:25:23.440-0400",
+    "updated": "2026-06-24T00:49:14.223-0400"
+  },
+  {
+    "key": "AENW-1036",
+    "summary": "Changes in DA - outcome task of AENW-1016",
+    "status": "In Progress",
+    "issuetype": "Story",
+    "assignee": "Krzysztof Urbanski",
+    "priority": "Medium",
+    "created": "2026-06-17T06:04:36.173-0400",
+    "updated": "2026-06-24T00:47:49.967-0400"
+  }
+]

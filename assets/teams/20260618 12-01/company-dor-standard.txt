@@ -1,0 +1,33 @@
+Definition of Ready (DOR) - Company Standard
+Source: https://adgear.atlassian.net/wiki/spaces/AGILE/pages/21735179128
+
+Purpose:
+The Definition of Ready (DoR) is a team-owned policy that determines whether a backlog item is
+sufficiently prepared to begin work. It ensures the team has the necessary clarity and context to start work with confidence.
+
+At its core, the DoR answers a simple question: Can we start this work with confidence?
+
+How It Works:
+The DoR functions as a gate that backlog items must pass through before being accepted into a sprint or actively worked on. It typically takes the form of a set of criteria that confirms a work item is well-formed and well-understood. The goal is to increase clarity and reduce risk before work begins. Common readiness criteria may include:
+- Clearly defined acceptance criteria
+- Dependencies identified and addressed
+- Scope and priority established
+
+See INVEST criteria for more information on how to use the technique on story readiness.
+
+When to Use It:
+- During backlog refinement, assess whether a story is ready for planning
+- At sprint planning, when selecting work for commitment
+
+Benefits:
+Applying the Definition of Ready helps the team prevent false starts, reduce rework, and improve delivery predictability.
+- Ensures work is scoped, understood, and feasible
+- Builds shared ownership and accountability before work begins
+- Avoids bringing ambiguous or risky items into the sprint
+- Strengthens collaboration between product and engineering
+
+Cautions or Pitfalls:
+A poorly applied DoR can block progress or invite risk:
+- Under-defined: Vague or missing DoRs allow unclear or risky work into sprints
+- Over-rigorous: Excessive readiness criteria can stall valuable work or prevent experimentation
+- Ignored: Skipping DoR leads to unclear scope, delivery risk, and team frustration

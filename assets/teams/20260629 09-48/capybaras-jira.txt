@@ -1,0 +1,41 @@
+TEAM: Capybaras
+PROJECT: RSW
+BOARD: https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10156
+TOTAL ISSUES: 5
+
+======================================================================
+
+[1] RSW-1427 - Task
+    Title: Cumulative Reach: Respect exclude_dsp_reach flag in CR calculation
+    Status: In Progress
+    Assignee: Piotr Marciniak
+    URL: https://adgear.atlassian.net/browse/RSW-1427
+    Has Description: Yes
+
+[2] RSW-1377 - Task
+    Title: [SRPOL-OR] Verify FRITES is production ready
+    Status: In Progress
+    Assignee: Cezary Kret
+    URL: https://adgear.atlassian.net/browse/RSW-1377
+    Has Description: Yes
+
+[3] RSW-1306 - Task
+    Title: [AU] E2E Segment Generation Validation — Pipeline Trigger & Size Consistency on PROD
+    Status: In Progress
+    Assignee: Tomasz Zaród
+    URL: https://adgear.atlassian.net/browse/RSW-1306
+    Has Description: Yes
+
+[4] RSW-1235 - Task
+    Title: [SRPOL-OR] Perform tests for PoC based on Airflow queue
+    Status: In Progress
+    Assignee: Dariusz Bielawski
+    URL: https://adgear.atlassian.net/browse/RSW-1235
+    Has Description: Yes
+
+[5] RSW-555 - Story
+    Title: [SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach
+    Status: Code Review
+    Assignee: Jakub Fołtyn
+    URL: https://adgear.atlassian.net/browse/RSW-555
+    Has Description: Yes

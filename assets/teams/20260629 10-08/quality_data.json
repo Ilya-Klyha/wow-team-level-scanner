@@ -1,0 +1,67 @@
+[
+  {
+    "team": "Abyss",
+    "coverage": 60,
+    "note": "Missing: Design/UX Specification, Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Radium",
+    "coverage": 80,
+    "note": "Missing: Risks/Blockers Identified, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Europium",
+    "coverage": 70,
+    "note": "Missing: Estimation/Sizing, Risks/Blockers Identified, Stakeholder Alignment"
+  },
+  {
+    "team": "Copernicium",
+    "coverage": 50,
+    "note": "Missing: Design/UX Specification, Scope/Sprint Fit, Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Mouflons",
+    "coverage": 40,
+    "note": "Missing: Estimation/Sizing, Dependencies Identified & Resolved, Design/UX Specification, Scope/Sprint Fit, Technical Feasibility Confirmed, Testing Strategy/Approach"
+  },
+  {
+    "team": "Wolves",
+    "coverage": 40,
+    "note": "Missing: Estimation/Sizing, Dependencies Identified & Resolved, Design/UX Specification, Scope/Sprint Fit, Technical Feasibility Confirmed, Testing Strategy/Approach"
+  },
+  {
+    "team": "Capybaras",
+    "coverage": 60,
+    "note": "Missing: Design/UX Specification, Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "EP Core",
+    "coverage": 70,
+    "note": "Missing: Design/UX Specification, Scope/Sprint Fit, Stakeholder Alignment"
+  },
+  {
+    "team": "Igni",
+    "coverage": 60,
+    "note": "Missing: Design/UX Specification, Scope/Sprint Fit, Risks/Blockers Identified, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Polonium UF",
+    "coverage": 90,
+    "note": "Missing: Stakeholder Alignment"
+  },
+  {
+    "team": "Bigos",
+    "coverage": 90,
+    "note": "Missing: Stakeholder Alignment"
+  },
+  {
+    "team": "ML Platform Pandas",
+    "coverage": 50,
+    "note": "Missing: Design/UX Specification, Scope/Sprint Fit, Risks/Blockers Identified, Stakeholder Alignment, Technical Feasibility Confirmed"
+  },
+  {
+    "team": "Zurek",
+    "coverage": 60,
+    "note": "Missing: Design/UX Specification, Scope/Sprint Fit, Stakeholder Alignment, Testing Strategy/Approach"
+  }
+]

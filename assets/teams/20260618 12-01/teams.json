@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "scan_date": "2026-06-18T12:01:00+02:00",
+    "scan_timestamp_cet": "20260618 12-01",
+    "source_page": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/19470090380/SRPOL+Teams",
+    "team_count": 15,
+    "cloudId": "adgear.atlassian.net",
+    "scanner_version": "2.0",
+    "dor_analysis": {
+      "performed": true,
+      "timestamp": "2026-06-18T12:01:00+02:00",
+      "teams_analyzed": 7,
+      "issues_analyzed": 23,
+      "issues_meeting_dor": 9,
+      "issues_not_meeting_dor": 14,
+      "compliance_rate": "39.1",
+      "report_file": "Report-DoR.xlsx",
+      "summary_file": "DOR_ANALYSIS_SUMMARY.md",
+      "analysis_method": "llm_batched"
+    },
+    "dor_quality": {
+      "performed": true,
+      "teams_assessed": 13,
+      "average_coverage": 70,
+      "standards_used": ["assets/dor-standard.txt", "Confluence page 21735179128"]
+    }
+  },
+  "teams": [
+    {
+      "name": "Abyss",
+      "page_link": "https://adgear.atlassian.net/wiki/x/WID6RQU",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/9980",
+      "dor_file": "abyss-dor.txt",
+      "page_id": "22648881240",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "MAW",
+      "jiraBoardId": "9980"
+    },
+    {
+      "name": "Radium",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/20720615642",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8976",
+      "dor_file": "radium-dor.txt",
+      "page_id": "20720615642",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "AENW",
+      "jiraBoardId": "8976"
+    },
+    {
+      "name": "Europium",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22431629392",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8979",
+      "dor_file": "europium-dor.txt",
+      "page_id": "22431629392",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "AENW",
+      "jiraBoardId": "8979"
+    },
+    {
+      "name": "Copernicium",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/20734247032",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/AETVP/boards/9246",
+      "dor_file": "copernicium-dor.txt",
+      "page_id": "20734247032",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "AETVP",
+      "jiraBoardId": "9246"
+    },
+    {
+      "name": "Mouflons",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22381756417",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4503",
+      "dor_file": "mouflons-dor.txt",
+      "page_id": "22381756417",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "PEPI",
+      "jiraBoardId": "4503"
+    },
+    {
+      "name": "Wolves",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22374940673",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4504",
+      "dor_file": "wolves-dor.txt",
+      "page_id": "22374940673",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "PEPI",
+      "jiraBoardId": "4504"
+    },
+    {
+      "name": "Polonium UF",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22606053416",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10403",
+      "dor_file": "polonium-uf-dor.txt",
+      "page_id": "22606053416",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "linked_page",
+      "jiraProjectKey": "RSW",
+      "jiraBoardId": "10403"
+    },
+    {
+      "name": "Bigos",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22695936064",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/11439",
+      "dor_file": "bigos-dor.txt",
+      "page_id": "22695936064",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "linked_page",
+      "jiraProjectKey": "MAW",
+      "jiraBoardId": "11439"
+    },
+    {
+      "name": "Capybaras",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22696132609",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10156",
+      "dor_file": "capybaras-dor.txt",
+      "page_id": "22696132609",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "RSW",
+      "jiraBoardId": "10156"
+    },
+    {
+      "name": "ML Serving Sturgeons",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732425749",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4090",
+      "dor_file": "ml-serving-sturgeons-dor.txt",
+      "page_id": "21732425749",
+      "extraction_status": "not_found",
+      "extraction_error": null,
+      "dor_source": null,
+      "jiraProjectKey": "PEPI",
+      "jiraBoardId": "4090"
+    },
+    {
+      "name": "ML Platform Pandas",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732360213",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/projects/ML/boards/10470",
+      "dor_file": "ml-platform-pandas-dor.txt",
+      "page_id": "21732360213",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "linked_page",
+      "jiraProjectKey": "ML",
+      "jiraBoardId": "10470"
+    },
+    {
+      "name": "EP Core",
+      "page_link": "https://adgear.atlassian.net/wiki/x/AQAHUAU",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/EPCW/boards/10972",
+      "dor_file": "ep-core-dor.txt",
+      "page_id": "22817472513",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "EPCW",
+      "jiraBoardId": "10972"
+    },
+    {
+      "name": "Zurek",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/21748023571",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/PEA/boards/2881",
+      "dor_file": "zurek-dor.txt",
+      "page_id": "21748023571",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "PEA",
+      "jiraBoardId": "2881"
+    },
+    {
+      "name": "Igni",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22435922026",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/ASPW/boards/9477",
+      "dor_file": "igni-dor.txt",
+      "page_id": "22435922026",
+      "extraction_status": "success",
+      "extraction_error": null,
+      "dor_source": "direct",
+      "jiraProjectKey": "ASPW",
+      "jiraBoardId": "9477"
+    },
+    {
+      "name": "SRE",
+      "page_link": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22719529363",
+      "sprint_board_link": "https://adgear.atlassian.net/jira/software/c/projects/EEEW/boards/10332",
+      "dor_file": "sre-dor.txt",
+      "page_id": "22719529363",
+      "extraction_status": "not_found",
+      "extraction_error": null,
+      "dor_source": null,
+      "jiraProjectKey": "EEEW",
+      "jiraBoardId": "10332"
+    }
+  ]
+}

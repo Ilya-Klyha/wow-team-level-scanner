@@ -1,0 +1,24 @@
+Team: Polonium UF
+Project: RSW
+Active Issues: 3
+Scan Date: 2026-06-29
+============================================================
+
+RSW-1039 | Task | Code Review
+  Summary: [BE] Add GET endpoint for fetching presets from AI-backend
+  Assignee: Dmitriy Borowski
+  Priority: Medium
+  Updated: 2026-06-25T10:05:51.340-0400
+
+RSW-884 | Task | Code Review
+  Summary: [FE] Add Reset session button with confirmation modal
+  Assignee: Zbigniew Stolarski
+  Priority: Medium
+  Updated: 2026-06-25T12:08:37.699-0400
+
+RSW-882 | Task | In Progress
+  Summary: [FE] Handle chatbot functionality on mocks
+  Assignee: Katarzyna Kokieć
+  Priority: Medium
+  Updated: 2026-06-23T03:56:48.912-0400
+

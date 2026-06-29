@@ -1,0 +1,13 @@
+TEAM: Mouflons
+PROJECT: PEPI
+BOARD: https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4503
+TOTAL ISSUES: 1
+
+======================================================================
+
+[1] PEPI-11393 - Task
+    Title: Analyze preliminary result of A/B tests of MC EE models
+    Status: In Development
+    Assignee: Marek Kochańczyk
+    URL: https://adgear.atlassian.net/browse/PEPI-11393
+    Has Description: Yes

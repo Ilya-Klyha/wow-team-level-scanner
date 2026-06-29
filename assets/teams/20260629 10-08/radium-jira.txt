@@ -1,0 +1,78 @@
+Team: Radium
+Project: AENW
+Active Issues: 12
+Scan Date: 2026-06-29
+============================================================
+
+AENW-1061 | Story | In Progress
+  Summary: Many time consuming additional ad-hoc meetings not related to existing tasks in Sprint [MarcinA]
+  Assignee: Marcin Al-Jawahiri
+  Priority: Medium
+  Updated: 2026-06-23T10:47:40.672-0400
+
+AENW-1040 | Story | In Progress
+  Summary: [SW Test Pro - solution] Marcin Al-Jawahiri
+  Assignee: Marcin Al-Jawahiri
+  Priority: Medium
+  Updated: 2026-06-18T04:09:48.448-0400
+
+AENW-1036 | Story | In Progress
+  Summary: Changes in DA - outcome task of AENW-1016
+  Assignee: Krzysztof Urbański
+  Priority: Medium
+  Updated: 2026-06-24T00:47:49.967-0400
+
+AENW-1035 | Story | In Progress
+  Summary: Changes in rtb-bidder - outcome task of AENW-1016
+  Assignee: Krzysztof Urbański
+  Priority: Medium
+  Updated: 2026-06-25T05:15:52.767-0400
+
+AENW-1015 | Story | In Progress
+  Summary: Prepare env for RoR training dev (including DSP)
+  Assignee: Marcin Al-Jawahiri
+  Priority: Medium
+  Updated: 2026-06-23T10:55:22.400-0400
+
+AENW-943 | Story | In Progress
+  Summary: [Retro Action Item] Establish Reporting workforce
+  Assignee: Patryk Palyska
+  Priority: Medium
+  Updated: 2026-06-23T05:17:18.004-0400
+
+AENW-913 | Task | In Progress
+  Summary: [Training] Ruby udemy training - Prepare to 13-17 July
+  Assignee: Marcin Al-Jawahiri
+  Priority: Medium
+  Updated: 2026-06-17T10:26:36.859-0400
+
+AENW-910 | Task | In Progress
+  Summary: [Training] Ruby udemy training - Prepare to 13-17 July 
+  Assignee: Marcin Matyszkowicz
+  Priority: Medium
+  Updated: 2026-06-22T05:07:21.118-0400
+
+AENW-907 | Task | In Progress
+  Summary: Spike: Investigate ad serving pipeline for Samsung TV+
+  Assignee: Krzysztof Urbański
+  Priority: Medium
+  Updated: 2026-06-24T00:49:14.223-0400
+
+AENW-906 | Task | In Progress
+  Summary: Deliver TVs to Cracow 
+  Assignee: Patryk Palyska
+  Priority: Medium
+  Updated: 2026-06-17T07:54:28.211-0400
+
+AENW-796 | Story | Code Review
+  Summary: [DSP-UI] Remove FF after E2E tests
+  Assignee: Unassigned
+  Priority: Medium
+  Updated: 2026-06-17T07:51:41.754-0400
+
+AENW-127 | Story | In Progress
+  Summary: [DSP-UI] Add new click action "QR Code Microsite"
+  Assignee: Unassigned
+  Priority: Medium
+  Updated: 2026-04-28T07:09:41.557-0400
+

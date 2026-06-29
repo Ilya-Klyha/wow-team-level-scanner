@@ -1,0 +1,7 @@
+DoD: Definition of Done Task/Story (from linked page: DoR and DoD on Story/Task level)
+
+- Acceptance criteria passed
+- No known open serious defects
+- Approved by PO or tech lead (should get inline with Product regarding if changes can be delivered to prod)
+- Are released on production (ticket is approved by PO or Tech lead) or if other environment mentioned in AC
+- Be sure the changes do not have negative impact on production

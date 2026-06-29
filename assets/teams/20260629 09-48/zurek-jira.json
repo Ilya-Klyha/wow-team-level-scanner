@@ -1,0 +1,143 @@
+{
+  "team": "Zurek",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/PEA/boards/2881",
+  "boardId": "2881",
+  "projectKey": "PEA",
+  "extractedAt": "2026-06-29T07:56:14Z",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = PEA AND status in (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype in (Story, Bug, Task)",
+    "filterMethod": "client-side customfield_10114.name exact match",
+    "teamFieldValue": "T - WAW - Zurek"
+  },
+  "summary": {
+    "totalIssues": 13,
+    "byType": {
+      "Task": 4,
+      "Story": 8,
+      "Bug": 1
+    },
+    "byStatus": {
+      "In Development": 13
+    }
+  },
+  "issues": [
+    {
+      "key": "PEA-4226",
+      "summary": "[UDWMIG][LIFT][STANDARD] Deployment to production",
+      "issueType": "Task",
+      "status": "In Development",
+      "assignee": "Piotr Jaromin",
+      "url": "https://adgear.atlassian.net/browse/PEA-4226",
+      "hasDescription": false
+    },
+    {
+      "key": "PEA-4219",
+      "summary": "Statistics on impressions and reach for Lift, R&F and Delivery reports",
+      "issueType": "Task",
+      "status": "In Development",
+      "assignee": "Marcin Nowacki",
+      "url": "https://adgear.atlassian.net/browse/PEA-4219",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-4217",
+      "summary": "[Audience Service][EMR][Incremental Reach] Spark version of the Incremental Reach reporty decomision",
+      "issueType": "Story",
+      "status": "In Development",
+      "assignee": "Jacek Pielaszkiewicz",
+      "url": "https://adgear.atlassian.net/browse/PEA-4217",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-4215",
+      "summary": "[Audience Service][PERF] PMP R&F Report optimization - analysis",
+      "issueType": "Bug",
+      "status": "In Development",
+      "assignee": "Michał Kościelak",
+      "url": "https://adgear.atlassian.net/browse/PEA-4215",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-4161",
+      "summary": "[TEST] Support for declared IP in RF methodology",
+      "issueType": "Story",
+      "status": "In Development",
+      "assignee": "Marcin Nowacki",
+      "url": "https://adgear.atlassian.net/browse/PEA-4161",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-4160",
+      "summary": "[UDWMIG][LIFT][STANDARD][SNOWFLAKE] Report data integration tests",
+      "issueType": "Task",
+      "status": "In Development",
+      "assignee": "Michał Kościelak",
+      "url": "https://adgear.atlassian.net/browse/PEA-4160",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-4067",
+      "summary": "[UDWMIG][LIFT] Improving deployment on dev schemas",
+      "issueType": "Task",
+      "status": "In Development",
+      "assignee": "Michał Lis",
+      "url": "https://adgear.atlassian.net/browse/PEA-4067",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-3960",
+      "summary": "[Audience Service][EMR][LINEAR ADS] Deployment/switch to new EMR cluster Linear Ads",
+      "issueType": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau",
+      "url": "https://adgear.atlassian.net/browse/PEA-3960",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-3955",
+      "summary": "[Audience Service][EMR][PMP LIFT] Deployment/switch to new EMR cluster PMP lift report",
+      "issueType": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau",
+      "url": "https://adgear.atlassian.net/browse/PEA-3955",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-3952",
+      "summary": "[Audience Service][EMR][PMP IR] Deployment/switch to new EMR cluster PMP IR report",
+      "issueType": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau",
+      "url": "https://adgear.atlassian.net/browse/PEA-3952",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-3951",
+      "summary": "[Audience Service][EMR][PMP RF] Deployment/switch to new EMR cluster PMP RF",
+      "issueType": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau",
+      "url": "https://adgear.atlassian.net/browse/PEA-3951",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-3948",
+      "summary": "[Audience Service][EMR][LIFT] Deployment/switch to new EMR cluster Lift",
+      "issueType": "Story",
+      "status": "In Development",
+      "assignee": "Anton Krasnikau",
+      "url": "https://adgear.atlassian.net/browse/PEA-3948",
+      "hasDescription": true
+    },
+    {
+      "key": "PEA-1931",
+      "summary": "[UDWMIG][LIFT][WEBSITE_PIXELS][SNOWFLAKE] Procedure LIFT_WEB_PIXEL_POPULATE_INTERMEDIATE_TABLES_TMP_LIFT_TRADER_IMP_JOINED() implementation",
+      "issueType": "Story",
+      "status": "In Development",
+      "assignee": "Aron Gruzman",
+      "url": "https://adgear.atlassian.net/browse/PEA-1931",
+      "hasDescription": true
+    }
+  ]
+}

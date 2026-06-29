@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "generated": "2026-06-29T10:44:00+02:00",
+    "scanner": "wow-dod-scanner",
+    "source": "SRPOL Teams Confluence Page",
+    "totalTeams": 15
+  },
+  "teams": [
+    {
+      "name": "Abyss",
+      "pageId": "22648881240",
+      "pageLink": "https://adgear.atlassian.net/wiki/x/WID6RQU",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/9980"
+    },
+    {
+      "name": "Radium",
+      "pageId": "20720615642",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/20720615642",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8976"
+    },
+    {
+      "name": "Europium",
+      "pageId": "22431629392",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22431629392",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8979"
+    },
+    {
+      "name": "Copernicium",
+      "pageId": "20734247032",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/20734247032",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/AETVP/boards/9246"
+    },
+    {
+      "name": "Mouflons",
+      "pageId": "22381756417",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22381756417",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4503"
+    },
+    {
+      "name": "Wolves",
+      "pageId": "22374940673",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22374940673",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4504"
+    },
+    {
+      "name": "Polonium UF",
+      "pageId": "22606053416",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22606053416",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10403"
+    },
+    {
+      "name": "Bigos",
+      "pageId": "22695936064",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22695936064",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/MAW/boards/11439"
+    },
+    {
+      "name": "Capybaras",
+      "pageId": "22696132609",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22696132609",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/RSW/boards/10156"
+    },
+    {
+      "name": "ML Serving Sturgeons",
+      "pageId": "21732425749",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732425749",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/PEPI/boards/4090"
+    },
+    {
+      "name": "ML Platform Pandas",
+      "pageId": "21732360213",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/21732360213",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/projects/ML/boards/10470"
+    },
+    {
+      "name": "EP Core",
+      "pageId": "22817472513",
+      "pageLink": "https://adgear.atlassian.net/wiki/x/AQAHUAU",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/EPCW/boards/10972"
+    },
+    {
+      "name": "Zurek",
+      "pageId": "21748023571",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/21748023571",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/PEA/boards/2881"
+    },
+    {
+      "name": "Igni",
+      "pageId": "22435922026",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/ENG/pages/22435922026",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/ASPW/boards/9477"
+    },
+    {
+      "name": "SRE",
+      "pageId": "22719529363",
+      "pageLink": "https://adgear.atlassian.net/wiki/spaces/AGILE/pages/22719529363",
+      "sprintBoard": "https://adgear.atlassian.net/jira/software/c/projects/EEEW/boards/10332"
+    }
+  ]
+}

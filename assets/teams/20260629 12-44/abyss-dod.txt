@@ -1,0 +1,20 @@
+Definition of Done (DoD) - STORY / TASK
+
+The "Definition of Done" ensures that a software development ticket is truly complete and meets the required quality standards before it can be considered shippable. The DoD is applied to every piece of work and helps maintain consistency and quality across the product.
+
+Criterion: Unit and Integration Tests Written and Passed (if applicable)
+Description: Comprehensive unit and integration tests have been written for the new or modified code, and all tests pass successfully.
+Comments: %code coverage check. E2E test. If below than requirements, shouldn't we check with architect to get ok for exception?
+
+Criterion: Automated Pipeline Passed
+Description: The continuous integration (CI) pipeline has run successfully, and all automated tests (unit, integration, regression) have passed.
+
+Criterion: Acceptance Criteria Met and Measurement Ready
+Description: All defined acceptance criteria for the user story have been satisfied and verified. As well as necessary monitoring and alerting for the new feature or change have been configured. Any necessary documentation (e.g., API docs, user guides, technical design docs) has been updated.
+
+Criterion: Deployed to Staging/Pre-production (if applicable), with feature flags ready for release/rollout
+Description: The code has been successfully deployed to a staging or pre-production environment for further testing and validation. All relevant code has been deployed to Production and relevant feature flags communicated with the appropriate parties for the controlled release to users.
+
+Working agreement:
+- Every team member should remember to create a UX subtask when a task or story is ready for review. The subtask should include details on where and what needs to be checked.
+- Everyone remembers the checklist themselves.

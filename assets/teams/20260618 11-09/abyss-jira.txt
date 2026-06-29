@@ -1,0 +1,18 @@
+JIRA ACTIVE ISSUES - Abyss
+============================================================
+Query Date: 2026-06-18
+Total Issues: 3
+============================================================
+
+[MAW-477] Pixel form view update
+  Type: Story | Status: In Progress | Assignee: Maciej Lewandowski
+  URL: https://adgear.atlassian.net/browse/MAW-477
+
+[MAW-376] Enabling dynamic parameters
+  Type: Story | Status: In Progress | Assignee: Rafal Stefanowicz
+  URL: https://adgear.atlassian.net/browse/MAW-376
+
+[MAW-375] Enabling standard pixel selection
+  Type: Story | Status: Code Review | Assignee: Maciej Lewandowski
+  URL: https://adgear.atlassian.net/browse/MAW-375
+

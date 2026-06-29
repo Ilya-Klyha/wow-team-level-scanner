@@ -1,0 +1,10 @@
+{
+  "query": {
+    "jql": "project = PEPI AND status IN (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task",
+    "project": "PEPI",
+    "team": "Wolves",
+    "scan_date": "2026-06-29"
+  },
+  "issues": [],
+  "total": 0
+}

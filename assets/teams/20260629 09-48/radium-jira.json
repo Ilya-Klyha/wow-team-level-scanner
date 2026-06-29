@@ -1,0 +1,134 @@
+{
+  "team": "Radium",
+  "boardUrl": "https://adgear.atlassian.net/jira/software/c/projects/AENW/boards/8976",
+  "boardId": "8976",
+  "projectKey": "AENW",
+  "extractedAt": "2026-06-29T07:56:14Z",
+  "teamFieldId": "customfield_10114",
+  "query": {
+    "jql": "project = AENW AND status in (\"In Progress\", \"Code Review\", \"In Development\") AND issuetype in (Story, Bug, Task)",
+    "filterMethod": "client-side customfield_10114.name exact match",
+    "teamFieldValue": "AE - WAW - Radium"
+  },
+  "summary": {
+    "totalIssues": 12,
+    "byType": {
+      "Story": 8,
+      "Task": 4
+    },
+    "byStatus": {
+      "In Progress": 11,
+      "Code Review": 1
+    }
+  },
+  "issues": [
+    {
+      "key": "AENW-1061",
+      "summary": "Many time consuming additional ad-hoc meetings not related to existing tasks in Sprint [MarcinA]",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "url": "https://adgear.atlassian.net/browse/AENW-1061",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-1040",
+      "summary": "[SW Test Pro - solution] Marcin Al-Jawahiri",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "url": "https://adgear.atlassian.net/browse/AENW-1040",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-1036",
+      "summary": "Changes in DA - outcome task of AENW-1016",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Krzysztof Urbański",
+      "url": "https://adgear.atlassian.net/browse/AENW-1036",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-1035",
+      "summary": "Changes in rtb-bidder - outcome task of AENW-1016",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Krzysztof Urbański",
+      "url": "https://adgear.atlassian.net/browse/AENW-1035",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-1015",
+      "summary": "Prepare env for RoR training dev (including DSP)",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "url": "https://adgear.atlassian.net/browse/AENW-1015",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-943",
+      "summary": "[Retro Action Item] Establish Reporting workforce",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Patryk Palyska",
+      "url": "https://adgear.atlassian.net/browse/AENW-943",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-913",
+      "summary": "[Training] Ruby udemy training - Prepare to 13-17 July",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Marcin Al-Jawahiri",
+      "url": "https://adgear.atlassian.net/browse/AENW-913",
+      "hasDescription": false
+    },
+    {
+      "key": "AENW-910",
+      "summary": "[Training] Ruby udemy training - Prepare to 13-17 July ",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Marcin Matyszkowicz",
+      "url": "https://adgear.atlassian.net/browse/AENW-910",
+      "hasDescription": false
+    },
+    {
+      "key": "AENW-907",
+      "summary": "Spike: Investigate ad serving pipeline for Samsung TV+",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Krzysztof Urbański",
+      "url": "https://adgear.atlassian.net/browse/AENW-907",
+      "hasDescription": true
+    },
+    {
+      "key": "AENW-906",
+      "summary": "Deliver TVs to Cracow ",
+      "issueType": "Task",
+      "status": "In Progress",
+      "assignee": "Patryk Palyska",
+      "url": "https://adgear.atlassian.net/browse/AENW-906",
+      "hasDescription": false
+    },
+    {
+      "key": "AENW-796",
+      "summary": "[DSP-UI] Remove FF after E2E tests",
+      "issueType": "Story",
+      "status": "Code Review",
+      "assignee": "Unassigned",
+      "url": "https://adgear.atlassian.net/browse/AENW-796",
+      "hasDescription": false
+    },
+    {
+      "key": "AENW-127",
+      "summary": "[DSP-UI] Add new click action \"QR Code Microsite\"",
+      "issueType": "Story",
+      "status": "In Progress",
+      "assignee": "Unassigned",
+      "url": "https://adgear.atlassian.net/browse/AENW-127",
+      "hasDescription": true
+    }
+  ]
+}

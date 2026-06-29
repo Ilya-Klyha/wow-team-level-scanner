@@ -1,0 +1,80 @@
+{
+  "team": "Bigos",
+  "extractedAt": "2026-06-18T12:01:00+02:00",
+  "query": {
+    "queryType": "project",
+    "teamFilterEnabled": true
+  },
+  "summary": {
+    "total": 6,
+    "byStatus": {
+      "In Progress": 6
+    },
+    "byType": {
+      "Story": 5,
+      "Task": 1
+    }
+  },
+  "issues": [
+    {
+      "key": "MAW-446",
+      "type": "Story",
+      "summary": "Bronze-to-Silver Data Transformation - Master Context & SQL View Generation",
+      "status": "In Progress",
+      "assignee": "Rahul Tomer",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-446",
+      "description": "As a developer, I want to restructure the master context document. Detailed context, AC-1 Master Context Restructured, AC-2 SQL View Generation, AC-5 Validation Samsung CAPI E2E. Dependencies listed. Very detailed technical story with multiple ACs."
+    },
+    {
+      "key": "MAW-445",
+      "type": "Story",
+      "summary": "Public REST API Endpoint - part II",
+      "status": "In Progress",
+      "assignee": "Lukasz Kaminski",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-445",
+      "description": "As a FinServ advertiser engineering team, I want to send conversion events via publicly accessible REST API. Details from SRE provided. AC: REST API endpoint publicly accessible, DNS configuration completed."
+    },
+    {
+      "key": "MAW-435",
+      "type": "Story",
+      "summary": "Segment Creation from CAPI Events",
+      "status": "In Progress",
+      "assignee": "Kirill Timoszenko",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-435",
+      "description": "Story about segment creation from CAPI events. Part of the CAPI platform work."
+    },
+    {
+      "key": "MAW-366",
+      "type": "Story",
+      "summary": "Internal Monitoring & Observability",
+      "status": "In Progress",
+      "assignee": "Rafal Parol",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-366",
+      "description": "Story about setting up internal monitoring and observability for the platform."
+    },
+    {
+      "key": "MAW-339",
+      "type": "Story",
+      "summary": "Partial Success Error Handling",
+      "status": "In Progress",
+      "assignee": "Rafal Parol",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-339",
+      "description": "Story about handling partial success errors in the system."
+    },
+    {
+      "key": "MAW-372",
+      "type": "Task",
+      "summary": "Setup git Agent",
+      "status": "In Progress",
+      "assignee": "Kirill Timoszenko",
+      "priority": "Medium",
+      "url": "https://adgear.atlassian.net/browse/MAW-372",
+      "description": "Task to set up git agent for the team."
+    }
+  ]
+}

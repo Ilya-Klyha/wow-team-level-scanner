@@ -1,0 +1,19 @@
+Team: Bigos
+Project: MAW
+Extracted: 2026-06-26T15:03:00.886729Z
+
+=== ACTIVE ISSUES (6 total) ===
+
+--- In Progress (6) ---
+[MAW-503] Bug: TV App Insights Report Seems Wonky
+  Assignee: Krzysztof Środoń | https://adgear.atlassian.net/browse/MAW-503
+[MAW-463] Task: Sloth SLO Dashboards — SLO Compliance Monitoring for Conversion API
+  Assignee: Krzysztof Środoń | https://adgear.atlassian.net/browse/MAW-463
+[MAW-437] Task: [SRE] Silver Layer Pipeline — Deployment, Flyway Migrations & Snowpark Orchestration
+  Assignee: Rahul Tomer | https://adgear.atlassian.net/browse/MAW-437
+[MAW-435] Story: Segment Creation from CAPI Events
+  Assignee: Kirill Timoszenko | https://adgear.atlassian.net/browse/MAW-435
+[MAW-372] Task: Setup git Agent
+  Assignee: Kirill Timoszenko | https://adgear.atlassian.net/browse/MAW-372
+[MAW-366] Story:  Internal Monitoring & Observability
+  Assignee: Rafał Parol | https://adgear.atlassian.net/browse/MAW-366

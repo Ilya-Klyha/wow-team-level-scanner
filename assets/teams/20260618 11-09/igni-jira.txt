@@ -1,0 +1,26 @@
+JIRA ACTIVE ISSUES - Igni
+============================================================
+Query Date: 2026-06-18
+Total Issues: 5
+============================================================
+
+[ASPW-1115] Update consumerd runbook
+  Type: Task | Status: In Progress | Assignee: Paweł Kwietniewski
+  URL: https://adgear.atlassian.net/browse/ASPW-1115
+
+[ASPW-689] CCPA - Transition of Metadata from Erlang Based Implementation to Golang BERT Encoder
+  Type: Story | Status: Code Review | Assignee: Franciszek Strzeżek
+  URL: https://adgear.atlassian.net/browse/ASPW-689
+
+[ASPW-637] consumerd ready file logic is broken 
+  Type: Bug | Status: In Progress | Assignee: Adam Doliński
+  URL: https://adgear.atlassian.net/browse/ASPW-637
+
+[ASPW-560] Knowledge Transfer session about rewriting objects to new native Golang encoder
+  Type: Story | Status: In Progress | Assignee: Franciszek Strzeżek
+  URL: https://adgear.atlassian.net/browse/ASPW-560
+
+[ASPW-6] Data Activation - consumerd pod takes 5-10 minutes, need to optimize
+  Type: Story | Status: In Progress | Assignee: Paweł Kwietniewski
+  URL: https://adgear.atlassian.net/browse/ASPW-6
+

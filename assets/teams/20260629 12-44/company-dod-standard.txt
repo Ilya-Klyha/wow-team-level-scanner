@@ -1,0 +1,42 @@
+Definition of Done (DoD) - Company Standard
+Source: https://adgear.atlassian.net/wiki/spaces/AGILE/pages/21735212005/Definition+of+Done+DoD
+
+## Purpose
+
+The Definition of Done (DoD) is a team-owned policy that determines when a piece of work is truly complete. It provides a shared understanding of what "done" means across the team and stakeholders, supporting consistent quality, reducing ambiguity, and minimizing rework. At its core, the DoD answers a simple question: Can we close this work with confidence? It also supports the team in upholding its working agreements, especially when delivery pressure mounts.
+
+## How It Works
+
+The DoD is an internal policy used by the team to determine whether a backlog item - task, story, feature, or release - is complete and ready to close. It typically takes the form of a checklist with specific, observable criteria, such as meeting acceptance criteria, being functionally complete, passing tests, and being ready for deployment.
+Teams may define the DoD at multiple levels:
+
+* Task level: e.g., unit tests written and passing
+* Story level: e.g., meets acceptance criteria, peer-reviewed, integrated
+* Feature or release level: e.g., documentation complete, demoed, production-ready
+
+The DoD should be visible, achievable, and evolutionary - documented in tooling or workspaces, applied consistently when closing work, and revisited regularly during retrospectives. It must remain feasible within the team's span of control, avoiding dependencies on external actors. As the team matures, the DoD should evolve to reflect higher delivery standards.
+
+## When to Use It
+
+* At the close of every work object (task, story, feature, etc.)
+* During backlog refinement and sprint planning
+* Reviewed and improved periodically in retrospective
+
+## Benefits
+
+Consistently applying the DoD allows teams to make better forecasts, reduce uncertainty, and maintain credibility with stakeholders. It reinforces alignment within the team and builds trust outside of it.
+
+* Sets a consistent bar for completeness
+* Builds trust inside and outside the team
+* Reduces hidden work and rework
+* Improves forecasting and delivery predictability
+* Reinforces alignment and accountability under pressure
+
+## Cautions or Pitfalls
+
+A poorly defined or misapplied DoD can undermine its purpose:
+
+* Under-defined: Vague or missing DoDs lead to inconsistent closure, frequent rework, and a lack of confidence in delivery.
+* Over-rigorous: Unrealistic or overly detailed DoDs can create bottlenecks, stall progress, or prevent valid work from being closed.
+* Misused: Teams may split stories artificially to satisfy the DoD superficially, or leadership may weaponize the DoD as a performance metric.
+* Ignored: A DoD that isn't visible or enforced leads to "done drift," eroding team alignment and stakeholder trust.

@@ -1,0 +1,36 @@
+Team: Capybaras
+Project: RSW
+Active Issues: 5
+Scan Date: 2026-06-29
+============================================================
+
+RSW-1427 | Task | In Progress
+  Summary: Cumulative Reach: Respect exclude_dsp_reach flag in CR calculation
+  Assignee: Piotr Marciniak
+  Priority: Medium
+  Updated: 2026-06-26T10:21:44.264-0400
+
+RSW-1377 | Task | In Progress
+  Summary: [SRPOL-OR] Verify FRITES is production ready
+  Assignee: Cezary Kret
+  Priority: Medium
+  Updated: 2026-06-25T10:50:27.882-0400
+
+RSW-1306 | Task | In Progress
+  Summary: [AU] E2E Segment Generation Validation — Pipeline Trigger & Size Consistency on PROD
+  Assignee: Tomasz Zaród
+  Priority: Medium
+  Updated: 2026-06-18T05:03:57.488-0400
+
+RSW-1235 | Task | In Progress
+  Summary: [SRPOL-OR] Perform tests for PoC based on Airflow queue
+  Assignee: Dariusz Bielawski
+  Priority: Medium
+  Updated: 2026-06-18T05:04:11.549-0400
+
+RSW-555 | Story | Code Review
+  Summary: [SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach
+  Assignee: Jakub Fołtyn
+  Priority: Medium
+  Updated: 2026-06-26T18:28:23.148-0400
+

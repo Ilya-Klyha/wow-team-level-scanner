@@ -1,0 +1,10 @@
+JIRA ACTIVE ISSUES - Mouflons
+============================================================
+Query Date: 2026-06-18
+Total Issues: 1
+============================================================
+
+[PEPI-11393] Analyze preliminary result of A/B tests of MC EE models
+  Type: Task | Status: In Development | Assignee: Marek Kochańczyk
+  URL: https://adgear.atlassian.net/browse/PEPI-11393
+

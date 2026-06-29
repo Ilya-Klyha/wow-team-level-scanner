@@ -1,0 +1,161 @@
+{
+  "team": "EP Core",
+  "query_date": "2026-06-18",
+  "issue_count": 14,
+  "issues": [
+    {
+      "key": "EPCW-353",
+      "summary": "use1-ssp-test AddListener Certificates operation Failure",
+      "status": "Code Review",
+      "issuetype": "Task",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "description": "## Context\n\nSo we have this Alert on Karma for last 6 days for `use1-ssp-test` cluster   \nAlert Description is: _**AwsLoadBalancerController Aws Api AddListenerCertificates operation fails with CertificateNotFound error code**_\n\nInitially we have reached out to SSP Team and looks like thye have roptated the certificate.  \n  \nThis ticket is to Debug more and fix this alert   \n  \n\n### Requirements\n\n* We MUST find why this is happeneing\n* We MUST resolve this issue\n* Collaboration with SSP team is needed\n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-353"
+    },
+    {
+      "key": "EPCW-341",
+      "summary": "Fix Connectivity between eks-use1-ep-test-1 and use1-rdev",
+      "status": "Code Review",
+      "issuetype": "Task",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "description": "While working on Verifying Quality Gate tests on new sonarqube-stg deployed on `eks-use1-ep-test-1` cluster hit a few blockers, most of them are resolved but we need to fix the cponnectvity issue.   \nTests done to verify Quality Gate through the CLI using Docker Image working, but from GHA Runners or from inside the runner pods, new Sonarqube-stg is not reachable  \n\n```\n$ curl -v https://sonarqube-stg.int-dev.samsungads.com/\n* Host sonarqube-stg.int-dev.samsungads.com:443 was resolved.\n* IPv6: (none)\n* IPv4: 54.145.144.236, 35.173.62.40, 34.228.48.225\n*   Trying 54.145.144.236:443...\n* connect to 54.145.144.236 port 443 from 10.41.135.124 port 48908 failed: Connection timed out\n*   Trying 35.173.62.40:443...\n^C\n$ command terminated with exit code 137\ntimed out waiting for input: auto-logout\n```\n\nAlso, [https://github.com/adgear/ep-actions-runners/actions/runs/27668387295/job/81827084299](https://github.com/adgear/ep-actions-runners/actions/runs/27668387295/job/81827084299)   \n\n### Requirements\n\n* We MUST fix the connectivity between GHA(use1-rdev) and `eks-use1-ep-test-1`\n* Demo Sonarqube pipeline should be success as one check\n* We MUST update any finding in Doc : <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/wiki/spaces/ENG/pages/22859546850/SonarQube+Migration+plan+to+EKS+cluster</custom> \n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-341"
+    },
+    {
+      "key": "EPCW-306",
+      "summary": "eks-euw1-udw-dev: alertmanager returning 503, not reachable from Karma",
+      "status": "In Progress",
+      "issuetype": "Bug",
+      "assignee": "Chandra Prakash",
+      "priority": "Medium",
+      "description": "## Problem\n\nThe alertmanager on `eks-euw1-udw-dev` is returning 503 (Service Temporarily Unavailable) when Karma tries to collect alerts from it.\n\nError from Karma logs:\n\n```\nlevel=error msg=\"Collection failed\" error=\"response status code does not match any response statuses defined for this endpoint in the swagger spec (status 503): {}\" alertmanager=eks-euw1-udw-dev try=2/2\n```\n\nURL: `https://vmalertmanager-main-auth.eks-euw1-udw-dev.k8s-dev.samsungads.com`\n\n## Impact\n\n* Karma has no visibility into alerts firing on eks-euw1-udw-dev\n* Cluster temporarily removed from Karma config to prevent CrashLoopBackOff\n* Maybe the fact that this is the only cluster in a different region `euw1`\n\n## Investigation steps\n\n1. Check if vmalertmanager pod is running on eks-euw1-udw-dev:\n\n   \\`\\`\\`bash\n\n   KUBECONFIG=\\~/.kube/kubeconfig-all-eks.yaml kubectl --context eks-euw1-udw-dev get pods -n ep-vm-operator | grep alertmanager\n\n   \\`\\`\\`\n\n1. Check vm-operator logs for config rejection:\n\n   \\`\\`\\`bash\n\n   KUBECONFIG=\\~/.kube/kubeconfig-all-eks.yaml kubectl --context eks-euw1-udw-dev logs -n ep-vm-operator -l app.kubernetes.io/name=victoria-metrics-operator --tail=50 | grep -i \"alertmanager\\\\|bad config\\\\|error\"\n\n   \\`\\`\\`\n\n1. Check ingress configuration for the alertmanager endpoint\n\n## Related\n\n* EPCW-145: Parent ticket for EKS alerting fix\n* Discovered while validating Karma connectivity after NLB SG fix\n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-306"
+    },
+    {
+      "key": "EPCW-304",
+      "summary": "Eliminate workload restart requirement during RKE1 recovery",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Dariusz Nejbauer",
+      "priority": "High",
+      "description": "### Context\n\nDuring RKE1 recovery (<custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/EPCW-95</custom>), user workloads require restart.\n\n**Root Cause:** Worker nodes need to be re-registered to the cluster during recovery, which causes workloads to restart.\n\nThe procedure for RKE1 has following sequence:\n\n1. Master nodes recover and become Active\n2. Worker nodes 'disappear' from Rancher\n3. Worker nodes are re-registered via SSH command (manual operation)\n4. During re-registration, workloads are restarted\n\n### Goal\n\nInvestigate if we can eliminate or minimize workload restarts during worker node re-registration.\n\n### Requirements\n\n* We MUST analyze why workload restart is necessary during worker node re-registration\n* We MUST determine if there's a way to keep workloads running during the process\n* We MUST evaluate if worker nodes can rejoin automatically instead of manual re-registration\n* We MUST document findings and any workarounds in <custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atlassian.net/wiki/spaces/ENG/pages/20903526687/Kubernetes+cluster+recovery+after+all+master+loss#RKE1</custom>  \n* We MUST implement the solution, if solvable\n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-304"
+    },
+    {
+      "key": "EPCW-300",
+      "summary": "Upgrade Grafana PROD to 12.4",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "description": "_**As a**_ EP Core team member working on Grafana  \n_**I want to have**_ latest possible Grafana version  \n_**So that I can**_ use new features and fix security problems\n\n---\n\n### Context\n\nWe did an upgrade to 11.6 version of Grafana. We have to finalize grafana upgrade story and migrate to 12.4.4\n\n---\n\n### Requirements\n\n* We MUST review breaking changes\n* We MUST follow docs how to fix problems with breaking changes\n* We SHOULD inform tenants if there are any breaking changes\n* We MUST upgrade to latest possible version\n* We HAVE to verify if all plugins / dashboards functions properly after upgrade\n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-300"
+    },
+    {
+      "key": "EPCW-279",
+      "summary": "Create JFrog PrivateLink VPC Endpoints across all VPCs",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Pagalavan",
+      "priority": "Medium",
+      "description": "**Objective**\n\nCreate JFrog PrivateLink VPC interface endpoints in all VPCs across accounts and regions. This prepares the infrastructure but does NOT route traffic yet — DNS remains pointing to public JFrog until Route53 PHZ is enabled separately (<custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/browse/EPCW-280</custom> ).\n\n---\n\n**Module Change Required**\n\nUpdate terraform-aws-global-network-subnets to split endpoint creation from DNS creation:\n\n  create_jfrog_endpoint     = true   # Creates VPC endpoint + SG only  \n  create_jfrog_endpoint_dns = true   # Creates PHZ + alias records (requires endpoint)\n\nCurrently both are created together with create_jfrog_endpoint = true. The module must be updated so that:\n\n* create_jfrog_endpoint = true creates only the VPC endpoint and security group\n* create_jfrog_endpoint_dns = true creates the Route53 PHZ and alias A records (depends on endpoint existing)\n\nThis allows a safe two-phase migration: deploy all endpoints first, then flip DNS per-VPC.\n\n---\n\n**Scope**\n\n* This is both for Rancher and EKS\n* Update terraform-aws-global-network-subnets module to separate endpoint from DNS\n* Inventory all VPCs that need the endpoint (see Confluence page: \\[JFrog PrivateLink — Design, Setup & Rollout\\])\n* Bump module version and add create_jfrog_endpoint = true across all VPC stacks\n* Register each vpce-id in MyJFrog portal (JFrog admin: Marek/Dariusz/Nitish)\n* Confirm all endpoints are in available state\n* Some VPCs are not create using global network module (e.g. UDW) but they are in scope.\n\n---\n\n**Requirements**\n\n* Update module: split create_jfrog_endpoint from create_jfrog_endpoint_dns\n* Release new module version\n* Inventory all VPCs (update Confluence page with full list)\n* Enable create_jfrog_endpoint = true on all Dev/Test VPCs\n* Enable create_jfrog_endpoint = true on all Shared VPCs\n* Enable create_jfrog_endpoint = true on all Production VPCs\n* Collect all vpce-id outputs\n* Register all endpoints in MyJFrog portal\n* Confirm all endpoints status = available\n\n---\n\n**Acceptance Criteria**\n\n* Module supports independent endpoint and DNS creation\n* All target VPCs have JFrog VPC endpoint created\n* All endpoints registered and accepted in MyJFrog\n* No traffic is routed yet — existing NAT path still active\n* VPC inventory documented on Confluence page\n\n---\n\n**References**\n\n* Confluence: \\[JFrog PrivateLink — Design, Setup & Rollout\\]\n* POC: <custom data-type=\"smartlink\" data-id=\"id-1\">https://github.com/adgear/terraform-aws-global-network-subnets/pull/28</custom> \n* POC validation: <custom data-type=\"smartlink\" data-id=\"id-2\">https://github.com/adgear/ep-eks/pull/367</custom> \n\n---",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-279"
+    },
+    {
+      "key": "EPCW-276",
+      "summary": "Fix ArgoCD cluster wide permissions on CRDs",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Stanisław Cabała",
+      "priority": "Medium",
+      "description": "_**As a**_ multi-tenant ArgoCD administrator,  \n_**I want to have**_ automatic access to CRD on EKS,  \n_**So that I can**_ have less manual work to do.\n\n---\n\n### Context\n\nArgoCD, in order to operate properly, needs read only access on cluster level. That includes all Custom Resources. Currently, we assign permissions to argocd cluster-wide user in EKS manually: <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/ep-eks/blob/main/projects/argocd_extended.yaml</custom>   \nAfter each new Operator is installed, it needs to be extended. This approach does not scale - we have to make it automatic\n\n---\n\n### Requirements\n\n* we MUST assign read only access to all installed CustomResourceDefinitions\n* we COULD check how do we do it on Rancher and Multi tenant ArgoCD (somehow it works)\n* we COULD use role aggregation: <custom data-type=\"smartlink\" data-id=\"id-1\">https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles</custom> \n* we MUST cleanup old mechanism\n* we MUST roll it out on all EKS clusters\n* we MUST document it\n* wwe MUST present it to the team\n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-276"
+    },
+    {
+      "key": "EPCW-272",
+      "summary": "Okta App creation, Testing and Cutover sonarqube-stg(eks-use1-ep-test-1) service",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Nitish Yadav",
+      "priority": "Medium",
+      "description": "### **Context**\n\nAs SonarQube STG  is installed on eks-use1-ep-test-1. A new okta app has to be created as sonarqube is saml authentication with okta, SAML apps only support a single ACS URL (sso_url, recipient, destination are all scalar strings in okta_app_saml).  \nAs Do a few last steps like testing it and doing curover to new Account\n\n---\n\n### Requirements\n\n* We MUST Create a new Okta app `sonarqube-stg-eks` \n\n    * Must Verify OKTA sso, should redirect to okta\n    \n* We must do a few Tests\n\n    * Verify DNS resolves \n    * Verify UI loads \n    \n* We MUST test it(Scan results, Pipeline trigger etc)\n* We MUST update any finding in Doc : <custom data-type=\"smartlink\" data-id=\"id-0\">https://adgear.atlassian.net/wiki/spaces/ENG/pages/22859546850/SonarQube+Migration+plan+to+EKS+cluster</custom> \n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-272"
+    },
+    {
+      "key": "EPCW-233",
+      "summary": "One time sync of modules and providers in all EKS clusters",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Bartosz Brodecki",
+      "priority": "Medium",
+      "description": "## Context\n\nAs part of EPCW-145 (fixing EKS alerting), the `eks-core` module was upgraded to v3.5.2 which requires AWS provider `>= 6.28.0`. Three clusters are still pinned to AWS provider `~> 5.95.0` and cannot use the new module version.\n\nThis blocks Karma visibility for alerts on these clusters.\n\n## Requirements\n\n* We MUST sync all EKS clusters:\n\n    * the should run on the same provider version (pick the newest we actually use)\n    * we MUST use latest versions of the module for vpc/cluster/projects\n    \n* We MUST verify if the skill /create-cluster is up to date with <custom data-type=\"emoji\" data-id=\"id-0\">:point_up:</custom> \n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-233"
+    },
+    {
+      "key": "EPCW-199",
+      "summary": "[POC] Understand consequences of changing owner in ep-argo-cd projects.yaml",
+      "status": "In Progress",
+      "issuetype": "Bug",
+      "assignee": "Marek Barczyk",
+      "priority": "Medium",
+      "description": "## Problem\n\nThe `validate-repo-owners` CI check in [ep-argo-cd](https://github.com/adgear/ep-argo-cd) validates that each app repository's `.spec.owner` field in its `.metadata.yml` matches the project name it's listed under in `projects.yaml`. Three repositories are currently listed under the wrong project, causing CI failures on every PR that touches `projects.yaml`.\n\n### Mismatched repos\n\n1. **\\`unified-beacon-service\\` (L34-40)** — It's a duplicate.\n2. **\\`unified-creative-service\\` (L54)** — wrong CG\n3. **\\`udw-compliance-api-access\\` (L378)** — wrong CG\n\n## Requirements\n\n* We MUST understand if it is possible to reassign application to a different project (component group)\n* We MUST simulate application re-assignment (this application MUST have some resources on kubernetes), in the process we MUST understand the re-assignment impact\n* This POC is about understanding the impact not fixing “mismatched repos”, we should create another ticket for it.\n* We MUST discuss the findings inside the team.\n\n## claude suggestion (high chance it is wrong)\n\nMoving repos between projects is **low risk**:\n\n* Cluster secrets are generated for ALL projects × ALL clusters, so destination secrets already exist for the target projects.\n* ApplicationSets have `Delete=false,Prune=false` and `applicationsSync: create-update` — existing Application resources won't be deleted.\n* Old orphaned Applications will continue syncing under the old project until manually cleaned up in ArgoCD.\n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-199"
+    },
+    {
+      "key": "EPCW-171",
+      "summary": "Force top 5 tenants to create cleanup mechanism for their docker images",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Michal Mankowski",
+      "priority": "Medium",
+      "description": "## Context\n\nWe are running out of data transfer and data storage limits in artifactory.\n\n## Requirements\n\n* We MUST reach out top 5 component group owners from<custom data-type=\"emoji\" data-id=\"id-0\">:point_down:</custom>  and:\n\n    * We MUST confirm that they have a cleanup job in place, if they don’t have they MUST use our mechanism: <custom data-type=\"smartlink\" data-id=\"id-1\">https://github.com/adgear/artifactory-cleanup</custom> \n    * We MUST understand why they push so much images, and ask them and optimize.\n    * We MUST bring to their attention that we are running out of **artifactory license limit**\n    * We MUST understand what `fake` is\n    * If they don’t collaborate, we MUST escalate it to <custom data-type=\"mention\" data-id=\"id-2\">@Marcin Witkowski</custom> \n    \n\n![](blob:https://media.staging.atl-paas.net/?type=file&localId=aa86792ec295&id=99b67029-f800-4f86-a7c5-fe3ec3c9ed16&&collection=&height=379&occurrenceKey=null&width=568&__contextId=null&__displayType=null&__external=false&__fileMimeType=null&__fileName=null&__fileSize=null&__mediaTraceId=null&url=null)\n<custom data-type=\"mention\" data-id=\"id-3\">@Nitish Yadav</custom> documented how to calculate the values here:\n\n<custom data-type=\"smartlink\" data-id=\"id-4\">https://adgear.atlassian.net/wiki/spaces/ENG/pages/22880124930/EP+-+adgear.jfrog.io+Artifactory+-+Runbook</custom> ",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-171"
+    },
+    {
+      "key": "EPCW-158",
+      "summary": "Enforce ECR Security Compliance via SCP – Mandatory Security Tag, Scan on Push & KMS Encryption",
+      "status": "Code Review",
+      "issuetype": "Task",
+      "assignee": "Stanisław Cabała",
+      "priority": "Medium",
+      "description": "_**As a**_ Cloud Security & EP Core team member managing AWS ECR repositories,  \n_**I want to have**_ security controls enforced at the organizational level for all new ECR repositories,  \n_**So that I can**_ prevent new security findings for ECRs and ensure compliance with ISC Controls (0.3.B, 3.5.B, and 3.5.C)\n\n---\n\n### Context\n\nDuring ISC Inspection following action items were decided to improve security compliance for AWS ECR repos and prevent future security findings:\n\n1. **Enforce security review as mandatory for new ECRs** – Mandate a required tag with key `samsungads.com/securityTicket` and value `SECO-xxxx` on every new ECR repository.\n2. **Enforce ECR image vulnerability scan on push** – Ensure all ECR repositories have \"Scan on push\" enabled.\n3. **Enforce ECR image KMS encryption** – Ensure all ECR repositories use KMS encryption at rest (not the default S3-managed encryption).\n\nThese enforcements will prevent new findings for the following 3 Samsung AWS/ISC Controls:\n\n* _Control 0.3.B – Have the container repositories in use been approved?_ → Requiring the `samsungads.com/securityTicket` tag ensures every new ECR has an associated security review/approval (SECO-xxxx).\n* _Control 3.5.B – Was a vulnerability scan/measures completed for the ECR image?_ → Enabling \"Scan on push\" ensures vulnerability scanning is activated for every ECR image.\n* _Control 3.5.C – Have the ECR images been encrypted?_ → Enforcing KMS encryption ensures ECR images are encrypted with KMS (not just the default Amazon S3 managed key).\n\nThe proposed implementation mechanism is **SCP (Service Control Policy)**, but alternative approaches SHOULD be evaluated if they provide a better solution.\n\n---\n\n### Requirements\n\n* ===== THIS ISSUE IS NOT GROOMED =====\n* An SCP MUST be implemented to enforce the following for all new ECR repositories:\n\n    * A required tag `samsungads.com/securityTicket` with value matching pattern `SECO-xxxx` – creation of ECR without this tag MUST be denied.\n    * \"Scan on push\" MUST be enabled – creation of ECR with scan on push disabled MUST be denied.\n    * KMS encryption MUST be enabled – creation of ECR without KMS encryption MUST be denied.\n    * We COULD extend following SCP: <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/terraform-aws-scp-policies/blob/main/security-blocks.tf</custom> to implement all mentioned enforcements \n    \n* SCP MUST apply at the same level as [Security block SCP](https://github.com/adgear/terraform-aws-scp-policies/blob/main/security-blocks.tf) so that it covers all accounts in scope, if not reused\n* The implementation SHOULD consider impact on existing ECR repositories and whether remediation is needed for them.\n* The solution MUST be tested in a non-production environment before applying to production OUs.\n* We MUST update status on <custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atlassian.net/browse/INF-8775</custom> ticket to `InfoSec Review` when SCP will be applied\n\n---\n\n### Assumptions\n\n* The tag key `samsungads.com/securityTicket` with value `SECO-xxxx` is the agreed-upon convention for linking ECR repos to security approvals.\n* Existing ECR repositories that do not comply with these controls are out of scope for this ticket and will be handled separately.\n\n---\n\n### Notes\n\n* **Stakeholders:** <custom data-type=\"mention\" data-id=\"id-2\">@Aashish Garg</custom> \n* **ISC Controls Addressed:**\n\n    * Control 0.3.B – Have the container repositories in use been approved?\n    * Control 3.5.B – Was a vulnerability scan/measures completed for the ECR image?\n    * Control 3.5.C – Have the ECR images been encrypted?\n    \n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-158"
+    },
+    {
+      "key": "EPCW-148",
+      "summary": "Cleanup NACL rancher configuration",
+      "status": "In Progress",
+      "issuetype": "Bug",
+      "assignee": "Lukasz Sutkowski",
+      "priority": "Medium",
+      "description": "## Context\n\nThe <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/terraform/tree/master/aws/adgearprod/nacl-block</custom> Terraform configuration has accumulated several issues that make it unreliable, non-idempotent, and hard to maintain. This ticket tracks the cleanup work needed to bring it to a consistent and trustworthy state.\n\n## Problems\n\n### 1. Stale IAM role references\n\nSome sub-stacks (e.g. `ssp-test/variables.tf`) still reference IAM roles that no longer exist. Provider configuration should be unified to use named AWS profiles, as already done in `adgearprod/provider.tf`.\n\n### 2. Missing `.terraform.lock.hcl`\n\nThe provider lock file is absent. Without it, provider versions are non-deterministic across runs and contributors.\n\n### 3. Unapplied stacks\n\nSeveral sub-stacks have pending changes that have never been applied, leaving the real infrastructure out of sync with the Terraform state.\n\n### 4. Dead VPC references\n\nSome stacks reference VPCs that no longer exist in AWS. These need to be identified and removed to prevent apply errors and confusion.\n\n### 5. `count` instead of `for_each` — non-idempotent changes\n\nResources are managed with `count` rather than `for_each`. This means any reordering or removal causes index shifts, leading to unintended resource replacements instead of targeted changes.\n\n## Requirements\n\n* We MUST fix all issues 1-5 on all stack under: <custom data-type=\"smartlink\" data-id=\"id-1\">https://github.com/adgear/terraform/tree/master/aws/adgearprod/nacl-block</custom> which belong to EP.\n\n",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-148"
+    },
+    {
+      "key": "EPCW-6",
+      "summary": "Migrate Golinks use1-rdev to eks-use1-ep-prod-1",
+      "status": "In Progress",
+      "issuetype": "Task",
+      "assignee": "Lukasz Sutkowski",
+      "priority": "Medium",
+      "description": "### **Context**\n\nWe must migrate Golinks on <custom data-type=\"smartlink\" data-id=\"id-0\">https://github.com/adgear/golinks-helm-chart/blob/master/use1-rdev.yaml</custom> to eks-use1-ep-prod-1.\n\n---\n\n### Requirements\n\n* We MUST migrate it to eks-use1-ep-prod-1 cluster.\n\n    * We should do it ONLINE. We should run golinks on eks-use1-ep-prod-1  parallel to use1-rdev, and we should switch the traffic, DNS to it.\n    \n* We MUST use ArgoCD.\n* We MUST make sure alerting works, we are paged.\n* We MUST remove Golinks use1-rdev instance from Rancher at the end.\n* We MUST inform tenants.\n* We MUST enable Golinks backups\n* The same person that did <custom data-type=\"smartlink\" data-id=\"id-1\">https://adgear.atlassian.net/browse/PEEPC-2263</custom>  MUST do this ticket.\n* We should provision it under two domains:\n\n    * [http://golinks.int.adgear.com](http://golinks.int.adgear.com/)\n    * [http://golinks.int.samsungads.com/](http://golinks.int.adgear.com/)\n    \n* We must announce that [http://golinks.int.adgear.com](http://golinks.int.adgear.com) will be deprecated after one month.\n\n---\n\n### Other\n\nBe aware that there are some unfixed issues with restoration mechanism: <custom data-type=\"smartlink\" data-id=\"id-2\">https://adgear.atlassian.net/browse/PEEPC-885</custom> , <custom data-type=\"mention\" data-id=\"id-3\">@Marek Barczyk</custom> knows all the details",
+      "team_field": "T - WAW - EP Core",
+      "url": "https://adgear.atlassian.net/browse/EPCW-6"
+    }
+  ]
+}

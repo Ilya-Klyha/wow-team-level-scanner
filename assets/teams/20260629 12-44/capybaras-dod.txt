@@ -1,0 +1,21 @@
+Team DoD
+
+The "Definition of Done" ensures that a software development ticket is truly complete and meets the required quality standards before it can be considered shippable. The DoD is applied to every piece of work and helps maintain consistency and quality across the product.
+
+Criterion: Result summary
+Description: The results of the task should have been summarized in Jira Task description after completion.
+
+Criterion: Unit and Integration Tests Written and Passed (if applicable)
+Description: TBD - Comprehensive unit and integration tests have been written for the new or modified code, and all tests pass successfully.
+Comments: %code coverage check. E2E test. If below than requirements, shouldn't we check with architect to get ok for exception?
+
+Criterion: Acceptance Criteria Met
+Description: All defined acceptance criteria for the user story have been satisfied and verified.
+
+Criterion: Deployed to Staging/Pre-production (if applicable), with feature flags ready for release/rollout
+Description:
+- If task contains deployment to production/dev
+  - Positive merge of PR (Pipeline Passed, Automated tests passed, PER review passed)
+  - Positive deploy
+  - Positive test of dev environment (in case of prod deployment)
+  - Positive verification of deploy by team my chosen tests approach
