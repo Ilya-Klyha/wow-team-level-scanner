@@ -1,6 +1,0 @@
-- Clear requirement description
-- Acceptance criteria defined
-- Dependencies identified
-- Estimation provided
-- Technical approach documented
-- Sprint-fit confirmed

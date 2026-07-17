@@ -1,7 +1,0 @@
-- User story or requirement clearly described
-- Acceptance criteria defined and testable
-- Story points estimated
-- Dependencies identified and resolved
-- Technical approach agreed
-- Sprint-sized item
-- Product Owner approval

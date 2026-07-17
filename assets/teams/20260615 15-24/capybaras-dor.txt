@@ -1,7 +1,0 @@
-- Requirement clearly articulated (user story or task description)
-- Acceptance criteria defined and verifiable
-- Estimation completed (story points)
-- Dependencies documented and resolved
-- Technical design reviewed by team
-- Sprint-fit verified
-- PO approval obtained
