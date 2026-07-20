@@ -287,7 +287,7 @@ For each team in the list:
    - This cleaned title becomes the team name for all outputs
 
 2. **Search for DoR section:**
-   Look for headings (`<h2>`, `<h3>`, `<h4>`) containing:
+   Look for headings (`<h1>`, `<h2>`, `<h3>`, `<h4>`) containing:
    - "DEFINITION OF READY (DoR) - STORY/TASK"
    - "DEFINITION OF READY (DoR) - STORY"
    - "Definition of Ready (DoR) - STORY/TASK"
@@ -487,7 +487,10 @@ const PROJECT_TEAMS = {
   "MAW":   ["Abyss", "Bigos"],
   "AENW":  ["Radium", "Europium"],
   "AETVP": ["Copernicium"],
-  "PEPI":  ["Mouflons", "Wolves", "ML Serving Sturgeons"],
+  "PEPI":  ["ML Serving Sturgeons"],
+  "MOP":   ["Mouflons"],
+  "TVPW":  ["Wolves"],
+  "MLI":   ["ML Serving Sturgeons", "ML Platform Pandas"],
   "RSW":   ["Polonium UF", "Capybaras"],
   "ML":    ["ML Platform Pandas"],
   "EPCW":  ["EP Core"],

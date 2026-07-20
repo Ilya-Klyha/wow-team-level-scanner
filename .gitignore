@@ -1,3 +1,6 @@
+# Environment variables (credentials)
+.env
+
 # Extracted data files (optional - uncomment if data is sensitive)
 # assets/teams/teams.json
 # assets/teams/*.txt

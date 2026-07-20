@@ -1,19 +1,19 @@
 # WoW Scanner Tool
 
-> Automated audit tool for extracting and analyzing **Definition of Ready (DoR)** and **Definition of Done (DoD)** across SRPOL teams using Confluence and Jira data.
+> Automated audit tool for extracting and analyzing **Definition of Ready (DoR)**, **Definition of Done (DoD)**, and **Backlog Readiness** across SRPOL teams using Confluence and Jira data.
 
 ---
 
 ## At a Glance
 
-| | DoR Scanner | DoD Scanner |
-|---|---|---|
-| **Command** | `/wow-dor-scanner` | `/wow-dod-scanner` |
-| **Steps** | 13 fully automated | 11 fully automated |
-| **Data Sources** | Confluence + Jira | Confluence only |
-| **Jira Filter** | In Progress, Code Review, In Development | N/A |
-| **Analysis** | Compliance per issue + Quality per team | Quality per team |
-| **Output** | `Report-DoR.xlsx` (3 sheets) + HTML | `Report-DoD.xlsx` (2 sheets) + HTML |
+| | DoR Scanner | DoD Scanner | Backlog Readiness |
+|---|---|---|---|
+| **Command** | `/wow-dor-scanner` | `/wow-dod-scanner` | `/wow-team-backlog-readiness` |
+| **Steps** | 13 fully automated | 11 fully automated | 13 fully automated |
+| **Data Sources** | Confluence + Jira | Confluence only | Confluence + Jira |
+| **Jira Filter** | In Progress, Code Review, In Development | N/A | Backlog (not in sprint, not Done) |
+| **Analysis** | Compliance per issue + Quality per team | Quality per team | Story Points presence (mechanical) |
+| **Output** | `Report-DoR.xlsx` (3 sheets) + HTML | `Report-DoD.xlsx` (2 sheets) + HTML | `Report-backlog.xlsx` (1 sheet) + HTML |
 
 ---
 
@@ -143,6 +143,66 @@ Overall score = weighted average (0-100). Results include a short note per team 
 
 ---
 
+## How the Backlog Readiness Scanner Works
+
+The `/wow-team-backlog-readiness` skill runs 13 steps end-to-end without user interaction:
+
+```
+Step 1-2    Configuration & Auth check (Atlassian MCP)
+    |
+Step 3-4    Calculate CET timestamp, create output folder
+    |
+Step 5-6    Fetch SRPOL Teams page, parse HTML table
+    |        (extracts team page links + sprint board links)
+    |
+Step 7      Fetch each team page, extract clean name from title
+    |
+Step 8      Extract board ID and project key from sprint board URLs
+    |
+Step 9      For each project:
+    |          - Query Jira backlog (items not in any sprint, not Done)
+    |          - Client-side filter by Team field (customfield_10114)
+    |          - Paginate up to 1000 issues per project
+    |          - Auto-discover Story Points field
+    |          - Check Story Points presence per issue
+    |
+Step 10     Save data files:
+    |          - teams.json (metadata)
+    |          - backlog_data.json (per-issue data)
+    |          - summary_data.json (per-team summary)
+    |
+Step 11     Generate reports via template script:
+    |          - Report-backlog.xlsx (1 sheet)
+    |          - Report-backlog.html (dashboard)
+    |
+Step 12     Save BACKLOG_READINESS_SUMMARY.md
+    |
+Step 13     Report completion output
+```
+
+### Backlog Detection (Step 9)
+
+Uses a compound JQL query to capture the **full backlog** as displayed in the board view:
+
+```
+project = {KEY}
+AND (sprint is EMPTY OR (sprint NOT IN openSprints() AND sprint NOT IN futureSprints()))
+AND issuetype IN (Story, Bug, Task)
+AND issuetype != Sub-task
+AND statusCategory != Done
+```
+
+This captures both items never assigned to a sprint AND items rolled back from closed sprints.
+
+### Story Points Detection
+
+The skill auto-discovers which Jira field contains Story Points by checking candidates in order: `story_points`, `story_point_estimate`, `customfield_10016`, `customfield_10028`. The first field with a numeric value becomes the source for the entire run.
+
+- Numeric value (including 0) = estimated
+- Null/empty = unestimated
+
+---
+
 ## Output Structure
 
 Each scan creates a timestamped folder under `assets/teams/`:
@@ -161,12 +221,16 @@ assets/teams/20260629 10-08/
   |-- compliance_data.json        # Pass/Fail per issue (DoR scanner)
   |-- summary_data.json           # Team overview data
   |-- quality_data.json           # Quality scores per team
+  |-- backlog_data.json           # Per-issue backlog data (Backlog scanner)
   |
   |-- Report-DoR.xlsx             # Final Excel report (DoR scanner)
   |-- Report-DoR.html             # HTML dashboard (DoR scanner)
   |-- Report-DoD.xlsx             # Final Excel report (DoD scanner)
   |-- Report-DoD.html             # HTML dashboard (DoD scanner)
+  |-- Report-backlog.xlsx         # Backlog readiness report (Backlog scanner)
+  |-- Report-backlog.html         # Backlog HTML dashboard (Backlog scanner)
   |-- DOR_ANALYSIS_SUMMARY.md     # Markdown summary (DoR scanner)
+  |-- BACKLOG_READINESS_SUMMARY.md # Markdown summary (Backlog scanner)
 ```
 
 ### Report Sheets
@@ -185,6 +249,12 @@ assets/teams/20260629 10-08/
 |-------|---------|
 | Summary | KPI (% teams with DoD) + team overview table |
 | DoD quality | Per-team quality scores sorted descending + notes on gaps |
+
+**Report-backlog.xlsx** contains 1 sheet:
+
+| Sheet | Content |
+|-------|---------|
+| Backlog Readiness | KPIs (total items, % estimated) + per-issue table: Team, Issue Key, Issue Type, URL, Title, Status, Assignee, Story Points |
 
 ---
 
@@ -208,7 +278,7 @@ Follow the prompts to authenticate with your Atlassian instance.
 
 1. Copy the entire `wow-scanner-tool` folder to your project directory
 2. Claude Code discovers the skills automatically
-3. Run `/wow-dor-scanner` or `/wow-dod-scanner`
+3. Run `/wow-dor-scanner`, `/wow-dod-scanner`, or `/wow-team-backlog-readiness`
 
 ---
 
@@ -218,26 +288,31 @@ Follow the prompts to authenticate with your Atlassian instance.
 wow-scanner-tool/
   .claude/skills/
     wow-dor-scanner/
-      skill.md              # DoR scanner (13 steps)
+      skill.md                    # DoR scanner (13 steps)
     wow-dod-scanner/
-      skill.md              # DoD scanner (11 steps)
+      skill.md                    # DoD scanner (11 steps)
+    wow-team-backlog-readiness/
+      skill.md                    # Backlog readiness scanner (13 steps)
   assets/
-    dor-standard.txt        # Industry DoR best practices (persistent reference)
-    dod-standard.txt        # Industry DoD best practices (persistent reference)
+    dor-standard.txt              # Industry DoR best practices (persistent)
+    dod-standard.txt              # Industry DoD best practices (persistent)
     templates/
-      generate_reports.py       # Canonical DoR report generator
-      generate_dod_reports.py   # Canonical DoD report generator
-      validate_reports.py       # DoR report schema validator
-      validate_dod_reports.py   # DoD report schema validator
-      validate_compliance.py    # Compliance integrity validator
-      data-schemas.md           # JSON data schemas reference
-      dod-data-schemas.md       # DoD JSON data schemas reference
-    teams/                  # Timestamped scan outputs
-      YYYYMMDD HH-MM/      # One folder per scan run
+      generate_reports.py         # Canonical DoR report generator
+      generate_dod_reports.py     # Canonical DoD report generator
+      generate_backlog_report.py  # Canonical Backlog report generator
+      validate_reports.py         # DoR report schema validator
+      validate_dod_reports.py     # DoD report schema validator
+      validate_backlog_report.py  # Backlog report schema validator
+      validate_compliance.py      # DoR compliance integrity validator
+      data-schemas.md             # DoR JSON data schemas
+      dod-data-schemas.md         # DoD JSON data schemas
+      backlog-data-schemas.md     # Backlog JSON data schemas
+    teams/                        # Timestamped scan outputs
+      YYYYMMDD HH-MM/            # One folder per scan run
   src/
-    generate-dod-report.py  # (Legacy - not used by current skills)
+    generate-dod-report.py        # (Legacy - not used by current skills)
   scripts/
-    extract_jira_issues.py  # (Legacy utility)
+    extract_jira_issues.py        # (Legacy utility)
 ```
 
 ---
@@ -246,14 +321,14 @@ wow-scanner-tool/
 
 | Property | Value |
 |----------|-------|
-| Scanner version | 4.0 |
+| Scanner version | 4.0 (DoR/DoD), 1.0 (Backlog) |
 | Timestamps | CET timezone, format `YYYYMMDD HH-MM` |
 | Team field | Jira `customfield_10114` (client-side filtering) |
 | Issue types | Story, Bug, Task (Sub-tasks excluded) |
-| Pagination | Up to 500 issues per project (5 pages x 100) |
+| Pagination | Up to 500 issues (DoR), 1000 issues (Backlog) per project |
 | Error handling | Continue-on-error (partial results saved) |
 | Report generation | Template-based (deterministic, not LLM-generated) |
-| Analysis method | LLM semantic analysis (Claude) |
+| Analysis method | LLM semantic (DoR/DoD), Mechanical check (Backlog) |
 
 ---
 
