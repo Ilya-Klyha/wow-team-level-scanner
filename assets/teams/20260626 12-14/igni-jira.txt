@@ -1,8 +1,0 @@
-Team: Igni
-Issues in progress: 1
-================================================================================
-
-[ASPW-733] Migrate SQL-Based record deviation from PD alerts to Grafana Dashboard
-  Type: Task | Status: Code Review | Assignee: Paweł Kwietniewski
-  Priority: Medium | Updated: 2026-06-25
-
