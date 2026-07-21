@@ -1,3 +1,0 @@
-Team: ML Serving Sturgeons
-JQL: Team = "T - WAW - ML Sturgeons" AND statusCategory = "In Progress" AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task
-Results: 0 issues

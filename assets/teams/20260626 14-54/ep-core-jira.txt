@@ -1,3 +1,0 @@
-Team: EP Core
-JQL: Team = "T - WAW - EP Core" AND statusCategory = "In Progress" AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task
-Results: 0 issues

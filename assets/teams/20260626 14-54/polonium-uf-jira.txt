@@ -1,3 +1,0 @@
-Team: Polonium UF
-JQL: Team = "AS - WAW - Polonium UF" AND statusCategory = "In Progress" AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task
-Results: 0 issues

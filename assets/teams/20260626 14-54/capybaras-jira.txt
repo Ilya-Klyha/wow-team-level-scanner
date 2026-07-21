@@ -1,9 +1,0 @@
-Team: Capybaras
-JQL: Team = "AS - WAW - Capybaras" AND statusCategory = "In Progress" AND issuetype IN (Story, Bug, Task) AND issuetype != Sub-task
-Results: 5 issues
-
-RSW-1427 | Task | In Progress | Piotr Marciniak | Cumulative Reach: Respect exclude_dsp_reach flag in CR calculation
-RSW-1377 | Task | In Progress | Cezary Kret | [SRPOL-OR] Verify FRITES is production ready
-RSW-1306 | Task | In Progress | Tomasz Zarod | [AU] E2E Segment Generation Validation - Pipeline Trigger & Size Consistency on PROD
-RSW-1235 | Task | In Progress | Dariusz Bielawski | [SRPOL-OR] Perform tests for PoC based on Airflow queue
-RSW-555 | Story | In Progress | Dariusz Bielawski | [SRPOL-OR-26Q1] Create design documentation (high level design) for recommended approach
