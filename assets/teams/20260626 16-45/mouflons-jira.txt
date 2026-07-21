@@ -1,9 +1,0 @@
-Team: Mouflons
-Project: PEPI
-Extracted: 2026-06-26T15:03:00.882574Z
-
-=== ACTIVE ISSUES (1 total) ===
-
---- In Development (1) ---
-[PEPI-11393] Task: Analyze preliminary result of A/B tests of MC EE models
-  Assignee: Marek Kochańczyk | https://adgear.atlassian.net/browse/PEPI-11393
