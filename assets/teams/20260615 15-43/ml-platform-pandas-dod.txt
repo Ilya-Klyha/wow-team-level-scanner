@@ -1,6 +1,0 @@
-- Clear description of requirement (user story, task, or specification)
-- Acceptance criteria defined
-- Estimated by team
-- Dependencies identified
-- Technical feasibility confirmed
-- Fits within sprint capacity

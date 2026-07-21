@@ -1,7 +1,0 @@
-- User Story/Requirement Clarity: The user story or requirement is clearly articulated, concise, and understandable to all team members.
-- Acceptance Criteria Defined: Specific, testable acceptance criteria are provided for the user story, outlining what constitutes successful completion.
-- Dependencies Identified: All dependencies (technical, external, cross-team) are documented and resolved or have a mitigation plan.
-- Estimation Provided: The development team has provided an estimate (story points or time-based) for the work.
-- Design/Technical Approach: Technical approach is documented and reviewed by the team.
-- Scope Fits Sprint: The item is small enough to be completed within a single sprint.
-- Risks Identified: Known risks and blockers are documented with mitigation strategies.

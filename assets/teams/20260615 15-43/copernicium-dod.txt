@@ -1,6 +1,0 @@
-- Requirement is clearly described (user story or specification)
-- Acceptance criteria are defined
-- Dependencies are identified
-- Estimation is done
-- Technical feasibility confirmed
-- Scope fits sprint capacity

@@ -1,7 +1,0 @@
-- Clear requirement description or user story
-- Acceptance criteria defined
-- Estimation done by team
-- Dependencies mapped and resolved
-- Technical design documented (for complex items)
-- Sprint-sized work item
-- No unresolved blockers
