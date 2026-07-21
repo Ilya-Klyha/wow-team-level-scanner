@@ -1,3 +1,0 @@
-Clear Description: PO Responsibility: Ensure descriptions are clearly articulated. Answer 4 Questions: What? Why? Priority? Risks?
-Verifiable Acceptance Criteria: PO Responsibility: Define Measurable AC. Make them SMART: Specific, Measurable, Achievable.
-Collaborative Progress: Team Values. Backlog Refinement weekly.

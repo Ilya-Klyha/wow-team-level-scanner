@@ -1,7 +1,0 @@
-Clear problem statement exists (for story and for bug reproduction path/steps) - team agree what should be defined in story/task before planning
-Business value is explained (if needed - for story)
-Acceptance criteria are defined and testable.
-UX design (if applicable) is finalized and available in Figma (main overview will be delivered in Jira before planning)
-Dependencies are identified (if needed - tech spec should be approved before dev starts).
-Scope is small enough to fit within a sprint
-Open questions are resolved

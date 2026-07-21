@@ -1,4 +1,0 @@
-User Story/Requirement Clarity: Should be chosen Team AS - WAW - Capybaras. Contains a proper description (phrased as a user story), tasks to be done and acceptance criteria. Tasks should be understandable to all team members.
-Acceptance Criteria and Measurement Defined: Specific, testable and measurable acceptance criteria. Every Task should contain AC. The form of AC should be in form of artifact that can be verified/tested by other team members.
-Estimates: Story estimations only as a team, using Planning Poker. Every Story that has more than 5 SP has to be decomposed.
-Dependencies: Highlighted dependencies with other teams or milestones. All blocking tasks are resolved.
